@@ -95,7 +95,7 @@ This document describes every component of the Options Toolkit, how they connect
 - **Location**: `~/.openclaw/workspace/options-toolkit/toolkit.py`
 - **Language**: Python 3.x
 - **Size**: ~550 lines (single file)
-- **Interface**: CLI with subcommands (`price`, `chain`, `news`, `history`, `report`)
+- **Interface**: CLI with subcommands (`price`, `chain`, `news`, `history`, `report`, `summary`)
 - **Dependencies**: `yfinance`, standard library (`json`, `datetime`, `argparse`, `sys`, `os`, `math`)
 - **Behavior**: Pure stdout-based — output goes to stdout, errors go to stderr
 - **Exit codes**: 0 = success (with or without output), 1 = error
@@ -137,11 +137,11 @@ This document describes every component of the Options Toolkit, how they connect
 - **Purpose**: Fetches full article content from yfinance URLs via trafilatura, searches DuckDuckGo for additional context, outputs structured JSON for Eva to synthesize
 - **Relationship to toolkit.py**: Separate standalone script. Shares sentiment algorithm (duplicated, not imported). Does not affect cron or existing toolkit commands.
 
-### 6. SKILL.md Files (6 total)
+### 6. SKILL.md Files (7 total)
 
 - **Location**: `~/.openclaw/workspace/skills/{skill-name}/SKILL.md`
 - **Purpose**: Tell Eva when and how to run toolkit commands
-- **Skills**: stock-price, options-chain, stock-news, stock-news-deep, options-history, options-report
+- **Skills**: stock-price, options-chain, stock-news, stock-news-deep, options-history, options-report, options-summary
 
 ### 7. `cron.log` — Execution Log
 
@@ -244,6 +244,7 @@ This document describes every component of the Options Toolkit, how they connect
       stock-news-deep/SKILL.md
       options-history/SKILL.md
       options-report/SKILL.md
+      options-summary/SKILL.md
 
     docs/                                  ← This documentation
 ```

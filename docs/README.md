@@ -41,7 +41,8 @@ docs/
 │   ├── news-command.md                    ← `news` subcommand: inputs, logic, output format
 │   ├── news-research-command.md           ← `news_research.py` standalone: deep article extraction
 │   ├── history-command.md                 ← `history` subcommand: inputs, logic, output format
-│   └── report-command.md                  ← `report` subcommand: full report generation
+│   ├── report-command.md                  ← `report` subcommand: full report generation
+│   └── summary-command.md                 ← `summary` subcommand: end-of-day summary with analysis
 │
 ├── data/
 │   ├── storage-format.md                  ← Directory layout, JSON schemas, file naming
@@ -54,7 +55,8 @@ docs/
 │   ├── stock-news-skill.md                ← Trigger phrases, exec command, expected output
 │   ├── stock-news-deep-skill.md           ← Deep news analysis: triggers, AI synthesis rules
 │   ├── options-history-skill.md           ← Trigger phrases, exec command, expected output
-│   └── options-report-skill.md            ← Trigger phrases, exec command, expected output
+│   ├── options-report-skill.md            ← Trigger phrases, exec command, expected output
+│   └── options-summary-skill.md          ← EOD summary: triggers, analysis output
 │
 ├── output-format/
 │   ├── formatting-rules.md                ← Dividers, emoji, numbers, signs, colors
@@ -101,5 +103,6 @@ docs/
     stock-news-deep/SKILL.md
     options-history/SKILL.md
     options-report/SKILL.md
+    options-summary/SKILL.md
   docs/                     ← This documentation
 ```

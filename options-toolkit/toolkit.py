@@ -40,7 +40,8 @@ BASE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
 
 # ── Utility functions ────────────────────────────────────────────────────────
 
-SCHEDULE = [(9, 35), (11, 0), (12, 30), (14, 0), (15, 0), (15, 59)]
+SCHEDULE = [(9, 31), (11, 0), (12, 30), (14, 0), (15, 0), (15, 59)]
+SUMMARY_SCHEDULE = [(16, 1)]
 
 
 def is_scheduled_time():
@@ -48,6 +49,13 @@ def is_scheduled_time():
     if now.weekday() >= 5:
         return False
     return (now.hour, now.minute) in SCHEDULE
+
+
+def is_summary_time():
+    now = datetime.now(ET)
+    if now.weekday() >= 5:
+        return False
+    return (now.hour, now.minute) in SUMMARY_SCHEDULE
 
 
 def select_expiry(expirations, target_dte=120):
@@ -405,6 +413,19 @@ def load_history(sym, days=5, base_dir=BASE_DIR):
     return results
 
 
+def load_today_snapshots(sym, base_dir=BASE_DIR):
+    """Load all snapshots from today."""
+    today = date.today()
+    path = _get_file_path(base_dir, sym, today)
+    if not os.path.exists(path):
+        return []
+    try:
+        with open(path, "r") as f:
+            return json.load(f)
+    except (json.JSONDecodeError, TypeError):
+        return []
+
+
 # ── Formatter functions ──────────────────────────────────────────────────────
 
 def _iv_emoji(iv):
@@ -690,6 +711,219 @@ def format_iv_summary(data, prev):
 
 
 
+def format_summary(sym, force=False):
+    """Generate end-of-day summary comparing open to close."""
+    if not force and not is_summary_time():
+        return ""
+
+    snapshots = load_today_snapshots(sym)
+    if len(snapshots) < 2:
+        return ""
+
+    # Skip snapshots with suspect IV (near-zero at market open)
+    first = None
+    for s in snapshots:
+        if s.get("overall_avg_iv", 0) >= 1:
+            first = s
+            break
+    if first is None:
+        return ""
+    last = snapshots[-1]
+    if first is last:
+        return ""
+
+    # Price
+    open_price = first["price"]
+    close_price = last["price"]
+    price_change = close_price - open_price
+    price_change_pct = (price_change / open_price) * 100 if open_price else 0
+    all_prices = [s["price"] for s in snapshots]
+    price_high = max(all_prices)
+    price_low = min(all_prices)
+
+    # IV
+    open_iv = first.get("overall_avg_iv", 0)
+    close_iv = last.get("overall_avg_iv", 0)
+    iv_change = close_iv - open_iv
+    valid_ivs = [s.get("overall_avg_iv", 0) for s in snapshots if s.get("overall_avg_iv", 0) >= 1]
+    iv_high = max(valid_ivs) if valid_ivs else close_iv
+    iv_low = min(valid_ivs) if valid_ivs else close_iv
+    open_call_iv = first.get("avg_call_iv", 0)
+    close_call_iv = last.get("avg_call_iv", 0)
+    open_put_iv = first.get("avg_put_iv", 0)
+    close_put_iv = last.get("avg_put_iv", 0)
+
+    # P/C ratios
+    open_pc_vol = first.get("pc_vol_ratio", 0)
+    close_pc_vol = last.get("pc_vol_ratio", 0)
+    open_pc_oi = first.get("pc_oi_ratio", 0)
+    close_pc_oi = last.get("pc_oi_ratio", 0)
+    pc_oi_change = close_pc_oi - open_pc_oi
+
+    # Skew
+    open_skew = first.get("skew", 0)
+    close_skew = last.get("skew", 0)
+    skew_change = close_skew - open_skew
+
+    now = datetime.now(ET)
+    chunks = []
+
+    # ── Chunk 1: Header + Price ──
+    c1 = []
+    c1.append(MAJOR_DIV)
+    c1.append(f"  \U0001f4ca {sym} END-OF-DAY SUMMARY")
+    c1.append(MAJOR_DIV)
+    c1.append("")
+    c1.append(f"\U0001f4c5 {now.strftime('%Y-%m-%d')} | Market Close")
+    c1.append("")
+    day_emoji = _price_emoji(price_change)
+    sign_char = "+" if price_change >= 0 else "-"
+    c1.append("Price Action:")
+    c1.append(f"  Open: ${open_price:.2f} \u2192 Close: ${close_price:.2f}")
+    c1.append(f"  Day Change: {sign_char}${abs(price_change):.2f} ({_sign(round(price_change_pct, 2))}%) {day_emoji}")
+    c1.append(f"  Day Range: ${price_low:.2f} - ${price_high:.2f}")
+    c1.append(f"  Snapshots: {len(snapshots)}")
+    chunks.append("\n".join(c1))
+
+    # ── Chunk 2: Metrics ──
+    c2 = []
+    c2.append("\U0001f4c8 INTRADAY METRICS")
+    c2.append(MINOR_DIV)
+    c2.append("")
+
+    iv_emoji = "\U0001f7e2" if iv_change < 0 else ("\U0001f534" if iv_change > 0 else "\U0001f7e1")
+    c2.append("Implied Volatility:")
+    c2.append(f"  Open IV: {open_iv:.2f}% \u2192 Close IV: {close_iv:.2f}%")
+    c2.append(f"  IV Change: {_sign(round(iv_change, 2))}% {iv_emoji}")
+    c2.append(f"  IV Range: {iv_low:.2f}% - {iv_high:.2f}%")
+    c2.append(f"  Call IV: {open_call_iv:.2f}% \u2192 {close_call_iv:.2f}%")
+    c2.append(f"  Put IV: {open_put_iv:.2f}% \u2192 {close_put_iv:.2f}%")
+    c2.append("")
+
+    c2.append("Volume:")
+    c2.append(f"  P/C Vol Ratio: {open_pc_vol:.2f} \u2192 {close_pc_vol:.2f}")
+    c2.append("")
+
+    c2.append("Open Interest:")
+    c2.append(f"  P/C OI Ratio: {open_pc_oi:.2f} \u2192 {close_pc_oi:.2f}")
+    c2.append("")
+
+    c2.append("Skew:")
+    c2.append(f"  Open: {_sign(round(open_skew, 2))}% \u2192 Close: {_sign(round(close_skew, 2))}%")
+    c2.append(f"  Skew Change: {_sign(round(skew_change, 2))}%")
+    chunks.append("\n".join(c2))
+
+    # ── Chunk 3: Analysis ──
+    c3 = []
+    c3.append("\U0001f50d END-OF-DAY ANALYSIS")
+    c3.append(MINOR_DIV)
+    c3.append("")
+
+    # Technical analysis
+    tech = []
+    if iv_change < -1:
+        tech.append("\u2022 IV contracted \u2014 volatility sellers dominated")
+    elif iv_change > 1:
+        tech.append("\u2022 IV expanded \u2014 increased uncertainty/fear")
+    else:
+        tech.append("\u2022 IV stable \u2014 no significant volatility shift")
+
+    if close_pc_vol < 0.8:
+        tech.append("\u2022 P/C vol ratio < 0.8 \u2014 call-heavy flow")
+    elif close_pc_vol > 1.2:
+        tech.append("\u2022 P/C vol ratio > 1.2 \u2014 put-heavy flow")
+    else:
+        tech.append("\u2022 P/C vol ratio balanced")
+
+    if pc_oi_change < -0.05:
+        tech.append("\u2022 P/C OI ratio declining \u2014 call OI gaining vs puts")
+    elif pc_oi_change > 0.05:
+        tech.append("\u2022 P/C OI ratio rising \u2014 put OI gaining vs calls")
+    else:
+        tech.append("\u2022 P/C OI ratio stable")
+
+    if skew_change < -0.5:
+        tech.append("\u2022 Skew narrowing \u2014 put premium declining")
+    elif skew_change > 0.5:
+        tech.append("\u2022 Skew widening \u2014 protection demand rising")
+    else:
+        tech.append("\u2022 Skew stable")
+
+    c3.append("Technical:")
+    c3.extend(f"  {t}" for t in tech)
+    c3.append("")
+
+    # Market assessment
+    mkt = []
+    if price_change > 0 and iv_change < 0:
+        mkt.append("\u2022 Price up + IV down = healthy rally with confidence")
+    elif price_change > 0 and iv_change > 0:
+        mkt.append("\u2022 Price up + IV up = rally with hedging demand")
+    elif price_change < 0 and iv_change > 0:
+        mkt.append("\u2022 Price down + IV up = fear-driven selling")
+    elif price_change < 0 and iv_change < 0:
+        mkt.append("\u2022 Price down + IV down = orderly pullback")
+    else:
+        mkt.append("\u2022 Flat session with minimal directional commitment")
+
+    if close_pc_vol < open_pc_vol - 0.1:
+        mkt.append("\u2022 Volume sentiment shifted bullish through the day")
+    elif close_pc_vol > open_pc_vol + 0.1:
+        mkt.append("\u2022 Volume sentiment shifted bearish through the day")
+
+    if abs(price_change_pct) > 1:
+        mkt.append(f"\u2022 Significant move ({_sign(round(price_change_pct, 2))}%) \u2014 high conviction day")
+    elif abs(price_change_pct) < 0.2:
+        mkt.append("\u2022 Tight range \u2014 indecision/consolidation")
+
+    c3.append("Market Assessment:")
+    c3.extend(f"  {m}" for m in mkt)
+    c3.append("")
+
+    # Day rating
+    score = 0
+    if price_change > 0:
+        score += 1
+    if price_change < 0:
+        score -= 1
+    if iv_change < 0:
+        score += 1
+    if iv_change > 0:
+        score -= 1
+    if close_pc_vol < 0.9:
+        score += 1
+    if close_pc_vol > 1.1:
+        score -= 1
+    if pc_oi_change < -0.05:
+        score += 1
+    if pc_oi_change > 0.05:
+        score -= 1
+    if skew_change < -0.3:
+        score += 1
+    if skew_change > 0.3:
+        score -= 1
+
+    if score >= 3:
+        rating = "BULLISH \U0001f7e2"
+    elif score >= 1:
+        rating = "SLIGHTLY BULLISH \U0001f7e2"
+    elif score <= -3:
+        rating = "BEARISH \U0001f534"
+    elif score <= -1:
+        rating = "SLIGHTLY BEARISH \U0001f534"
+    else:
+        rating = "NEUTRAL \U0001f7e1"
+
+    c3.append(f"Day Rating: {rating}")
+    c3.append("")
+    c3.append(MAJOR_DIV)
+    c3.append("\u2705 END-OF-DAY SUMMARY COMPLETE")
+    c3.append(MAJOR_DIV)
+    chunks.append("\n".join(c3))
+
+    return "\n---SPLIT---\n".join(chunks)
+
+
 def format_report(sym, force=False):
     # Market hours check
     if not force and not is_scheduled_time():
@@ -911,6 +1145,17 @@ def cmd_history(args):
         print(format_history(snapshots, sym))
 
 
+def cmd_summary(args):
+    sym = args.ticker.upper()
+    try:
+        output = format_summary(sym, force=args.force)
+    except Exception as e:
+        print(f"Error generating summary for {sym}: {e}", file=sys.stderr)
+        sys.exit(1)
+    if output:
+        print(output)
+
+
 def cmd_report(args):
     sym = args.ticker.upper()
     try:
@@ -1028,6 +1273,11 @@ def main():
     p_report.add_argument("--force", action="store_true", help="Skip market hours check")
     p_report.add_argument("--json", action="store_true", help="JSON output")
 
+    # summary
+    p_summary = sub.add_parser("summary", help="End-of-day summary")
+    p_summary.add_argument("--ticker", required=True, help="Ticker symbol")
+    p_summary.add_argument("--force", action="store_true", help="Skip schedule check")
+
     args = parser.parse_args()
 
     handlers = {
@@ -1036,6 +1286,7 @@ def main():
         "news": cmd_news,
         "history": cmd_history,
         "report": cmd_report,
+        "summary": cmd_summary,
     }
     handlers[args.command](args)
 

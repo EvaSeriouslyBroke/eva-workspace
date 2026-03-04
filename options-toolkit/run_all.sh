@@ -8,12 +8,10 @@ DIR="$(cd "$(dirname "$0")" && pwd)"
 TICKERS=$(python3 -c "import json; d=json.load(open('$DIR/tickers.json')); print(' '.join(d['tickers']))")
 CHANNEL=$(python3 -c "import json; d=json.load(open('$DIR/tickers.json')); print(d['discord_channel'])")
 
-for TICKER in $TICKERS; do
-  OUTPUT=$(python3 "$DIR/toolkit.py" report --ticker "$TICKER" 2>/dev/null) || true
-
-  [ -z "$OUTPUT" ] && continue
-
-  echo "$OUTPUT" | awk -v ch="$CHANNEL" '
+send_chunks() {
+  local output="$1"
+  local channel="$2"
+  echo "$output" | awk -v ch="$channel" '
     BEGIN { buf="" }
     /^---SPLIT---$/ {
       if (buf != "") {
@@ -32,6 +30,20 @@ for TICKER in $TICKERS; do
       }
     }
   '
+}
 
-  sleep 2
+for TICKER in $TICKERS; do
+  # Regular report
+  OUTPUT=$(python3 "$DIR/toolkit.py" report --ticker "$TICKER" 2>/dev/null) || true
+  if [ -n "$OUTPUT" ]; then
+    send_chunks "$OUTPUT" "$CHANNEL"
+    sleep 2
+  fi
+
+  # End-of-day summary
+  SUMMARY=$(python3 "$DIR/toolkit.py" summary --ticker "$TICKER" 2>/dev/null) || true
+  if [ -n "$SUMMARY" ]; then
+    send_chunks "$SUMMARY" "$CHANNEL"
+    sleep 2
+  fi
 done

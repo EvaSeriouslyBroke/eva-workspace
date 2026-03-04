@@ -7,24 +7,26 @@ How scheduled execution works — the system crontab, timezone handling, schedul
 ## Crontab Entries
 
 ```cron
-35 13,14 * * 1-5 /home/henry/.openclaw/workspace/options-toolkit/run_all.sh >> /home/henry/.openclaw/workspace/options-toolkit/data/cron.log 2>&1
+31 13,14 * * 1-5 /home/henry/.openclaw/workspace/options-toolkit/run_all.sh >> /home/henry/.openclaw/workspace/options-toolkit/data/cron.log 2>&1
 0 15,16,18,19,20 * * 1-5 /home/henry/.openclaw/workspace/options-toolkit/run_all.sh >> /home/henry/.openclaw/workspace/options-toolkit/data/cron.log 2>&1
 30 16,17 * * 1-5 /home/henry/.openclaw/workspace/options-toolkit/run_all.sh >> /home/henry/.openclaw/workspace/options-toolkit/data/cron.log 2>&1
 59 19,20 * * 1-5 /home/henry/.openclaw/workspace/options-toolkit/run_all.sh >> /home/henry/.openclaw/workspace/options-toolkit/data/cron.log 2>&1
+1 20,21 * * 1-5 /home/henry/.openclaw/workspace/options-toolkit/run_all.sh >> /home/henry/.openclaw/workspace/options-toolkit/data/cron.log 2>&1
 ```
 
 ### Target Schedule (Eastern Time)
 
-Reports are sent at 6 specific times during each trading day:
+Reports are sent at 6 specific times during each trading day, plus an end-of-day summary:
 
 | ET Time | Purpose |
 |---------|---------|
-| 9:35 AM | Market open |
+| 9:31 AM | Market open |
 | 11:00 AM | Mid-morning |
 | 12:30 PM | Midday |
 | 2:00 PM | Mid-afternoon |
 | 3:00 PM | Late afternoon |
 | 3:59 PM | Market close |
+| 4:01 PM | End-of-day summary |
 
 ### Cron Entry Breakdown
 
@@ -32,12 +34,13 @@ Each cron line covers both EST and EDT UTC equivalents for a target time, groupe
 
 | Cron Entry | Covers (EST / EDT) | Target ET Time |
 |------------|---------------------|----------------|
-| `35 13,14` | 14:35 / 13:35 UTC | 9:35 AM |
+| `31 13,14` | 14:31 / 13:31 UTC | 9:31 AM |
 | `0 15,16,18,19,20` | 16:00,19:00,20:00 / 15:00,18:00,19:00 UTC | 11:00 AM, 2:00 PM, 3:00 PM |
 | `30 16,17` | 17:30 / 16:30 UTC | 12:30 PM |
 | `59 19,20` | 20:59 / 19:59 UTC | 3:59 PM |
+| `1 20,21` | 21:01 / 20:01 UTC | 4:01 PM (summary) |
 
-**11 cron fires per day** (Mon-Fri). ~5 are no-ops (wrong season), filtered by the Python guard.
+**13 cron fires per day** (Mon-Fri). ~6 are no-ops (wrong season), filtered by the Python guards.
 
 ---
 
@@ -53,27 +56,31 @@ Each target ET time maps to two possible UTC times (one for EST, one for EDT). B
 
 ## Schedule Guard (in toolkit.py)
 
-The cron fires at both EST and EDT UTC equivalents, but `toolkit.py report` (without `--force`) self-filters to only run at the 6 target ET times:
+The cron fires at both EST and EDT UTC equivalents, but toolkit.py self-filters using two schedule guards:
 
 ```python
-SCHEDULE = [(9, 35), (11, 0), (12, 30), (14, 0), (15, 0), (15, 59)]
+SCHEDULE = [(9, 31), (11, 0), (12, 30), (14, 0), (15, 0), (15, 59)]
+SUMMARY_SCHEDULE = [(16, 1)]
 
-def is_scheduled_time():
+def is_scheduled_time():  # Used by report
     now = datetime.now(ZoneInfo("America/New_York"))
-
-    # Weekday check (0=Monday, 6=Sunday)
     if now.weekday() >= 5:
         return False
-
     return (now.hour, now.minute) in SCHEDULE
+
+def is_summary_time():  # Used by summary
+    now = datetime.now(ZoneInfo("America/New_York"))
+    if now.weekday() >= 5:
+        return False
+    return (now.hour, now.minute) in SUMMARY_SCHEDULE
 ```
 
 ### Why Double-Check?
 
-Cron handles the broad UTC coverage. The Python guard handles precision:
-- Cron fires at 13:35 UTC during EST — Python says "8:35 AM, not scheduled" (skip)
-- Cron fires at 13:35 UTC during EDT — Python says "9:35 AM, scheduled" (run)
-- This gives exactly **6 valid executions per trading day**
+Cron handles the broad UTC coverage. The Python guards handle precision:
+- Cron fires at 13:31 UTC during EST — Python says "8:31 AM, not scheduled" (skip)
+- Cron fires at 13:31 UTC during EDT — Python says "9:31 AM, scheduled" (run)
+- This gives exactly **6 report runs + 1 summary run per trading day**
 
 ### Silent Exit Behavior
 

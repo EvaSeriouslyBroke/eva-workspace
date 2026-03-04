@@ -17,9 +17,11 @@ Must be executable: `chmod +x run_all.sh`
 ## What It Does
 
 1. Reads `tickers.json` for the ticker list and Discord channel ID
-2. For each ticker: runs `toolkit.py report`, captures output
-3. If output is empty (outside market hours): skips to next ticker
-4. Splits output at `---SPLIT---` markers
+2. For each ticker:
+   a. Runs `toolkit.py report` — captures output, sends if non-empty
+   b. Runs `toolkit.py summary` — captures output, sends if non-empty
+3. Both commands have their own schedule guards, so only the appropriate one produces output at any given time
+4. Splits output at `---SPLIT---` markers using a shared `send_chunks` function
 5. Sends each chunk to Discord via `openclaw message send`
 6. Sleeps between chunks and between tickers
 

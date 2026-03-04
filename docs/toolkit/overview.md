@@ -19,13 +19,14 @@ python3 toolkit.py <command> --ticker <SYM> [flags]
 | `news` | Headlines + sentiment analysis | Check market news for a ticker |
 | `history` | Recent IV history from stored data | Track IV trends over days |
 | `report` | Facts-only options data report | Complete options data snapshot |
+| `summary` | End-of-day summary with analysis | After-close recap of the day's moves |
 
 ### Common Flags
 
 | Flag | Applies To | Required | Description |
 |------|-----------|----------|-------------|
 | `--ticker <SYM>` | All commands | Yes | Ticker symbol (e.g., IWM, SPY, QQQ) |
-| `--force` | `report` only | No | Skip market hours check |
+| `--force` | `report`, `summary` | No | Skip schedule check |
 | `--json` | All commands | No | Output raw JSON instead of formatted text |
 | `--dte <N>` | `chain` | No | Target DTE for expiry selection (default: 120) |
 | `--days <N>` | `history` | No | Number of trading days to show (default: 5) |
@@ -39,7 +40,7 @@ python3 toolkit.py <command> --ticker <SYM> [flags]
 | 0 | Success — output was produced, or silent exit (outside market hours) |
 | 1 | Error — something went wrong (invalid ticker, network failure, etc.) |
 
-**Silent exit** (code 0, no output): This happens when `report` is called without `--force` and the current time is outside market hours (9:30-16:00 ET, Mon-Fri). The script exits cleanly with no stdout. This tells the caller "nothing to do" — `run_all.sh` skips sending to Discord, Eva doesn't reply.
+**Silent exit** (code 0, no output): This happens when `report` or `summary` is called without `--force` and the current time doesn't match the command's schedule. The script exits cleanly with no stdout. This tells the caller "nothing to do" — `run_all.sh` skips sending to Discord, Eva doesn't reply.
 
 ---
 
@@ -57,19 +58,22 @@ python3 toolkit.py <command> --ticker <SYM> [flags]
 
 ## Market Hours Check
 
-The `report` command includes a market hours guard:
+The `report` and `summary` commands include schedule guards:
 
 ```
-Current time check (America/New_York timezone):
+report: runs at SCHEDULE times [(9,35), (11,0), (12,30), (14,0), (15,0), (15,59)]
+summary: runs at SUMMARY_SCHEDULE times [(16,1)]
+
+Both check:
   - Day: Monday through Friday only
-  - Time: 9:30 AM to 4:00 PM ET only
-  - If outside these bounds and --force not set: exit 0, no output
+  - Time: must match the command's schedule
+  - If not matching and --force not set: exit 0, no output
   - If --force is set: skip this check entirely
 ```
 
-This check uses Python's `zoneinfo` module with `America/New_York`, which handles DST correctly. The check is performed before any API calls — if we're outside hours, no yfinance requests are made.
+These checks use Python's `zoneinfo` module with `America/New_York`, which handles DST correctly. The check is performed before any API calls.
 
-Other subcommands (`price`, `chain`, `news`, `history`) do NOT have market hours checks. They always return data when asked.
+Other subcommands (`price`, `chain`, `news`, `history`) do NOT have schedule checks. They always return data when asked.
 
 ---
 
@@ -89,13 +93,16 @@ The script is a single file but internally organized into functional groups:
 - `format_news(data)` — Formats Section 4 output
 - `format_history(snapshots)` — Formats history table
 - `format_report(all_data)` — Formats complete report (8 sections + footer) with `---SPLIT---` markers
+- `format_summary(sym, force)` — Formats end-of-day summary (3 chunks) with `---SPLIT---` markers
 
 ### Storage Functions
 - `save_snapshot(ticker, data)` — Appends snapshot to daily JSON file
 - `load_history(ticker, days)` — Loads recent snapshots for history view
+- `load_today_snapshots(ticker)` — Loads all snapshots from today for EOD summary
 
 ### Utility Functions
-- `is_scheduled_time()` — Returns bool; checks if current ET time matches a scheduled run time
+- `is_scheduled_time()` — Returns bool; checks if current ET time matches a report schedule time
+- `is_summary_time()` — Returns bool; checks if current ET time matches the summary schedule (4:01 PM)
 - `select_expiry(expirations, target_dte)` — Picks closest expiry to target DTE
 - `select_strikes(chain, current_price, count)` — Picks `count` strikes closest to current price (default 5)
 - `score_sentiment(headlines)` — Scores news sentiment
