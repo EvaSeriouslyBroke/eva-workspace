@@ -1,42 +1,43 @@
 # Cron Setup
 
-How scheduled execution works — the system crontab, timezone handling, market hours filtering, and operational details.
+How scheduled execution works — the system crontab, timezone handling, scheduled time filtering, and operational details.
 
 ---
 
-## Crontab Entry
+## Crontab Entries
 
 ```cron
-*/30 13-21 * * 1-5 /home/henry/.openclaw/workspace/options-toolkit/run_all.sh >> /home/henry/.openclaw/workspace/options-toolkit/data/cron.log 2>&1
+35 13,14 * * 1-5 /home/henry/.openclaw/workspace/options-toolkit/run_all.sh >> /home/henry/.openclaw/workspace/options-toolkit/data/cron.log 2>&1
+0 15,16,18,19,20 * * 1-5 /home/henry/.openclaw/workspace/options-toolkit/run_all.sh >> /home/henry/.openclaw/workspace/options-toolkit/data/cron.log 2>&1
+30 16,17 * * 1-5 /home/henry/.openclaw/workspace/options-toolkit/run_all.sh >> /home/henry/.openclaw/workspace/options-toolkit/data/cron.log 2>&1
+59 19,20 * * 1-5 /home/henry/.openclaw/workspace/options-toolkit/run_all.sh >> /home/henry/.openclaw/workspace/options-toolkit/data/cron.log 2>&1
 ```
 
-### Field-by-Field Breakdown
+### Target Schedule (Eastern Time)
 
-| Field | Value | Meaning |
-|-------|-------|---------|
-| Minute | `*/30` | Every 30 minutes (0, 30) |
-| Hour | `13-21` | UTC hours covering market hours in both EST and EDT (see Timezone Handling) |
-| Day of month | `*` | Any day |
-| Month | `*` | Any month |
-| Day of week | `1-5` | Monday (1) through Friday (5) |
-| Command | `run_all.sh` | Full path to wrapper script |
-| Output | `>> cron.log 2>&1` | Append stdout+stderr to log |
+Reports are sent at 6 specific times during each trading day:
 
-### Firing Schedule
+| ET Time | Purpose |
+|---------|---------|
+| 9:35 AM | Market open |
+| 11:00 AM | Mid-morning |
+| 12:30 PM | Midday |
+| 2:00 PM | Mid-afternoon |
+| 3:00 PM | Late afternoon |
+| 3:59 PM | Market close |
 
-On a typical Monday-Friday:
-```
-9:00  9:30
-10:00 10:30
-11:00 11:30
-12:00 12:30
-13:00 13:30
-14:00 14:30
-15:00 15:30
-16:00 16:30
-```
+### Cron Entry Breakdown
 
-**16 fires per day**, but only the ones during market hours (9:30-16:00) will produce output.
+Each cron line covers both EST and EDT UTC equivalents for a target time, grouped by minute:
+
+| Cron Entry | Covers (EST / EDT) | Target ET Time |
+|------------|---------------------|----------------|
+| `35 13,14` | 14:35 / 13:35 UTC | 9:35 AM |
+| `0 15,16,18,19,20` | 16:00,19:00,20:00 / 15:00,18:00,19:00 UTC | 11:00 AM, 2:00 PM, 3:00 PM |
+| `30 16,17` | 17:30 / 16:30 UTC | 12:30 PM |
+| `59 19,20` | 20:59 / 19:59 UTC | 3:59 PM |
+
+**11 cron fires per day** (Mon-Fri). ~5 are no-ops (wrong season), filtered by the Python guard.
 
 ---
 
@@ -46,51 +47,37 @@ The system runs Debian's Vixie cron (`cron` 3.0pl1), which **does not support** 
 
 ### DST-Proof Strategy
 
-Rather than adjusting the cron twice a year, the cron window is set wide enough to cover market hours under both EST and EDT:
-
-- **EST** (UTC-5): Market 9:30–16:00 ET = 14:30–21:00 UTC
-- **EDT** (UTC-4): Market 9:30–16:00 ET = 13:30–20:00 UTC
-- **Cron window**: `13-21` UTC — covers both seasons
-
-The Python `is_market_hours()` guard in `toolkit.py` uses `ZoneInfo("America/New_York")` which handles DST automatically. Fires outside market hours produce no output and are silently skipped. This means a few extra no-op cron fires per day (~2-3 depending on season), but it requires **zero manual maintenance** across DST transitions.
+Each target ET time maps to two possible UTC times (one for EST, one for EDT). Both are included in the cron entries. The Python `is_scheduled_time()` guard in `toolkit.py` uses `ZoneInfo("America/New_York")` which handles DST automatically — it only allows the fire that matches the current ET time, silently skipping the wrong-season fire. This requires **zero manual maintenance** across DST transitions.
 
 ---
 
-## Market Hours Guard (in toolkit.py)
+## Schedule Guard (in toolkit.py)
 
-The cron fires broadly (9:00-16:50), but `toolkit.py report` (without `--force`) self-filters:
+The cron fires at both EST and EDT UTC equivalents, but `toolkit.py report` (without `--force`) self-filters to only run at the 6 target ET times:
 
 ```python
-from datetime import datetime
-from zoneinfo import ZoneInfo
+SCHEDULE = [(9, 35), (11, 0), (12, 30), (14, 0), (15, 0), (15, 59)]
 
-def is_market_hours():
+def is_scheduled_time():
     now = datetime.now(ZoneInfo("America/New_York"))
 
     # Weekday check (0=Monday, 6=Sunday)
     if now.weekday() >= 5:
         return False
 
-    # Time check
-    market_open = now.replace(hour=9, minute=30, second=0, microsecond=0)
-    market_close = now.replace(hour=16, minute=0, second=0, microsecond=0)
-
-    return market_open <= now <= market_close
+    return (now.hour, now.minute) in SCHEDULE
 ```
 
 ### Why Double-Check?
 
-Cron handles the broad window (Mon-Fri, 9-16). The Python guard handles precision:
-- Cron fires at 9:00 — Python says "not yet" (before 9:30)
-- Cron fires at 16:30 — Python says "market closed" (after 16:00)
-- This gives exactly 14 valid executions per trading day:
-  ```
-  9:30, 10:00, 10:30, 11:00, 11:30, 12:00, 12:30, 13:00, 13:30, 14:00, 14:30, 15:00, 15:30, 16:00
-  ```
+Cron handles the broad UTC coverage. The Python guard handles precision:
+- Cron fires at 13:35 UTC during EST — Python says "8:35 AM, not scheduled" (skip)
+- Cron fires at 13:35 UTC during EDT — Python says "9:35 AM, scheduled" (run)
+- This gives exactly **6 valid executions per trading day**
 
 ### Silent Exit Behavior
 
-When outside market hours and `--force` is not passed:
+When the current ET time doesn't match the schedule and `--force` is not passed:
 - toolkit.py exits with code 0
 - No stdout output
 - run_all.sh sees empty output → skips Discord delivery
@@ -106,9 +93,9 @@ Cron only fires Monday through Friday (`1-5`). No weekend executions at all.
 
 ## NYSE Holidays
 
-The market hours guard does not check for NYSE holidays. On holidays (e.g., MLK Day, Good Friday, Thanksgiving):
+The schedule guard does not check for NYSE holidays. On holidays (e.g., MLK Day, Good Friday, Thanksgiving):
 - Cron fires normally (it's a weekday)
-- toolkit.py runs (market hours check passes based on time, not holiday calendar)
+- toolkit.py runs (schedule check passes based on time, not holiday calendar)
 - yfinance returns stale data (previous close) or possibly empty chains
 - Report may show yesterday's data — not harmful, but not useful
 
@@ -141,7 +128,7 @@ No automatic log rotation. The log grows indefinitely. Truncate manually if need
 
 ---
 
-## Adding/Removing the Crontab Entry
+## Adding/Removing the Crontab Entries
 
 ### View Current Crontab
 
@@ -149,13 +136,7 @@ No automatic log rotation. The log grows indefinitely. Truncate manually if need
 crontab -l
 ```
 
-### Add Entry
-
-```bash
-(crontab -l 2>/dev/null; echo 'TZ=America/New_York'; echo '*/10 9-16 * * 1-5 /home/henry/.openclaw/workspace/options-toolkit/run_all.sh >> /home/henry/.openclaw/workspace/options-toolkit/data/cron.log 2>&1') | crontab -
-```
-
-### Remove Entry
+### Remove All Entries
 
 ```bash
 crontab -l | grep -v 'run_all.sh' | crontab -

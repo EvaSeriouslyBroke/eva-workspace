@@ -40,13 +40,14 @@ BASE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
 
 # ── Utility functions ────────────────────────────────────────────────────────
 
-def is_market_hours():
+SCHEDULE = [(9, 35), (11, 0), (12, 30), (14, 0), (15, 0), (15, 59)]
+
+
+def is_scheduled_time():
     now = datetime.now(ET)
     if now.weekday() >= 5:
         return False
-    market_open = now.replace(hour=9, minute=30, second=0, microsecond=0)
-    market_close = now.replace(hour=16, minute=0, second=0, microsecond=0)
-    return market_open <= now <= market_close
+    return (now.hour, now.minute) in SCHEDULE
 
 
 def select_expiry(expirations, target_dte=120):
@@ -57,11 +58,11 @@ def select_expiry(expirations, target_dte=120):
     return min(expirations, key=key)
 
 
-def select_strikes(chain_df, price):
+def select_strikes(chain_df, price, count=5):
     atm = round(price)
     all_strikes = sorted(chain_df["strike"].unique())
     all_strikes_list = list(all_strikes)
-    nearest = sorted(all_strikes_list, key=lambda s: (abs(s - atm), -s))[:5]
+    nearest = sorted(all_strikes_list, key=lambda s: (abs(s - atm), -s))[:count]
     return sorted(nearest, reverse=True)
 
 
@@ -222,7 +223,7 @@ def fetch_chain(sym, target_dte=120):
 
     calls_df = chain.calls
     puts_df = chain.puts
-    strikes = select_strikes(calls_df, price)
+    strikes = select_strikes(calls_df, price, count=10)
 
     calls = []
     puts = []
@@ -691,17 +692,25 @@ def format_iv_summary(data, prev):
 
 def format_report(sym, force=False):
     # Market hours check
-    if not force and not is_market_hours():
+    if not force and not is_scheduled_time():
         return ""
 
     # Fetch data
     chain_data = fetch_chain(sym)
-    news_data = fetch_news(sym)
     prev = load_previous(sym)
 
     price = chain_data["current_price"]
-    calls = chain_data["calls"]
-    puts = chain_data["puts"]
+
+    # Select closest 5 strikes to current price for the report
+    all_call_strikes = {c["strike"] for c in chain_data["calls"]}
+    report_strikes = sorted(
+        all_call_strikes, key=lambda s: (abs(s - round(price)), -s)
+    )[:5]
+    report_strikes_set = set(report_strikes)
+    calls = [c for c in chain_data["calls"] if c["strike"] in report_strikes_set]
+    puts = [p for p in chain_data["puts"] if p["strike"] in report_strikes_set]
+    calls.sort(key=lambda c: -c["strike"])
+    puts.sort(key=lambda p: -p["strike"])
 
     # Compute derived values
     avg_call_iv = mean([c["iv"] for c in calls]) if calls else 0
@@ -717,8 +726,10 @@ def format_report(sym, force=False):
     total_put_oi = sum(p["open_interest"] for p in puts)
     pc_oi_ratio = total_put_oi / total_call_oi if total_call_oi > 0 else None
 
-    # Build enriched data dict
+    # Build enriched data dict (use filtered 5-strike calls/puts for report)
     data = {**chain_data}
+    data["calls"] = calls
+    data["puts"] = puts
     data["avg_call_iv"] = round(avg_call_iv, 2)
     data["avg_put_iv"] = round(avg_put_iv, 2)
     data["overall_avg_iv"] = round(overall_avg_iv, 2)
@@ -740,7 +751,7 @@ def format_report(sym, force=False):
         data["avg_call_iv_change"] = None
         data["avg_put_iv_change"] = None
 
-    # Build snapshot for saving
+    # Build snapshot for saving (use all fetched strikes, not just report 5)
     now = datetime.now(ET)
     snapshot = {
         "timestamp": now.isoformat(),
@@ -755,13 +766,13 @@ def format_report(sym, force=False):
         "skew": data["skew"],
         "strikes": {},
     }
-    for c in calls:
+    for c in chain_data["calls"]:
         s = str(c["strike"])
         snapshot["strikes"].setdefault(s, {})
         snapshot["strikes"][s]["call_iv"] = c["iv"]
         snapshot["strikes"][s]["call_vol"] = c["volume"]
         snapshot["strikes"][s]["call_oi"] = c["open_interest"]
-    for p in puts:
+    for p in chain_data["puts"]:
         s = str(p["strike"])
         snapshot["strikes"].setdefault(s, {})
         snapshot["strikes"][s]["put_iv"] = p["iv"]
@@ -771,7 +782,7 @@ def format_report(sym, force=False):
     # Build report sections
     chunks = []
 
-    # Chunk 1: History check + Header + Price + News
+    # Chunk 1: History check + Header + Price
     chunk1_lines = []
     if prev:
         ts = prev.get("timestamp", "")
@@ -795,10 +806,6 @@ def format_report(sym, force=False):
         "timestamp": chain_data["timestamp"],
     }
     chunk1_lines.append(format_price(price_data))
-    chunk1_lines.append("")
-
-    # News section
-    chunk1_lines.append(format_news(news_data))
     chunks.append("\n".join(chunk1_lines))
 
     # Chunk 2: Options tables
@@ -916,7 +923,6 @@ def cmd_report(args):
             # For JSON mode, we'd need to build structured data
             # For now, output text (JSON report mode is a future enhancement)
             chain_data = fetch_chain(sym)
-            news_data = fetch_news(sym)
             prev = load_previous(sym)
             calls = chain_data["calls"]
             puts = chain_data["puts"]
@@ -960,7 +966,6 @@ def cmd_report(args):
                 "atm_strike": chain_data["atm_strike"],
                 "calls": calls,
                 "puts": puts,
-                "news": news_data,
                 "iv_summary": {
                     "avg_call_iv": round(avg_call_iv, 2),
                     "avg_put_iv": round(avg_put_iv, 2),

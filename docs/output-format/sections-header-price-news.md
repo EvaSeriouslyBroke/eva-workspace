@@ -1,6 +1,6 @@
-# Sections 1-4: History, Header, Price, News
+# Sections 1-3: History, Header, Price
 
-These four sections form the first chunk of the report (before the first `---SPLIT---` marker).
+These three sections form the first chunk of the report (before the first `---SPLIT---` marker).
 
 ---
 
@@ -92,88 +92,20 @@ Current time in Eastern timezone (America/New_York), 24-hour format.
 
 ---
 
-## Section 4: News Headlines
-
-### Sub-Header
-
-```
-📰 LIVE NEWS HEADLINES
-──────────────────────────────────────────────────────────────────────────────────────────
-```
-
-### Headlines List
-
-```
-Recent Headlines ({N} articles):
-  1. {headline_text}
-     {publisher} • {date}
-  2. {headline_text}
-     {publisher} • {date}
-  ...up to 8...
-```
-
-- Up to 8 headlines, numbered sequentially
-- Headline text: truncated at 85 chars + `...` if longer
-- Publisher and date on next line, 5-space indent
-- Date format: `YYYY-MM-DD`
-- Separator between publisher and date: ` • ` (space, bullet, space)
-
-### If No Headlines
-
-```
-  ⚠️  No news headlines available
-```
-
-Replace the entire headlines list with this single line.
-
-### Sentiment Summary
-
-Immediately after the headlines (or the "no headlines" warning):
-
-```
-News Sentiment: {Label} (Score: {sign}{N})
-Key Themes: {theme1}, {theme2}, ...
-```
-
-#### Sentiment Labels
-
-| Score | Label |
-|-------|-------|
-| > +3 | Bullish |
-| +1 to +3 | Slightly Bullish |
-| 0 | Neutral |
-| -1 to -3 | Slightly Bearish |
-| < -3 | Bearish |
-
-#### Key Themes
-
-Comma-separated list of detected themes. Only include themes where at least one headline matched. Possible themes (in display order):
-1. Federal Reserve Policy
-2. Trade/Tariffs
-3. Small-Cap Focus
-4. General Market News
-
-If no themes detected, show: `Key Themes: General Market News`
-
-### Conditional Warning Lines
-
-```
-  ⚠️  High Fed/monetary policy focus in recent news        ← only if ≥2 Fed-related headlines
-  ⚠️  High tariff/trade focus in recent news               ← only if ≥2 tariff-related headlines
-```
-
-These lines appear ONLY when their condition is met. They appear after the Key Themes line, each with 2-space indent.
-
----
-
 ## Chunk Boundary
 
-After Section 4, insert the first `---SPLIT---` marker:
+After Section 3, insert the first `---SPLIT---` marker:
 
 ```
-  ⚠️  High Fed/monetary policy focus in recent news
+Analysis Time: 2026-02-20 10:30:00
 ---SPLIT---
 Target Expiration: ...
 ```
 
-This keeps Sections 1-4 in the first Discord message (~800-1200 chars typically).
+This keeps Sections 1-3 in the first Discord message.
+
+---
+
+## News (Disabled)
+
+News fetching and formatting functions (`fetch_news`, `format_news`) exist in toolkit.py but are not included in the report output. The `news` subcommand still works standalone via `toolkit.py news --ticker TICKER`.

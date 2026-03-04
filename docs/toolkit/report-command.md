@@ -1,6 +1,6 @@
 # Report Command
 
-The `report` subcommand generates a facts-only options data report. It fetches price, news, options chain, and IV metrics, then outputs formatted text with `---SPLIT---` markers for Discord delivery.
+The `report` subcommand generates a facts-only options data report. It fetches price, options chain, and IV metrics, then outputs formatted text with `---SPLIT---` markers for Discord delivery.
 
 ---
 
@@ -45,21 +45,15 @@ best_expiry = select_expiry(expirations, target_dte=120)
 chain = ticker.option_chain(best_expiry)
 
 atm_strike = round(price)
-strikes = select_strikes(chain, price)  # 5 strikes nearest ATM
+strikes = select_strikes(chain, price, count=10)  # 10 strikes nearest current price
 ```
 
-For each of the 5 strikes, extract from both `chain.calls` and `chain.puts`:
+For each of the 10 strikes, extract from both `chain.calls` and `chain.puts`:
 - strike, impliedVolatility, bid, ask, lastPrice, volume, openInterest
 
-### Step 4: Fetch News
+All 10 strikes are saved to the snapshot. For the report display, the 5 strikes closest to the current price are selected. This wider fetch window ensures previous IV data is available even if the stock price moves between runs.
 
-```python
-articles = ticker.news  # Up to 8 recent headlines
-sentiment_score = score_sentiment(articles)
-themes = detect_themes(articles)
-```
-
-### Step 5: Load Previous Run
+### Step 4: Load Previous Run
 
 ```python
 previous = load_previous(sym)
@@ -67,7 +61,7 @@ previous = load_previous(sym)
 # See data/comparison-logic.md for the lookup algorithm
 ```
 
-### Step 6: Compute Derived Values
+### Step 5: Compute Derived Values
 
 All values computed from raw data and previous run:
 
@@ -97,26 +91,25 @@ All values computed from raw data and previous run:
 | pc_oi_change | `current_pc_oi_ratio - previous_pc_oi_ratio` |
 | skew_change | `current_skew - previous_skew` |
 
-### Step 7: Generate Each Section
+### Step 6: Generate Each Section
 
-Generate all 8 sections in order. See `output-format/` docs for exact formatting rules per section. Insert `---SPLIT---` markers between section groups:
+Generate sections in order. See `output-format/` docs for exact formatting rules per section. Insert `---SPLIT---` markers between section groups:
 
 ```
 [Section 1: History check]
 [Section 2: Main header]
 [Section 3: Price & metadata]
-[Section 4: News headlines]
 ---SPLIT---
-[Section 5: Target expiration]
-[Section 6: Call options table]
-[Section 7: Put options table]
+[Section 4: Target expiration]
+[Section 5: Call options table]
+[Section 6: Put options table]
 ---SPLIT---
-[Section 8: IV summary]
+[Section 7: IV summary]
 [Footer: REPORT COMPLETE]
 [Save confirmation]
 ```
 
-### Step 8: Save Current Run to History
+### Step 7: Save Current Run to History
 
 ```python
 snapshot = {
@@ -135,7 +128,7 @@ snapshot = {
 save_snapshot(sym, snapshot)
 ```
 
-### Step 9: Output
+### Step 8: Output
 
 Print the complete report to stdout. The `---SPLIT---` markers are part of the output.
 
@@ -174,7 +167,6 @@ When `--json` is passed, outputs a single JSON object containing all computed va
   "atm_strike": 210,
   "calls": [ ... ],
   "puts": [ ... ],
-  "news": { "headlines": [...], "sentiment": {...}, "themes": [...] },
   "iv_summary": {
     "avg_call_iv": 24.50,
     "avg_put_iv": 26.10,

@@ -95,9 +95,9 @@ The script is a single file but internally organized into functional groups:
 - `load_history(ticker, days)` — Loads recent snapshots for history view
 
 ### Utility Functions
-- `is_market_hours()` — Returns bool for market hours check
+- `is_scheduled_time()` — Returns bool; checks if current ET time matches a scheduled run time
 - `select_expiry(expirations, target_dte)` — Picks closest expiry to target DTE
-- `select_strikes(chain, current_price)` — Picks 5 strikes around ATM
+- `select_strikes(chain, current_price, count)` — Picks `count` strikes closest to current price (default 5)
 - `score_sentiment(headlines)` — Scores news sentiment
 - `compute_directional_score(data)` — Computes bullish/bearish scores (used by JSON output mode)
 

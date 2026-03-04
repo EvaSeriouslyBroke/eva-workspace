@@ -48,17 +48,23 @@ Current price rounded to the nearest integer. For IWM at $210.45, ATM = $210. Fo
 
 ---
 
-## How 5 Strikes Are Selected
+## Strike Selection
 
-Starting from ATM:
-1. Get all available strikes from the chain
-2. Find the 5 strikes closest to ATM: 2 above, ATM itself, 2 below
-3. Sort descending (highest strike first)
+`select_strikes(chain_df, price, count)` picks the `count` strikes closest to the current price, sorted descending.
+
+### Standalone `chain` command
+
+Fetches **5** strikes closest to the current price.
+
+### `report` command
+
+Fetches **10** strikes closest to the current price from yfinance. All 10 are saved to the snapshot for historical IV tracking. The report then selects the **5 closest to the current price** for display. This means if the price moves between runs, the wider 10-strike window still provides previous IV data for comparison.
 
 ```
 Example for IWM at $210.45 (ATM = $210):
 
-Selected strikes (descending):
+Fetched (10 strikes): $206-$215
+Displayed (5 strikes, descending):
   $212  ← 2 above ATM
   $211  ← 1 above ATM
   $210  ← ATM
@@ -66,7 +72,7 @@ Selected strikes (descending):
   $208  ← 2 below ATM
 ```
 
-If strikes don't exist at every $1 increment (some tickers use $2.50 or $5 increments), pick the 5 strikes nearest to the current price.
+If strikes don't exist at every $1 increment (some tickers use $2.50 or $5 increments), the nearest available strikes are used.
 
 ---
 

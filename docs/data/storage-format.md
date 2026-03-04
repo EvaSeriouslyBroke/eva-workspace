@@ -88,7 +88,12 @@ Each daily file is a **JSON array** of snapshot objects. One snapshot is appende
       "209": { ... },
       "210": { ... },
       "211": { ... },
-      "212": { ... }
+      "212": { ... },
+      "213": { ... },
+      "214": { ... },
+      "215": { ... },
+      "216": { ... },
+      "217": { ... }
     }
   },
   {
@@ -106,13 +111,13 @@ Each daily file is a **JSON array** of snapshot objects. One snapshot is appende
 | `price` | float | Current stock price at time of run |
 | `prev_close` | float | Previous trading day's closing price |
 | `expiry` | string (YYYY-MM-DD) | Selected options expiration date |
-| `avg_call_iv` | float | Average IV across 5 call strikes (percentage, e.g., 24.50) |
-| `avg_put_iv` | float | Average IV across 5 put strikes (percentage) |
+| `avg_call_iv` | float | Average IV across displayed call strikes (percentage, e.g., 24.50) |
+| `avg_put_iv` | float | Average IV across displayed put strikes (percentage) |
 | `overall_avg_iv` | float | `(avg_call_iv + avg_put_iv) / 2` |
 | `pc_vol_ratio` | float | Put/call volume ratio |
 | `pc_oi_ratio` | float | Put/call open interest ratio |
 | `skew` | float | `avg_put_iv - avg_call_iv` (percentage points) |
-| `strikes` | object | Per-strike data (keyed by strike price as string) |
+| `strikes` | object | Per-strike data (keyed by strike price as string). 10 strikes are saved per snapshot for wider historical coverage, even though only 5 are displayed in the report. |
 
 ### Per-Strike Schema (within `strikes`)
 
