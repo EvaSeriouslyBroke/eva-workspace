@@ -6,8 +6,8 @@ Eva trades options autonomously in Tradier's sandbox environment, building an ex
 
 - **API**: Tradier sandbox (`https://sandbox.tradier.com/v1`) — handles portfolio, orders, market data
 - **CLI**: `eva.py` — unified CLI with subcommands for evaluate, status, buy, sell, trade-history, reset
-- **Strategy**: `strategy/PAPER.md` — mean reversion with news filter, 120+ DTE, max 10 positions
-- **Experiences**: `experience/` — living theses refined by trade evidence
+- **Strategy**: `strategy/PAPER.md` — unrestricted experimentation (any DTE, any strategy, no position limits)
+- **Experiences**: `experience/` — living theses refined by trade evidence and observational patterns
 - **Skills**: 3 OpenClaw skills (evaluate, status, history) — 1 autonomous, 2 interactive
 - **Cron**: Every 15 minutes during market hours via OpenClaw cron
 
@@ -16,19 +16,20 @@ Eva trades options autonomously in Tradier's sandbox environment, building an ex
 Paper and real trading are fully isolated:
 - **Config**: `tradier.json` has separate `paper` and `real` sections (only paper implemented)
 - **API**: Sandbox URL vs live URL — never mixed
-- **Local data**: `data/paper-trading/` vs `data/real-trading/` — separate directories
+- **Trading data**: `data/paper-trading/` vs `data/real-trading/` — separate directories for reasons, positions, logs
+- **Market data**: `data/paper/{TICKER}/` vs `data/live/{TICKER}/` — separate directories for snapshots, IV, and news (sandbox data is 15-min delayed vs real-time)
 - **Discord**: Separate channels per mode
 
 ## Local Data (What Tradier Doesn't Store)
 
 Tradier handles portfolio state, orders, and market data. We store only:
-- `reasons.json` — maps Tradier order IDs to Eva's reasoning at trade time
-- `known_positions.json` — tracks positions for closed-trade detection
+- `reasons.json` — maps Tradier order IDs to Eva's reasoning + rich market_context at trade time
+- `known_positions.json` — tracks positions for closed-trade detection, includes market_context (all Greeks, IV rank/percentile, price trends, news)
 - `log.jsonl` — append-only event log for debugging
 
 ## Closed Position Lifecycle
 
-1. `buy` command writes position to `known_positions.json` with entry context
+1. `buy` command writes position to `known_positions.json` with entry context and rich market_context (Greeks, IV rank, trends, news)
 2. Each `evaluate` call diffs `known_positions.json` against Tradier's current positions
 3. Missing positions = closed (sold, expired, or assigned)
 4. Closed positions appear in `recently_closed` output with `needs_experience_update: true`

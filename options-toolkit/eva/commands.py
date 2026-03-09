@@ -31,6 +31,7 @@ from eva.news import fetch_news, research
 from eva.storage import (
     data_dir,
     load_history,
+    load_iv_history,
     load_known_positions,
     load_previous,
     load_reasons,
@@ -40,9 +41,11 @@ from eva.storage import (
     save_snapshot,
 )
 from eva.symbols import build_occ_symbol, parse_occ_symbol
+from eva.news import fetch_headlines
 from eva.tradier import (
     fetch_balances,
     fetch_chain_raw,
+    fetch_history,
     fetch_options_chain,
     fetch_orders,
     fetch_positions,
@@ -142,6 +145,7 @@ def cmd_news_research(args):
             ticker,
             max_articles=args.max_articles,
             max_search=args.max_search,
+            queries=args.query,
         )
     except Exception as e:
         print(f"Error running news research for {ticker}: {e}", file=sys.stderr)
@@ -152,7 +156,7 @@ def cmd_news_research(args):
 def cmd_history(args):
     sym = args.ticker.upper()
     try:
-        snapshots = load_history(sym, days=args.days)
+        snapshots = load_history(sym, days=args.days, mode=args.mode)
     except Exception as e:
         print(f"Error loading history for {sym}: {e}", file=sys.stderr)
         sys.exit(1)
@@ -182,7 +186,7 @@ def cmd_history(args):
 def cmd_summary(args):
     sym = args.ticker.upper()
     try:
-        output = format_summary(sym, force=args.force)
+        output = format_summary(sym, mode=args.mode, force=args.force)
     except Exception as e:
         print(f"Error generating summary for {sym}: {e}", file=sys.stderr)
         sys.exit(1)
@@ -194,7 +198,7 @@ def cmd_report(args):
     cfg = load_config(args.mode)
     sym = args.ticker.upper()
     try:
-        output = format_report(cfg, sym, force=args.force)
+        output = format_report(cfg, sym, mode=args.mode, force=args.force)
     except Exception as e:
         print(f"Error generating report for {sym}: {e}", file=sys.stderr)
         sys.exit(1)
@@ -202,7 +206,7 @@ def cmd_report(args):
         if args.json:
             # For JSON mode, build structured data
             chain_data = fetch_options_chain(cfg, sym)
-            prev = load_previous(sym)
+            prev = load_previous(sym, mode=args.mode)
             calls = chain_data["calls"]
             puts = chain_data["puts"]
             avg_call_iv = mean([c["iv"] for c in calls]) if calls else 0
@@ -356,19 +360,80 @@ def cmd_buy(args):
         # Get quote for entry context
         quote = fetch_quote(cfg, ticker)
         entry_price = quote.get("last", 0) or 0
+        change_pct = quote.get("change_percentage", 0) or 0
+        if isinstance(change_pct, str):
+            change_pct = float(change_pct.replace("%", ""))
 
-        # Get IV for entry context
+        # Get chain data — Greeks + ask price in one fetch
         entry_iv = 0
+        option_greeks = {}
+        ask_price = 0
         try:
             chain = fetch_chain_raw(cfg, ticker, args.expiry)
             for opt in chain:
                 if opt.get("symbol") == occ:
                     greeks = opt.get("greeks", {})
                     entry_iv = round((greeks.get("mid_iv") or greeks.get("smv_vol", 0) or 0) * 100, 1)
+                    option_greeks = {
+                        "delta": round(greeks.get("delta", 0) or 0, 3),
+                        "gamma": round(greeks.get("gamma", 0) or 0, 4),
+                        "theta": round(greeks.get("theta", 0) or 0, 4),
+                        "vega": round(greeks.get("vega", 0) or 0, 4),
+                        "rho": round(greeks.get("rho", 0) or 0, 4),
+                    }
+                    ask_price = opt.get("ask", 0) or 0
                     break
         except Exception:
             pass
 
+        # Get IV context
+        iv_context = {}
+        try:
+            from eva.analysis import compute_iv_rank
+            iv_history = load_iv_history(ticker, mode=args.mode)
+            if entry_iv and iv_history:
+                avg_ivs = [(d, (c + p) / 2) for d, c, p in iv_history]
+                iv_rank, iv_pct = compute_iv_rank(entry_iv, avg_ivs)
+                all_ivs = [(c + p) / 2 for _, c, p in iv_history]
+                iv_context = {
+                    "iv_rank": iv_rank,
+                    "iv_percentile": iv_pct,
+                    "iv_52w_high": round(max(all_ivs), 1),
+                    "iv_52w_low": round(min(all_ivs), 1),
+                }
+        except Exception:
+            pass
+
+        # Get price trends
+        trends_snapshot = {}
+        try:
+            from eva.analysis import compute_trends
+            history_data = fetch_history(cfg, ticker, days=365)
+            trends = compute_trends(history_data, entry_price)
+            trends_snapshot = {
+                "sma_signal": trends.get("sma_signal"),
+                "sma_50": trends.get("sma_50"),
+                "sma_200": trends.get("sma_200"),
+                "price_vs_52w_pct": trends.get("price_vs_52w_pct"),
+                "price_52w_high": trends.get("price_52w_high"),
+                "price_52w_low": trends.get("price_52w_low"),
+                "returns": trends.get("returns", {}),
+                "trend_summary": trends.get("trend_summary"),
+            }
+        except Exception:
+            pass
+
+        # Save news headlines with trade context (lightweight — deep research
+        # should have been done before deciding to buy)
+        news_at_entry = []
+        try:
+            headlines = fetch_headlines(ticker, max_results=5)
+            news_at_entry = [{"title": h["title"], "publisher": h["publisher"], "date": h["date"]}
+                             for h in headlines]
+        except Exception:
+            pass
+
+        # Place order
         resp = tradier_post(cfg, f"/accounts/{cfg['account_id']}/orders", {
             "class": "option",
             "symbol": ticker,
@@ -383,33 +448,30 @@ def cmd_buy(args):
         status = resp.get("order", {}).get("status", "unknown")
         print(f"Order placed: {occ} x{args.quantity} \u2014 {status} (ID: {order_id})")
 
-        # Save reason
+        # Build rich market context
+        market_context = {
+            "price": entry_price,
+            "change_pct": round(change_pct, 2),
+            "iv": entry_iv,
+            "option_greeks": option_greeks,
+            "iv_context": iv_context,
+            "trends": trends_snapshot,
+            "news": news_at_entry,
+        }
+
+        # Save reason with rich context
         reasons = load_reasons(args.mode)
         reasons[order_id] = {
             "reason": args.reason,
             "timestamp": datetime.now(ET).isoformat(),
             "side": "buy_to_open",
             "symbol": occ,
-            "market_context": {
-                "price": entry_price,
-                "iv": entry_iv,
-            },
+            "market_context": market_context,
         }
         save_reasons(args.mode, reasons)
 
-        # Save known position
+        # Save known position with rich context
         known = load_known_positions(args.mode)
-        # Estimate cost from ask
-        ask_price = 0
-        try:
-            chain = fetch_chain_raw(cfg, ticker, args.expiry)
-            for opt in chain:
-                if opt.get("symbol") == occ:
-                    ask_price = opt.get("ask", 0) or 0
-                    break
-        except Exception:
-            pass
-
         known[occ] = {
             "order_id": order_id,
             "reason": args.reason,
@@ -423,6 +485,7 @@ def cmd_buy(args):
             "quantity": args.quantity,
             "cost_basis": round(ask_price * 100 * args.quantity, 2),
             "reflected": False,
+            "market_context": market_context,
         }
         save_known_positions(args.mode, known)
 

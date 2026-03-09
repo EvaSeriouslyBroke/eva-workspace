@@ -16,7 +16,7 @@ Every non-obvious choice in the toolkit and why it was made. If you're wondering
 
 **Why Tradier wins**:
 1. **Unified data + trading** — Single API for market data, options chains with greeks, AND order execution. No need for separate data and trading providers.
-2. **IV per strike with greeks** — `mid_iv`, `smv_vol`, delta, gamma, theta, vega on every contract.
+2. **IV per strike with full greeks** — `mid_iv`, `smv_vol`, delta, gamma, theta, vega, rho, and open_interest on every contract.
 3. **Paper trading sandbox** — Free sandbox environment with identical API surface. Test strategies without risk.
 4. **Real-time data** — No 15-minute delay on quotes (sandbox has delays but live is real-time).
 5. **Clean REST API** — Well-documented, simple authentication, predictable responses.
@@ -89,7 +89,7 @@ Every non-obvious choice in the toolkit and why it was made. If you're wondering
 
 ## Why Week/Day File Grouping
 
-**Decision**: Store data as `data/{TICKER}/{YYYY}-W{WW}/{YYYY-MM-DD}.json` — one file per trading day, grouped in ISO 8601 week folders.
+**Decision**: Store data as `data/{mode}/{TICKER}/{YYYY}-W{WW}/{YYYY-MM-DD}.json` — one file per trading day, grouped in ISO 8601 week folders, separated by mode.
 
 **Alternatives**:
 - Single file per ticker — grows too large, slow to parse
@@ -99,7 +99,7 @@ Every non-obvious choice in the toolkit and why it was made. If you're wondering
 
 **Week/day grouping wins because**:
 1. **Manageable file sizes** — Each daily file has ~6 entries (~12KB). Easy to open, inspect, edit.
-2. **Natural browsing** — `ls data/IWM/` shows weeks. `ls data/IWM/2026-W08/` shows days. Intuitive.
+2. **Natural browsing** — `ls data/paper/IWM/` shows weeks. `ls data/paper/IWM/2026-W08/` shows days. Intuitive.
 3. **Easy comparison** — Finding "yesterday's data" is just looking at the previous day file in the same or adjacent week folder.
 4. **Simple implementation** — `mkdir -p` for the week folder, JSON array append for the day file.
 5. **No dependencies** — Just files and folders. No database driver.

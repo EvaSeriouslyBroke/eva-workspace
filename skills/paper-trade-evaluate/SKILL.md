@@ -26,6 +26,17 @@ Parses as a JSON array (one object per ticker).
 
 **Data guard:** Tradier sandbox data is 15 minutes delayed. Before ~9:45 AM ET, IV reads as 0% and quotes are unreliable. If `iv_context.current_avg_iv` is 0 or null, skip that ticker.
 
+Use everything to form your initial idea:
+- **Price action:** intraday OHLC, range position, recent daily candles, change percentages
+- **All Greeks:** delta, gamma, theta, vega, rho — for every near-money option
+- **IV context:** current IV, IV rank, IV percentile, 52-week IV high/low
+- **Trends:** SMA 50/200 signals, returns (1w/1m/3m/6m/1y), 52-week price range
+- **Volume & open interest:** per strike, put/call ratios
+- **News headlines:** today's cached headlines with sentiment
+- **Available expirations:** all expiries with DTE — look for short-term opportunities too
+
+**News-price correlation:** Compare `news_history` (14 days) with `market_history` (14 days of price + IV + Greeks) side by side. Look for patterns: did a specific news event precede a price move? Did IV spike before or after news? This is how you learn from history without having to trade first.
+
 ## 3. Process Recently Closed Positions
 
 If `recently_closed` contains positions with `needs_experience_update: true`:
@@ -41,10 +52,28 @@ For each ticker, apply `PAPER.md` rules to the evaluation data. Possible actions
 
 Write down each tentative decision with:
 - The ticker and planned action
-- The situation (price move, IV level, thesis)
-- Key tags describing the pattern (e.g., mean-reversion, dip, earnings-gap, iv-spike)
+- The full situation: price move, IV level, all relevant Greeks, thesis
+- What the news history and market history suggest (patterns you noticed)
+- Key tags describing the pattern (e.g., mean-reversion, dip, earnings-gap, iv-spike, momentum, theta-decay, gamma-scalp, news-driven)
 
-## 5. Recall Experiences
+## 5. Deep News Research
+
+For each ticker where you plan to **buy or double down**, run deep news research:
+
+```bash
+python3 {baseDir}/../../options-toolkit/eva.py news-research --ticker {TICKER}
+```
+
+This fetches full article content — not just headlines. Read it carefully:
+- Is there a fundamental reason behind the move? (earnings, acquisitions, regulatory, macro)
+- Does the news support or contradict your thesis?
+- Could this move continue based on what you're reading?
+
+If the deep research contradicts your tentative decision, reconsider before proceeding. Include what you learned in your reasoning.
+
+**Do NOT run news-research for holds** — only for actionable tickers.
+
+## 6. Recall Experiences
 
 Before executing, check your memory for similar past situations. Spawn an Agent (subagent_type: Explore) for each ticker where you plan to act (buy, sell, or double down — skip holds):
 
@@ -66,18 +95,19 @@ Before executing, check your memory for similar past situations. Spawn an Agent 
 
 You may launch multiple recall agents in parallel (one per ticker).
 
-## 6. Finalize Decisions
+## 7. Final Verdict
 
-Review the recall agent's findings for each ticker:
+Review deep news findings AND experience recall for each ticker:
 
-- **Supporting experience (medium/high confidence):** Proceed with more conviction. Note the experience in your reasoning.
+- **News contradicts thesis:** Back out or adjust. Don't trade against fundamental moves.
+- **Supporting experience (medium/high confidence):** Proceed with more conviction.
 - **Contradicting experience:** Reconsider. The thesis may need adjustment or the trade may not be worth taking.
 - **Disproven experience:** Do NOT repeat the same mistake. Adjust or skip.
-- **No relevant experiences:** Proceed based on strategy rules alone — this is a new pattern to learn from.
+- **No relevant experiences:** Proceed based on strategy rules and news research alone — this is a new pattern to learn from.
 
-If the recall changes your decision, explain why in the `--reason`.
+If news or recall changes your decision, explain why.
 
-## 7. Execute
+## 8. Execute
 
 Buy:
 ```bash
@@ -89,12 +119,18 @@ Sell:
 python3 {baseDir}/../../options-toolkit/eva.py sell --ticker {TICKER} --type {call|put} --strike {STRIKE} --expiry {YYYY-MM-DD} --quantity 1 --reason "{DETAILED_REASONING}"
 ```
 
-`--reason` must be detailed — it feeds `reasons.json` and the experience system. Include any relevant experience findings.
+`--reason` must be detailed — it feeds `reasons.json` and the experience system. Include:
+- What pattern you saw (price action, Greeks, IV, volume)
+- What the news said (from deep research)
+- What your experiences told you
+- What the news-price history showed you
+- Why you decided to proceed (or why you backed out of a tentative trade)
 
-## 8. Report
+## 9. Report
 
 - **Trade action:** `buy`/`sell` commands auto-send Discord notifications.
 - **Experience update:** Post a brief note about what was learned.
+- **Observational experience:** If you noticed a strong news-price pattern but didn't trade on it, you may create an experience file to remember it for next time.
 - **Hold (no action):** Stay silent.
 
 ## Guardrails

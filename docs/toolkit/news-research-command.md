@@ -9,22 +9,23 @@ It produces JSON output for Eva to synthesize into analysis.
 ## Usage
 
 ```
-python3 eva.py news-research --ticker <SYM> [--max-articles 3] [--max-search 5]
+python3 eva.py news-research --ticker <SYM> [--max-articles 3] [--max-search 5] [--query "custom search"]
 ```
 
 | Flag | Default | Description |
 |------|---------|-------------|
 | `--ticker` | required | Ticker symbol |
 | `--max-articles` | 3 | Max articles to extract full content from |
-| `--max-search` | 5 | Max DuckDuckGo search results |
+| `--max-search` | 5 | Max DuckDuckGo search results per query |
+| `--query` | `"{TICKER} stock news"` | Custom search query (repeatable). Eva can pass multiple `--query` flags to search for specific topics. |
 
 ---
 
 ## What It Does
 
-1. **Fetches DuckDuckGo news headlines** — Same as `eva.py news`, extracts article URLs and summaries
+1. **Fetches yfinance news headlines** — Same as `eva.py news`, extracts article URLs and summaries
 2. **Extracts full article text** — Uses `trafilatura` to download and extract content from the top N article URLs (concurrent, 15s timeout per article)
-3. **Searches DuckDuckGo** — Queries `"{TICKER} stock news"` for recent results with snippets
+3. **Searches DuckDuckGo** — Runs each `--query` (or default `"{TICKER} stock news"`) for recent results with snippets. Multiple queries are searched independently and results combined.
 4. **Runs sentiment scoring** — Same keyword-based algorithm as `eva.py news`
 5. **Outputs JSON** — All data as structured JSON to stdout
 
@@ -44,9 +45,10 @@ python3 eva.py news-research --ticker <SYM> [--max-articles 3] [--max-search 5]
 ### Web Search
 
 - Uses `duckduckgo-search` library (`DDGS.news()` method)
-- Query: `"{TICKER} stock news"`
+- Runs each `--query` independently (default: `"{TICKER} stock news"`)
 - Returns title, URL, snippet, and source for each result
-- Failures are captured gracefully (empty results + error message)
+- Results from all queries are combined in `web_search` array
+- Failures are captured gracefully per query (empty results + error message)
 
 ---
 
@@ -57,6 +59,7 @@ python3 eva.py news-research --ticker <SYM> [--max-articles 3] [--max-search 5]
   "ticker": "IWM",
   "timestamp": "2026-02-25T14:30:00-05:00",
   "coverage_quality": "full",
+  "queries": ["IWM stock news"],
   "headlines": [
     {
       "title": "Fed Signals Patience...",
@@ -97,7 +100,7 @@ python3 eva.py news-research --ticker <SYM> [--max-articles 3] [--max-search 5]
 | Value | Meaning |
 |-------|---------|
 | `trafilatura` | Full content successfully extracted |
-| `summary_fallback` | Extraction failed, used DuckDuckGo summary instead |
+| `summary_fallback` | Extraction failed, used headline summary instead |
 | `failed` | No content available |
 
 ### `coverage_quality` Values
@@ -115,7 +118,8 @@ python3 eva.py news-research --ticker <SYM> [--max-articles 3] [--max-search 5]
 | Package | Purpose |
 |---------|---------|
 | `trafilatura` | Article content extraction from URLs (only imported when news-research runs) |
-| `duckduckgo-search` | News headline fetching and web search |
+| `yfinance` | News headline fetching |
+| `duckduckgo-search` | Web search for custom queries |
 
 ---
 
@@ -123,7 +127,7 @@ python3 eva.py news-research --ticker <SYM> [--max-articles 3] [--max-search 5]
 
 | Scenario | Behavior |
 |----------|----------|
-| No headlines from DuckDuckGo | stderr message, exit 1 |
+| No headlines from yfinance | stderr message, exit 1 |
 | Paywalled article | Falls back to summary, logs in `errors` array |
 | trafilatura timeout | Falls back to summary, logs in `errors` array |
 | DuckDuckGo rate limited | Empty `web_search`, error logged |

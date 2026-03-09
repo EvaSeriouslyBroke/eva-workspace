@@ -45,6 +45,7 @@ def main():
     p_news_research.add_argument("--ticker", required=True)
     p_news_research.add_argument("--max-articles", type=int, default=3)
     p_news_research.add_argument("--max-search", type=int, default=5)
+    p_news_research.add_argument("--query", action="append", help="Custom search query (repeatable; default: '{TICKER} stock news')")
 
     p_history = subparsers.add_parser("history", help="IV snapshot history")
     p_history.add_argument("--ticker", required=True)

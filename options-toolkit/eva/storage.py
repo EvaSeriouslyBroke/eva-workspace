@@ -1,4 +1,4 @@
-"""All file persistence — snapshots, reasons, positions, log, IV."""
+"""All file persistence — snapshots, reasons, positions, log, IV, news."""
 
 import json
 import os
@@ -7,7 +7,18 @@ from datetime import date, datetime, timedelta
 from eva import BASE_DIR, ET
 
 
-# ── Report snapshot storage (data/{TICKER}/{YYYY}-W{WW}/{date}.json) ─────────
+# ── Mode-aware base directories ──────────────────────────────────────────────
+
+def market_data_dir(mode):
+    """Return the market data base directory for a trading mode.
+
+    Paper and live modes store market data separately because Tradier sandbox
+    data is 15-minute delayed vs real-time for live.
+    """
+    return os.path.join(BASE_DIR, mode)
+
+
+# ── Report snapshot storage (data/{mode}/{TICKER}/{YYYY}-W{WW}/{date}.json) ──
 
 def _get_file_path(base, ticker, d):
     iso_year, iso_week, _ = d.isocalendar()
@@ -15,9 +26,9 @@ def _get_file_path(base, ticker, d):
     return os.path.join(week_dir, f"{d.isoformat()}.json")
 
 
-def save_snapshot(sym, data, base_dir=BASE_DIR):
+def save_snapshot(sym, data, mode="paper"):
     today = date.today()
-    path = _get_file_path(base_dir, sym, today)
+    path = _get_file_path(market_data_dir(mode), sym, today)
     os.makedirs(os.path.dirname(path), exist_ok=True)
     if os.path.exists(path):
         with open(path, "r") as f:
@@ -32,9 +43,10 @@ def save_snapshot(sym, data, base_dir=BASE_DIR):
         json.dump(snapshots, f, indent=2)
 
 
-def load_previous(sym, base_dir=BASE_DIR):
+def load_previous(sym, mode="paper"):
+    base = market_data_dir(mode)
     today = date.today()
-    today_path = _get_file_path(base_dir, sym, today)
+    today_path = _get_file_path(base, sym, today)
     if os.path.exists(today_path):
         try:
             with open(today_path, "r") as f:
@@ -45,7 +57,7 @@ def load_previous(sym, base_dir=BASE_DIR):
             pass
     for days_back in range(1, 11):
         check_date = today - timedelta(days=days_back)
-        check_path = _get_file_path(base_dir, sym, check_date)
+        check_path = _get_file_path(base, sym, check_date)
         if os.path.exists(check_path):
             try:
                 with open(check_path, "r") as f:
@@ -57,14 +69,15 @@ def load_previous(sym, base_dir=BASE_DIR):
     return None
 
 
-def load_history(sym, days=5, base_dir=BASE_DIR):
+def load_history(sym, days=5, mode="paper"):
     results = []
+    base = market_data_dir(mode)
     today = date.today()
     days_checked = 0
     days_found = 0
     d = today
     while days_found < days and days_checked < 10:
-        path = _get_file_path(base_dir, sym, d)
+        path = _get_file_path(base, sym, d)
         if os.path.exists(path):
             try:
                 with open(path, "r") as f:
@@ -79,10 +92,10 @@ def load_history(sym, days=5, base_dir=BASE_DIR):
     return results
 
 
-def load_today_snapshots(sym, base_dir=BASE_DIR):
+def load_today_snapshots(sym, mode="paper"):
     """Load all snapshots from today."""
     today = date.today()
-    path = _get_file_path(base_dir, sym, today)
+    path = _get_file_path(market_data_dir(mode), sym, today)
     if not os.path.exists(path):
         return []
     try:
@@ -141,38 +154,95 @@ def log_event(mode, event_data):
         f.write(json.dumps(event_data) + "\n")
 
 
-# ── IV snapshot storage (data/{TICKER}/iv/) ──────────────────────────────────
+# ── Market snapshot storage (data/{mode}/{TICKER}/iv/) ───────────────────────
+# Named "iv" for backward compatibility with existing data directories.
 
-def iv_snapshot_dir(ticker):
-    """Return the IV snapshot directory for a ticker."""
-    d = os.path.join(BASE_DIR, ticker.upper(), "iv")
+def market_snapshot_dir(ticker, mode="paper"):
+    """Return the market snapshot directory for a ticker within a mode."""
+    d = os.path.join(market_data_dir(mode), ticker.upper(), "iv")
     os.makedirs(d, exist_ok=True)
     return d
 
 
-def save_iv_snapshot(ticker, avg_call_iv, avg_put_iv):
-    """Save an IV data point for a ticker. One file per day."""
+def save_market_snapshot(ticker, price, avg_call_iv, avg_put_iv,
+                         avg_call_greeks=None, avg_put_greeks=None,
+                         mode="paper"):
+    """Save a market data point for a ticker. One file per day.
+
+    Stores stock price, call/put IV, and average near-money Greeks.
+    """
     if not avg_call_iv and not avg_put_iv:
         return
     today = date.today().isoformat()
-    path = os.path.join(iv_snapshot_dir(ticker), f"{today}.json")
+    path = os.path.join(market_snapshot_dir(ticker, mode), f"{today}.json")
     snapshots = []
     if os.path.exists(path):
-        with open(path) as f:
-            snapshots = json.load(f)
-    snapshots.append({
+        try:
+            with open(path) as f:
+                snapshots = json.load(f)
+        except (json.JSONDecodeError, TypeError):
+            snapshots = []
+    entry = {
         "ts": datetime.now(ET).isoformat(),
+        "price": price,
         "avg_call_iv": avg_call_iv,
         "avg_put_iv": avg_put_iv,
-        "avg_iv": round(((avg_call_iv or 0) + (avg_put_iv or 0)) / 2, 1) if (avg_call_iv or avg_put_iv) else None,
-    })
+    }
+    if avg_call_greeks:
+        entry["avg_call_greeks"] = avg_call_greeks
+    if avg_put_greeks:
+        entry["avg_put_greeks"] = avg_put_greeks
+    snapshots.append(entry)
     with open(path, "w") as f:
         json.dump(snapshots, f, indent=2)
 
 
-def load_iv_history(ticker, days=365):
-    """Load IV history for a ticker. Returns list of (date, avg_iv) tuples."""
-    snap_dir = iv_snapshot_dir(ticker)
+def load_market_history(ticker, days=7, mode="paper"):
+    """Load recent market snapshots for a ticker.
+
+    Returns list of dicts (most recent first) with date, price, IV, and Greeks.
+    Uses the last snapshot of each day.
+    """
+    snap_dir = market_snapshot_dir(ticker, mode)
+    cutoff = (date.today() - timedelta(days=days)).isoformat()
+    history = []
+    if not os.path.isdir(snap_dir):
+        return history
+    for fname in sorted(os.listdir(snap_dir), reverse=True):
+        if not fname.endswith(".json"):
+            continue
+        day_str = fname.replace(".json", "")
+        if day_str < cutoff:
+            continue
+        path = os.path.join(snap_dir, fname)
+        try:
+            with open(path) as f:
+                snapshots = json.load(f)
+            if snapshots:
+                last = snapshots[-1]
+                entry = {
+                    "date": day_str,
+                    "price": last.get("price"),
+                    "avg_call_iv": last.get("avg_call_iv"),
+                    "avg_put_iv": last.get("avg_put_iv"),
+                }
+                if last.get("avg_call_greeks"):
+                    entry["avg_call_greeks"] = last["avg_call_greeks"]
+                if last.get("avg_put_greeks"):
+                    entry["avg_put_greeks"] = last["avg_put_greeks"]
+                history.append(entry)
+        except Exception:
+            continue
+    return history
+
+
+def load_iv_history(ticker, days=365, mode="paper"):
+    """Load IV history for a ticker.
+
+    Returns list of (date, call_iv, put_iv) tuples. Falls back to avg_iv
+    for backward compatibility with old snapshot files.
+    """
+    snap_dir = market_snapshot_dir(ticker, mode)
     cutoff = (date.today() - timedelta(days=days)).isoformat()
     history = []
     if not os.path.isdir(snap_dir):
@@ -189,9 +259,71 @@ def load_iv_history(ticker, days=365):
                 snapshots = json.load(f)
             if snapshots:
                 last = snapshots[-1]
-                iv = last.get("avg_iv")
-                if iv:
-                    history.append((day_str, iv))
+                call_iv = last.get("avg_call_iv")
+                put_iv = last.get("avg_put_iv")
+                if call_iv or put_iv:
+                    history.append((day_str, call_iv or 0, put_iv or 0))
+                elif last.get("avg_iv"):
+                    # Backward compat: old files only have avg_iv
+                    iv = last["avg_iv"]
+                    history.append((day_str, iv, iv))
+        except Exception:
+            continue
+    return history
+
+
+# ── News snapshot storage (data/{mode}/{TICKER}/news/) ───────────────────────
+
+def save_news_snapshot(mode, ticker, headlines):
+    """Save news headlines for a ticker. One file per day, appends snapshots."""
+    ticker = ticker.upper()
+    d = os.path.join(market_data_dir(mode), ticker, "news")
+    os.makedirs(d, exist_ok=True)
+    today = date.today().isoformat()
+    path = os.path.join(d, f"{today}.json")
+    snapshots = []
+    if os.path.exists(path):
+        try:
+            with open(path) as f:
+                snapshots = json.load(f)
+        except (json.JSONDecodeError, TypeError):
+            snapshots = []
+    snapshots.append({
+        "ts": datetime.now(ET).isoformat(),
+        "headlines": headlines,
+    })
+    with open(path, "w") as f:
+        json.dump(snapshots, f, indent=2)
+
+
+
+def load_news_history(mode, ticker, days=7):
+    """Load recent news history for a ticker.
+
+    Returns list of dicts with date and headlines, most recent first.
+    """
+    ticker = ticker.upper()
+    news_dir = os.path.join(market_data_dir(mode), ticker, "news")
+    if not os.path.isdir(news_dir):
+        return []
+    cutoff = (date.today() - timedelta(days=days)).isoformat()
+    history = []
+    for fname in sorted(os.listdir(news_dir), reverse=True):
+        if not fname.endswith(".json"):
+            continue
+        day_str = fname.replace(".json", "")
+        if day_str < cutoff:
+            continue
+        path = os.path.join(news_dir, fname)
+        try:
+            with open(path) as f:
+                snapshots = json.load(f)
+            if snapshots:
+                last = snapshots[-1]
+                history.append({
+                    "date": day_str,
+                    "headlines": last.get("headlines", []),
+                })
         except Exception:
             continue
     return history

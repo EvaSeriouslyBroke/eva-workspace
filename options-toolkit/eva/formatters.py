@@ -351,12 +351,12 @@ def format_iv_summary(data, prev):
 
 # ── End-of-day summary (fetches + formats) ────────────────────────────────────
 
-def format_summary(sym, force=False):
+def format_summary(sym, mode="paper", force=False):
     """Generate end-of-day summary comparing open to close."""
     if not force and not is_summary_time():
         return ""
 
-    snapshots = load_today_snapshots(sym)
+    snapshots = load_today_snapshots(sym, mode=mode)
     if len(snapshots) < 2:
         return ""
 
@@ -566,14 +566,14 @@ def format_summary(sym, force=False):
 
 # ── Full report (fetches + formats) ──────────────────────────────────────────
 
-def format_report(cfg, sym, force=False):
+def format_report(cfg, sym, mode="paper", force=False):
     # Market hours check
     if not force and not is_scheduled_time():
         return ""
 
     # Fetch data
     chain_data = fetch_options_chain(cfg, sym)
-    prev = load_previous(sym)
+    prev = load_previous(sym, mode=mode)
 
     price = chain_data["current_price"]
 
@@ -694,7 +694,7 @@ def format_report(cfg, sym, force=False):
     chunks.append(iv_chunk)
 
     # Save snapshot
-    save_snapshot(sym, snapshot)
+    save_snapshot(sym, snapshot, mode=mode)
 
     return "\n---SPLIT---\n".join(chunks)
 

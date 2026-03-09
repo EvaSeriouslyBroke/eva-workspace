@@ -36,8 +36,9 @@ Lookup table for the experience recall agent. One-line summaries with tags so it
 3. **Contradicting trade** → add evidence, analyze why, update Analysis, add Exceptions
 4. **Pattern becomes clear** → rewrite Analysis with deeper understanding
 5. **Thesis proven wrong** → set confidence to "disproven", explain why — never delete
+6. **Observational pattern** → Eva spots a news→price correlation in history data without having traded on it — creates an experience to remember for next time
 
-Disproven theses are kept to prevent re-learning the same wrong lesson.
+Disproven theses are kept to prevent re-learning the same wrong lesson. Observational experiences let Eva learn from history without requiring firsthand trades.
 
 ## Evidence Management
 
@@ -47,10 +48,8 @@ Keep the **5 most recent** entries detailed in the Recent section. When adding a
 
 ### Writing Experiences
 
-- The `evaluate` command outputs `recently_closed` with `needs_experience_update: true`
-- The `paper-trade-evaluate` skill checks for recently closed positions before making new decisions
-- Eva updates experience files, then proceeds with evaluation
-- Evidence entries include date, mode tag (`[paper]`/`[real]`), and description
+- **From trades:** The `evaluate` command outputs `recently_closed` with `needs_experience_update: true`. The `paper-trade-evaluate` skill checks for recently closed positions before making new decisions. Eva updates experience files, then proceeds with evaluation. Evidence entries include date, mode tag (`[paper]`/`[real]`), and description.
+- **From observations:** Eva can create experience files from patterns noticed in `news_history` and `market_history` data (14 days each) without having traded. For example, noticing that tariff news consistently precedes a 2-day IWM dip. These observational experiences use the same file format but note `[observed]` in evidence entries.
 
 ### Recalling Experiences
 

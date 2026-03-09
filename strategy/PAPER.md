@@ -2,68 +2,62 @@
 
 ## Purpose
 
-Learn and build experiences. Trade frequently. Losses are data.
+Experiment freely. Find patterns. Build confidence through volume. Every trade
+is data — wins teach what works, losses teach what doesn't.
 
-## Core Approach: Mean Reversion with News Filter
+## Core Approach: Unrestricted Experimentation
 
-Buy options betting that extreme moves will reverse — unless there's a
-fundamental reason they won't.
+Eva has full freedom to explore any strategy, any timeframe, any thesis.
+The goal is pattern recognition across as many market conditions as possible.
 
 ## Rules
 
-### Entry Criteria
-1. **Only trade 120+ DTE options.** Never buy weeklies or short-dated.
-2. **Stock is soaring → buy a put.** Expect a pullback.
-3. **Stock is dipping → buy a call.** Expect a recovery.
-4. **Never trade on high IV.** If IV is elevated, options are too
-   expensive — the mean reversion needs to be larger to profit.
-5. **News filter:** Before trading against a move, analyze the news.
-   If there's a fundamental reason the move should continue (earnings
-   blowout, major acquisition, regulatory action), do NOT trade against it.
-   Only trade when the move looks like overreaction or momentum without substance.
+### What's On the Table
+- **Any DTE** — weeklies, monthlies, LEAPs, anything. Short-term plays welcome.
+- **Any strategy** — mean reversion, momentum, earnings plays, news-driven,
+  technical breakouts, volatility plays, whatever Eva sees a pattern in.
+- **Multiple simultaneous theses** — test different ideas at the same time.
+  Compare which patterns hold up and which don't.
+- **No position count limits** — trade as much as settled cash allows.
+- **Any position size** — one contract is fine. Multiple contracts is fine.
 
-### Position Limits
-- Max 10 open positions at a time.
-- Can only use **settled cash** — unsettled funds from closed trades take 1 day to clear.
-- Can use up to 100% of settled cash on a single trade.
-- No minimum position size — even one contract is fine.
-- No duplicate positions (same ticker, type, strike, expiry).
+### Hard Constraints
+- **Only settled cash** — unsettled funds take 1 day to clear.
+- **No duplicate OCC symbols** — can't hold the same exact option twice.
+  Different strikes/expiries on the same ticker are fine.
+- **No far OTM options** — only buy near-the-money or slightly OTM. Far OTM
+  options have terrible odds and decay fast. Stick to strikes with meaningful
+  delta (roughly |delta| >= 0.20).
 
-### Doubling Down
-- If an open position is moving against the thesis (e.g., bought a call and
-  the stock keeps dipping), consider buying another contract at a better
-  strike — the mean reversion thesis is now stronger if fundamentals haven't
-  changed.
-- Re-check the news filter before adding. If there's a fundamental reason the
-  move should continue, do NOT double down — cut losses instead.
-- IV must still not be elevated. A move against the thesis often spikes IV,
-  making additional contracts expensive. Only add if IV is reasonable.
-- Same position limits apply — the new position counts toward the 10-position
-  max and must use settled cash.
-- Use a different strike (closer to current price) so the new contract has
-  better leverage on the expected reversal. Same expiry is fine.
-- Max one double-down per ticker — don't layer three or four positions on the
-  same thesis.
+### Entry
+- Use all available data: price action, Greeks, IV rank, trends, news,
+  historical patterns, volume, open interest — the full picture.
+- Document the thesis clearly. What pattern are you seeing? What do you
+  expect to happen and why? What would prove you wrong?
+- Check news before trading. Understand whether the move has a fundamental
+  driver or is noise.
 
-### Exit Criteria
-- **Sell when the market is about to move against the position.** Target peaks — don't wait for full reversal to unwind.
-- Compare current conditions to `entry_context` — has the underlying moved as expected? Has IV changed? Is the original thesis still valid?
-- Cut losses if the thesis is clearly wrong (news changes, trend accelerates, entry_context shows conditions have fundamentally shifted).
-- Re-evaluate every position each cycle — don't just hold and forget.
-- Use judgment — no hard stop-loss percentages for now.
+### Exit
+- Re-evaluate every position each cycle.
+- Sell when the thesis has played out, is clearly wrong, or conditions change.
+- No hard stop-loss percentages — use judgment based on the full picture.
+- Track what made you exit and whether it was the right call.
 
 ### Learning Priority
-- **Trade more, not less.** The goal is to build experiences.
-- Lean toward taking trades even when uncertain — paper exists to learn
-  from mistakes.
-- Every trade (win or loss) is valuable data for the experience system.
-- Document reasoning thoroughly so experiences are rich.
-- When a trade closes, ALWAYS reflect and update the relevant experience.
+- **Trade more, not less.** Volume of trades = volume of data.
+- **Document everything.** Rich reasoning at entry and exit feeds the
+  experience system.
+- **Reflect after every close.** Update the relevant experience with what
+  happened and why.
+- **Look for cross-ticker patterns.** Does something that works for IWM
+  also work for SPY? Record it.
+- **Test edge cases.** Trade into earnings, trade on Fed days, trade on
+  low IV — find out where patterns break down.
 
 ## Testing
 
-User-suggested or Eva-proposed rule changes under evaluation.
-Add entries here with the date and source. Promote to core rules or
+User-suggested or Eva-proposed experiments under evaluation.
+Add entries here with the date and source. Promote to core knowledge or
 remove based on paper trading results.
 
 (none yet)

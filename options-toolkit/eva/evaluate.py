@@ -3,10 +3,12 @@
 from datetime import date, datetime
 
 from eva import ET
-from eva.analysis import _num, build_chain_summary, compute_iv_rank, compute_trends
+from eva.analysis import _num, build_chain_summary, compute_iv_rank, compute_trends, score_sentiment
+from eva.news import fetch_headlines
 from eva.storage import (
-    load_iv_history, load_known_positions, load_reasons,
-    save_iv_snapshot,
+    load_iv_history, load_known_positions, load_market_history,
+    load_news_history, load_reasons,
+    save_market_snapshot, save_news_snapshot,
 )
 from eva.symbols import parse_occ_symbol
 from eva.tradier import (
@@ -147,6 +149,9 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None)
                     "entry_iv": ki.get("entry_iv", 0),
                     "entry_date": ki.get("entry_date", ""),
                 }
+                # Include rich market context if available
+                if ki.get("market_context"):
+                    entry_ctx["market_context"] = ki["market_context"]
                 pos_ticker = parsed.get("ticker", "")
                 ctx_price = current_price if pos_ticker == ticker else 0
                 if not ctx_price and pos_ticker:
@@ -200,44 +205,87 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None)
         history_data = fetch_history(cfg, ticker, days=365)
         trends = compute_trends(history_data, current_price)
 
-        # Get chain for nearest 120+ DTE expiration
+        # Get available expirations with DTE
         expirations = fetch_expirations(cfg, ticker)
+        available_exps = []
         target_exp = None
         for exp in sorted(expirations):
             try:
                 exp_date = datetime.strptime(exp, "%Y-%m-%d").date()
-                if (exp_date - date.today()).days >= 120:
+                dte = (exp_date - date.today()).days
+                if dte >= 0:
+                    available_exps.append({"date": exp, "dte": dte})
+                if dte >= 120 and target_exp is None:
                     target_exp = exp
-                    break
             except Exception:
                 continue
 
+        # Fetch chain for nearest 120+ DTE (used for IV analytics)
         chain_summary = {}
         chain_data = []
         if target_exp:
             chain_data = fetch_chain_raw(cfg, ticker, target_exp)
             chain_summary = build_chain_summary(chain_data, current_price)
 
-        # Save IV snapshot and compute IV rank
+        # Compute average Greeks for near-money options
+        def _avg_greeks(options):
+            keys = ("delta", "gamma", "theta", "vega", "rho")
+            sums = {k: 0 for k in keys}
+            count = 0
+            for o in options:
+                greeks = o.get("greeks") or {}
+                if greeks.get("delta") is not None:
+                    for k in keys:
+                        sums[k] += greeks.get(k, 0) or 0
+                    count += 1
+            if not count:
+                return None
+            return {k: round(sums[k] / count, 4) for k in keys}
+
+        margin = current_price * 0.05
+        near_calls = [o for o in chain_data
+                      if o.get("option_type") == "call"
+                      and abs(o.get("strike", 0) - current_price) <= margin]
+        near_puts = [o for o in chain_data
+                     if o.get("option_type") == "put"
+                     and abs(o.get("strike", 0) - current_price) <= margin]
+        avg_call_greeks = _avg_greeks(near_calls)
+        avg_put_greeks = _avg_greeks(near_puts)
+
+        # Save market snapshot and compute IV rank
         avg_call_iv = chain_summary.get("avg_call_iv")
         avg_put_iv = chain_summary.get("avg_put_iv")
         if avg_call_iv and avg_call_iv > 0 and avg_put_iv and avg_put_iv > 0:
-            save_iv_snapshot(ticker, avg_call_iv, avg_put_iv)
+            save_market_snapshot(ticker, current_price, avg_call_iv, avg_put_iv,
+                                avg_call_greeks=avg_call_greeks,
+                                avg_put_greeks=avg_put_greeks, mode=mode)
 
         current_avg_iv = round(((avg_call_iv or 0) + (avg_put_iv or 0)) / 2, 1) if (avg_call_iv or avg_put_iv) else None
-        iv_history = load_iv_history(ticker)
-        iv_rank, iv_percentile = compute_iv_rank(current_avg_iv, iv_history)
+        iv_history = load_iv_history(ticker, mode=mode)
+        # IV rank uses average of call+put IV for percentile positioning
+        iv_rank, iv_percentile = compute_iv_rank(
+            current_avg_iv,
+            [(d, (c + p) / 2) for d, c, p in iv_history],
+        )
 
         iv_context = {
             "current_avg_iv": current_avg_iv,
+            "avg_call_iv": avg_call_iv,
+            "avg_put_iv": avg_put_iv,
             "iv_rank": iv_rank,
             "iv_percentile": iv_percentile,
             "data_points": len(iv_history),
         }
         if iv_history:
-            ivs = [iv for _, iv in iv_history]
-            iv_context["iv_52w_high"] = max(ivs)
-            iv_context["iv_52w_low"] = min(ivs)
+            call_ivs = [c for _, c, _ in iv_history]
+            put_ivs = [p for _, _, p in iv_history]
+            avg_ivs = [(c + p) / 2 for _, c, p in iv_history]
+            iv_context["iv_52w_high"] = round(max(avg_ivs), 1)
+            iv_context["iv_52w_low"] = round(min(avg_ivs), 1)
+            iv_context["call_iv_52w_high"] = round(max(call_ivs), 1)
+            iv_context["call_iv_52w_low"] = round(min(call_ivs), 1)
+            iv_context["put_iv_52w_high"] = round(max(put_ivs), 1)
+            iv_context["put_iv_52w_low"] = round(min(put_ivs), 1)
 
         # Intraday context
         intraday_high = _num(quote.get("high")) or current_price
@@ -276,6 +324,7 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None)
             "trends": trends,
             "chain_summary": chain_summary,
             "chain_expiration": target_exp,
+            "available_expirations": available_exps,
             "iv_context": iv_context,
         }
 
@@ -308,6 +357,12 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None)
                     "ask": ask,
                     "iv": round(iv_val * 100, 1) if iv_val else 0,
                     "delta": round((greeks.get("delta", 0) or 0), 3),
+                    "gamma": round((greeks.get("gamma", 0) or 0), 4),
+                    "theta": round((greeks.get("theta", 0) or 0), 4),
+                    "vega": round((greeks.get("vega", 0) or 0), 4),
+                    "rho": round((greeks.get("rho", 0) or 0), 4),
+                    "open_interest": opt.get("open_interest", 0) or 0,
+                    "volume": opt.get("volume", 0) or 0,
                     "cost": round(cost, 2),
                 })
         result["affordable_options"] = affordable
@@ -315,5 +370,36 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None)
     except Exception as e:
         result["market"] = {"error": str(e)}
         result["affordable_options"] = []
+
+    # Market history — recent days of price + IV + Greeks for pattern spotting
+    try:
+        result["market_history"] = load_market_history(ticker, days=14, mode=mode)
+    except Exception:
+        result["market_history"] = []
+
+    # News — fetch fresh headlines every evaluate cycle via yfinance.
+    # Deep news research is done separately (news-research command) only for
+    # tickers Eva wants to buy or double down on.
+    try:
+        headlines = fetch_headlines(ticker)
+        compact = [{"title": h["title"], "publisher": h["publisher"], "date": h["date"]}
+                    for h in headlines]
+        save_news_snapshot(mode, ticker, compact)
+
+        score, label, themes, warnings = score_sentiment(
+            [{"title": h.get("title", "")} for h in compact])
+        result["news"] = {
+            "headlines": compact,
+            "sentiment": {"label": label, "score": score},
+            "themes": themes,
+            "warnings": warnings,
+        }
+    except Exception:
+        result["news"] = {"headlines": [], "sentiment": None, "themes": [], "warnings": {}}
+
+    try:
+        result["news_history"] = load_news_history(mode, ticker, days=14)
+    except Exception:
+        result["news_history"] = []
 
     return result

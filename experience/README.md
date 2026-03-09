@@ -59,5 +59,6 @@ Keep the **5 most recent** entries detailed in the Recent section. When adding a
 2. **Supporting trade** → add recent evidence entry, optionally strengthen confidence
 3. **Contradicting trade** → add recent evidence, analyze why, update Analysis, add Exceptions
 4. **Proven wrong** → set confidence to "disproven", explain why in Analysis — never delete
-5. **Analysis section** gets rewritten (not appended) as understanding deepens
-6. **Evidence** stays compact — recent entries are detailed, older ones are summarized with counts
+5. **Observational pattern** → spotted in news_history + market_history correlation without trading → create experience with `[observed]` tag in evidence
+6. **Analysis section** gets rewritten (not appended) as understanding deepens
+7. **Evidence** stays compact — recent entries are detailed, older ones are summarized with counts

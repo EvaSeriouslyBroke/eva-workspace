@@ -28,7 +28,8 @@ python3 eva.py evaluate --all [--force]
 - `GET /markets/quotes?symbols=X` — current price
 - `GET /markets/history?symbol=X` — daily price history (1 year)
 - `GET /markets/options/expirations?symbol=X` — available expirations
-- `GET /markets/options/chains?symbol=X&expiration=DATE&greeks=true` — option chain
+- `GET /markets/options/chains?symbol=X&expiration=DATE&greeks=true` — option chain with all Greeks
+- yfinance news — fetches fresh headlines every evaluate cycle per ticker
 
 **Output:** Single ticker returns a JSON object; `--all` returns a JSON array. Each contains:
 - `account` — cash, settled/unsettled, equity
@@ -36,12 +37,18 @@ python3 eva.py evaluate --all [--force]
 - `recently_closed` — positions closed since last eval
 - `market.intraday` — today's open/high/low/last, change_pct, range_position (0=at low, 100=at high)
 - `market.recent_days` — last 5 trading days with OHLC and daily change_pct (most recent first)
+- `market.market_history` — 14 days of price, IV, and Greeks data
 - `market.trends` — SMA 50/200, returns (1w/1m/3m/6m/1y), 52-week range, trend_summary
-- `market.chain_summary` — near-money calls/puts with IV, delta, volume, P/C ratio
+- `market.chain_summary` — near-money calls/puts with all Greeks (IV, delta, gamma, theta, vega, rho, open_interest), volume, P/C ratio
 - `market.iv_context` — IV rank, IV percentile, 52-week IV high/low
-- `affordable_options` — options within settled_cash budget
+- `market.news` — current headlines with sentiment scores
+- `market.news_history` — 14-day news sentiment history from saved snapshots
+- `available_expirations` — all option expirations with DTE, so Eva can see short-term options too
+- `affordable_options` — options within settled_cash budget, with all Greeks (delta, gamma, theta, vega, rho, open_interest)
 
-**IV tracking:** Each evaluation saves an IV snapshot to `data/{TICKER}/iv/{date}.json`. Over time this builds a history used to compute `iv_context` — IV rank (position in 52-week range), IV percentile (% of days IV was lower), and 52-week high/low.
+**IV tracking:** Each evaluation saves an IV snapshot to `data/{mode}/{TICKER}/iv/{date}.json`. Over time this builds a history used to compute `iv_context` — IV rank (position in 52-week range), IV percentile (% of days IV was lower), and 52-week high/low.
+
+**News tracking:** Each evaluation fetches fresh headlines from yfinance and saves a snapshot to `data/{mode}/{TICKER}/news/{date}.json` (appended each cycle). The 14-day history is included in evaluation output as `news_history`. Deep news research is done separately via the `news-research` command, only for tickers Eva wants to buy or double down on.
 
 **Local files read:** `known_positions.json`, `reasons.json`
 
@@ -66,7 +73,7 @@ python3 eva.py status
 Place a buy_to_open market order.
 
 ```bash
-python3 eva.py buy --ticker IWM --type call --strike 265 --expiry 2026-06-30 --quantity 1 --reason "Mean reversion — IWM dipped 3%"
+python3 eva.py buy --ticker IWM --type call --strike 265 --expiry 2026-06-30 --quantity 1 --reason "IWM dipped 3% with elevated IV — expecting bounce"
 ```
 
 **Flags:**
@@ -79,9 +86,11 @@ python3 eva.py buy --ticker IWM --type call --strike 265 --expiry 2026-06-30 --q
 
 **Checks:** Duplicate position check before placing order.
 
-**API endpoints:** `GET /markets/quotes` (entry context), `GET /markets/options/chains` (entry IV), `POST /accounts/{id}/orders`
+**API endpoints:** `GET /markets/quotes` (entry context), `GET /markets/options/chains` (full Greeks), `GET /markets/history` (price trends), `POST /accounts/{id}/orders`
 
-**Local files written:** `reasons.json` (order ID → reasoning), `known_positions.json` (position tracker), `log.jsonl`
+**Market context captured at buy time:** The buy command captures rich market context including all option Greeks (IV, delta, gamma, theta, vega, rho), IV rank/percentile, price trends (SMA 50/200, 52-week position), and news headlines. This context is stored in both `reasons.json` and `known_positions.json` so it's available during later evaluation and experience reflection.
+
+**Local files written:** `reasons.json` (order ID → reasoning + market_context), `known_positions.json` (position tracker + market_context), `log.jsonl`
 
 **Discord:** Automatically sends a trade notification to the paper-trading channel.
 

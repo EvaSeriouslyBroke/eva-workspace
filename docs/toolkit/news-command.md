@@ -15,27 +15,27 @@ python3 eva.py news --ticker <SYM> [--json]
 ## What It Fetches
 
 ```python
-from duckduckgo_search import DDGS
+import yfinance as yf
 
-with DDGS() as ddgs:
-    results = list(ddgs.news(f"{ticker} stock news", max_results=8))
+t = yf.Ticker(ticker)
+results = t.news  # returns list of dicts with 'content' key
 ```
 
 ### Fields Extracted Per Article
 
 | Field | Source | Description |
 |-------|--------|-------------|
-| Title | `r['title']` | Headline text |
-| Publisher | `r['source']` | Source name (Reuters, CNBC, etc.) |
-| Date | `r['date']` | ISO timestamp → formatted as YYYY-MM-DD |
-| URL | `r['url']` | Article link (used by `eva.py news-research`) |
-| Summary | `r['body']` | Brief summary text (used by `eva.py news-research` as fallback) |
+| Title | `content['title']` | Headline text |
+| Publisher | `content['provider']['displayName']` | Source name (Reuters, CNBC, etc.) |
+| Date | `content['pubDate']` | ISO timestamp → formatted as YYYY-MM-DD |
+| URL | `content['canonicalUrl']['url']` | Article link (used by `eva.py news-research`) |
+| Summary | `content['summary']` | Brief summary text (used by `eva.py news-research` as fallback) |
 
 ### Limits
 
 - Display up to **8 headlines** (the most recent ones)
-- If DuckDuckGo returns fewer than 8, show all available
-- If DuckDuckGo returns 0, show warning: `⚠️  No news headlines available`
+- If yfinance returns fewer than 8, show all available
+- If yfinance returns 0, show warning: `⚠️  No news headlines available`
 
 ---
 
@@ -180,6 +180,6 @@ These lines appear ONLY when their condition is met:
 | No news available | Shows `⚠️  No news headlines available`, sentiment = Neutral (0) |
 | Invalid ticker | stderr message, exit 1 |
 | Network failure | stderr message, exit 1 |
-| DuckDuckGo rate limited | Warning to stderr, empty headlines |
+| yfinance API failure | Warning to stderr, empty headlines |
 | Headline missing publisher | Shows "Unknown" as publisher |
 | Headline missing date | Shows "N/A" as date |

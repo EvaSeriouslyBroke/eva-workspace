@@ -243,7 +243,12 @@ def build_chain_summary(chain_data, current_price):
                 "ask": o.get("ask"),
                 "iv": round((greeks.get("mid_iv") or greeks.get("smv_vol", 0) or 0) * 100, 1),
                 "delta": round(greeks.get("delta", 0) or 0, 3),
+                "gamma": round(greeks.get("gamma", 0) or 0, 4),
+                "theta": round(greeks.get("theta", 0) or 0, 4),
+                "vega": round(greeks.get("vega", 0) or 0, 4),
+                "rho": round(greeks.get("rho", 0) or 0, 4),
                 "volume": o.get("volume", 0),
+                "open_interest": o.get("open_interest", 0),
             })
         return result
 

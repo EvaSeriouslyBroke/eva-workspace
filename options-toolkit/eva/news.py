@@ -1,4 +1,4 @@
-"""News headlines (DuckDuckGo) and deep research (trafilatura)."""
+"""News headlines (yfinance) and deep research (trafilatura)."""
 
 import json
 import sys
@@ -9,38 +9,38 @@ from eva import ET
 from eva.analysis import score_sentiment
 
 
-# ── Headline fetching via DuckDuckGo ─────────────────────────────────────────
+# ── Headline fetching via yfinance ───────────────────────────────────────────
 
 def fetch_headlines(ticker, max_results=8):
-    """Fetch news headlines from DuckDuckGo news search."""
+    """Fetch news headlines from Yahoo Finance via yfinance."""
     try:
-        import warnings
-        warnings.filterwarnings("ignore", message=".*has been renamed.*")
-        from duckduckgo_search import DDGS
-        with DDGS() as ddgs:
-            results = list(ddgs.news(f"{ticker} stock news", max_results=max_results))
+        import yfinance as yf
+        t = yf.Ticker(ticker)
+        results = t.news or []
     except Exception as e:
-        print(f"Warning: DuckDuckGo news search failed: {e}", file=sys.stderr)
+        print(f"Warning: yfinance news fetch failed: {e}", file=sys.stderr)
         results = []
 
     parsed = []
-    for r in results:
+    for r in results[:max_results]:
+        content = r.get("content", {})
         date_str = "N/A"
-        raw_date = r.get("date", "")
+        raw_date = content.get("pubDate", "")
         if raw_date:
             try:
-                # DDGS returns dates like "2026-03-09T14:30:00+00:00"
                 dt = datetime.fromisoformat(raw_date.replace("Z", "+00:00"))
                 date_str = dt.strftime("%Y-%m-%d")
             except (ValueError, TypeError):
                 date_str = "N/A"
+        provider = content.get("provider", {})
+        canonical = content.get("canonicalUrl", {})
         parsed.append({
-            "title": r.get("title", ""),
-            "publisher": r.get("source", "Unknown"),
+            "title": content.get("title", ""),
+            "publisher": provider.get("displayName", "Unknown"),
             "date": date_str,
-            "url": r.get("url", ""),
-            "summary": r.get("body", ""),
-            "content_type": "",
+            "url": canonical.get("url", ""),
+            "summary": content.get("summary", ""),
+            "content_type": content.get("contentType", ""),
         })
     return parsed
 
@@ -159,14 +159,14 @@ def extract_articles_concurrent(articles, max_articles=3, max_content=3000):
 
 # ── Web search ───────────────────────────────────────────────────────────────
 
-def search_web(ticker, max_results=5):
-    """Search DuckDuckGo for recent news about the ticker."""
+def search_web(query, max_results=5):
+    """Search DuckDuckGo news for a given query string."""
     try:
         import warnings
         warnings.filterwarnings("ignore", message=".*has been renamed.*")
         from duckduckgo_search import DDGS
         with DDGS() as ddgs:
-            results = list(ddgs.news(f"{ticker} stock news", max_results=max_results))
+            results = list(ddgs.news(query, max_results=max_results))
         return [
             {
                 "title": r.get("title", ""),
@@ -182,8 +182,12 @@ def search_web(ticker, max_results=5):
 
 # ── Deep research orchestrator ───────────────────────────────────────────────
 
-def research(ticker, max_articles=3, max_search=5):
-    """Run full deep news research for a ticker. Returns dict."""
+def research(ticker, max_articles=3, max_search=5, queries=None):
+    """Run full deep news research for a ticker. Returns dict.
+
+    queries: optional list of custom DuckDuckGo search queries.
+             Defaults to ["{ticker} stock news"] if not provided.
+    """
     errors = []
 
     try:
@@ -197,9 +201,15 @@ def research(ticker, max_articles=3, max_search=5):
     )
     errors.extend(extraction_errors)
 
-    web_results, search_error = search_web(ticker, max_results=max_search)
-    if search_error:
-        errors.append(search_error)
+    if not queries:
+        queries = [f"{ticker} stock news"]
+
+    web_results = []
+    for q in queries:
+        results, search_error = search_web(q, max_results=max_search)
+        web_results.extend(results)
+        if search_error:
+            errors.append(search_error)
 
     score, label, themes, _ = score_sentiment(headlines)
 
@@ -220,6 +230,7 @@ def research(ticker, max_articles=3, max_search=5):
         "ticker": ticker,
         "timestamp": datetime.now(ET).isoformat(),
         "coverage_quality": coverage,
+        "queries": queries,
         "headlines": headline_output,
         "deep_articles": deep_articles,
         "web_search": web_results,

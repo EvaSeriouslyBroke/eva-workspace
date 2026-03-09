@@ -11,7 +11,7 @@ When generating a report, the toolkit needs the most recent previous snapshot to
 ### Step 1: Check Today's File
 
 ```
-data/{TICKER}/{current_week}/{today}.json
+data/{mode}/{TICKER}/{current_week}/{today}.json
 ```
 
 If this file exists and has entries, use the **last entry** (the most recent snapshot from earlier today — the current run has not been saved yet at this point). If no entries exist, move to Step 2.
@@ -26,7 +26,7 @@ Day -1, Day -2, Day -3, ..., Day -10
 
 For each day:
 1. Compute its week folder
-2. Check if `data/{TICKER}/{week}/{date}.json` exists
+2. Check if `data/{mode}/{TICKER}/{week}/{date}.json` exists
 3. If yes, use the last entry in the array
 
 There is no special weekend logic — the loop simply checks each calendar day. Weekends naturally have no data files, so they're skipped. This handles weekends, holidays, and any other gaps identically.
@@ -47,8 +47,8 @@ If no previous data is found:
 ## Pseudocode
 
 ```python
-def load_previous(ticker):
-    base = f"data/{ticker}"
+def load_previous(ticker, mode):
+    base = f"data/{mode}/{ticker}"
     today = date.today()
 
     # Step 1: Today's file

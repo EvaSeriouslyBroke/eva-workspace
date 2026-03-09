@@ -21,10 +21,10 @@ python3 eva.py history --ticker <SYM> [--days <N>] [--json]
 This command does NOT call any external API. It reads from the local data store:
 
 ```
-~/.openclaw/workspace/options-toolkit/data/{TICKER}/
+~/.openclaw/workspace/options-toolkit/data/{mode}/{TICKER}/
 ```
 
-It traverses week folders and daily JSON files to find recent snapshots.
+It traverses week folders and daily JSON files to find recent snapshots. The `mode` parameter (paper/live) determines which data directory to read from.
 
 ---
 
@@ -32,7 +32,7 @@ It traverses week folders and daily JSON files to find recent snapshots.
 
 1. Start with today's date
 2. Compute the week folder: `{YYYY}-W{WW}` (ISO 8601)
-3. Check if `data/{TICKER}/{week}/{date}.json` exists
+3. Check if `data/{mode}/{TICKER}/{week}/{date}.json` exists
 4. If yes, load all snapshots from that file and use the **last** one
 5. Step back one day, repeat
 6. When crossing a week boundary, compute the new week folder
@@ -43,13 +43,13 @@ It traverses week folders and daily JSON files to find recent snapshots.
 ```
 Looking for 5 trading days on 2026-02-20 (Thursday, W08):
 
-Day 1: 2026-02-20 → data/IWM/2026-W08/2026-02-20.json ✓
-Day 2: 2026-02-19 → data/IWM/2026-W08/2026-02-19.json ✓
-Day 3: 2026-02-18 → data/IWM/2026-W08/2026-02-18.json ✓
-Day 4: 2026-02-17 → data/IWM/2026-W08/2026-02-17.json ✓
+Day 1: 2026-02-20 → data/paper/IWM/2026-W08/2026-02-20.json ✓
+Day 2: 2026-02-19 → data/paper/IWM/2026-W08/2026-02-19.json ✓
+Day 3: 2026-02-18 → data/paper/IWM/2026-W08/2026-02-18.json ✓
+Day 4: 2026-02-17 → data/paper/IWM/2026-W08/2026-02-17.json ✓
 Skip:  2026-02-16 (Sunday) → no file, skip
 Skip:  2026-02-15 (Saturday) → no file, skip
-Day 5: 2026-02-14 → data/IWM/2026-W07/2026-02-14.json ✓  ← crossed week boundary
+Day 5: 2026-02-14 → data/paper/IWM/2026-W07/2026-02-14.json ✓  ← crossed week boundary
 ```
 
 ---

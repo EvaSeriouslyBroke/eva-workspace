@@ -30,7 +30,7 @@ This document describes every component of the Options Toolkit, how they connect
 │             │                                                       │
 │             ▼                                                       │
 │  ┌──────────────────────┐     ┌─────────────────────┐              │
-│  │  Load previous run   │────▶│  data/{TICKER}/     │              │
+│  │  Load previous run   │────▶│  data/{mode}/{TICKER}/│              │
 │  │  from history        │◀────│  {week}/{date}.json │              │
 │  └──────────┬───────────┘     └─────────────────────┘              │
 │             │                                                       │
@@ -45,7 +45,7 @@ This document describes every component of the Options Toolkit, how they connect
 │             ▼                                                       │
 │  ┌──────────────────────┐                                          │
 │  │  Save snapshot to    │                                          │
-│  │  data/{TICKER}/...   │                                          │
+│  │  data/{mode}/{TICKER}/│                                          │
 │  └──────────┬───────────┘                                          │
 │             │                                                       │
 │             ▼  stdout                                               │
@@ -119,7 +119,8 @@ This document describes every component of the Options Toolkit, how they connect
 ### 4. `data/` — Persistent History Store
 
 - **Location**: `~/.openclaw/workspace/options-toolkit/data/`
-- **Structure**: `{TICKER}/{YYYY}-W{WW}/{YYYY-MM-DD}.json`
+- **Structure**: `{mode}/{TICKER}/{YYYY}-W{WW}/{YYYY-MM-DD}.json`
+- **Mode separation**: Market data (snapshots, IV, news) stored under `data/{mode}/{TICKER}/` because Tradier sandbox (paper) data is 15-min delayed vs real-time (live). Storage functions take a `mode` parameter.
 - **Growth**: ~3MB/year per ticker (never deleted)
 - **Purpose**: Enable IV trend analysis across runs
 
@@ -229,7 +230,7 @@ This document describes every component of the Options Toolkit, how they connect
 ### Data Storage Flow
 
 1. After generating a report, eva.py creates a snapshot JSON object
-2. Determines the week folder: `data/{TICKER}/{YYYY}-W{WW}/`
+2. Determines the week folder: `data/{mode}/{TICKER}/{YYYY}-W{WW}/`
 3. Creates directory with `mkdir -p` if needed
 4. Loads existing daily file (`{YYYY-MM-DD}.json`) or creates empty array
 5. Appends new snapshot to array
@@ -243,13 +244,14 @@ This document describes every component of the Options Toolkit, how they connect
 3. Runs `python3 eva.py evaluate --all`
    a. Checks market state via Tradier `/markets/clock` (skips weekends, holidays, half days)
    b. Fetches account, positions, orders once for all tickers
-   c. Per ticker: fetches quote, price history, expirations, chain
-   d. Builds evaluation JSON with intraday context, recent daily candles, trends, IV context, affordable options
+   c. Per ticker: fetches quote, price history, expirations, chain; uses cached news headlines (fetched once per day, not every cycle)
+   d. Builds evaluation JSON with intraday context, recent daily candles, trends, IV context, affordable options (with all Greeks: delta, gamma, theta, vega, rho, open_interest), available expirations (with DTE), and news (today's headlines + 14-day sentiment history)
    e. Diffs `known_positions.json` against Tradier to detect closed trades
-   f. Saves IV snapshot for historical tracking
+   f. Saves IV snapshot for historical tracking; saves news snapshot only if no snapshot exists for today
    g. Outputs JSON array to stdout
 4. Eva checks `recently_closed` — updates experience files for closed trades
 5. Eva makes tentative buy/sell/hold decisions based on strategy + market data
+5b. For tickers where Eva plans to buy or double down: runs `news-research` for deep article extraction
 6. Eva spawns recall agents to search `experience/` for similar past situations (by ticker + pattern tags)
 7. Eva reviews recall findings — confirms, adjusts, or reverses tentative decisions
 8. If acting: runs `buy` or `sell` command, posts to Discord paper-trading channel
@@ -281,14 +283,18 @@ This document describes every component of the Options Toolkit, how they connect
       tradier.json                         ← Tradier API credentials
       data/
         cron.log                           ← Execution log
-        IWM/
-          2026-W08/
-            2026-02-17.json
-            2026-02-18.json
-          2026-W09/
-            2026-02-20.json
-          iv/                              ← IV snapshots for rank computation
-            2026-03-07.json
+        paper/                             ← Paper mode market data (15-min delayed)
+          IWM/
+            2026-W08/
+              2026-02-17.json
+              2026-02-18.json
+            2026-W09/
+              2026-02-20.json
+            iv/                            ← IV snapshots for rank computation
+              2026-03-07.json
+            news/                          ← News snapshots for sentiment history
+              2026-03-07.json
+        live/                              ← Live mode market data (real-time)
 
     skills/
       stock-price/SKILL.md
