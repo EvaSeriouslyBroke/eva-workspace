@@ -145,7 +145,7 @@ This document describes every component of the Options Toolkit, how they connect
 - **Behavior**: Stdout-based — output goes to stdout, errors go to stderr. `buy` and `sell` also send trade notification messages to the paper-trading Discord channel.
 - **Exit codes**: 0 = success, 1 = error
 - **Config**: Reads `tradier.json` for API credentials per mode
-- **Local data**: `data/{mode}-trading/` — reasons, known positions, event log
+- **Local data**: `data/{mode}-trading/` — reasons, known positions, position snapshots, event log
 
 ### 8. `tradier.json` — Tradier API Config
 
@@ -246,9 +246,10 @@ This document describes every component of the Options Toolkit, how they connect
    b. Fetches account, positions, orders once for all tickers
    c. Per ticker: fetches quote, price history, expirations, chain; uses cached news headlines (fetched once per day, not every cycle)
    d. Builds evaluation JSON with intraday context, recent daily candles, trends, IV context, affordable options (with all Greeks: delta, gamma, theta, vega, rho, open_interest), available expirations (with DTE), and news (today's headlines + 14-day sentiment history)
-   e. Diffs `known_positions.json` against Tradier to detect closed trades
-   f. Saves IV snapshot for historical tracking; saves news snapshot only if no snapshot exists for today
-   g. Outputs JSON array to stdout
+   e. Records position snapshots (price/IV/Greeks) for open positions belonging to the ticker
+   f. Diffs `known_positions.json` against Tradier to detect closed trades; deletes closed entries from `known_positions.json`
+   g. Saves IV snapshot for historical tracking; saves news snapshot only if no snapshot exists for today
+   h. Outputs JSON array to stdout
 4. Eva checks `recently_closed` — updates experience files for closed trades
 5. Eva makes tentative buy/sell/hold decisions based on strategy + market data
 5b. For tickers where Eva plans to buy or double down: runs `news-research` for deep article extraction
@@ -295,6 +296,12 @@ This document describes every component of the Options Toolkit, how they connect
             news/                          ← News snapshots for sentiment history
               2026-03-07.json
         live/                              ← Live mode market data (real-time)
+        paper-trading/                     ← Paper trading local data
+          reasons.json
+          known_positions.json
+          log.jsonl
+          position-snapshots/              ← Per-position price/IV/Greeks history
+            {OCC_SYMBOL}.jsonl
 
     skills/
       stock-price/SKILL.md

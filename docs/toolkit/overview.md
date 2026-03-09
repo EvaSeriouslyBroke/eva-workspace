@@ -149,6 +149,9 @@ options-toolkit/
 - `load_today_snapshots(sym)` — All snapshots from today for EOD summary
 - `load_reasons(mode)`, `save_reasons(mode, reasons)` — Trade reasoning
 - `load_known_positions(mode)`, `save_known_positions(mode, positions)` — Position tracking
+- `save_position_snapshot(mode, symbol, snapshot)` — Append price/IV/Greeks snapshot for a position
+- `load_position_snapshots(mode, symbol)` — Load all snapshots for a position
+- `count_position_snapshots(mode, symbol)` — Count snapshots without parsing
 
 **Analysis (analysis.py)**:
 - `score_sentiment(articles)` — Keyword-based news sentiment

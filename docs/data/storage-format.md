@@ -25,6 +25,8 @@ and give paper trading future knowledge of live data.
     reasons.json                   ← Order reasoning
     known_positions.json           ← Position tracker
     log.jsonl                      ← Event log
+    position-snapshots/            ← Per-position price/greeks history
+      {OCC_SYMBOL}.jsonl           ← One file per position (append-only)
 ```
 
 ### Examples
@@ -48,6 +50,8 @@ data/
     reasons.json
     known_positions.json
     log.jsonl
+    position-snapshots/
+      IWM260821C00250000.jsonl
   cron.log
 ```
 
@@ -206,6 +210,84 @@ is done separately only for tickers Eva wants to act on.
 
 Used to correlate past news with price movements without Eva needing
 firsthand experience.
+
+---
+
+## Known Positions Tracker
+
+**Location**: `data/{mode}-trading/known_positions.json`
+
+JSON object keyed by OCC symbol. Tracks position lifecycle from buy to close.
+
+```json
+{
+  "IWM260821C00250000": {
+    "order_id": "12345678",
+    "reason": "IV percentile 45, delta 0.65, 45 DTE sweet spot",
+    "entry_price": 250.35,
+    "entry_iv": 28.5,
+    "entry_date": "2026-03-06",
+    "ticker": "IWM",
+    "type": "call",
+    "strike": 250.0,
+    "expiry": "2026-08-21",
+    "quantity": 1,
+    "cost_basis": 1923.0,
+    "reflected": true,
+    "market_context": { "price": 250.35, "change_pct": 0.5, "iv": 28.5, "..." : "..." }
+  }
+}
+```
+
+### Lifecycle
+
+| State | `reflected` | Description |
+|-------|-------------|-------------|
+| New buy | `false` | Order placed, not yet confirmed in Tradier. Skipped by closed-position detection. |
+| Active | `true` | Position confirmed in Tradier. Snapshots recorded each cycle. |
+| Closed | *(entry deleted)* | Position disappeared from Tradier. Data captured in `recently_closed` output, entry removed from file. |
+
+---
+
+## Position Snapshot History
+
+**Location**: `data/{mode}-trading/position-snapshots/{OCC_SYMBOL}.jsonl`
+
+JSONL file (one JSON object per line) tracking an option position's price, IV,
+and greeks at every evaluation cycle. One file per position, append-only.
+Created when a position is first evaluated, grows until the position closes.
+Files persist after closing for experience reflection.
+
+```jsonl
+{"ts":"2026-03-06T13:15:00-05:00","underlying_price":250.24,"dte":168,"cost_basis":1923.0,"unrealized_pnl":0.0,"pnl_pct":0.0,"bid":19.20,"ask":19.30,"last":19.23,"iv":25.7,"greeks":{"delta":0.563,"gamma":0.0088,"theta":-0.0586,"vega":0.6556,"rho":0.5615}}
+{"ts":"2026-03-06T13:30:00-05:00","underlying_price":250.89,"dte":168,"cost_basis":1923.0,"unrealized_pnl":177.0,"pnl_pct":9.2,"bid":21.00,"ask":21.10,"last":21.00,"iv":26.4,"greeks":{"delta":0.571,"gamma":0.0086,"theta":-0.0590,"vega":0.6600,"rho":0.5650}}
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `ts` | string (ISO 8601) | Timestamp of the evaluation |
+| `underlying_price` | float | Stock price at evaluation time |
+| `dte` | int | Days to expiration |
+| `cost_basis` | float | Original cost of the position |
+| `unrealized_pnl` | float | Current unrealized P&L in dollars |
+| `pnl_pct` | float | Unrealized P&L as percentage |
+| `bid` | float | Option bid price (present when chain data available) |
+| `ask` | float | Option ask price |
+| `last` | float | Option last trade price |
+| `iv` | float | Option implied volatility (percentage, e.g., 25.7) |
+| `greeks` | object | Option greeks (delta, gamma, theta, vega, rho) |
+
+**When recorded**: Every evaluation cycle (every 15 min during market hours)
+for each open position belonging to the ticker being evaluated.
+
+**How used**: When a position closes, the full snapshot history is included in
+the `recently_closed` array as `position_snapshots`. Eva uses this during
+experience building to analyze the position's lifecycle — identifying moments
+where exiting would have been optimal, how greeks evolved, and whether the
+thesis played out as expected.
+
+Open positions in the evaluate output include a `snapshot_count` field
+indicating how many snapshots exist, so Eva knows history depth.
 
 ---
 

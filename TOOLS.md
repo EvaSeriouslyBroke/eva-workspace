@@ -92,10 +92,12 @@ options-toolkit/tradier.json    # Tradier API credentials (paper + future real)
 ```
 options-toolkit/data/paper-trading/
   reasons.json            # Order ID → reasoning mapping
-  known_positions.json    # Position tracker for closed-trade detection
+  known_positions.json    # Position tracker (entries deleted on close)
   log.jsonl               # Structured event log
+  position-snapshots/     # Per-position price/IV/Greeks history
+    {OCC_SYMBOL}.jsonl    # One file per position (append-only)
 
-options-toolkit/data/{TICKER}/iv/
+options-toolkit/data/{mode}/{TICKER}/iv/
   {YYYY-MM-DD}.json       # IV snapshots per ticker (built by evaluate)
 ```
 

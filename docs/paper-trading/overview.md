@@ -24,18 +24,21 @@ Paper and real trading are fully isolated:
 
 Tradier handles portfolio state, orders, and market data. We store only:
 - `reasons.json` — maps Tradier order IDs to Eva's reasoning + rich market_context at trade time
-- `known_positions.json` — tracks positions for closed-trade detection, includes market_context (all Greeks, IV rank/percentile, price trends, news)
+- `known_positions.json` — tracks open positions with entry context and market_context (all Greeks, IV rank/percentile, price trends, news); entries deleted when closing is detected
 - `log.jsonl` — append-only event log for debugging
+- `position-snapshots/{OCC}.jsonl` — per-position price/IV/Greeks history recorded every evaluate cycle
 
 ## Closed Position Lifecycle
 
-1. `buy` command writes position to `known_positions.json` with entry context and rich market_context (Greeks, IV rank, trends, news)
-2. Each `evaluate` call diffs `known_positions.json` against Tradier's current positions
-3. Missing positions = closed (sold, expired, or assigned)
-4. Closed positions appear in `recently_closed` output with `needs_experience_update: true`
-5. Eva reflects on the trade, updates experience files
-6. Position marked as "reflected" — no longer appears in `recently_closed`
+1. `buy` command writes position to `known_positions.json` with `reflected: false` and rich market_context
+2. Each `evaluate` cycle checks Tradier positions — when the position appears, sets `reflected: true`
+3. Once reflected, if the position disappears from Tradier → detected as closed
+4. Closed positions appear in `recently_closed` output with `needs_experience_update: true` and full `position_snapshots` history
+5. The entry is deleted from `known_positions.json`
+6. Eva reflects on the trade, updates experience files
 7. If no sell order found and expiry has passed → classified as "expired"
+
+Positions with `reflected: false` are never treated as closed — they're new buys that haven't been confirmed by Tradier yet.
 
 ## Settlement
 

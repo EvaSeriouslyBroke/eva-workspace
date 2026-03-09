@@ -154,6 +154,52 @@ def log_event(mode, event_data):
         f.write(json.dumps(event_data) + "\n")
 
 
+# ── Position snapshot storage (data/{mode}-trading/position-snapshots/) ──────
+
+def save_position_snapshot(mode, symbol, snapshot):
+    """Append a position snapshot to the JSONL file for hindsight analysis.
+
+    Records the option's price, IV, greeks, and P&L at each evaluation cycle.
+    One file per position (OCC symbol), append-only.
+    """
+    d = os.path.join(data_dir(mode), "position-snapshots")
+    os.makedirs(d, exist_ok=True)
+    snapshot["ts"] = datetime.now(ET).isoformat()
+    path = os.path.join(d, f"{symbol}.jsonl")
+    with open(path, "a") as f:
+        f.write(json.dumps(snapshot) + "\n")
+
+
+def load_position_snapshots(mode, symbol):
+    """Load all snapshots for a position from its JSONL file."""
+    path = os.path.join(data_dir(mode), "position-snapshots", f"{symbol}.jsonl")
+    if not os.path.exists(path):
+        return []
+    snapshots = []
+    with open(path) as f:
+        for line in f:
+            line = line.strip()
+            if line:
+                try:
+                    snapshots.append(json.loads(line))
+                except json.JSONDecodeError:
+                    continue
+    return snapshots
+
+
+def count_position_snapshots(mode, symbol):
+    """Count snapshots for a position without parsing the full file."""
+    path = os.path.join(data_dir(mode), "position-snapshots", f"{symbol}.jsonl")
+    if not os.path.exists(path):
+        return 0
+    count = 0
+    with open(path) as f:
+        for line in f:
+            if line.strip():
+                count += 1
+    return count
+
+
 # ── Market snapshot storage (data/{mode}/{TICKER}/iv/) ───────────────────────
 # Named "iv" for backward compatibility with existing data directories.
 

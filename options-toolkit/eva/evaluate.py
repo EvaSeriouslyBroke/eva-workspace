@@ -1,14 +1,16 @@
 """Evaluation builder and closed position detection for paper trading."""
 
+import sys
 from datetime import date, datetime
 
 from eva import ET
 from eva.analysis import _num, build_chain_summary, compute_iv_rank, compute_trends, score_sentiment
 from eva.news import fetch_headlines
 from eva.storage import (
-    load_iv_history, load_known_positions, load_market_history,
-    load_news_history, load_reasons,
-    save_market_snapshot, save_news_snapshot,
+    count_position_snapshots, load_iv_history, load_known_positions,
+    load_market_history, load_news_history, load_position_snapshots,
+    load_reasons, save_known_positions, save_market_snapshot,
+    save_news_snapshot, save_position_snapshot,
 )
 from eva.symbols import parse_occ_symbol
 from eva.tradier import (
@@ -44,7 +46,7 @@ def detect_recently_closed(mode, current_positions, orders):
 
     recently_closed = []
     for sym, info in list(known.items()):
-        if info.get("reflected"):
+        if not info.get("reflected"):
             continue
         if sym not in current_symbols:
             open_reason = info.get("reason", "")
@@ -76,7 +78,14 @@ def detect_recently_closed(mode, current_positions, orders):
                 "close_reason": close_reason,
                 "closed_how": closed_how,
                 "needs_experience_update": True,
+                "entry_market_context": info.get("market_context", {}),
+                "position_snapshots": load_position_snapshots(mode, sym),
             })
+
+    if recently_closed:
+        for item in recently_closed:
+            known.pop(item["symbol"], None)
+        save_known_positions(mode, known)
 
     return recently_closed
 
@@ -125,6 +134,11 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None)
         current_price = quote.get("last", 0) or quote.get("close", 0) or 0
     except Exception:
         pass
+
+    # Shared state used by position building and later snapshot recording
+    known = {}
+    chain_data = []
+    target_exp = None
 
     # Build positions with entry context
     try:
@@ -187,6 +201,16 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None)
                 "entry_context": entry_ctx,
             })
         result["positions"] = pos_list
+
+        # Update reflected status for positions now confirmed in Tradier
+        updated = False
+        for p in positions:
+            sym = p.get("symbol", "")
+            if sym in known and not known[sym].get("reflected"):
+                known[sym]["reflected"] = True
+                updated = True
+        if updated:
+            save_known_positions(mode, known)
     except Exception as e:
         result["positions"] = {"error": str(e)}
 
@@ -401,5 +425,74 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None)
         result["news_history"] = load_news_history(mode, ticker, days=14)
     except Exception:
         result["news_history"] = []
+
+    # Position snapshots — record option price/IV/greeks for open positions.
+    # Enables hindsight analysis: Eva can see how a position evolved over time
+    # and use that during experience building to refine entry/exit timing.
+    try:
+        ticker_positions = {sym: info for sym, info in known.items()
+                           if info.get("ticker", "").upper() == ticker}
+        current_symbols = {p.get("symbol") for p in positions}
+        active_positions = {sym: info for sym, info in ticker_positions.items()
+                          if sym in current_symbols}
+
+        if active_positions:
+            # Fetch chain data per unique expiry (reuse target_exp chain if available)
+            chains_by_symbol = {}
+            by_expiry = {}
+            for sym, info in active_positions.items():
+                exp = info.get("expiry", "")
+                by_expiry.setdefault(exp, []).append(sym)
+
+            for exp, syms in by_expiry.items():
+                try:
+                    if exp == target_exp and chain_data:
+                        exp_chain = chain_data
+                    else:
+                        exp_chain = fetch_chain_raw(cfg, ticker, exp)
+                    for opt in exp_chain:
+                        if opt.get("symbol") in syms:
+                            chains_by_symbol[opt["symbol"]] = opt
+                except Exception:
+                    pass
+
+            for sym in active_positions:
+                opt = chains_by_symbol.get(sym)
+                if not opt:
+                    continue
+
+                pos_data = next((p for p in result.get("positions", [])
+                                if isinstance(p, dict) and p.get("symbol") == sym), {})
+                greeks = opt.get("greeks", {})
+                iv_val = greeks.get("mid_iv") or greeks.get("smv_vol", 0) or 0
+                snapshot = {
+                    "underlying_price": current_price,
+                    "dte": pos_data.get("dte", 0),
+                    "cost_basis": active_positions[sym].get("cost_basis", 0),
+                    "unrealized_pnl": pos_data.get("unrealized_pnl", 0),
+                    "pnl_pct": pos_data.get("pnl_pct", 0),
+                    "bid": opt.get("bid", 0) or 0,
+                    "ask": opt.get("ask", 0) or 0,
+                    "last": opt.get("last", 0) or 0,
+                    "iv": round(iv_val * 100, 1) if iv_val else 0,
+                    "greeks": {
+                        "delta": round(greeks.get("delta", 0) or 0, 3),
+                        "gamma": round(greeks.get("gamma", 0) or 0, 4),
+                        "theta": round(greeks.get("theta", 0) or 0, 4),
+                        "vega": round(greeks.get("vega", 0) or 0, 4),
+                        "rho": round(greeks.get("rho", 0) or 0, 4),
+                    },
+                }
+
+                save_position_snapshot(mode, sym, snapshot)
+    except Exception as e:
+        print(f"Warning: position snapshot recording failed: {e}", file=sys.stderr)
+
+    # Add snapshot counts to position entries so Eva knows history depth
+    if isinstance(result.get("positions"), list):
+        for pos in result["positions"]:
+            sym = pos.get("symbol", "")
+            if sym:
+                pos["snapshot_count"] = count_position_snapshots(mode, sym)
 
     return result

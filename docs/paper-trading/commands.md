@@ -50,7 +50,10 @@ python3 eva.py evaluate --all [--force]
 
 **News tracking:** Each evaluation fetches fresh headlines from yfinance and saves a snapshot to `data/{mode}/{TICKER}/news/{date}.json` (appended each cycle). The 14-day history is included in evaluation output as `news_history`. Deep news research is done separately via the `news-research` command, only for tickers Eva wants to buy or double down on.
 
+**Position snapshots:** Each cycle records price, IV, and Greeks for every open position belonging to the ticker (saved to `position-snapshots/{OCC}.jsonl`). When a position closes, its full snapshot history is included in `recently_closed` as `position_snapshots` alongside `entry_market_context`. Closed entries are deleted from `known_positions.json`. Open positions include a `snapshot_count` field indicating history depth.
+
 **Local files read:** `known_positions.json`, `reasons.json`
+**Local files written:** `known_positions.json` (reflected status, closed entry deletion), `position-snapshots/*.jsonl`
 
 ---
 
