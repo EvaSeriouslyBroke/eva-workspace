@@ -12,6 +12,7 @@ How scheduled execution works — the system crontab, timezone handling, schedul
 30 16,17 * * 1-5 /home/henry/.openclaw/workspace/options-toolkit/run_all.sh >> /home/henry/.openclaw/workspace/options-toolkit/data/cron.log 2>&1
 59 19,20 * * 1-5 /home/henry/.openclaw/workspace/options-toolkit/run_all.sh >> /home/henry/.openclaw/workspace/options-toolkit/data/cron.log 2>&1
 1 20,21 * * 1-5 /home/henry/.openclaw/workspace/options-toolkit/run_all.sh >> /home/henry/.openclaw/workspace/options-toolkit/data/cron.log 2>&1
+0 10 * * * /home/henry/.openclaw/workspace/options-toolkit/daily_snapshot.sh >> /home/henry/.openclaw/workspace/options-toolkit/data/cron.log 2>&1
 ```
 
 ### Target Schedule (Eastern Time)
@@ -74,6 +75,21 @@ def is_summary_time():  # Used by summary
         return False
     return (now.hour, now.minute) in SUMMARY_SCHEDULE
 ```
+
+### Daily Snapshot
+
+A daily git commit of Eva's evolving state — experience, memory, strategy, and market data. Runs at 6 AM ET (10:00 UTC) every day via `daily_snapshot.sh`. Only commits if changes exist in the target folders; no-op on days with no changes (weekends, holidays).
+
+| Folder | What changes |
+|--------|-------------|
+| `experience/` | Trade lessons learned |
+| `memory/` | Eva's persistent memory |
+| `strategy/` | Trading strategy updates |
+| `options-toolkit/data/` | Market snapshots, IV, news, positions |
+
+Commit message format: `daily snapshot YYYY-MM-DD`
+
+---
 
 ### Why Double-Check?
 
