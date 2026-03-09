@@ -44,6 +44,12 @@ Eva's CLI (`eva.py`) handles all market data fetching, option chain analysis, tr
 - `trade-history` — Order history merged with Eva's reasoning
 - `report` — Scheduled market reports with IV tracking and comparison
 
+## Trading Philosophy
+
+Paper trading is the permanent laboratory. It runs continuously, taking highly speculative trades to generate experiences and build pattern knowledge. Every thesis — win or loss — feeds the experience system.
+
+Real trading (when introduced) will only execute high-confidence theses that have been hardened through paper trading. If a strategy hasn't proven itself on paper first, it doesn't touch real capital. Paper trading never stops — it keeps running speculative plays in the background to expand the experience base, while real trading cherry-picks only what works.
+
 ## Stack
 
 - **Python 3** — CLI and all analysis logic
