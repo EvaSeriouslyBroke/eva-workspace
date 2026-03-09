@@ -5,10 +5,10 @@ Eva trades options autonomously in Tradier's sandbox environment, building an ex
 ## Architecture
 
 - **API**: Tradier sandbox (`https://sandbox.tradier.com/v1`) — handles portfolio, orders, market data
-- **CLI**: `eva.py` — unified CLI with subcommands for evaluate, status, buy, sell, trade-history, reset
+- **CLI**: `eva.py` — unified CLI with subcommands for evaluate, status, buy, sell, hindsight, trade-history, pending-experience, reset
 - **Strategy**: `strategy/PAPER.md` — unrestricted experimentation (any DTE, any strategy, no position limits)
 - **Experiences**: `experience/` — living theses refined by trade evidence and observational patterns
-- **Skills**: 4 OpenClaw skills (evaluate, reflect, status, history) — 2 autonomous, 2 interactive
+- **Skills**: 5 OpenClaw skills (evaluate, reflect, hindsight, status, history) — 3 autonomous, 2 interactive
 - **Cron**: Every 15 minutes during market hours via OpenClaw cron
 
 ## Data Isolation
@@ -25,18 +25,23 @@ Paper and real trading are fully isolated:
 Tradier handles portfolio state, orders, and market data. We store only:
 - `reasons.json` — maps Tradier order IDs to Eva's reasoning + rich market_context at trade time
 - `known_positions.json` — tracks open positions with entry context and market_context (all Greeks, IV rank/percentile, price trends, news); each OCC symbol maps to a list of buy entries (supports averaging into positions); entries deleted when closing is detected
+- `closed_watches.json` — sold contracts being tracked until expiration for hindsight analysis; created by `sell`, read by `evaluate` (post-sale snapshot recording) and `hindsight` (analysis)
 - `pending_experience_updates.json` — closed positions awaiting experience processing by the reflect skill; written by the `sell` command (immediate) or `detect_recently_closed` (for expirations), read and cleared by `paper-trade-reflect`
 - `log.jsonl` — append-only event log for debugging
 - `position-snapshots/{OCC}.jsonl` — per-position price/IV/Greeks history recorded every evaluate cycle
+- `post-sale-snapshots/{OCC}.jsonl` — post-sale price/IV/Greeks history for closed watches, recorded every evaluate cycle until expiration
 
 ## Closed Position Lifecycle
 
 ### Sells (immediate path)
 
-1. `sell` command places the order on Tradier
+1. `sell` command captures sell-time market context (option bid, IV, Greeks) and places the order on Tradier
 2. `sell` command immediately writes the closed position to `pending_experience_updates.json` with full context (entry data, snapshots, reason)
-3. `sell` command removes the entry from `known_positions.json`
-4. The next `paper-trade-reflect` cycle reads `pending_experience_updates.json`, creates/updates experience files, and clears the pending file
+3. `sell` command adds the contract to `closed_watches.json` for post-sale tracking
+4. `sell` command removes the entry from `known_positions.json`
+5. The next `paper-trade-reflect` cycle reads `pending_experience_updates.json`, creates/updates experience files, and clears the pending file
+6. Each subsequent evaluate cycle records post-sale snapshots to `post-sale-snapshots/{OCC}.jsonl` until expiration
+7. The `paper-trade-hindsight` skill (weekly) analyzes what happened after the sell, updates experiences with `[hindsight]` evidence, and clears expired watches
 
 ### Expirations (detection path)
 

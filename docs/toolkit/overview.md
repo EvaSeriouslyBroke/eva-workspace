@@ -30,6 +30,8 @@ python3 eva.py <command> --ticker <SYM> [flags]
 | `status` | Portfolio status (balances, positions, orders) | Check current state |
 | `buy` | Place a buy_to_open order | Open a new position |
 | `sell` | Place a sell_to_close order | Close an existing position |
+| `hindsight` | Post-sale hindsight analysis | Review sell timing vs actual outcomes |
+| `pending-experience` | Show/clear pending experience updates | Inspect reflect queue |
 | `trade-history` | Order history with reasoning | Review past trades |
 | `reset` | Cancel all orders, close positions | Clean slate (user-only) |
 
@@ -152,6 +154,9 @@ options-toolkit/
 - `save_position_snapshot(mode, symbol, snapshot)` — Append price/IV/Greeks snapshot for a position
 - `load_position_snapshots(mode, symbol)` — Load all snapshots for a position
 - `count_position_snapshots(mode, symbol)` — Count snapshots without parsing
+- `load_closed_watches(mode)`, `save_closed_watches(mode, watches)` — Closed watch tracking
+- `save_post_sale_snapshot(mode, symbol, snapshot)` — Append post-sale price/IV/Greeks snapshot
+- `load_post_sale_snapshots(mode, symbol)` — Load all post-sale snapshots for a closed watch
 
 **Analysis (analysis.py)**:
 - `score_sentiment(articles)` — Keyword-based news sentiment
@@ -163,6 +168,7 @@ options-toolkit/
 **Symbols (symbols.py)**:
 - `build_occ_symbol(ticker, expiry, type, strike)` — Build OCC option symbol
 - `parse_occ_symbol(sym)` — Parse OCC symbol into components
+- `extract_greeks(opt)` — Extract IV (%) and rounded Greeks dict from a raw chain option
 - `select_expiry(expirations, target_dte)` — Pick closest expiry to target DTE
 - `select_strikes(strikes, price, count)` — Pick nearest strikes to price
 

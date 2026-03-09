@@ -22,7 +22,7 @@ Each experience file is a thesis with:
 - **Tags** — for index lookup
 - **Confidence** — low / medium / high / disproven
 - **Analysis** — current best understanding (rewritten as it deepens, never appended)
-- **Evidence** — Summary (counts + digest of older evidence) + Recent (up to 5 detailed entries, tagged `[paper]` or `[real]`)
+- **Evidence** — Summary (counts + digest of older evidence) + Recent (up to 5 detailed entries, tagged `[paper]`, `[real]`, `[hindsight]`, or `[observed]`)
 - **Exceptions & Nuances** — conditions where the thesis doesn't hold
 
 ## INDEX.md
@@ -60,6 +60,7 @@ Keep the **5 most recent** entries detailed in the Recent section. When adding a
 ### Writing Experiences
 
 - **From trades:** The `sell` command immediately writes closed position data to `pending_experience_updates.json` (with entry context, snapshots, and reasoning). For expirations, `detect_recently_closed` in the evaluate cycle handles detection. The `paper-trade-reflect` skill (running ~7 min after each evaluate cycle) reads this file, creates/updates experience files, then clears the pending file. Evidence entries include date, mode tag (`[paper]`/`[real]`), and description.
+- **From hindsight:** After selling, the contract continues to be tracked until expiration (post-sale snapshots recorded every evaluate cycle). The `paper-trade-hindsight` skill (weekly) analyzes what actually happened — was the sell well-timed? What patterns were missed? Evidence entries use the `[hindsight]` tag and focus on sell timing, counterfactual outcomes, and luck-vs-skill assessment.
 - **From observations:** Eva can create experience files from patterns noticed in `news_history` and `market_history` data (14 days each) without having traded. For example, noticing that tariff news consistently precedes a 2-day IWM dip. These observational experiences use the same file format but note `[observed]` in evidence entries.
 
 ### Recalling Experiences

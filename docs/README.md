@@ -60,6 +60,7 @@ docs/
 │   ├── options-summary-skill.md          ← EOD summary: triggers, analysis output
 │   ├── paper-trade-evaluate-skill.md    ← Autonomous trading cycle: context, evaluation, execution
 │   ├── paper-trade-reflect-skill.md    ← Experience creation from closed trades
+│   ├── paper-trade-hindsight-skill.md  ← Post-sale hindsight analysis
 │   ├── paper-trade-status-skill.md      ← Portfolio status: triggers, output
 │   └── paper-trade-history-skill.md     ← Trade history: triggers, output
 │
@@ -111,7 +112,11 @@ docs/
       paper-trading/        ← Paper trading local data
         reasons.json
         known_positions.json
+        closed_watches.json
+        pending_experience_updates.json
         log.jsonl
+        position-snapshots/
+        post-sale-snapshots/
   strategy/
     PAPER.md                ← Paper trading rules
   experience/
@@ -129,6 +134,7 @@ docs/
     options-summary/SKILL.md
     paper-trade-evaluate/SKILL.md
     paper-trade-reflect/SKILL.md
+    paper-trade-hindsight/SKILL.md
     paper-trade-status/SKILL.md
     paper-trade-history/SKILL.md
   docs/                     ← This documentation

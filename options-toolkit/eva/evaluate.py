@@ -7,13 +7,14 @@ from eva import ET
 from eva.analysis import _num, build_chain_summary, compute_iv_rank, compute_trends, score_sentiment
 from eva.news import fetch_headlines
 from eva.storage import (
-    count_position_snapshots, load_iv_history, load_known_positions,
-    load_market_history, load_news_history, load_position_snapshots,
-    load_reasons, save_known_positions, save_market_snapshot,
-    save_news_snapshot, save_pending_experience_updates,
-    save_position_snapshot,
+    count_position_snapshots, load_closed_watches, load_iv_history,
+    load_known_positions, load_market_history, load_news_history,
+    load_position_snapshots, load_reasons, save_known_positions,
+    save_market_snapshot, save_news_snapshot,
+    save_pending_experience_updates, save_position_snapshot,
+    save_post_sale_snapshot,
 )
-from eva.symbols import parse_occ_symbol
+from eva.symbols import extract_greeks, parse_occ_symbol
 from eva.tradier import (
     fetch_balances, fetch_chain_raw, fetch_expirations,
     fetch_history, fetch_orders, fetch_positions, fetch_quote,
@@ -391,9 +392,7 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None)
             ask = opt.get("ask", 0) or 0
             cost = ask * 100
             if cost > 0 and cost <= settled:
-                greeks = opt.get("greeks", {})
-                iv_val = greeks.get("mid_iv") or greeks.get("smv_vol", 0) or 0
-                parsed = parse_occ_symbol(opt.get("symbol", "")) if opt.get("symbol") else {}
+                iv_val, greeks_dict = extract_greeks(opt)
                 dte = 0
                 if target_exp:
                     try:
@@ -408,12 +407,12 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None)
                     "dte": dte,
                     "bid": opt.get("bid", 0),
                     "ask": ask,
-                    "iv": round(iv_val * 100, 1) if iv_val else 0,
-                    "delta": round((greeks.get("delta", 0) or 0), 3),
-                    "gamma": round((greeks.get("gamma", 0) or 0), 4),
-                    "theta": round((greeks.get("theta", 0) or 0), 4),
-                    "vega": round((greeks.get("vega", 0) or 0), 4),
-                    "rho": round((greeks.get("rho", 0) or 0), 4),
+                    "iv": iv_val,
+                    "delta": greeks_dict["delta"],
+                    "gamma": greeks_dict["gamma"],
+                    "theta": greeks_dict["theta"],
+                    "vega": greeks_dict["vega"],
+                    "rho": greeks_dict["rho"],
                     "open_interest": opt.get("open_interest", 0) or 0,
                     "volume": opt.get("volume", 0) or 0,
                     "cost": round(cost, 2),
@@ -492,8 +491,7 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None)
 
                 pos_data = next((p for p in result.get("positions", [])
                                 if isinstance(p, dict) and p.get("symbol") == sym), {})
-                greeks = opt.get("greeks", {})
-                iv_val = greeks.get("mid_iv") or greeks.get("smv_vol", 0) or 0
+                iv_val, greeks_dict = extract_greeks(opt)
                 total_cost = sum(e.get("cost_basis", 0) for e in active_positions[sym])
                 snapshot = {
                     "underlying_price": current_price,
@@ -504,19 +502,79 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None)
                     "bid": opt.get("bid", 0) or 0,
                     "ask": opt.get("ask", 0) or 0,
                     "last": opt.get("last", 0) or 0,
-                    "iv": round(iv_val * 100, 1) if iv_val else 0,
-                    "greeks": {
-                        "delta": round(greeks.get("delta", 0) or 0, 3),
-                        "gamma": round(greeks.get("gamma", 0) or 0, 4),
-                        "theta": round(greeks.get("theta", 0) or 0, 4),
-                        "vega": round(greeks.get("vega", 0) or 0, 4),
-                        "rho": round(greeks.get("rho", 0) or 0, 4),
-                    },
+                    "iv": iv_val,
+                    "greeks": greeks_dict,
                 }
 
                 save_position_snapshot(mode, sym, snapshot)
     except Exception as e:
         print(f"Warning: position snapshot recording failed: {e}", file=sys.stderr)
+
+    # Post-sale snapshots — record price/IV/Greeks for closed watches.
+    # Enables hindsight analysis: Eva sees what happened after she sold.
+    try:
+        watches = load_closed_watches(mode)
+        ticker_watches = {sym: w for sym, w in watches.items()
+                          if w.get("ticker", "").upper() == ticker}
+
+        # Filter to non-expired watches
+        active_watches = {sym: w for sym, w in ticker_watches.items()
+                          if w.get("expiry", "9999") > date.today().isoformat()}
+
+        if active_watches:
+            # Group by expiry for efficient chain fetches
+            watch_by_expiry = {}
+            for sym, w in active_watches.items():
+                exp = w.get("expiry", "")
+                watch_by_expiry.setdefault(exp, []).append(sym)
+
+            for exp, syms in watch_by_expiry.items():
+                try:
+                    if exp == target_exp and chain_data:
+                        exp_chain = chain_data
+                    else:
+                        exp_chain = fetch_chain_raw(cfg, ticker, exp)
+                    for opt in exp_chain:
+                        if opt.get("symbol") in syms:
+                            iv_val, greeks_dict = extract_greeks(opt)
+                            dte = 0
+                            try:
+                                dte = (datetime.strptime(exp, "%Y-%m-%d").date() - date.today()).days
+                            except Exception:
+                                pass
+                            snapshot = {
+                                "underlying_price": current_price,
+                                "dte": dte,
+                                "bid": opt.get("bid", 0) or 0,
+                                "ask": opt.get("ask", 0) or 0,
+                                "last": opt.get("last", 0) or 0,
+                                "iv": iv_val,
+                                "greeks": greeks_dict,
+                            }
+                            save_post_sale_snapshot(mode, opt["symbol"], snapshot)
+                except Exception:
+                    pass
+
+        # Include watch summary in result for Eva to see during evaluation
+        watch_summaries = []
+        for sym, w in ticker_watches.items():
+            expired = w.get("expiry", "9999") <= date.today().isoformat()
+            watch_summaries.append({
+                "symbol": sym,
+                "type": w.get("type", ""),
+                "strike": w.get("strike", 0),
+                "expiry": w.get("expiry", ""),
+                "sell_date": w.get("sell_date", ""),
+                "sell_price": w.get("sell_price", 0),
+                "cost_basis": w.get("cost_basis", 0),
+                "sell_proceeds": w.get("sell_proceeds", 0),
+                "close_reason": w.get("close_reason", ""),
+                "expired": expired,
+            })
+        if watch_summaries:
+            result["closed_watches"] = watch_summaries
+    except Exception as e:
+        print(f"Warning: post-sale snapshot recording failed: {e}", file=sys.stderr)
 
     # Add snapshot counts to position entries so Eva knows history depth
     if isinstance(result.get("positions"), list):

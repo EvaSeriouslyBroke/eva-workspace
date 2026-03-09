@@ -6,9 +6,10 @@ Each function receives an argparse Namespace and handles one subcommand.
 
 import json
 import os
+import shutil
 import subprocess
 import sys
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from statistics import mean
 
 from eva import DISCORD_CHANNEL, ET, MAJOR_DIV, SCRIPT_DIR
@@ -27,25 +28,29 @@ from eva.formatters import (
     is_scheduled_time,
     is_summary_time,
 )
-from eva.news import fetch_news, research
+from eva.news import fetch_headlines, fetch_news, research
 from eva.storage import (
     clear_pending_experience_updates,
     data_dir,
+    load_closed_watches,
     load_history,
     load_iv_history,
     load_known_positions,
     load_pending_experience_updates,
     load_position_snapshots,
+    load_market_history,
+    load_news_history,
+    load_post_sale_snapshots,
     load_previous,
     load_reasons,
     log_event,
+    save_closed_watches,
     save_known_positions,
     save_pending_experience_updates,
     save_reasons,
     save_snapshot,
 )
-from eva.symbols import build_occ_symbol, parse_occ_symbol
-from eva.news import fetch_headlines
+from eva.symbols import build_occ_symbol, extract_greeks, parse_occ_symbol
 from eva.tradier import (
     fetch_balances,
     fetch_chain_raw,
@@ -369,15 +374,7 @@ def cmd_buy(args):
             chain = fetch_chain_raw(cfg, ticker, args.expiry)
             for opt in chain:
                 if opt.get("symbol") == occ:
-                    greeks = opt.get("greeks", {})
-                    entry_iv = round((greeks.get("mid_iv") or greeks.get("smv_vol", 0) or 0) * 100, 1)
-                    option_greeks = {
-                        "delta": round(greeks.get("delta", 0) or 0, 3),
-                        "gamma": round(greeks.get("gamma", 0) or 0, 4),
-                        "theta": round(greeks.get("theta", 0) or 0, 4),
-                        "vega": round(greeks.get("vega", 0) or 0, 4),
-                        "rho": round(greeks.get("rho", 0) or 0, 4),
-                    }
+                    entry_iv, option_greeks = extract_greeks(opt)
                     ask_price = opt.get("ask", 0) or 0
                     break
         except Exception:
@@ -521,6 +518,23 @@ def cmd_sell(args):
     occ = build_occ_symbol(ticker, args.expiry, args.type, args.strike)
 
     try:
+        # Capture sell-time market context before placing order
+        sell_price = 0
+        sell_iv = 0
+        sell_greeks = {}
+        sell_underlying_price = 0
+        try:
+            quote = fetch_quote(cfg, ticker)
+            sell_underlying_price = quote.get("last", 0) or 0
+            chain = fetch_chain_raw(cfg, ticker, args.expiry)
+            for opt in chain:
+                if opt.get("symbol") == occ:
+                    sell_price = opt.get("bid", 0) or 0
+                    sell_iv, sell_greeks = extract_greeks(opt)
+                    break
+        except Exception as e:
+            print(f"Warning: failed to capture sell-time market context: {e}", file=sys.stderr)
+
         resp = tradier_post(cfg, f"/accounts/{cfg['account_id']}/orders", {
             "class": "option",
             "symbol": ticker,
@@ -562,13 +576,15 @@ def cmd_sell(args):
             first = entries[0]
             open_reasons = [e.get("reason", "") for e in entries]
             open_reason = open_reasons[0] if len(open_reasons) == 1 else " | ".join(f"Buy {i+1}: {r}" for i, r in enumerate(open_reasons))
+            total_cost = sum(e.get("cost_basis", 0) for e in entries)
+            total_qty = sum(e.get("quantity", 1) for e in entries)
             save_pending_experience_updates(args.mode, [{
                 "symbol": occ,
                 "type": first.get("type", ""),
                 "strike": first.get("strike", 0),
                 "expiry": first.get("expiry", ""),
-                "quantity": sum(e.get("quantity", 1) for e in entries),
-                "cost_basis": sum(e.get("cost_basis", 0) for e in entries),
+                "quantity": total_qty,
+                "cost_basis": total_cost,
                 "open_reason": open_reason,
                 "close_reason": args.reason,
                 "closed_how": "sell_to_close",
@@ -577,6 +593,33 @@ def cmd_sell(args):
                 "buy_entries": entries,
                 "position_snapshots": load_position_snapshots(args.mode, occ),
             }])
+
+            # Add to closed watches for post-sale tracking until expiration
+            sell_market_context = {
+                "underlying_price": sell_underlying_price,
+                "option_price": sell_price,
+                "iv": sell_iv,
+                "greeks": sell_greeks,
+            }
+            watches = load_closed_watches(args.mode)
+            watches[occ] = {
+                "ticker": ticker,
+                "type": args.type,
+                "strike": float(args.strike),
+                "expiry": args.expiry,
+                "quantity": total_qty,
+                "cost_basis": total_cost,
+                "sell_date": date.today().isoformat(),
+                "sell_proceeds": round(sell_price * 100 * total_qty, 2),
+                "sell_price": sell_price,
+                "sell_iv": sell_iv,
+                "open_reason": open_reason,
+                "close_reason": args.reason,
+                "entry_market_context": first.get("market_context", {}),
+                "sell_market_context": sell_market_context,
+            }
+            save_closed_watches(args.mode, watches)
+
             known.pop(occ)
             save_known_positions(args.mode, known)
 
@@ -596,6 +639,246 @@ def cmd_sell(args):
     except Exception as e:
         print(f"Error placing sell order: {e}", file=sys.stderr)
         sys.exit(1)
+
+
+def _build_daily_trajectory(snapshots):
+    """Condense 15-min snapshots into daily OHLC-style summaries."""
+    by_date = {}
+    for snap in snapshots:
+        ts = snap.get("ts", "")
+        day = ts[:10] if ts else ""
+        if not day:
+            continue
+        by_date.setdefault(day, []).append(snap)
+
+    trajectory = []
+    for day in sorted(by_date):
+        snaps = by_date[day]
+        bids = [s.get("bid", 0) for s in snaps]
+        ivs = [s.get("iv", 0) for s in snaps]
+        underlyings = [s.get("underlying_price", 0) for s in snaps]
+        close_greeks = snaps[-1].get("greeks", {})
+        trajectory.append({
+            "date": day,
+            "bid_open": bids[0],
+            "bid_high": max(bids),
+            "bid_low": min(bids),
+            "bid_close": bids[-1],
+            "iv_open": ivs[0],
+            "iv_close": ivs[-1],
+            "underlying_close": underlyings[-1],
+            "delta": close_greeks.get("delta", 0),
+            "theta": close_greeks.get("theta", 0),
+            "dte": snaps[-1].get("dte", 0),
+            "snapshots": len(snaps),
+        })
+    return trajectory
+
+
+def _find_key_moments(post_sale):
+    """Extract full snapshots at peak, trough, and boundaries."""
+    if not post_sale:
+        return {}
+    moments = {
+        "first_after_sell": post_sale[0],
+        "at_peak": max(post_sale, key=lambda s: s.get("bid", 0)),
+        "at_trough": min(post_sale, key=lambda s: s.get("bid", 0)),
+        "latest": post_sale[-1],
+    }
+    return moments
+
+
+def _load_context_around_dates(mode, ticker, target_dates, window=1):
+    """Load news and market data around specific dates for investigation."""
+    valid_dates = [d for d in target_dates if d]
+    if not valid_dates:
+        return {"news": {}, "market": {}}
+
+    earliest = min(valid_dates)
+    days_back = (date.today() - date.fromisoformat(earliest)).days + window + 1
+
+    # Build set of dates we care about (+/- window days)
+    relevant_dates = set()
+    for d in valid_dates:
+        base = date.fromisoformat(d)
+        for offset in range(-window, window + 1):
+            relevant_dates.add((base + timedelta(days=offset)).isoformat())
+
+    news = {}
+    try:
+        all_news = load_news_history(mode, ticker, days=days_back)
+        for entry in all_news:
+            if entry["date"] in relevant_dates:
+                news[entry["date"]] = [
+                    h["title"] if isinstance(h, dict) else h
+                    for h in entry.get("headlines", [])
+                ]
+    except Exception:
+        pass
+
+    market = {}
+    try:
+        all_market = load_market_history(ticker, days=days_back, mode=mode)
+        for entry in all_market:
+            if entry["date"] in relevant_dates:
+                market[entry["date"]] = entry
+    except Exception:
+        pass
+
+    return {"news": news, "market": market}
+
+
+def cmd_hindsight(args):
+    """Generate hindsight analysis for closed (sold) positions."""
+    mode = args.mode
+    watches = load_closed_watches(mode)
+
+    if not watches:
+        print(json.dumps([], indent=2))
+        return
+
+    # Filter by symbol if specified
+    if args.symbol:
+        sym = args.symbol.upper()
+        if sym not in watches:
+            print(f"Error: {sym} not in closed watches", file=sys.stderr)
+            sys.exit(1)
+        watches = {sym: watches[sym]}
+
+    # Filter expired-only if requested
+    if args.expired_only:
+        watches = {s: w for s, w in watches.items()
+                   if w.get("expiry", "9999") <= date.today().isoformat()}
+
+    # Clear expired watches — skip analysis, just clean up.
+    # Re-load the full set so prior --symbol/--expired-only filtering
+    # doesn't cause non-matching watches to be silently deleted.
+    if args.clear_expired:
+        all_watches = load_closed_watches(mode)
+        expired_symbols = [sym for sym, w in all_watches.items()
+                           if w.get("expiry", "9999") <= date.today().isoformat()]
+        if expired_symbols:
+            for sym in expired_symbols:
+                all_watches.pop(sym, None)
+                snap_path = os.path.join(data_dir(mode), "post-sale-snapshots", f"{sym}.jsonl")
+                if os.path.exists(snap_path):
+                    os.remove(snap_path)
+            save_closed_watches(mode, all_watches)
+        print(f"Cleared {len(expired_symbols)} expired watches.")
+        return
+
+    results = []
+    for symbol, watch in watches.items():
+        cost_basis = watch.get("cost_basis", 0)
+        sell_proceeds = watch.get("sell_proceeds", 0)
+        realized_pnl = sell_proceeds - cost_basis
+        realized_pnl_pct = round(realized_pnl / cost_basis * 100, 1) if cost_basis else 0
+
+        expired = watch.get("expiry", "9999") <= date.today().isoformat()
+
+        # Load pre-sale and post-sale snapshots
+        pre_sale = load_position_snapshots(mode, symbol)
+        post_sale = load_post_sale_snapshots(mode, symbol)
+
+        # Compute counterfactual from post-sale snapshots
+        counterfactual = {}
+        if post_sale:
+            qty = watch.get("quantity", 1)
+            # Current/final value
+            latest = post_sale[-1]
+            latest_bid = latest.get("bid", 0)
+            hold_to_now_value = round(latest_bid * 100 * qty, 2)
+            hold_to_now_pnl = round(hold_to_now_value - cost_basis, 2)
+            hold_to_now_pnl_pct = round(hold_to_now_pnl / cost_basis * 100, 1) if cost_basis else 0
+
+            # Peak and trough after sale
+            peak_bid = 0
+            peak_ts = ""
+            trough_bid = float("inf")
+            trough_ts = ""
+            for snap in post_sale:
+                bid = snap.get("bid", 0)
+                if bid > peak_bid:
+                    peak_bid = bid
+                    peak_ts = snap.get("ts", "")
+                if bid < trough_bid:
+                    trough_bid = bid
+                    trough_ts = snap.get("ts", "")
+
+            peak_value = round(peak_bid * 100 * qty, 2)
+            trough_value = round(trough_bid * 100 * qty, 2) if trough_bid != float("inf") else 0
+
+            counterfactual = {
+                "hold_to_now_value": hold_to_now_value,
+                "hold_to_now_pnl": hold_to_now_pnl,
+                "hold_to_now_pnl_pct": hold_to_now_pnl_pct,
+                "missed_upside": round(peak_value - sell_proceeds, 2),
+                "avoided_downside": round(sell_proceeds - trough_value, 2),
+                "peak_value_after_sale": peak_value,
+                "peak_date": peak_ts[:10] if peak_ts else "",
+                "trough_value_after_sale": trough_value,
+                "trough_date": trough_ts[:10] if trough_ts else "",
+                "sell_was_optimal": sell_proceeds >= hold_to_now_value,
+                "post_sale_snapshots_count": len(post_sale),
+            }
+
+        # Current or final state
+        current_or_final = {}
+        if post_sale:
+            latest = post_sale[-1]
+            current_or_final = {
+                "price": latest.get("bid", 0),
+                "iv": latest.get("iv", 0),
+                "underlying_price": latest.get("underlying_price", 0),
+                "dte": latest.get("dte", 0),
+                "greeks": latest.get("greeks", {}),
+            }
+
+        # Daily trajectory — condense 15-min snapshots into daily summaries
+        daily_trajectory = _build_daily_trajectory(post_sale)
+
+        # Key moment snapshots — full data at peak, trough, boundaries
+        key_moments = _find_key_moments(post_sale)
+
+        # News and market context around key dates (sell, peak, trough)
+        key_dates = [
+            watch.get("sell_date", ""),
+            counterfactual.get("peak_date", "") if counterfactual else "",
+            counterfactual.get("trough_date", "") if counterfactual else "",
+        ]
+        context = _load_context_around_dates(
+            mode, watch.get("ticker", ""), key_dates)
+
+        result = {
+            "symbol": symbol,
+            "ticker": watch.get("ticker", ""),
+            "type": watch.get("type", ""),
+            "strike": watch.get("strike", 0),
+            "expiry": watch.get("expiry", ""),
+            "sell_date": watch.get("sell_date", ""),
+            "sell_price": watch.get("sell_price", 0),
+            "sell_iv": watch.get("sell_iv", 0),
+            "cost_basis": cost_basis,
+            "sell_proceeds": sell_proceeds,
+            "realized_pnl": round(realized_pnl, 2),
+            "realized_pnl_pct": realized_pnl_pct,
+            "expired": expired,
+            "current_or_final": current_or_final,
+            "counterfactual": counterfactual,
+            "open_reason": watch.get("open_reason", ""),
+            "close_reason": watch.get("close_reason", ""),
+            "entry_market_context": watch.get("entry_market_context", {}),
+            "sell_market_context": watch.get("sell_market_context", {}),
+            "daily_trajectory": daily_trajectory,
+            "key_moments": key_moments,
+            "news_around_key_dates": context["news"],
+            "market_around_key_dates": context["market"],
+            "pre_sale_snapshot_count": len(pre_sale),
+            "post_sale_snapshot_count": len(post_sale),
+        }
+        results.append(result)
+
+    print(json.dumps(results if len(results) != 1 else results[0], indent=2))
 
 
 def cmd_pending_experience(args):
@@ -632,7 +915,6 @@ def cmd_reset(args):
     # Archive reasons.json
     reasons_path = os.path.join(data_dir(mode), "reasons.json")
     if os.path.exists(reasons_path):
-        import shutil
         archive = os.path.join(data_dir(mode), f"reasons.{date.today().isoformat()}.json")
         shutil.copy2(reasons_path, archive)
         print(f"Archived reasons to {archive}")
@@ -677,12 +959,16 @@ def cmd_reset(args):
         print(f"Error fetching positions for close: {e}", file=sys.stderr)
 
     # Clear local data
-    for fname in ("reasons.json", "known_positions.json"):
+    for fname in ("reasons.json", "known_positions.json", "closed_watches.json"):
         path = os.path.join(data_dir(mode), fname)
         if os.path.exists(path):
             with open(path, "w") as f:
                 json.dump({}, f)
     clear_pending_experience_updates(mode)
+    for snap_dir in ("position-snapshots", "post-sale-snapshots"):
+        path = os.path.join(data_dir(mode), snap_dir)
+        if os.path.isdir(path):
+            shutil.rmtree(path)
 
     log_event(mode, {"event": "reset"})
     print("Reset complete.")

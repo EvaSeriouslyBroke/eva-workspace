@@ -390,6 +390,57 @@ def clear_pending_experience_updates(mode):
         os.remove(path)
 
 
+# ── Closed watches (data/{mode}-trading/closed_watches.json) ─────────────
+
+def load_closed_watches(mode):
+    """Load the closed watches tracker — sold contracts still being monitored."""
+    path = os.path.join(data_dir(mode), "closed_watches.json")
+    if os.path.exists(path):
+        with open(path) as f:
+            return json.load(f)
+    return {}
+
+
+def save_closed_watches(mode, watches):
+    """Save the closed watches tracker."""
+    path = os.path.join(data_dir(mode), "closed_watches.json")
+    with open(path, "w") as f:
+        json.dump(watches, f, indent=2)
+
+
+# ── Post-sale snapshot storage (data/{mode}-trading/post-sale-snapshots/) ─
+
+def save_post_sale_snapshot(mode, symbol, snapshot):
+    """Append a post-sale snapshot for a watched closed position.
+
+    Same concept as position snapshots, but for contracts after Eva sold them.
+    Tracks what would have happened if she held.
+    """
+    d = os.path.join(data_dir(mode), "post-sale-snapshots")
+    os.makedirs(d, exist_ok=True)
+    snapshot["ts"] = datetime.now(ET).isoformat()
+    path = os.path.join(d, f"{symbol}.jsonl")
+    with open(path, "a") as f:
+        f.write(json.dumps(snapshot) + "\n")
+
+
+def load_post_sale_snapshots(mode, symbol):
+    """Load all post-sale snapshots for a closed position."""
+    path = os.path.join(data_dir(mode), "post-sale-snapshots", f"{symbol}.jsonl")
+    if not os.path.exists(path):
+        return []
+    snapshots = []
+    with open(path) as f:
+        for line in f:
+            line = line.strip()
+            if line:
+                try:
+                    snapshots.append(json.loads(line))
+                except json.JSONDecodeError:
+                    continue
+    return snapshots
+
+
 def load_news_history(mode, ticker, days=7):
     """Load recent news history for a ticker.
 

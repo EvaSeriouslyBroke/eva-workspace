@@ -52,8 +52,10 @@ python3 eva.py evaluate --all [--force]
 
 **Position snapshots:** Each cycle records price, IV, and Greeks for every open position belonging to the ticker (saved to `position-snapshots/{OCC}.jsonl`). When a position closes, its full snapshot history is included in `recently_closed` as `position_snapshots` alongside `entry_market_context`. Closed entries are deleted from `known_positions.json`. Open positions include a `snapshot_count` field indicating history depth.
 
-**Local files read:** `known_positions.json`, `reasons.json`
-**Local files written:** `known_positions.json` (reflected status, closed entry deletion), `pending_experience_updates.json` (closed position data for reflect skill), `position-snapshots/*.jsonl`
+**Post-sale snapshots:** Each cycle also records price, IV, and Greeks for sold contracts still being watched (saved to `post-sale-snapshots/{OCC}.jsonl`). Watches are loaded from `closed_watches.json`; only non-expired contracts are tracked. The evaluation output includes a `closed_watches` array summarizing all watched contracts for the ticker.
+
+**Local files read:** `known_positions.json`, `reasons.json`, `closed_watches.json`
+**Local files written:** `known_positions.json` (reflected status, closed entry deletion), `pending_experience_updates.json` (closed position data for reflect skill), `position-snapshots/*.jsonl`, `post-sale-snapshots/*.jsonl`
 
 ---
 
@@ -107,13 +109,51 @@ python3 eva.py sell --ticker IWM --type call --strike 265 --expiry 2026-06-30 --
 
 Same flags as `buy`.
 
-**API endpoints:** `POST /accounts/{id}/orders`
+**API endpoints:** `GET /markets/quotes` (sell context), `GET /markets/options/chains` (sell-time Greeks/IV), `POST /accounts/{id}/orders`
 
-**Local files written:** `reasons.json`, `log.jsonl`, `pending_experience_updates.json`, `known_positions.json`
+**Market context captured at sell time:** The sell command captures the option's bid price, IV, and Greeks at the moment of sale. This sell-time context is stored in `closed_watches.json` alongside entry context, enabling hindsight comparison.
 
-The sell command immediately writes the closed position (with entry context, snapshots, and reasoning) to `pending_experience_updates.json` and removes the entry from `known_positions.json`. This lets the next reflect cycle process the experience without waiting for `detect_recently_closed`.
+**Local files written:** `reasons.json`, `log.jsonl`, `pending_experience_updates.json`, `known_positions.json`, `closed_watches.json`
+
+The sell command immediately writes the closed position (with entry context, snapshots, and reasoning) to `pending_experience_updates.json` and removes the entry from `known_positions.json`. It also adds the contract to `closed_watches.json` for post-sale tracking until expiration.
 
 **Discord:** Automatically sends a trade notification to the paper-trading channel.
+
+---
+
+## `hindsight`
+
+Post-sale hindsight analysis for closed watches.
+
+```bash
+python3 eva.py hindsight
+python3 eva.py hindsight --symbol IWM260517C00250000
+python3 eva.py hindsight --expired-only
+python3 eva.py hindsight --clear-expired
+```
+
+**Flags:**
+- `--symbol` — specific OCC symbol to analyze
+- `--expired-only` — only show expired contracts with complete lifecycle data
+- `--clear-expired` — remove expired contracts from watch list after analysis
+
+**Output:** JSON with per-contract analysis including:
+- `realized_pnl` / `realized_pnl_pct` — what Eva actually made/lost
+- `counterfactual.hold_to_now_value` — what the position would be worth now (or at expiry)
+- `counterfactual.peak_value_after_sale` / `peak_date` — best possible exit after sale
+- `counterfactual.trough_value_after_sale` / `trough_date` — worst point after sale
+- `counterfactual.missed_upside` — how much more she could have made
+- `counterfactual.avoided_downside` — how much loss the sell prevented
+- `counterfactual.sell_was_optimal` — did the sell beat holding to now?
+- `daily_trajectory` — day-by-day post-sale summaries (option bid OHLC, IV, delta, theta, underlying price, DTE)
+- `key_moments` — full snapshots at `first_after_sell`, `at_peak`, `at_trough`, `latest` (all Greeks, IV, prices)
+- `news_around_key_dates` — headlines from days around sell date, peak date, trough date (+/- 1 day)
+- `market_around_key_dates` — stock price and IV data on those same dates
+- `entry_market_context` / `sell_market_context` — market conditions at entry and exit
+- `open_reason` / `close_reason` — Eva's reasoning at entry and exit
+
+**Local files read:** `closed_watches.json`, `position-snapshots/*.jsonl` (pre-sale), `post-sale-snapshots/*.jsonl`, `data/{mode}/{TICKER}/news/*.json`, `data/{mode}/{TICKER}/iv/*.json`
+**Local files written:** `closed_watches.json` (when `--clear-expired`), deletes `post-sale-snapshots/{OCC}.jsonl` for cleared symbols
 
 ---
 
@@ -168,4 +208,5 @@ python3 eva.py reset --confirm
 1. Archive `reasons.json` to `reasons.YYYY-MM-DD.json`
 2. Cancel all open/pending orders via `DELETE /accounts/{id}/orders/{oid}`
 3. Close all positions via `POST /accounts/{id}/orders` (sell_to_close)
-4. Clear `reasons.json` and `known_positions.json`
+4. Clear `reasons.json`, `known_positions.json`, `closed_watches.json`, and `pending_experience_updates.json`
+5. Delete `position-snapshots/` and `post-sale-snapshots/` directories

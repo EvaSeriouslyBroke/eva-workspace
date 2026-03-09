@@ -6,6 +6,7 @@ Lookup table for experience recall. One-line summaries with tags so Eva can quic
 
 | File | Thesis | Tags |
 |------|--------|------|
+| general/mean-reversion-calls-fail-below-smas.md | Mean reversion calls fail when a stock is below both 50-day and 200-day SMAs | mean-reversion, downtrend, below-sma, technical-analysis |
 
 ## Tickers
 

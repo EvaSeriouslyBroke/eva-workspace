@@ -32,6 +32,23 @@ def parse_occ_symbol(sym):
     }
 
 
+def extract_greeks(opt):
+    """Extract IV and Greeks from a raw chain option dict.
+
+    Returns (iv, greeks_dict) where iv is percentage and greeks are rounded.
+    """
+    greeks = opt.get("greeks") or {}
+    iv = round((greeks.get("mid_iv") or greeks.get("smv_vol", 0) or 0) * 100, 1)
+    greeks_dict = {
+        "delta": round(greeks.get("delta", 0) or 0, 3),
+        "gamma": round(greeks.get("gamma", 0) or 0, 4),
+        "theta": round(greeks.get("theta", 0) or 0, 4),
+        "vega": round(greeks.get("vega", 0) or 0, 4),
+        "rho": round(greeks.get("rho", 0) or 0, 4),
+    }
+    return iv, greeks_dict
+
+
 def select_expiry(expirations, target_dte=120):
     """Pick the expiration closest to the target DTE."""
     today = date.today()

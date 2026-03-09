@@ -24,10 +24,13 @@ and give paper trading future knowledge of live data.
   {mode}-trading/                  ← "paper-trading" or "real-trading"
     reasons.json                   ← Order reasoning
     known_positions.json           ← Position tracker
+    closed_watches.json            ← Sold contracts being tracked until expiration
     pending_experience_updates.json ← Closed positions awaiting experience processing
     log.jsonl                      ← Event log
     position-snapshots/            ← Per-position price/greeks history
       {OCC_SYMBOL}.jsonl           ← One file per position (append-only)
+    post-sale-snapshots/           ← Post-sale price/greeks history
+      {OCC_SYMBOL}.jsonl           ← One file per closed watch (append-only)
 ```
 
 ### Examples
@@ -50,9 +53,12 @@ data/
   paper-trading/
     reasons.json
     known_positions.json
+    closed_watches.json
     log.jsonl
     position-snapshots/
       IWM260821C00250000.jsonl
+    post-sale-snapshots/
+      IWM260517C00250000.jsonl
   cron.log
 ```
 
@@ -293,6 +299,77 @@ thesis played out as expected.
 
 Open positions in the evaluate output include a `snapshot_count` field
 indicating how many snapshots exist, so Eva knows history depth.
+
+---
+
+## Closed Watches Tracker
+
+**Location**: `data/{mode}-trading/closed_watches.json`
+
+JSON object keyed by OCC symbol. Tracks sold contracts that continue to be monitored until expiration for hindsight analysis. Created by the `sell` command, read by `evaluate` (for post-sale snapshot recording) and `hindsight` (for analysis).
+
+```json
+{
+  "IWM260517C00250000": {
+    "ticker": "IWM",
+    "type": "call",
+    "strike": 250.0,
+    "expiry": "2026-05-17",
+    "quantity": 1,
+    "cost_basis": 1923.0,
+    "sell_date": "2026-03-06",
+    "sell_proceeds": 2150.0,
+    "sell_price": 21.50,
+    "sell_iv": 26.0,
+    "open_reason": "IV percentile 45, delta 0.65",
+    "close_reason": "Thesis played out — recovered 2%",
+    "entry_market_context": { "price": 250.35, "..." : "..." },
+    "sell_market_context": {
+      "underlying_price": 252.10,
+      "option_price": 21.50,
+      "iv": 26.0,
+      "greeks": { "delta": 0.58, "gamma": 0.009, "theta": -0.06, "vega": 0.65, "rho": 0.56 }
+    }
+  }
+}
+```
+
+### Lifecycle
+
+| State | Description |
+|-------|-------------|
+| Created | `sell` command adds entry with sell context |
+| Active | Each evaluate cycle records post-sale snapshots |
+| Expired | Contract expired — full lifecycle data available for hindsight analysis |
+| Removed | `hindsight --clear-expired` removes after analysis |
+
+---
+
+## Post-Sale Snapshot History
+
+**Location**: `data/{mode}-trading/post-sale-snapshots/{OCC_SYMBOL}.jsonl`
+
+JSONL file tracking a sold contract's price, IV, and Greeks after Eva sold it. Same concept as position snapshots, but for contracts Eva no longer holds. Enables counterfactual analysis: what would have happened if she held?
+
+```jsonl
+{"ts":"2026-03-07T09:45:00-05:00","underlying_price":252.50,"dte":71,"bid":22.10,"ask":22.30,"last":22.20,"iv":26.8,"greeks":{"delta":0.590,"gamma":0.0086,"theta":-0.0620,"vega":0.6500,"rho":0.5600}}
+{"ts":"2026-03-07T10:00:00-05:00","underlying_price":253.10,"dte":71,"bid":22.80,"ask":23.00,"last":22.90,"iv":27.1,"greeks":{"delta":0.598,"gamma":0.0084,"theta":-0.0630,"vega":0.6480,"rho":0.5620}}
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `ts` | string (ISO 8601) | Timestamp of the evaluation |
+| `underlying_price` | float | Stock price at evaluation time |
+| `dte` | int | Days to expiration |
+| `bid` | float | Option bid price |
+| `ask` | float | Option ask price |
+| `last` | float | Option last trade price |
+| `iv` | float | Option implied volatility (percentage) |
+| `greeks` | object | Option greeks (delta, gamma, theta, vega, rho) |
+
+**When recorded**: Every evaluation cycle for non-expired watched contracts.
+
+**How used**: The `hindsight` command computes counterfactuals (hold-to-now value, peak/trough after sale, missed upside, avoided downside). The `paper-trade-hindsight` skill uses this data to evaluate sell timing and update experiences.
 
 ---
 

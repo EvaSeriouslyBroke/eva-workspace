@@ -43,8 +43,10 @@ Each `.md` file in `general/` or `tickers/{TICKER}/` follows this structure:
 {One-paragraph digest of older evidence — key patterns, notable outliers.}
 
 ### Recent
-- {YYYY-MM-DD} [supporting]: {What happened and why}
-- {YYYY-MM-DD} [contradicting]: {What happened and why}
+- {YYYY-MM-DD} [paper] [supporting]: {What happened and why}
+- {YYYY-MM-DD} [paper] [contradicting]: {What happened and why}
+- {YYYY-MM-DD} [hindsight] [supporting]: {Post-sale analysis insight}
+- {YYYY-MM-DD} [observed]: {Pattern spotted in data without trading}
 
 ## Exceptions & Nuances
 
