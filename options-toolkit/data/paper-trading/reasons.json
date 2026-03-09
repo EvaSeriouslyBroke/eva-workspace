@@ -1,0 +1,248 @@
+{
+  "25966279": {
+    "reason": "Mean reversion play: IWM down 2.56% today, -4.3% for the week with no IWM-specific fundamental driver. News shows general market pressure/Middle East tension but nothing structural to small-caps. IV at 25.7% is moderate (not elevated). Buying ATM 250C with 168 DTE to capture potential recovery. Thesis: dip is overreaction, expecting reversion toward 50 SMA at 260.39.",
+    "timestamp": "2026-03-06T13:00:59.272325-05:00",
+    "side": "buy_to_open",
+    "symbol": "IWM260821C00250000",
+    "market_context": {
+      "price": 250.245,
+      "iv": 25.7
+    }
+  },
+  "25970295": {
+    "reason": "Mean reversion play: BAC down -2.61% today, -12.9% for the month on general financial sector weakness. No company-specific negative news \u2014 trading at discount to industry with general market concerns driving the decline. Stock is oversold relative to fundamentals. Buying ATM 50C with 133 DTE to capture recovery toward 50 SMA at 3.43. IV at 31% is moderate (not elevated). P/C ratio of 0.49 indicates bearish positioning that could reverse.",
+    "timestamp": "2026-03-06T13:46:06.523140-05:00",
+    "side": "buy_to_open",
+    "symbol": "BAC260717C00050000",
+    "market_context": {
+      "price": 48.26,
+      "iv": 31.4
+    }
+  },
+  "25974800": {
+    "reason": "Mean reversion play: HD down -1.03% today, -6% for the week, -7.6% for the month. No company-specific negative news \u2014 decline driven by general retail sector weakness and tariff concerns. Stock oversold relative to 50 SMA at 372.18. IV at 28.1% is moderate (not elevated). P/C ratio of 1.48 indicates bearish positioning that could unwind. Buying ATM 360C with 168 DTE to capture recovery toward 50 SMA.",
+    "timestamp": "2026-03-06T14:31:05.652820-05:00",
+    "side": "buy_to_open",
+    "symbol": "HD260821C00360000",
+    "market_context": {
+      "price": 357.86,
+      "iv": 28.4
+    }
+  },
+  "26134604": {
+    "reason": "Inflation hedge play: GLD down -1.53% due to oil surge above 00 creating inflation/rate hike fears. This is short-term correlation noise \u2014 gold fundamentals remain strong with bullish sentiment score of 5. Fed policy uncertainty supports gold as hedge. Stock at 66, buying ATM 470C with 130 DTE. IV at 28.4% is moderate. Thesis: Oil-driven inflation fears are temporary; gold resumes role as inflation hedge when market adjusts expectations.",
+    "timestamp": "2026-03-09T10:17:12.560536-04:00",
+    "side": "buy_to_open",
+    "symbol": "GLD260717C00470000",
+    "market_context": {
+      "price": 466.525,
+      "change_pct": -1.48,
+      "iv": 28.3,
+      "option_greeks": {
+        "delta": 0.548,
+        "gamma": 0.005,
+        "theta": -0.1454,
+        "vega": 1.1041,
+        "rho": 0.7937
+      },
+      "iv_context": {
+        "iv_rank": 50,
+        "iv_percentile": 0,
+        "iv_52w_high": 28.4,
+        "iv_52w_low": 28.4
+      },
+      "trends": {
+        "sma_signal": "above_both",
+        "sma_50": 447.28,
+        "sma_200": 367.46,
+        "price_vs_52w_pct": 82,
+        "price_52w_high": 509.7,
+        "price_52w_low": 265.64,
+        "returns": {
+          "1w": -4.8,
+          "1m": 5.6,
+          "3m": 20.5,
+          "6m": 40.9
+        },
+        "trend_summary": "Uptrend \u2014 above 50 and 200 SMA"
+      },
+      "news": [
+        {
+          "title": "Update: Gold Falls As Oil's Rise Above US$100 Brings Worries of Higher Inflation and Interest Rates",
+          "publisher": "MT Newswires",
+          "date": "2026-03-09"
+        },
+        {
+          "title": "Gold Falls Ss Oil's Rise Above US$100 Brings Worries of Higher Inflation and Interest Rates",
+          "publisher": "MT Newswires",
+          "date": "2026-03-09"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Monday Amid Oil Price Surge",
+          "publisher": "MT Newswires",
+          "date": "2026-03-09"
+        },
+        {
+          "title": "Gold Slips Toward $5,120 as Oil Surges Above $100 and Dollar Strengthens",
+          "publisher": "GuruFocus.com",
+          "date": "2026-03-09"
+        },
+        {
+          "title": "GLD\u2019s $75 Billion Couldn\u2019t Shield It From the Tariff-Driven Selloff",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-07"
+        }
+      ]
+    }
+  },
+  "26134698": {
+    "reason": "Double down via different strike: BAC down -3.13% today, -14.2% for month. Cannot buy duplicate 50C (already held), so scaling with 52.5C at .80. Same mean reversion thesis: no company-specific news, general financial sector weakness, trading at discount. Target 50 SMA 3.26 \u2014 this strike captures near-term reversal better. IV 35.6% moderate.",
+    "timestamp": "2026-03-09T10:17:34.688192-04:00",
+    "side": "buy_to_open",
+    "symbol": "BAC260717C00052500",
+    "market_context": {
+      "price": 47.145,
+      "change_pct": -3.08,
+      "iv": 30.8,
+      "option_greeks": {
+        "delta": 0.336,
+        "gamma": 0.0415,
+        "theta": -0.0138,
+        "vega": 0.1045,
+        "rho": 0.0506
+      },
+      "iv_context": {
+        "iv_rank": 50,
+        "iv_percentile": 0,
+        "iv_52w_high": 35.6,
+        "iv_52w_low": 35.6
+      },
+      "trends": {
+        "sma_signal": "below_both",
+        "sma_50": 53.26,
+        "sma_200": 50.51,
+        "price_vs_52w_pct": 58,
+        "price_52w_high": 57.55,
+        "price_52w_low": 33.06,
+        "returns": {
+          "1w": -5.4,
+          "1m": -14.2,
+          "3m": -12.5,
+          "6m": -5.3
+        },
+        "trend_summary": "Downtrend \u2014 below 50 and 200 SMA"
+      },
+      "news": [
+        {
+          "title": "Warren Buffett Just Did Something He Almost Never Does \u2014 and It\u2019s a Signal Retirees Shouldn\u2019t Ignore",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-09"
+        },
+        {
+          "title": "5 Dividend Stocks Are 60% of Berkshire Hathaway After Buffett\u2019s Q4 Selling Spree",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-09"
+        },
+        {
+          "title": "3 of Wall Street\u2019s Favorite Stocks We Steer Clear Of",
+          "publisher": "StockStory",
+          "date": "2026-03-09"
+        },
+        {
+          "title": "How Apollo Tyres (NSEI:APOLLOTYRE) Story Is Shifting As Valuation Assumptions Are Tweaked",
+          "publisher": "Simply Wall St.",
+          "date": "2026-03-09"
+        },
+        {
+          "title": "Bank of America drops shock message on the stock market",
+          "publisher": "TheStreet",
+          "date": "2026-03-09"
+        }
+      ]
+    }
+  },
+  "26146794": {
+    "reason": "Cutting risk: BAC down -3.5% today, -14.6% monthly. Mean reversion thesis failing as financial sector weakness persists. Reducing call exposure in declining market. Position showing -8.3% unrealized loss.",
+    "timestamp": "2026-03-09T11:01:58.298054-04:00",
+    "side": "sell_to_close",
+    "symbol": "BAC260717C00052500"
+  },
+  "26164489": {
+    "reason": "Mean reversion thesis invalidated. Experience index shows this pattern fails: BAC below both SMAs in sustained downtrend. Stock at 7.03 vs 50 SMA 3.26 and 200 SMA 0.51. Previous same-pattern trade lost -8.3% same day. Returns all negative (-5.6% 1w, -14.4% 1m, -12.7% 3m). Cutting loss before it deepens.",
+    "timestamp": "2026-03-09T12:02:13.351703-04:00",
+    "side": "sell_to_close",
+    "symbol": "BAC260717C00050000"
+  },
+  "26192642": {
+    "reason": "Thesis broken: Mean reversion failed. HD down -2.9% since entry, -5.4% week, -10.1% month. Deep research confirms cyclical headwinds from high rates, low housing turnover, declining sales (-3.8% in Q4). Stock in confirmed downtrend below both SMAs. Jim Cramer calls position 'problematic.' Exiting to preserve capital. Tags: mean-reversion-failed, thesis-break, cyclical-downside, hd",
+    "timestamp": "2026-03-09T13:47:11.258555-04:00",
+    "side": "sell_to_close",
+    "symbol": "HD260821C00360000"
+  },
+  "26200020": {
+    "reason": "Momentum breakout play on Meta AI mega-deal catalyst. AMD up 2.11% on news of multi-year partnership with Meta for AI compute infrastructure. Stock beaten down 21% from highs (-13.9% YTD), trading 39% below fair value. Analyst target 89 vs current 96. Momentum score at 90.84 (top 10%). High IV at 57.1% is cost but justified by genuine fundamental catalyst. 200C Jul-17 with 130 DTE gives time for thesis to play out. Delta 0.564 provides good exposure.",
+    "timestamp": "2026-03-09T14:16:48.226558-04:00",
+    "side": "buy_to_open",
+    "symbol": "AMD260717C00200000",
+    "market_context": {
+      "price": 196.6599,
+      "change_pct": 2.2,
+      "iv": 56.7,
+      "option_greeks": {
+        "delta": 0.564,
+        "gamma": 0.006,
+        "theta": -0.1107,
+        "vega": 0.4625,
+        "rho": 0.3014
+      },
+      "iv_context": {
+        "iv_rank": 50,
+        "iv_percentile": 0,
+        "iv_52w_high": 57.1,
+        "iv_52w_low": 57.1
+      },
+      "trends": {
+        "sma_signal": "mixed",
+        "sma_50": 217.24,
+        "sma_200": 189.03,
+        "price_vs_52w_pct": 63,
+        "price_52w_high": 267.08,
+        "price_52w_low": 76.48,
+        "returns": {
+          "1w": -1.0,
+          "1m": 2.2,
+          "3m": -8.9,
+          "6m": 30.1
+        },
+        "trend_summary": "Mixed \u2014 between 50 and 200 SMA"
+      },
+      "news": [
+        {
+          "title": "AMD AI Partnerships And Valuation Gap Put Growth Story In Focus",
+          "publisher": "Simply Wall St.",
+          "date": "2026-03-09"
+        },
+        {
+          "title": "Nvidia Partner Transforms Into AI Factory \u2013 And Eyes Breakout",
+          "publisher": "Investor's Business Daily",
+          "date": "2026-03-09"
+        },
+        {
+          "title": "How Nvidia Stock Is Threatened by War in Iran",
+          "publisher": "Barrons.com",
+          "date": "2026-03-09"
+        },
+        {
+          "title": "MRVL Surges 18.4% Post Q4 Earnings: Time to Hold or Fold the Stock?",
+          "publisher": "Zacks",
+          "date": "2026-03-09"
+        },
+        {
+          "title": "Trump Admin Weighs New Export Rules That Ties Chip Purchase From Likes Of Nvidia, AMD To Investments In US Data Centers: Report",
+          "publisher": "Benzinga",
+          "date": "2026-03-08"
+        }
+      ]
+    }
+  }
+}

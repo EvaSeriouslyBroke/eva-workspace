@@ -19,8 +19,7 @@ and give paper trading future knowledge of live data.
         {YYYY-MM-DD}.json          ← Report snapshots
       iv/
         {YYYY-MM-DD}.json          ← IV history
-      news/
-        {YYYY-MM-DD}.json          ← News headline history
+      news.json                    ← All headlines for this ticker (single file)
   {mode}-trading/                  ← "paper-trading" or "real-trading"
     reasons.json                   ← Order reasoning
     known_positions.json           ← Position tracker
@@ -45,8 +44,7 @@ data/
       iv/
         2026-02-10.json
         2026-02-11.json
-      news/
-        2026-02-10.json
+      news.json
     SPY/
       2026-W08/
         2026-02-17.json
@@ -194,23 +192,25 @@ reference historical market conditions when recognizing patterns.
 
 ## News History Format
 
-**Location**: `data/{mode}/{TICKER}/news/{YYYY-MM-DD}.json`
+**Location**: `data/{mode}/{TICKER}/news.json`
 
-JSON array of news snapshots. Each evaluate cycle fetches fresh headlines from
-yfinance and appends a snapshot. Deep news research (`news-research` command)
-is done separately only for tickers Eva wants to act on.
+Single JSON file per ticker containing all headlines ever seen. Each evaluate
+cycle fetches fresh headlines from yfinance and merges them into the file,
+deduplicating by title. Headlines accumulate over time — old ones are never
+removed. Each headline carries its own publish date, so readers filter by
+date range as needed.
 
 ```json
 [
   {
-    "ts": "2026-02-20T09:30:00-05:00",
-    "headlines": [
-      {
-        "title": "IWM Drops on Tariff Concerns",
-        "publisher": "Reuters",
-        "date": "2026-02-20"
-      }
-    ]
+    "title": "IWM Drops on Tariff Concerns",
+    "publisher": "Reuters",
+    "date": "2026-02-20"
+  },
+  {
+    "title": "Small Caps Rally on Jobs Data",
+    "publisher": "Bloomberg",
+    "date": "2026-02-21"
   }
 ]
 ```

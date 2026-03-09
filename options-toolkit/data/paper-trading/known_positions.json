@@ -1,0 +1,170 @@
+{
+  "IWM260821C00250000": [
+    {
+      "order_id": "25966279",
+      "reason": "Mean reversion play: IWM down 2.56% today, -4.3% for the week with no IWM-specific fundamental driver. News shows general market pressure/Middle East tension but nothing structural to small-caps. IV at 25.7% is moderate (not elevated). Buying ATM 250C with 168 DTE to capture potential recovery. Thesis: dip is overreaction, expecting reversion toward 50 SMA at 260.39.",
+      "entry_price": 250.245,
+      "entry_iv": 25.7,
+      "entry_date": "2026-03-06",
+      "ticker": "IWM",
+      "type": "call",
+      "strike": 250.0,
+      "expiry": "2026-08-21",
+      "quantity": 1,
+      "cost_basis": 1923.0,
+      "reflected": true
+    }
+  ],
+  "GLD260717C00470000": [
+    {
+      "order_id": "26134604",
+      "reason": "Inflation hedge play: GLD down -1.53% due to oil surge above 00 creating inflation/rate hike fears. This is short-term correlation noise \u2014 gold fundamentals remain strong with bullish sentiment score of 5. Fed policy uncertainty supports gold as hedge. Stock at 66, buying ATM 470C with 130 DTE. IV at 28.4% is moderate. Thesis: Oil-driven inflation fears are temporary; gold resumes role as inflation hedge when market adjusts expectations.",
+      "entry_price": 466.525,
+      "entry_iv": 28.3,
+      "entry_date": "2026-03-09",
+      "ticker": "GLD",
+      "type": "call",
+      "strike": 470.0,
+      "expiry": "2026-07-17",
+      "quantity": 1,
+      "cost_basis": 3360.0,
+      "reflected": true,
+      "market_context": {
+        "price": 466.525,
+        "change_pct": -1.48,
+        "iv": 28.3,
+        "option_greeks": {
+          "delta": 0.548,
+          "gamma": 0.005,
+          "theta": -0.1454,
+          "vega": 1.1041,
+          "rho": 0.7937
+        },
+        "iv_context": {
+          "iv_rank": 50,
+          "iv_percentile": 0,
+          "iv_52w_high": 28.4,
+          "iv_52w_low": 28.4
+        },
+        "trends": {
+          "sma_signal": "above_both",
+          "sma_50": 447.28,
+          "sma_200": 367.46,
+          "price_vs_52w_pct": 82,
+          "price_52w_high": 509.7,
+          "price_52w_low": 265.64,
+          "returns": {
+            "1w": -4.8,
+            "1m": 5.6,
+            "3m": 20.5,
+            "6m": 40.9
+          },
+          "trend_summary": "Uptrend \u2014 above 50 and 200 SMA"
+        },
+        "news": [
+          {
+            "title": "Update: Gold Falls As Oil's Rise Above US$100 Brings Worries of Higher Inflation and Interest Rates",
+            "publisher": "MT Newswires",
+            "date": "2026-03-09"
+          },
+          {
+            "title": "Gold Falls Ss Oil's Rise Above US$100 Brings Worries of Higher Inflation and Interest Rates",
+            "publisher": "MT Newswires",
+            "date": "2026-03-09"
+          },
+          {
+            "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Monday Amid Oil Price Surge",
+            "publisher": "MT Newswires",
+            "date": "2026-03-09"
+          },
+          {
+            "title": "Gold Slips Toward $5,120 as Oil Surges Above $100 and Dollar Strengthens",
+            "publisher": "GuruFocus.com",
+            "date": "2026-03-09"
+          },
+          {
+            "title": "GLD\u2019s $75 Billion Couldn\u2019t Shield It From the Tariff-Driven Selloff",
+            "publisher": "24/7 Wall St.",
+            "date": "2026-03-07"
+          }
+        ]
+      }
+    }
+  ],
+  "AMD260717C00200000": [
+    {
+      "order_id": "26200020",
+      "reason": "Momentum breakout play on Meta AI mega-deal catalyst. AMD up 2.11% on news of multi-year partnership with Meta for AI compute infrastructure. Stock beaten down 21% from highs (-13.9% YTD), trading 39% below fair value. Analyst target 89 vs current 96. Momentum score at 90.84 (top 10%). High IV at 57.1% is cost but justified by genuine fundamental catalyst. 200C Jul-17 with 130 DTE gives time for thesis to play out. Delta 0.564 provides good exposure.",
+      "entry_price": 196.6599,
+      "entry_iv": 56.7,
+      "entry_date": "2026-03-09",
+      "ticker": "AMD",
+      "type": "call",
+      "strike": 200.0,
+      "expiry": "2026-07-17",
+      "quantity": 1,
+      "cost_basis": 2640.0,
+      "reflected": true,
+      "market_context": {
+        "price": 196.6599,
+        "change_pct": 2.2,
+        "iv": 56.7,
+        "option_greeks": {
+          "delta": 0.564,
+          "gamma": 0.006,
+          "theta": -0.1107,
+          "vega": 0.4625,
+          "rho": 0.3014
+        },
+        "iv_context": {
+          "iv_rank": 50,
+          "iv_percentile": 0,
+          "iv_52w_high": 57.1,
+          "iv_52w_low": 57.1
+        },
+        "trends": {
+          "sma_signal": "mixed",
+          "sma_50": 217.24,
+          "sma_200": 189.03,
+          "price_vs_52w_pct": 63,
+          "price_52w_high": 267.08,
+          "price_52w_low": 76.48,
+          "returns": {
+            "1w": -1.0,
+            "1m": 2.2,
+            "3m": -8.9,
+            "6m": 30.1
+          },
+          "trend_summary": "Mixed \u2014 between 50 and 200 SMA"
+        },
+        "news": [
+          {
+            "title": "AMD AI Partnerships And Valuation Gap Put Growth Story In Focus",
+            "publisher": "Simply Wall St.",
+            "date": "2026-03-09"
+          },
+          {
+            "title": "Nvidia Partner Transforms Into AI Factory \u2013 And Eyes Breakout",
+            "publisher": "Investor's Business Daily",
+            "date": "2026-03-09"
+          },
+          {
+            "title": "How Nvidia Stock Is Threatened by War in Iran",
+            "publisher": "Barrons.com",
+            "date": "2026-03-09"
+          },
+          {
+            "title": "MRVL Surges 18.4% Post Q4 Earnings: Time to Hold or Fold the Stock?",
+            "publisher": "Zacks",
+            "date": "2026-03-09"
+          },
+          {
+            "title": "Trump Admin Weighs New Export Rules That Ties Chip Purchase From Likes Of Nvidia, AMD To Investments In US Data Centers: Report",
+            "publisher": "Benzinga",
+            "date": "2026-03-08"
+          }
+        ]
+      }
+    }
+  ]
+}

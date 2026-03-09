@@ -333,28 +333,28 @@ def load_iv_history(ticker, days=365, mode="paper"):
     return history
 
 
-# ── News snapshot storage (data/{mode}/{TICKER}/news/) ───────────────────────
+# ── News storage (data/{mode}/{TICKER}/news.json) ────────────────────────────
 
 def save_news_snapshot(mode, ticker, headlines):
-    """Save news headlines for a ticker. One file per day, appends snapshots."""
+    """Merge new headlines into the ticker's single news file, deduped by title."""
     ticker = ticker.upper()
-    d = os.path.join(market_data_dir(mode), ticker, "news")
+    d = os.path.join(market_data_dir(mode), ticker)
     os.makedirs(d, exist_ok=True)
-    today = date.today().isoformat()
-    path = os.path.join(d, f"{today}.json")
-    snapshots = []
+    path = os.path.join(d, "news.json")
+    existing = []
     if os.path.exists(path):
         try:
             with open(path) as f:
-                snapshots = json.load(f)
+                existing = json.load(f)
         except (json.JSONDecodeError, TypeError):
-            snapshots = []
-    snapshots.append({
-        "ts": datetime.now(ET).isoformat(),
-        "headlines": headlines,
-    })
+            existing = []
+    seen = {h["title"] for h in existing}
+    for h in headlines:
+        if h["title"] not in seen:
+            existing.append(h)
+            seen.add(h["title"])
     with open(path, "w") as f:
-        json.dump(snapshots, f, indent=2)
+        json.dump(existing, f, indent=2)
 
 
 
@@ -445,29 +445,21 @@ def load_news_history(mode, ticker, days=7):
     """Load recent news history for a ticker.
 
     Returns list of dicts with date and headlines, most recent first.
+    Reads from the single news.json file and groups headlines by publish date.
     """
     ticker = ticker.upper()
-    news_dir = os.path.join(market_data_dir(mode), ticker, "news")
-    if not os.path.isdir(news_dir):
-        return []
     cutoff = (date.today() - timedelta(days=days)).isoformat()
-    history = []
-    for fname in sorted(os.listdir(news_dir), reverse=True):
-        if not fname.endswith(".json"):
-            continue
-        day_str = fname.replace(".json", "")
-        if day_str < cutoff:
-            continue
-        path = os.path.join(news_dir, fname)
-        try:
-            with open(path) as f:
-                snapshots = json.load(f)
-            if snapshots:
-                last = snapshots[-1]
-                history.append({
-                    "date": day_str,
-                    "headlines": last.get("headlines", []),
-                })
-        except Exception:
-            continue
-    return history
+    path = os.path.join(market_data_dir(mode), ticker, "news.json")
+    if not os.path.exists(path):
+        return []
+    try:
+        with open(path) as f:
+            headlines = json.load(f)
+        by_date = {}
+        for h in headlines:
+            d = h.get("date", "")
+            if d and d >= cutoff:
+                by_date.setdefault(d, []).append(h)
+        return [{"date": d, "headlines": hs} for d, hs in sorted(by_date.items(), reverse=True)]
+    except Exception:
+        return []

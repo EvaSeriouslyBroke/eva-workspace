@@ -1,0 +1,526 @@
+[
+  {
+    "timestamp": "2026-02-27T09:31:03.229394-05:00",
+    "price": 262.5,
+    "prev_close": 263.55,
+    "expiry": "2026-06-30",
+    "avg_call_iv": 0.39,
+    "avg_put_iv": 0.7,
+    "overall_avg_iv": 0.55,
+    "pc_vol_ratio": 0.25,
+    "pc_oi_ratio": 0.69,
+    "skew": 0.31,
+    "strikes": {
+      "270": {
+        "call_iv": 1.56,
+        "call_vol": 5,
+        "call_oi": 639,
+        "put_iv": 0.0,
+        "put_vol": 1,
+        "put_oi": 231
+      },
+      "265": {
+        "call_iv": 0.39,
+        "call_vol": 470,
+        "call_oi": 1232,
+        "put_iv": 0.0,
+        "put_vol": 50,
+        "put_oi": 124
+      },
+      "260": {
+        "call_iv": 0.0,
+        "call_vol": 37,
+        "call_oi": 434,
+        "put_iv": 0.39,
+        "put_vol": 16,
+        "put_oi": 493
+      },
+      "255": {
+        "call_iv": 0.0,
+        "call_vol": 5,
+        "call_oi": 236,
+        "put_iv": 1.56,
+        "put_vol": 19,
+        "put_oi": 411
+      },
+      "250": {
+        "call_iv": 0.0,
+        "call_vol": 7,
+        "call_oi": 1430,
+        "put_iv": 1.56,
+        "put_vol": 43,
+        "put_oi": 1494
+      }
+    }
+  },
+  {
+    "timestamp": "2026-02-27T11:00:03.624978-05:00",
+    "price": 261.32000732421875,
+    "prev_close": 263.55,
+    "expiry": "2026-06-30",
+    "avg_call_iv": 25.45,
+    "avg_put_iv": 22.17,
+    "overall_avg_iv": 23.81,
+    "pc_vol_ratio": 1.41,
+    "pc_oi_ratio": 0.69,
+    "skew": -3.28,
+    "strikes": {
+      "285": {
+        "call_iv": 21.86,
+        "call_vol": 1,
+        "call_oi": 1038,
+        "put_iv": 18.96,
+        "put_vol": 1,
+        "put_oi": 33
+      },
+      "280": {
+        "call_iv": 22.39,
+        "call_vol": 6,
+        "call_oi": 658,
+        "put_iv": 19.4,
+        "put_vol": 4,
+        "put_oi": 74
+      },
+      "275": {
+        "call_iv": 22.86,
+        "call_vol": 9,
+        "call_oi": 521,
+        "put_iv": 20.16,
+        "put_vol": 2,
+        "put_oi": 11
+      },
+      "270": {
+        "call_iv": 23.74,
+        "call_vol": 16,
+        "call_oi": 639,
+        "put_iv": 20.51,
+        "put_vol": 1,
+        "put_oi": 231
+      },
+      "265": {
+        "call_iv": 24.46,
+        "call_vol": 17,
+        "call_oi": 1232,
+        "put_iv": 21.41,
+        "put_vol": 41,
+        "put_oi": 124
+      },
+      "260": {
+        "call_iv": 25.37,
+        "call_vol": 33,
+        "call_oi": 434,
+        "put_iv": 22.21,
+        "put_vol": 39,
+        "put_oi": 493
+      },
+      "255": {
+        "call_iv": 26.38,
+        "call_vol": 5,
+        "call_oi": 236,
+        "put_iv": 22.93,
+        "put_vol": 1,
+        "put_oi": 411
+      },
+      "250": {
+        "call_iv": 27.29,
+        "call_vol": 7,
+        "call_oi": 1430,
+        "put_iv": 23.77,
+        "put_vol": 28,
+        "put_oi": 1494
+      },
+      "245": {
+        "call_iv": 28.34,
+        "call_vol": 1,
+        "call_oi": 1782,
+        "put_iv": 24.64,
+        "put_vol": 3,
+        "put_oi": 507
+      },
+      "240": {
+        "call_iv": 29.41,
+        "call_vol": 1,
+        "call_oi": 1265,
+        "put_iv": 25.67,
+        "put_vol": 8,
+        "put_oi": 426
+      }
+    }
+  },
+  {
+    "timestamp": "2026-02-27T12:30:05.010356-05:00",
+    "price": 260.3900146484375,
+    "prev_close": 263.55,
+    "expiry": "2026-06-30",
+    "avg_call_iv": 25.7,
+    "avg_put_iv": 21.73,
+    "overall_avg_iv": 23.71,
+    "pc_vol_ratio": 0.82,
+    "pc_oi_ratio": 0.69,
+    "skew": -3.97,
+    "strikes": {
+      "280": {
+        "call_iv": 22.43,
+        "call_vol": 9,
+        "call_oi": 658,
+        "put_iv": 18.4,
+        "put_vol": 4,
+        "put_oi": 74
+      },
+      "275": {
+        "call_iv": 23.12,
+        "call_vol": 10,
+        "call_oi": 521,
+        "put_iv": 19.25,
+        "put_vol": 2,
+        "put_oi": 11
+      },
+      "270": {
+        "call_iv": 23.77,
+        "call_vol": 16,
+        "call_oi": 639,
+        "put_iv": 20.15,
+        "put_vol": 1,
+        "put_oi": 231
+      },
+      "265": {
+        "call_iv": 24.69,
+        "call_vol": 28,
+        "call_oi": 1232,
+        "put_iv": 20.83,
+        "put_vol": 41,
+        "put_oi": 124
+      },
+      "260": {
+        "call_iv": 25.53,
+        "call_vol": 85,
+        "call_oi": 434,
+        "put_iv": 21.67,
+        "put_vol": 39,
+        "put_oi": 493
+      },
+      "255": {
+        "call_iv": 26.64,
+        "call_vol": 5,
+        "call_oi": 236,
+        "put_iv": 22.54,
+        "put_vol": 1,
+        "put_oi": 411
+      },
+      "250": {
+        "call_iv": 27.86,
+        "call_vol": 4,
+        "call_oi": 1430,
+        "put_iv": 23.44,
+        "put_vol": 31,
+        "put_oi": 1494
+      },
+      "245": {
+        "call_iv": 28.91,
+        "call_vol": 1,
+        "call_oi": 1782,
+        "put_iv": 24.29,
+        "put_vol": 3,
+        "put_oi": 507
+      },
+      "240": {
+        "call_iv": 30.08,
+        "call_vol": 1,
+        "call_oi": 1265,
+        "put_iv": 25.21,
+        "put_vol": 9,
+        "put_oi": 426
+      },
+      "237": {
+        "call_iv": 30.8,
+        "call_vol": 2,
+        "call_oi": 387,
+        "put_iv": 25.89,
+        "put_vol": 12,
+        "put_oi": 7836
+      }
+    }
+  },
+  {
+    "timestamp": "2026-02-27T14:00:03.365119-05:00",
+    "price": 260.2799987792969,
+    "prev_close": 263.55,
+    "expiry": "2026-06-30",
+    "avg_call_iv": 25.01,
+    "avg_put_iv": 22.24,
+    "overall_avg_iv": 23.63,
+    "pc_vol_ratio": 0.73,
+    "pc_oi_ratio": 0.69,
+    "skew": -2.77,
+    "strikes": {
+      "280": {
+        "call_iv": 22.19,
+        "call_vol": 9,
+        "call_oi": 658,
+        "put_iv": 19.63,
+        "put_vol": 4,
+        "put_oi": 74
+      },
+      "275": {
+        "call_iv": 22.7,
+        "call_vol": 13,
+        "call_oi": 521,
+        "put_iv": 20.25,
+        "put_vol": 2,
+        "put_oi": 11
+      },
+      "270": {
+        "call_iv": 23.32,
+        "call_vol": 32,
+        "call_oi": 639,
+        "put_iv": 20.7,
+        "put_vol": 1,
+        "put_oi": 231
+      },
+      "265": {
+        "call_iv": 24.23,
+        "call_vol": 29,
+        "call_oi": 1232,
+        "put_iv": 21.37,
+        "put_vol": 41,
+        "put_oi": 124
+      },
+      "260": {
+        "call_iv": 24.78,
+        "call_vol": 95,
+        "call_oi": 434,
+        "put_iv": 22.24,
+        "put_vol": 45,
+        "put_oi": 493
+      },
+      "255": {
+        "call_iv": 25.9,
+        "call_vol": 5,
+        "call_oi": 236,
+        "put_iv": 23.04,
+        "put_vol": 3,
+        "put_oi": 411
+      },
+      "250": {
+        "call_iv": 26.83,
+        "call_vol": 5,
+        "call_oi": 1430,
+        "put_iv": 23.86,
+        "put_vol": 32,
+        "put_oi": 1494
+      },
+      "245": {
+        "call_iv": 27.6,
+        "call_vol": 4,
+        "call_oi": 1782,
+        "put_iv": 24.79,
+        "put_vol": 4,
+        "put_oi": 507
+      },
+      "240": {
+        "call_iv": 28.92,
+        "call_vol": 1,
+        "call_oi": 1265,
+        "put_iv": 25.59,
+        "put_vol": 10,
+        "put_oi": 426
+      },
+      "237": {
+        "call_iv": 29.36,
+        "call_vol": 2,
+        "call_oi": 387,
+        "put_iv": 26.23,
+        "put_vol": 20,
+        "put_oi": 7836
+      }
+    }
+  },
+  {
+    "timestamp": "2026-02-27T15:00:02.570064-05:00",
+    "price": 259.8599853515625,
+    "prev_close": 263.55,
+    "expiry": "2026-06-30",
+    "avg_call_iv": 25.4,
+    "avg_put_iv": 21.93,
+    "overall_avg_iv": 23.67,
+    "pc_vol_ratio": 0.76,
+    "pc_oi_ratio": 0.69,
+    "skew": -3.47,
+    "strikes": {
+      "280": {
+        "call_iv": 22.34,
+        "call_vol": 9,
+        "call_oi": 658,
+        "put_iv": 18.62,
+        "put_vol": 4,
+        "put_oi": 74
+      },
+      "275": {
+        "call_iv": 22.88,
+        "call_vol": 13,
+        "call_oi": 521,
+        "put_iv": 19.47,
+        "put_vol": 2,
+        "put_oi": 11
+      },
+      "270": {
+        "call_iv": 23.59,
+        "call_vol": 32,
+        "call_oi": 639,
+        "put_iv": 20.2,
+        "put_vol": 1,
+        "put_oi": 231
+      },
+      "265": {
+        "call_iv": 24.39,
+        "call_vol": 29,
+        "call_oi": 1232,
+        "put_iv": 21.1,
+        "put_vol": 41,
+        "put_oi": 124
+      },
+      "260": {
+        "call_iv": 25.37,
+        "call_vol": 96,
+        "call_oi": 434,
+        "put_iv": 21.9,
+        "put_vol": 50,
+        "put_oi": 493
+      },
+      "255": {
+        "call_iv": 26.31,
+        "call_vol": 5,
+        "call_oi": 236,
+        "put_iv": 22.83,
+        "put_vol": 3,
+        "put_oi": 411
+      },
+      "250": {
+        "call_iv": 27.36,
+        "call_vol": 5,
+        "call_oi": 1430,
+        "put_iv": 23.63,
+        "put_vol": 32,
+        "put_oi": 1494
+      },
+      "245": {
+        "call_iv": 28.68,
+        "call_vol": 4,
+        "call_oi": 1782,
+        "put_iv": 24.56,
+        "put_vol": 4,
+        "put_oi": 507
+      },
+      "240": {
+        "call_iv": 29.63,
+        "call_vol": 1,
+        "call_oi": 1265,
+        "put_iv": 25.41,
+        "put_vol": 12,
+        "put_oi": 426
+      },
+      "237": {
+        "call_iv": 30.44,
+        "call_vol": 2,
+        "call_oi": 387,
+        "put_iv": 26.02,
+        "put_vol": 20,
+        "put_oi": 7836
+      }
+    }
+  },
+  {
+    "timestamp": "2026-02-27T15:59:03.031999-05:00",
+    "price": 261.2300109863281,
+    "prev_close": 263.55,
+    "expiry": "2026-06-30",
+    "avg_call_iv": 24.97,
+    "avg_put_iv": 21.95,
+    "overall_avg_iv": 23.46,
+    "pc_vol_ratio": 0.8,
+    "pc_oi_ratio": 0.69,
+    "skew": -3.03,
+    "strikes": {
+      "285": {
+        "call_iv": 21.44,
+        "call_vol": 7,
+        "call_oi": 1038,
+        "put_iv": 18.35,
+        "put_vol": 1,
+        "put_oi": 33
+      },
+      "280": {
+        "call_iv": 21.96,
+        "call_vol": 12,
+        "call_oi": 658,
+        "put_iv": 18.91,
+        "put_vol": 1,
+        "put_oi": 74
+      },
+      "275": {
+        "call_iv": 22.57,
+        "call_vol": 13,
+        "call_oi": 521,
+        "put_iv": 19.72,
+        "put_vol": 2,
+        "put_oi": 11
+      },
+      "270": {
+        "call_iv": 23.21,
+        "call_vol": 33,
+        "call_oi": 639,
+        "put_iv": 20.4,
+        "put_vol": 1,
+        "put_oi": 231
+      },
+      "265": {
+        "call_iv": 24.1,
+        "call_vol": 29,
+        "call_oi": 1232,
+        "put_iv": 21.07,
+        "put_vol": 41,
+        "put_oi": 124
+      },
+      "260": {
+        "call_iv": 24.91,
+        "call_vol": 97,
+        "call_oi": 434,
+        "put_iv": 21.9,
+        "put_vol": 51,
+        "put_oi": 493
+      },
+      "255": {
+        "call_iv": 25.85,
+        "call_vol": 5,
+        "call_oi": 236,
+        "put_iv": 22.77,
+        "put_vol": 5,
+        "put_oi": 411
+      },
+      "250": {
+        "call_iv": 26.8,
+        "call_vol": 5,
+        "call_oi": 1430,
+        "put_iv": 23.6,
+        "put_vol": 38,
+        "put_oi": 1494
+      },
+      "245": {
+        "call_iv": 27.79,
+        "call_vol": 4,
+        "call_oi": 1782,
+        "put_iv": 24.52,
+        "put_vol": 4,
+        "put_oi": 507
+      },
+      "240": {
+        "call_iv": 28.7,
+        "call_vol": 1,
+        "call_oi": 1265,
+        "put_iv": 25.38,
+        "put_vol": 12,
+        "put_oi": 426
+      }
+    }
+  }
+]
