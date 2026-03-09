@@ -23,8 +23,6 @@ The goal is pattern recognition across as many market conditions as possible.
 
 ### Hard Constraints
 - **Only settled cash** — unsettled funds take 1 day to clear.
-- **No duplicate OCC symbols** — can't hold the same exact option twice.
-  Different strikes/expiries on the same ticker are fine.
 - **No far OTM options** — only buy near-the-money or slightly OTM. Far OTM
   options have terrible odds and decay fast. Stick to strikes with meaningful
   delta (roughly |delta| >= 0.20).

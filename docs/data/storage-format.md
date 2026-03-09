@@ -217,27 +217,31 @@ firsthand experience.
 
 **Location**: `data/{mode}-trading/known_positions.json`
 
-JSON object keyed by OCC symbol. Tracks position lifecycle from buy to close.
+JSON object keyed by OCC symbol. Each symbol maps to a **list** of buy entries (supports averaging into a position with multiple buys). Tracks position lifecycle from buy to close.
 
 ```json
 {
-  "IWM260821C00250000": {
-    "order_id": "12345678",
-    "reason": "IV percentile 45, delta 0.65, 45 DTE sweet spot",
-    "entry_price": 250.35,
-    "entry_iv": 28.5,
-    "entry_date": "2026-03-06",
-    "ticker": "IWM",
-    "type": "call",
-    "strike": 250.0,
-    "expiry": "2026-08-21",
-    "quantity": 1,
-    "cost_basis": 1923.0,
-    "reflected": true,
-    "market_context": { "price": 250.35, "change_pct": 0.5, "iv": 28.5, "..." : "..." }
-  }
+  "IWM260821C00250000": [
+    {
+      "order_id": "12345678",
+      "reason": "IV percentile 45, delta 0.65, 45 DTE sweet spot",
+      "entry_price": 250.35,
+      "entry_iv": 28.5,
+      "entry_date": "2026-03-06",
+      "ticker": "IWM",
+      "type": "call",
+      "strike": 250.0,
+      "expiry": "2026-08-21",
+      "quantity": 1,
+      "cost_basis": 1923.0,
+      "reflected": true,
+      "market_context": { "price": 250.35, "change_pct": 0.5, "iv": 28.5, "..." : "..." }
+    }
+  ]
 }
 ```
+
+Multiple buys of the same OCC symbol append to the list. Legacy files with a single dict per symbol are auto-migrated to the list format on read.
 
 ### Lifecycle
 
@@ -245,7 +249,7 @@ JSON object keyed by OCC symbol. Tracks position lifecycle from buy to close.
 |-------|-------------|-------------|
 | New buy | `false` | Order placed, not yet confirmed in Tradier. Skipped by closed-position detection. |
 | Active | `true` | Position confirmed in Tradier. Snapshots recorded each cycle. |
-| Closed | *(entry deleted)* | Position disappeared from Tradier. Data captured in `recently_closed` output, entry removed from file. |
+| Closed | *(entry deleted)* | Position disappeared from Tradier. Data captured in `recently_closed` output (with all `buy_entries`), entry removed from file. |
 
 ---
 

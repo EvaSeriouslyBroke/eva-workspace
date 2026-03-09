@@ -349,13 +349,6 @@ def cmd_buy(args):
     ticker = args.ticker.upper()
     occ = build_occ_symbol(ticker, args.expiry, args.type, args.strike)
 
-    # Duplicate check
-    positions = fetch_positions(cfg)
-    for p in positions:
-        if p.get("symbol") == occ:
-            print(f"Error: duplicate position exists for {occ}", file=sys.stderr)
-            sys.exit(1)
-
     try:
         # Get quote for entry context
         quote = fetch_quote(cfg, ticker)
@@ -470,9 +463,9 @@ def cmd_buy(args):
         }
         save_reasons(args.mode, reasons)
 
-        # Save known position with rich context
+        # Save known position with rich context (append to list for averaging)
         known = load_known_positions(args.mode)
-        known[occ] = {
+        known.setdefault(occ, []).append({
             "order_id": order_id,
             "reason": args.reason,
             "entry_price": entry_price,
@@ -486,7 +479,7 @@ def cmd_buy(args):
             "cost_basis": round(ask_price * 100 * args.quantity, 2),
             "reflected": False,
             "market_context": market_context,
-        }
+        })
         save_known_positions(args.mode, known)
 
         log_event(args.mode, {

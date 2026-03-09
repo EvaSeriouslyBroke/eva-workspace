@@ -45,11 +45,14 @@ def detect_recently_closed(mode, current_positions, orders):
     reasons = load_reasons(mode)
 
     recently_closed = []
-    for sym, info in list(known.items()):
-        if not info.get("reflected"):
+    for sym, entries in list(known.items()):
+        # Skip if any entry is not yet reflected (pending buy confirmation)
+        if any(not e.get("reflected") for e in entries):
             continue
         if sym not in current_symbols:
-            open_reason = info.get("reason", "")
+            # Combine open reasons from all buys
+            open_reasons = [e.get("reason", "") for e in entries]
+            open_reason = open_reasons[0] if len(open_reasons) == 1 else " | ".join(f"Buy {i+1}: {r}" for i, r in enumerate(open_reasons))
             close_reason = ""
             closed_how = "unknown"
 
@@ -67,18 +70,23 @@ def detect_recently_closed(mode, current_positions, orders):
                 if parsed["expiry"] <= date.today().isoformat():
                     closed_how = "expired"
 
+            first = entries[0]
+            total_quantity = sum(e.get("quantity", 1) for e in entries)
+            total_cost = sum(e.get("cost_basis", 0) for e in entries)
+
             recently_closed.append({
                 "symbol": sym,
-                "type": info.get("type", ""),
-                "strike": info.get("strike", 0),
-                "expiry": info.get("expiry", ""),
-                "quantity": info.get("quantity", 1),
-                "cost_basis": info.get("cost_basis", 0),
+                "type": first.get("type", ""),
+                "strike": first.get("strike", 0),
+                "expiry": first.get("expiry", ""),
+                "quantity": total_quantity,
+                "cost_basis": total_cost,
                 "open_reason": open_reason,
                 "close_reason": close_reason,
                 "closed_how": closed_how,
                 "needs_experience_update": True,
-                "entry_market_context": info.get("market_context", {}),
+                "entry_market_context": first.get("market_context", {}),
+                "buy_entries": entries,
                 "position_snapshots": load_position_snapshots(mode, sym),
             })
 
@@ -156,7 +164,8 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None)
 
             entry_ctx = {}
             if sym in known:
-                ki = known[sym]
+                entries = known[sym]
+                ki = entries[0]  # First buy for primary context
                 entry_ctx = {
                     "reason": ki.get("reason", ""),
                     "entry_price": ki.get("entry_price", 0),
@@ -166,6 +175,22 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None)
                 # Include rich market context if available
                 if ki.get("market_context"):
                     entry_ctx["market_context"] = ki["market_context"]
+                # Include all buy entries when position was averaged into
+                if len(entries) > 1:
+                    entry_ctx["buy_count"] = len(entries)
+                    entry_ctx["total_cost_basis"] = sum(e.get("cost_basis", 0) for e in entries)
+                    entry_ctx["total_quantity"] = sum(e.get("quantity", 1) for e in entries)
+                    entry_ctx["buys"] = [
+                        {
+                            "entry_date": e.get("entry_date", ""),
+                            "entry_price": e.get("entry_price", 0),
+                            "entry_iv": e.get("entry_iv", 0),
+                            "cost_basis": e.get("cost_basis", 0),
+                            "quantity": e.get("quantity", 1),
+                            "reason": e.get("reason", ""),
+                        }
+                        for e in entries
+                    ]
                 pos_ticker = parsed.get("ticker", "")
                 ctx_price = current_price if pos_ticker == ticker else 0
                 if not ctx_price and pos_ticker:
@@ -206,9 +231,11 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None)
         updated = False
         for p in positions:
             sym = p.get("symbol", "")
-            if sym in known and not known[sym].get("reflected"):
-                known[sym]["reflected"] = True
-                updated = True
+            if sym in known:
+                for entry in known[sym]:
+                    if not entry.get("reflected"):
+                        entry["reflected"] = True
+                        updated = True
         if updated:
             save_known_positions(mode, known)
     except Exception as e:
@@ -430,18 +457,18 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None)
     # Enables hindsight analysis: Eva can see how a position evolved over time
     # and use that during experience building to refine entry/exit timing.
     try:
-        ticker_positions = {sym: info for sym, info in known.items()
-                           if info.get("ticker", "").upper() == ticker}
+        ticker_positions = {sym: entries for sym, entries in known.items()
+                           if entries[0].get("ticker", "").upper() == ticker}
         current_symbols = {p.get("symbol") for p in positions}
-        active_positions = {sym: info for sym, info in ticker_positions.items()
+        active_positions = {sym: entries for sym, entries in ticker_positions.items()
                           if sym in current_symbols}
 
         if active_positions:
             # Fetch chain data per unique expiry (reuse target_exp chain if available)
             chains_by_symbol = {}
             by_expiry = {}
-            for sym, info in active_positions.items():
-                exp = info.get("expiry", "")
+            for sym, entries in active_positions.items():
+                exp = entries[0].get("expiry", "")
                 by_expiry.setdefault(exp, []).append(sym)
 
             for exp, syms in by_expiry.items():
@@ -465,10 +492,11 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None)
                                 if isinstance(p, dict) and p.get("symbol") == sym), {})
                 greeks = opt.get("greeks", {})
                 iv_val = greeks.get("mid_iv") or greeks.get("smv_vol", 0) or 0
+                total_cost = sum(e.get("cost_basis", 0) for e in active_positions[sym])
                 snapshot = {
                     "underlying_price": current_price,
                     "dte": pos_data.get("dte", 0),
-                    "cost_basis": active_positions[sym].get("cost_basis", 0),
+                    "cost_basis": total_cost,
                     "unrealized_pnl": pos_data.get("unrealized_pnl", 0),
                     "pnl_pct": pos_data.get("pnl_pct", 0),
                     "bid": opt.get("bid", 0) or 0,

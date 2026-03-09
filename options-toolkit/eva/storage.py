@@ -131,11 +131,26 @@ def save_reasons(mode, reasons):
 
 
 def load_known_positions(mode):
-    """Load the known positions tracker."""
+    """Load the known positions tracker.
+
+    Each OCC symbol maps to a list of entry dicts (supports multiple buys
+    of the same contract).  Transparently migrates the legacy single-dict
+    format on read.
+    """
     path = os.path.join(data_dir(mode), "known_positions.json")
     if os.path.exists(path):
         with open(path) as f:
-            return json.load(f)
+            data = json.load(f)
+        # Migrate legacy format: {occ: {…}} → {occ: [{…}]}
+        migrated = False
+        for sym, val in data.items():
+            if isinstance(val, dict):
+                data[sym] = [val]
+                migrated = True
+        if migrated:
+            with open(path, "w") as f:
+                json.dump(data, f, indent=2)
+        return data
     return {}
 
 

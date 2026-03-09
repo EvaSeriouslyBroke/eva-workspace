@@ -87,8 +87,6 @@ python3 eva.py buy --ticker IWM --type call --strike 265 --expiry 2026-06-30 --q
 - `--quantity` (default: 1) — number of contracts
 - `--reason` (required) — trade reasoning
 
-**Checks:** Duplicate position check before placing order.
-
 **API endpoints:** `GET /markets/quotes` (entry context), `GET /markets/options/chains` (full Greeks), `GET /markets/history` (price trends), `POST /accounts/{id}/orders`
 
 **Market context captured at buy time:** The buy command captures rich market context including all option Greeks (IV, delta, gamma, theta, vega, rho), IV rank/percentile, price trends (SMA 50/200, 52-week position), and news headlines. This context is stored in both `reasons.json` and `known_positions.json` so it's available during later evaluation and experience reflection.
