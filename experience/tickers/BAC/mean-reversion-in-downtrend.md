@@ -8,20 +8,25 @@
 
 ## Analysis
 
-BAC was bought as a mean reversion play after a -3.13% daily / -14.2% monthly decline, with the thesis that "no company-specific news" meant the dip was an overreaction. However, the stock was firmly below both 50 SMA (53.26) and 200 SMA (50.51), trading at 47.15 — a clear downtrend. The position was held for less than a day before being closed at an -8.3% loss as the decline continued.
+Two BAC mean reversion call trades have now confirmed this pattern. First: 52.5C Jul-17 entered at 47.15, below both SMAs, closed same-day at -8.3%. Second: 50C Jul-17 entered at 48.26 on 2026-03-06, held 3 days, closed at -20.6% when the decline continued.
 
-Mean reversion requires a baseline to revert to. When the stock is already well below both moving averages with negative returns across all timeframes (1w: -5.4%, 1m: -14.2%, 3m: -12.5%, 6m: -5.3%), calling it "mean reversion" may be premature — it could be catching a falling knife. The absence of company-specific news doesn't mean the decline is unjustified; broad financial sector weakness can persist.
+Both trades shared the same entry thesis: "financial sector weakness, no company-specific news, oversold." Both failed because the stock was in a sustained downtrend below both 50 SMA (~53) and 200 SMA (~50.5). Mean reversion requires a baseline to revert to — when the stock is already well below both moving averages with negative returns across all timeframes, buying calls is catching a falling knife.
+
+The pattern appears robust for BAC specifically: financial sector weakness can persist for days, and "no bad news" doesn't equal "due for bounce." Losses were primarily directional (underlying kept dropping), not IV crush.
 
 ## Evidence
 
 ### Summary
-0 supporting, 1 contradicting observations total.
+2 supporting, 0 contradicting observations total.
+Two BAC mean reversion call trades both lost money, reinforcing the thesis. The 52.5C position lost -8.3% same-day; the 50C position (entered days earlier with identical thesis) was cut at -20.6% after continued decline. Both trades exited when thesis failed, not on time decay — the pattern holds.
 
 ### Recent
-- 2026-03-09 [paper] [contradicting]: Bought BAC 52.5C Jul-17 as double-down mean reversion play at $47.15, below both SMAs. Position lost -8.3% same day as decline continued. Closed within hours — thesis of sector-driven overreaction did not hold. IV was 30.8%, delta 0.336. Underlying dropped from 47.15 to 46.92 over 3 snapshots before sell. The original 50C position from 2026-03-06 (entered at 48.26) remains open with similar thesis.
+- 2026-03-09 [paper] [supporting]: BAC 50C Jul-17 (entered 2026-03-06 at 48.26) closed at -20.6% loss. Same thesis as previous trade: mean reversion on sector weakness, below both SMAs. Stock continued declining from 48.26 to 46.91 over 3 days. Delta decayed from 0.489 to 0.417. Position was closed when thesis invalidated — second confirming loss for this pattern. IV remained moderate (31-32%), so losses were primarily directional, not vol-based.
+- 2026-03-09 [paper] [supporting]: Bought BAC 52.5C Jul-17 as double-down mean reversion play at $47.15, below both SMAs. Position lost -8.3% same day as decline continued. Closed within hours — thesis of sector-driven overreaction did not hold. IV was 30.8%, delta 0.336. Underlying dropped from 47.15 to 46.92 over 3 snapshots before sell.
 
 ## Exceptions & Nuances
 
-- Mean reversion may still work for BAC if the stock is near or above at least one SMA — the pattern may only fail when below both
-- A single same-day trade is weak evidence; the thesis might play out over a longer timeframe (the original 50C position is still open and may recover)
+- Mean reversion may still work for BAC if the stock is near or above at least one SMA — the pattern specifically fails when below both
+- Two losses on same-thesis trades strengthens evidence; consider a third confirmation before treating as high confidence
 - Financial sector weakness driven by macro events (rate fears, oil shocks) may resolve differently than idiosyncratic sector issues
+- Consider waiting for: bounce off lower support, P/C ratio spike indicating extreme bearishness, or RSI oversold (<30) before entry

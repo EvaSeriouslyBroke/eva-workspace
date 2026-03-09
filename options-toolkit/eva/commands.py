@@ -35,10 +35,12 @@ from eva.storage import (
     load_iv_history,
     load_known_positions,
     load_pending_experience_updates,
+    load_position_snapshots,
     load_previous,
     load_reasons,
     log_event,
     save_known_positions,
+    save_pending_experience_updates,
     save_reasons,
     save_snapshot,
 )
@@ -551,6 +553,32 @@ def cmd_sell(args):
             "quantity": args.quantity,
             "reason": args.reason,
         })
+
+        # Write pending experience update immediately so the next reflect
+        # cycle can process it without waiting for detect_recently_closed.
+        known = load_known_positions(args.mode)
+        if occ in known:
+            entries = known[occ]
+            first = entries[0]
+            open_reasons = [e.get("reason", "") for e in entries]
+            open_reason = open_reasons[0] if len(open_reasons) == 1 else " | ".join(f"Buy {i+1}: {r}" for i, r in enumerate(open_reasons))
+            save_pending_experience_updates(args.mode, [{
+                "symbol": occ,
+                "type": first.get("type", ""),
+                "strike": first.get("strike", 0),
+                "expiry": first.get("expiry", ""),
+                "quantity": sum(e.get("quantity", 1) for e in entries),
+                "cost_basis": sum(e.get("cost_basis", 0) for e in entries),
+                "open_reason": open_reason,
+                "close_reason": args.reason,
+                "closed_how": "sell_to_close",
+                "needs_experience_update": True,
+                "entry_market_context": first.get("market_context", {}),
+                "buy_entries": entries,
+                "position_snapshots": load_position_snapshots(args.mode, occ),
+            }])
+            known.pop(occ)
+            save_known_positions(args.mode, known)
 
         # Notify Discord
         parsed = parse_occ_symbol(occ)

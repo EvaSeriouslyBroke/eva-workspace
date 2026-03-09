@@ -109,7 +109,9 @@ Same flags as `buy`.
 
 **API endpoints:** `POST /accounts/{id}/orders`
 
-**Local files written:** `reasons.json`, `log.jsonl`
+**Local files written:** `reasons.json`, `log.jsonl`, `pending_experience_updates.json`, `known_positions.json`
+
+The sell command immediately writes the closed position (with entry context, snapshots, and reasoning) to `pending_experience_updates.json` and removes the entry from `known_positions.json`. This lets the next reflect cycle process the experience without waiting for `detect_recently_closed`.
 
 **Discord:** Automatically sends a trade notification to the paper-trading channel.
 

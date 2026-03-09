@@ -1,14 +1,16 @@
 # Experience Index
 
-One-line lookup table for all experiences. Updated whenever an experience is created or its confidence changes.
+Lookup table for experience recall. One-line summaries with tags so Eva can quickly find relevant files. Read the actual file for confidence, analysis, and evidence.
 
 ## General
 
-| File | Thesis | Tags | Confidence |
-|------|--------|------|------------|
+| File | Thesis | Tags |
+|------|--------|------|
 
 ## Tickers
 
-| File | Ticker | Thesis | Tags | Confidence |
-|------|--------|--------|------|------------|
-| tickers/BAC/mean-reversion-in-downtrend.md | BAC | Mean reversion calls fail when stock is in sustained downtrend below both SMAs | mean-reversion, downtrend, financial-sector, below-sma, calls | low |
+| File | Ticker | Thesis | Tags |
+|------|--------|--------|------|
+| tickers/BAC/mean-reversion-in-downtrend.md | BAC | Mean reversion calls fail when stock is in sustained downtrend below both SMAs | mean-reversion, downtrend, financial-sector, below-sma, calls |
+| tickers/HD/cyclical-mean-reversion-fails-in-housing-downturn.md | HD | Buying calls on HD for mean reversion fails during cyclical downturns driven by macro headwinds | mean-reversion, cyclical-downturn, housing-sensitive, below-sma, calls |
+

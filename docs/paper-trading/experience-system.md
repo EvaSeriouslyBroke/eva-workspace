@@ -27,7 +27,7 @@ Each experience file is a thesis with:
 
 ## INDEX.md
 
-Lookup table for the experience recall agent. One-line summaries with tags so it can quickly find relevant experiences by ticker and pattern. Organized by section (General, then per-ticker).
+Lookup table for the experience recall agent. One-line summaries with tags so it can quickly find relevant files by ticker and pattern. Organized by section (General, then per-ticker). Does not duplicate confidence — the agent reads the actual file for that.
 
 ## Evolution Lifecycle
 
@@ -40,7 +40,18 @@ Lookup table for the experience recall agent. One-line summaries with tags so it
 
 Disproven theses are kept to prevent re-learning the same wrong lesson. Observational experiences let Eva learn from history without requiring firsthand trades.
 
+## Confidence Levels
+
+- **low** — initial observation, 1-2 trades, pattern may be coincidence
+- **medium** — confirmed across multiple independent conditions (different market days, different setups, or different timeframes). Requires substantial evidence.
+- **high** — strong track record with clear causal understanding across varied conditions.
+- **disproven** — evidence shows the thesis is wrong. Kept to avoid re-learning.
+
+**Do not upgrade confidence** based on correlated trades — multiple trades from the same day, the same decision (a buy + double-down is one play), or the same market conditions. Confidence upgrades require evidence from **different occasions** separated by time, conditions, or setup variations.
+
 ## Evidence Management
+
+`[supporting]` and `[contradicting]` tags are relative to the **experience file's thesis**, not the original trade thesis. When the thesis is rewritten (especially inverted), re-tag all existing evidence entries and update the summary counts to match the new thesis direction.
 
 Keep the **5 most recent** entries detailed in the Recent section. When adding a 6th, roll the oldest into the Summary paragraph and update the counts. Summary captures the gist — important outliers and turning points are preserved, but individual line items are not.
 
@@ -48,7 +59,7 @@ Keep the **5 most recent** entries detailed in the Recent section. When adding a
 
 ### Writing Experiences
 
-- **From trades:** The `evaluate` command detects closed positions and persists them to `pending_experience_updates.json`. The `paper-trade-reflect` skill (running ~7 min after each evaluate cycle) reads this file, creates/updates experience files, then clears the pending file. This two-phase approach ensures closed-position data is never lost even if a single cycle fails. Evidence entries include date, mode tag (`[paper]`/`[real]`), and description.
+- **From trades:** The `sell` command immediately writes closed position data to `pending_experience_updates.json` (with entry context, snapshots, and reasoning). For expirations, `detect_recently_closed` in the evaluate cycle handles detection. The `paper-trade-reflect` skill (running ~7 min after each evaluate cycle) reads this file, creates/updates experience files, then clears the pending file. Evidence entries include date, mode tag (`[paper]`/`[real]`), and description.
 - **From observations:** Eva can create experience files from patterns noticed in `news_history` and `market_history` data (14 days each) without having traded. For example, noticing that tariff news consistently precedes a 2-day IWM dip. These observational experiences use the same file format but note `[observed]` in evidence entries.
 
 ### Recalling Experiences

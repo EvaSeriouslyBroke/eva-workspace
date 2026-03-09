@@ -53,6 +53,8 @@ Each `.md` file in `general/` or `tickers/{TICKER}/` follows this structure:
 
 ## Evidence Management
 
+`[supporting]` and `[contradicting]` tags are relative to the **experience file's thesis**, not the original trade thesis. When the thesis is rewritten (especially inverted), re-tag all existing evidence entries and update the summary counts to match the new thesis direction.
+
 Keep the **5 most recent** entries detailed in the Recent section. When adding a 6th, roll the oldest entry into the Summary paragraph and update the counts. Summary should capture the gist — don't lose important outliers or turning points, but don't keep every line item.
 
 ## Evolution Rules
@@ -64,3 +66,17 @@ Keep the **5 most recent** entries detailed in the Recent section. When adding a
 5. **Observational pattern** → spotted in news_history + market_history correlation without trading → create experience with `[observed]` tag in evidence
 6. **Analysis section** gets rewritten (not appended) as understanding deepens
 7. **Evidence** stays compact — recent entries are detailed, older ones are summarized with counts
+
+## Confidence Levels
+
+- **low** — initial observation, 1-2 trades, pattern may be coincidence
+- **medium** — confirmed across multiple independent conditions (different market days, different setups, or different timeframes). Requires substantial evidence, not just repeated trades from the same play or timeline.
+- **high** — strong track record with clear causal understanding. Multiple confirming trades across varied conditions.
+- **disproven** — evidence shows the thesis is wrong. Kept to avoid re-learning.
+
+**Do not upgrade confidence** based on:
+- Multiple trades from the same day or the same decision (e.g., a buy and a double-down are one play, not two independent data points)
+- Trades that share the same entry thesis and market conditions — they're correlated, not independent
+- A small number of observations that all happened in the same market regime
+
+Confidence upgrades require evidence from **different occasions** — separated by time, market conditions, or setup variations.
