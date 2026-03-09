@@ -11,7 +11,7 @@ metadata:
 Extract the ticker symbol from the user's message. Then run this command — it is a self-contained Python script that does all data fetching internally (you do NOT need browser access, web search tools, or any other capabilities beyond `exec`):
 
 ```bash
-python3 {baseDir}/../../options-toolkit/news_research.py --ticker {TICKER}
+python3 {baseDir}/../../options-toolkit/eva.py news-research --ticker {TICKER}
 ```
 
 The script outputs JSON to stdout. Key fields in the JSON:

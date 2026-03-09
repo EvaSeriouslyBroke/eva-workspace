@@ -1,57 +1,57 @@
 # Report Command
 
-The `report` subcommand generates a facts-only options data report. It fetches price, options chain, and IV metrics, then outputs formatted text with `---SPLIT---` markers for Discord delivery.
+The `report` subcommand generates a facts-only options data report. It fetches price and options chain from Tradier, computes IV metrics, then outputs formatted text with `---SPLIT---` markers for Discord delivery.
 
 ---
 
 ## Usage
 
 ```
-python3 toolkit.py report --ticker <SYM> [--force] [--json]
+python3 eva.py report --ticker <SYM> [--force] [--json]
 ```
 
 | Flag | Description |
 |------|-------------|
-| `--force` | Skip market hours check (always passed by skills for interactive use) |
+| `--force` | Skip schedule check (always passed by skills for interactive use) |
 
 ---
 
 ## Report Generation Flow
 
-### Step 1: Market Hours Check
+### Step 1: Schedule Check
 
 ```
 if not --force:
     check current time in America/New_York timezone
-    if not (Monday-Friday AND 9:30 AM - 4:00 PM ET):
+    if (hour, minute) not in SCHEDULE [(9,31), (11,0), (12,30), (14,0), (15,0), (15,59)]:
+        exit 0 with no output (silent skip)
+    if weekend (Saturday/Sunday):
         exit 0 with no output (silent skip)
 ```
 
-### Step 2: Fetch Price Data
+### Step 2: Fetch Options Chain (includes price)
 
 ```python
-ticker = yf.Ticker(sym)
-price = ticker.fast_info['lastPrice']
-prev_close = ticker.fast_info['previousClose']
-change = price - prev_close
-change_pct = (change / prev_close) * 100
+from eva.tradier import fetch_options_chain, load_config
+
+cfg = load_config("paper")
+chain_data = fetch_options_chain(cfg, sym)
+# Internally calls:
+#   GET /markets/quotes?symbols={sym}          (price)
+#   GET /markets/options/expirations?symbol={sym}  (expirations)
+#   GET /markets/options/chains?symbol={sym}&expiration={exp}&greeks=true  (chain)
 ```
 
-### Step 3: Fetch Options Chain
+`fetch_options_chain` returns 10 strikes nearest the current price, with calls and puts.
+
+### Step 3: Select Display Strikes
 
 ```python
-expirations = ticker.options
-best_expiry = select_expiry(expirations, target_dte=120)
-chain = ticker.option_chain(best_expiry)
-
-atm_strike = round(price)
-strikes = select_strikes(chain, price, count=10)  # 10 strikes nearest current price
+# Report selects the 5 strikes closest to current price from the 10 fetched
+report_strikes = sorted(all_call_strikes, key=lambda s: (abs(s - round(price)), -s))[:5]
 ```
 
-For each of the 10 strikes, extract from both `chain.calls` and `chain.puts`:
-- strike, impliedVolatility, bid, ask, lastPrice, volume, openInterest
-
-All 10 strikes are saved to the snapshot. For the report display, the 5 strikes closest to the current price are selected. This wider fetch window ensures previous IV data is available even if the stock price moves between runs.
+All 10 strikes are saved to the snapshot. Only 5 are displayed.
 
 ### Step 4: Load Previous Run
 
@@ -67,8 +67,8 @@ All values computed from raw data and previous run:
 
 | Value | Formula |
 |-------|---------|
-| avg_call_iv | Mean of 5 call IVs |
-| avg_put_iv | Mean of 5 put IVs |
+| avg_call_iv | Mean of 5 displayed call IVs |
+| avg_put_iv | Mean of 5 displayed put IVs |
 | overall_avg_iv | `(avg_call_iv + avg_put_iv) / 2` |
 | skew | `avg_put_iv - avg_call_iv` |
 | total_call_vol | Sum of 5 call volumes |
@@ -91,22 +91,16 @@ All values computed from raw data and previous run:
 | pc_oi_change | `current_pc_oi_ratio - previous_pc_oi_ratio` |
 | skew_change | `current_skew - previous_skew` |
 
-### Step 6: Generate Each Section
+### Step 6: Generate Report Chunks
 
-Generate sections in order. See `output-format/` docs for exact formatting rules per section. Insert `---SPLIT---` markers between section groups:
+Generate 3 chunks separated by `---SPLIT---` markers:
 
 ```
-[Section 1: History check]
-[Section 2: Main header]
-[Section 3: Price & metadata]
+[Chunk 1: History check + Header + Price]
 ---SPLIT---
-[Section 4: Target expiration]
-[Section 5: Call options table]
-[Section 6: Put options table]
+[Chunk 2: Options chain tables (calls + puts)]
 ---SPLIT---
-[Section 7: IV summary]
-[Footer: REPORT COMPLETE]
-[Save confirmation]
+[Chunk 3: IV Summary + Footer + Save confirmation]
 ```
 
 ### Step 7: Save Current Run to History
@@ -123,7 +117,7 @@ snapshot = {
     "pc_vol_ratio": pc_vol_ratio,
     "pc_oi_ratio": pc_oi_ratio,
     "skew": skew,
-    "strikes": { ... }  # Per-strike IVs and volumes
+    "strikes": { ... }  # Per-strike IVs and volumes (all 10 fetched strikes)
 }
 save_snapshot(sym, snapshot)
 ```
@@ -136,9 +130,9 @@ Print the complete report to stdout. The `---SPLIT---` markers are part of the o
 
 ## The `--force` Flag
 
-| Context | `--force` | Market hours check |
-|---------|-----------|-------------------|
-| Cron (run_all.sh) | Not passed | Active — silent exit outside 9:30-16:00 ET Mon-Fri |
+| Context | `--force` | Schedule check |
+|---------|-----------|----------------|
+| Cron (run_all.sh) | Not passed | Active — silent exit outside scheduled times |
 | Interactive (skill) | Always passed | Bypassed — always generates report |
 | Manual CLI test | Optional | User's choice |
 
@@ -171,8 +165,7 @@ When `--json` is passed, outputs a single JSON object containing all computed va
     "avg_call_iv": 24.50,
     "avg_put_iv": 26.10,
     "overall_avg_iv": 25.30,
-    "skew": 1.60,
-    "changes": { ... }
+    "skew": 1.60
   },
   "volumes": { "total_call": 9678, "total_put": 8234, "pc_ratio": 0.85 },
   "oi": { "total_call": 54812, "total_put": 47890, "pc_ratio": 0.87 },
@@ -190,7 +183,7 @@ When `--json` is passed, outputs a single JSON object containing all computed va
 |----------|----------|
 | Invalid ticker | stderr message, exit 1 |
 | No options available | stderr message, exit 1 |
-| yfinance network error | stderr message, exit 1 |
-| No previous run data | First-run mode — changes show "N/A", Section 1 shows "first run" |
+| Tradier API network error | stderr message, exit 1 |
+| No previous run data | First-run mode — changes show "N/A", history check shows "first run" |
 | Corrupted history file | Warning to stderr, treat as first run |
-| Division by zero (zero volume) | P/C ratio shows "N/A", sentiment shows "NEUTRAL" |
+| Division by zero (zero volume) | P/C ratio shows "N/A" |

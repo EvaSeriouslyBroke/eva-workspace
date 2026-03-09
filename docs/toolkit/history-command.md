@@ -7,7 +7,7 @@ The `history` subcommand reads stored historical data and displays recent IV tre
 ## Usage
 
 ```
-python3 toolkit.py history --ticker <SYM> [--days <N>] [--json]
+python3 eva.py history --ticker <SYM> [--days <N>] [--json]
 ```
 
 | Flag | Default | Description |
@@ -18,7 +18,7 @@ python3 toolkit.py history --ticker <SYM> [--days <N>] [--json]
 
 ## What It Reads
 
-This command does NOT call yfinance. It reads from the local data store:
+This command does NOT call any external API. It reads from the local data store:
 
 ```
 ~/.openclaw/workspace/options-toolkit/data/{TICKER}/
@@ -33,7 +33,7 @@ It traverses week folders and daily JSON files to find recent snapshots.
 1. Start with today's date
 2. Compute the week folder: `{YYYY}-W{WW}` (ISO 8601)
 3. Check if `data/{TICKER}/{week}/{date}.json` exists
-4. If yes, load all snapshots from that file
+4. If yes, load all snapshots from that file and use the **last** one
 5. Step back one day, repeat
 6. When crossing a week boundary, compute the new week folder
 7. Stop after finding `--days` trading days with data, or after checking 10 calendar days (whichever comes first)
@@ -60,7 +60,7 @@ A table showing one row per trading day (using the last snapshot of each day):
 
 ```
 📊 IV HISTORY - IWM (Last 5 Trading Days)
-──────────────────────────────────────────────────────────────────────────────────────────
+────────────────────────────────────────
 
 Date          Price      Avg IV     Call IV    Put IV     P/C Vol    P/C OI     Skew
 2026-02-20    $210.45    25.30%     24.50%     26.10%     1.05       0.92       +1.60%
@@ -78,23 +78,21 @@ Compares the oldest and newest day's overall average IV:
 
 | Condition | Display |
 |-----------|---------|
-| Change > +2% | `IV ↑ EXPANDING (+X.XX% over N days)` 🔴 |
-| Change < -2% | `IV ↓ CONTRACTING (-X.XX% over N days)` 🟢 |
-| Between -2% and +2% | `IV → STABLE (X.XX% over N days)` 🟡 |
+| Change > +2% | `IV ↑ EXPANDING (+X.XX% over N days)` |
+| Change < -2% | `IV ↓ CONTRACTING (-X.XX% over N days)` |
+| Between -2% and +2% | `IV → STABLE (X.XX% over N days)` |
 
 ---
 
 ## Multiple Snapshots Per Day
 
-Each daily file contains an array of all snapshots from that day (one per cron run, up to ~39). The history command uses only the **last snapshot of each day** for the table — this represents the end-of-day state.
-
-If `--json` is used, all snapshots are returned.
+Each daily file contains an array of all snapshots from that day (one per scheduled report run). Both formatted and JSON output use only the **last snapshot of each day** — this represents the end-of-day state.
 
 ---
 
 ## JSON Mode Output
 
-Returns all snapshots (not just last-per-day) within the date range:
+Returns the most recent snapshot from each trading day within the date range:
 
 ```json
 {

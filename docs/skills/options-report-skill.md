@@ -27,11 +27,10 @@ The skill description should match when users say things like:
 ---
 name: options-report
 description: >
-  Run a facts-only options data report with IV metrics, volume, and sentiment data.
+  Run a facts-only options data report with IV metrics, volume, and chain data.
   Trigger when someone asks to "run the report", "full analysis",
   "options report", "what's the play on X", "how's X looking", "analyze X options",
-  or "send me an analysis" for any stock ticker X. Produces a multi-section report
-  with price, news, options chain, and IV summary.
+  or "send me an analysis" for any stock ticker X.
 metadata:
   openclaw:
     emoji: "🎯"
@@ -46,9 +45,9 @@ Eva should:
 1. Extract the ticker symbol from the user's message
 2. Run the command with `--force` (always, since this is interactive):
    ```bash
-   python3 {baseDir}/../../options-toolkit/toolkit.py report --ticker {TICKER} --force
+   python3 {baseDir}/../../options-toolkit/eva.py report --ticker {TICKER} --force
    ```
-3. The output will contain `---SPLIT---` markers (~4000-5000 chars total)
+3. The output will contain `---SPLIT---` markers (~2500-4000 chars total)
 4. Split the output at each `---SPLIT---` line
 5. Send each chunk as a separate Discord message
 6. Wait ~1 second between messages to avoid rate limits
@@ -66,11 +65,11 @@ Interactive requests happen whenever the user asks — could be during market ho
 The report output contains `---SPLIT---` markers at logical section boundaries:
 
 ```
-[Chunk 1: Header + Price + News]
+[Chunk 1: History check + Header + Price]
 ---SPLIT---
-[Chunk 2: Options Tables]
+[Chunk 2: Options Tables (calls + puts)]
 ---SPLIT---
-[Chunk 3: IV Summary + Footer]
+[Chunk 3: IV Summary + Footer + Save confirmation]
 ```
 
 **Eva's process:**
@@ -94,25 +93,16 @@ Discord has a 2000-character message limit. Each chunk is designed to be under 1
 ```
 ✓ Previous data from: 2026-02-20 09:30:00 (40 minutes ago)
 
-==========================================================================================
+========================================
   🎯 IWM OPTIONS TRADING ANALYZER
-==========================================================================================
+========================================
 
 Current IWM Price: $210.45 🟢 (+$0.65 / +0.31%)
 Previous Close: $209.80
 Analysis Time: 2026-02-20 10:10:00
-
-📰 LIVE NEWS HEADLINES
-──────────────────────────────────────────────────────────────────────────────────────────
-Recent Headlines (6 articles):
-  1. Fed Signals Patience on Rate Cuts
-     Reuters • 2026-02-20
-  ...
-News Sentiment: Slightly Bullish (Score: +2)
-Key Themes: Federal Reserve Policy, Small-Cap Focus
 ```
 
-**Chunk 2:** Options tables (calls + puts)
+**Chunk 2:** Options tables (calls + puts) with strike cards
 
 **Chunk 3:** IV summary metrics + footer + save confirmation
 
@@ -121,7 +111,7 @@ Key Themes: Federal Reserve Policy, Small-Cap Focus
 ## Error Handling
 
 If the command fails (exit code 1), Eva should tell the user:
-- "I couldn't generate the report for {TICKER}. The ticker might be invalid or there might be a network issue. Check if yfinance is working."
+- "I couldn't generate the report for {TICKER}. The ticker might be invalid or there might be a network issue. Check if the Tradier API is reachable."
 
 If the output is empty (no `---SPLIT---` markers), something unexpected happened. Eva should report the raw output or error.
 

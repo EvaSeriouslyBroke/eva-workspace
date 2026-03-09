@@ -6,7 +6,7 @@ How reports get from stdout to Discord messages — chunk splitting, rate limiti
 
 ## Discord's 2000-Character Limit
 
-Discord messages are capped at 2000 characters. Our full report is ~4000-5000 characters. It must be split into multiple messages.
+Discord messages are capped at 2000 characters. Our full report is ~2500-4000 characters. It must be split into multiple messages.
 
 ---
 
@@ -18,11 +18,11 @@ The report output contains literal `---SPLIT---` lines at logical section bounda
 
 ### 3 Chunks
 
-| Chunk | Sections | Content | Target Size |
-|-------|----------|---------|-------------|
-| 1 | 1-4 | History check, header, price, news | ~800-1200 chars |
-| 2 | 5-7 | Target expiry, call table, put table | ~1200-1800 chars |
-| 3 | 8 | IV summary (averages, volume, OI, skew) + footer + save confirmation | ~700-1100 chars |
+| Chunk | Content | Target Size |
+|-------|---------|-------------|
+| 1 | History check, header, price | ~600-900 chars |
+| 2 | Target expiry, call table, put table | ~1200-1800 chars |
+| 3 | IV summary (averages, volume, OI, skew) + footer + save confirmation | ~700-1100 chars |
 
 ### Safety Margin
 
@@ -40,7 +40,7 @@ If a chunk somehow exceeds 2000 chars, the `openclaw message send` command will 
 ### Flow
 
 ```
-toolkit.py report → stdout with ---SPLIT--- → awk splits → openclaw message send per chunk
+eva.py report → stdout with ---SPLIT--- → awk splits → openclaw message send per chunk
 ```
 
 ### Splitting Logic (awk)
@@ -109,13 +109,13 @@ This is the channel where scheduled reports are posted. All tickers go to the sa
 ### Flow
 
 ```
-User asks → Eva triggers skill → exec toolkit.py → Eva captures stdout → Eva splits → Eva sends
+User asks → Eva triggers skill → exec eva.py → Eva captures stdout → Eva splits → Eva sends
 ```
 
 ### How Eva Handles It
 
 The options-report skill instructs Eva to:
-1. Run `toolkit.py report --ticker {TICKER} --force`
+1. Run `eva.py report --ticker {TICKER} --force`
 2. Capture the full stdout
 3. Split the text at `---SPLIT---` lines
 4. Send each chunk as a separate Discord message to the **requesting channel**
@@ -172,7 +172,7 @@ openclaw status
 Discord displays messages in the order received. With 1-second delays between chunks, they arrive in order:
 
 ```
-Message 1: Header + Price + News          (t=0s)
+Message 1: Header + Price                 (t=0s)
 Message 2: Options Tables                 (t=1s)
 Message 3: IV Summary + Footer            (t=2s)
 ```
@@ -186,10 +186,10 @@ Total delivery time: ~2-3 seconds per ticker.
 From AGENTS.md: Discord does NOT support markdown tables. The options tables use stacked 3-line cards inside code blocks for a mobile-friendly layout (~42 chars wide max). Emoji headers (📈 CALLS, 📉 PUTS) sit outside the code block so they render properly.
 
 Discord DOES support:
-- Emoji (used extensively: 🟢 🟡 🔴 🔵 🎯 📰 📈 📉 📊 🔍 🚀 🐻 ⚖️ ⚠️ ✅)
+- Emoji (used extensively: 🟢 🟡 🔴 🎯 📰 📈 📉 📊 🔍 ⚠️ ✅ 💰 📜 💼)
 - Monospace blocks (``` ``` for code blocks)
 - Basic formatting (**bold**, *italic*)
 
 ### Mobile-Friendly Design
 
-The options tables (Sections 6-7) use stacked 3-line cards inside code blocks (~42 chars wide) to fit mobile screens. Dividers are 40 characters wide. Emoji headers (📈 CALLS, 📉 PUTS) sit outside code blocks since emoji don't render well inside them.
+The options tables use stacked 3-line cards inside code blocks (~42 chars wide) to fit mobile screens. Dividers are 40 characters wide. Emoji headers (📈 CALLS, 📉 PUTS) sit outside code blocks since emoji don't render well inside them.

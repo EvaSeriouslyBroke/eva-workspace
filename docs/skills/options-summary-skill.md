@@ -46,7 +46,7 @@ Eva should:
 1. Extract the ticker symbol from the user's message
 2. Run the command with `--force` (always, since this is interactive):
    ```bash
-   python3 {baseDir}/../../options-toolkit/toolkit.py summary --ticker {TICKER} --force
+   python3 {baseDir}/../../options-toolkit/eva.py summary --ticker {TICKER} --force
    ```
 3. The output will contain `---SPLIT---` markers (3 chunks)
 4. Split the output at each `---SPLIT---` line

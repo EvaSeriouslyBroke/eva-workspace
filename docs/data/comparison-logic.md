@@ -14,30 +14,22 @@ When generating a report, the toolkit needs the most recent previous snapshot to
 data/{TICKER}/{current_week}/{today}.json
 ```
 
-If this file exists and has entries, use the **second-to-last entry** (the last entry before the current run). If only one entry exists (this is the first run today), move to Step 2.
+If this file exists and has entries, use the **last entry** (the most recent snapshot from earlier today — the current run has not been saved yet at this point). If no entries exist, move to Step 2.
 
-### Step 2: Check Yesterday
+### Steps 2-3: Walk Backwards
 
-Compute yesterday's date. If yesterday is Saturday or Sunday, walk back to Friday.
-
-```
-data/{TICKER}/{week_of_yesterday}/{yesterday}.json
-```
-
-If this file exists, use the **last entry** in the array.
-
-### Step 3: Walk Backwards
-
-If yesterday's file doesn't exist (holiday, data gap), continue walking backwards day by day:
+Starting from yesterday, walk backwards one day at a time (up to 10 calendar days back):
 
 ```
-Day -2, Day -3, Day -4, ...
+Day -1, Day -2, Day -3, ..., Day -10
 ```
 
 For each day:
 1. Compute its week folder
-2. Check if the daily file exists
-3. If yes, use the last entry
+2. Check if `data/{TICKER}/{week}/{date}.json` exists
+3. If yes, use the last entry in the array
+
+There is no special weekend logic — the loop simply checks each calendar day. Weekends naturally have no data files, so they're skipped. This handles weekends, holidays, and any other gaps identically.
 
 Stop after checking 10 calendar days back. If nothing is found within 10 days, enter "first run" mode.
 
@@ -79,7 +71,7 @@ def load_previous(ticker):
     return None
 ```
 
-Note: When the current run is the first entry of the day, Step 1 returns the snapshot from earlier today if multiple runs exist. If it's the very first run of the day, we fall through to Step 2 (yesterday's data).
+Note: `load_previous` is called before `save_snapshot`, so entries in today's file are all from previous runs. When the current run is the first run of the day, today's file either doesn't exist or is empty, so we fall through to Step 2 (yesterday's data).
 
 ---
 

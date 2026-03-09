@@ -11,7 +11,7 @@ metadata:
 Extract the ticker symbol from the user's message. Then run:
 
 ```bash
-python3 {baseDir}/../../options-toolkit/toolkit.py price --ticker {TICKER}
+python3 {baseDir}/../../options-toolkit/eva.py price --ticker {TICKER}
 ```
 
 Post the output directly to the channel — no additional formatting needed.

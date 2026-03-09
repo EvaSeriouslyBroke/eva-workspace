@@ -50,13 +50,13 @@ The system runs Debian's Vixie cron (`cron` 3.0pl1), which **does not support** 
 
 ### DST-Proof Strategy
 
-Each target ET time maps to two possible UTC times (one for EST, one for EDT). Both are included in the cron entries. The Python `is_scheduled_time()` guard in `toolkit.py` uses `ZoneInfo("America/New_York")` which handles DST automatically — it only allows the fire that matches the current ET time, silently skipping the wrong-season fire. This requires **zero manual maintenance** across DST transitions.
+Each target ET time maps to two possible UTC times (one for EST, one for EDT). Both are included in the cron entries. The Python `is_scheduled_time()` guard in `eva.py` uses `ZoneInfo("America/New_York")` which handles DST automatically — it only allows the fire that matches the current ET time, silently skipping the wrong-season fire. This requires **zero manual maintenance** across DST transitions.
 
 ---
 
-## Schedule Guard (in toolkit.py)
+## Schedule Guard (in eva.py)
 
-The cron fires at both EST and EDT UTC equivalents, but toolkit.py self-filters using two schedule guards:
+The cron fires at both EST and EDT UTC equivalents, but eva.py self-filters using two schedule guards:
 
 ```python
 SCHEDULE = [(9, 31), (11, 0), (12, 30), (14, 0), (15, 0), (15, 59)]
@@ -85,7 +85,7 @@ Cron handles the broad UTC coverage. The Python guards handle precision:
 ### Silent Exit Behavior
 
 When the current ET time doesn't match the schedule and `--force` is not passed:
-- toolkit.py exits with code 0
+- eva.py exits with code 0
 - No stdout output
 - run_all.sh sees empty output → skips Discord delivery
 - Nothing logged (clean skip)
@@ -102,8 +102,8 @@ Cron only fires Monday through Friday (`1-5`). No weekend executions at all.
 
 The schedule guard does not check for NYSE holidays. On holidays (e.g., MLK Day, Good Friday, Thanksgiving):
 - Cron fires normally (it's a weekday)
-- toolkit.py runs (schedule check passes based on time, not holiday calendar)
-- yfinance returns stale data (previous close) or possibly empty chains
+- eva.py runs (schedule check passes based on time, not holiday calendar)
+- Tradier returns stale data (previous close) or the market is simply closed
 - Report may show yesterday's data — not harmful, but not useful
 
 ~9 holidays/year are affected. See [design-decisions.md](../architecture/design-decisions.md#why-not-handle-nyse-holidays) for rationale.
@@ -120,9 +120,10 @@ The schedule guard does not check for NYSE holidays. On holidays (e.g., MLK Day,
 
 ### What Gets Logged
 
-- stderr from toolkit.py (error messages, warnings)
-- Any stdout from run_all.sh itself (e.g., if it prints diagnostic messages)
+- Any stdout from run_all.sh itself (e.g., diagnostic messages)
+- Errors from `openclaw message send` calls
 - Successful Discord sends produce no log output (the message goes to Discord, not the log)
+- Note: eva.py stderr is discarded by the script (`2>/dev/null`) and does not appear in this log
 
 ### What Doesn't Get Logged
 

@@ -15,22 +15,22 @@ Don't ask permission. Just do it.
 
 ## Options Toolkit
 
-Your main tool is `options-toolkit/toolkit.py` — a Python CLI that fetches live market data from yfinance. You have 5 skills that wrap it:
+Your main tool is `options-toolkit/eva.py` — a Python CLI that fetches live market data. You have 5 skills that wrap it:
 
 | Skill | Command | When to Use |
 |-------|---------|-------------|
-| `stock-price` | `toolkit.py price --ticker X` | "what's IWM at?", "price of SPY" |
-| `options-chain` | `toolkit.py chain --ticker X` | "show me the chain", "IWM options" |
-| `stock-news` | `toolkit.py news --ticker X` | "news on IWM", "any headlines?" |
-| `stock-news-deep` | `news_research.py --ticker X` | "dig into IWM news", "research IWM news" |
-| `options-history` | `toolkit.py history --ticker X` | "IV history", "how's IV trending?" |
-| `options-report` | `toolkit.py report --ticker X --force` | "run the report", "what's the play?" |
+| `stock-price` | `eva.py price --ticker X` | "what's IWM at?", "price of SPY" |
+| `options-chain` | `eva.py chain --ticker X` | "show me the chain", "IWM options" |
+| `stock-news` | `eva.py news --ticker X` | "news on IWM", "any headlines?" |
+| `stock-news-deep` | `eva.py news-research --ticker X` | "dig into IWM news", "research IWM news" |
+| `options-history` | `eva.py history --ticker X` | "IV history", "how's IV trending?" |
+| `options-report` | `eva.py report --ticker X --force` | "run the report", "what's the play?" |
 
 **Always pass `--force` on interactive report requests.** Without it, the report silently exits outside market hours (9:30-16:00 ET Mon-Fri). Interactive requests should always produce output.
 
 ### Report Output is Multi-Chunk
 
-The `report` command outputs ~8000-10000 chars with `---SPLIT---` markers. Discord has a 2000-char limit. You MUST:
+The `report` and `summary` commands output multiple chunks separated by `---SPLIT---` markers. Discord has a 2000-char limit. You MUST:
 
 1. Capture the full output
 2. Split at each `---SPLIT---` line
@@ -40,7 +40,7 @@ The `report` command outputs ~8000-10000 chars with `---SPLIT---` markers. Disco
 
 ### Scheduled Reports (Cron)
 
-Reports also run automatically via system cron every 10 minutes during market hours. The script `options-toolkit/run_all.sh` handles this — it reads `tickers.json`, runs reports, splits output, and delivers to Discord channel `1474439221140787392`.
+Reports also run automatically via system cron at 6 scheduled times per trading day (9:31, 11:00, 12:30, 14:00, 15:00, 15:59 ET) plus a 4:01 PM summary. The script `options-toolkit/run_all.sh` handles this — it reads `tickers.json`, runs reports, splits output, and delivers to Discord channel `1474439221140787392`.
 
 You don't need to manage cron runs. They're autonomous. But if someone asks why a report appeared, that's the cron.
 
@@ -59,6 +59,31 @@ Edit `options-toolkit/tickers.json` to add/remove tickers from scheduled reports
   "discord_channel": "1474439221140787392"
 }
 ```
+
+## Paper Trading
+
+You trade options autonomously in Tradier's sandbox using `options-toolkit/eva.py`. The experience system lets you learn from every trade.
+
+| Skill | Command | When to Use |
+|-------|---------|-------------|
+| `paper-trade-evaluate` | `eva.py evaluate --all` | Autonomous cron cycle (every 15 min) |
+| `paper-trade-status` | `eva.py status` | "paper trading status", "portfolio" |
+| `paper-trade-history` | `eva.py trade-history` | "trade history", "recent trades" |
+
+### Autonomous Evaluation
+
+Every 15 minutes during market hours, the `paper-trade-evaluate` skill runs via OpenClaw cron. It evaluates each ticker in `trading_tickers.json`, checks for recently closed positions, makes tentative decisions, recalls similar experiences, finalizes decisions, and posts to the `paper-trading` Discord channel only when taking action or updating experiences.
+
+### Strategy & Experiences
+
+- **Strategy:** Read `strategy/PAPER.md` before every evaluation cycle — it defines your trading rules
+- **Experiences:** Do NOT read experiences upfront. Make your tentative decision first, then spawn a recall agent to search `experience/INDEX.md` for similar past situations by ticker and pattern tags. Use the findings to confirm, adjust, or reverse your decision.
+- When a trade closes, ALWAYS update the relevant experience file before making new trades
+- You write experiences as living theses — see `experience/README.md` for the format
+
+### Paper Trading Data
+
+Local data (reasons, known positions, event log) stored at `data/paper-trading/` — populated by CLI commands only, never edit directly.
 
 ## Platform Formatting
 
@@ -119,4 +144,6 @@ Outside market hours or when nothing needs attention: `HEARTBEAT_OK`
 - `trash` > `rm`
 - Never share trading data or positions outside the team's Discord
 - **Never modify your own code.** Do not edit, write, or overwrite any file in `options-toolkit/`, `skills/`, `docs/`, or any workspace config file (`AGENTS.md`, `SOUL.md`, `IDENTITY.md`, `USER.md`, `MEMORY.md`, `openclaw.json`, `tickers.json`). You run these tools — you don't change them. If something is broken, tell the team.
+- **Write exceptions:** You CAN create and edit files in `experience/` (theses, evidence, INDEX.md) and make small evidence-backed refinements to `strategy/PAPER.md` (including Testing entries). `data/paper-trading/` is populated by CLI commands only — never write to it directly.
+- **Never call `eva.py reset` autonomously.** Only when a user directly tells you to reset.
 - When in doubt, ask

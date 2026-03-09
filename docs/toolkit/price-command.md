@@ -7,40 +7,33 @@ The `price` subcommand fetches and displays the current stock price with change 
 ## Usage
 
 ```
-python3 toolkit.py price --ticker <SYM> [--json]
+python3 eva.py price --ticker <SYM> [--json]
 ```
 
 ## What It Fetches
 
 | Field | Source | Description |
 |-------|--------|-------------|
-| Current price | `yf.Ticker(sym).fast_info['lastPrice']` or `.info['currentPrice']` | Latest available price |
-| Previous close | `yf.Ticker(sym).fast_info['previousClose']` or `.info['previousClose']` | Prior trading day's close |
-| Dollar change | Computed: `price - prev_close` | Absolute change |
-| Percent change | Computed: `(dollar_change / prev_close) * 100` | Relative change |
+| Current price | Tradier `quote.last` or `quote.close` | Latest available price |
+| Previous close | Tradier `quote.prevclose` or `quote.close` | Prior trading day's close |
+| Dollar change | Tradier `quote.change` (or computed: `price - prev_close`) | Absolute change |
+| Percent change | Tradier `quote.change_percentage` (or computed) | Relative change |
 
-### yfinance API Calls
+### Tradier API Call
 
 ```python
-import yfinance as yf
-ticker = yf.Ticker(sym)
+from eva.tradier import fetch_price, load_config
 
-# Preferred (faster):
-price = ticker.fast_info['lastPrice']
-prev_close = ticker.fast_info['previousClose']
-
-# Fallback (slower, more fields):
-price = ticker.info['currentPrice']
-prev_close = ticker.info['previousClose']
+cfg = load_config("paper")
+data = fetch_price(cfg, sym)
+# Internally calls: GET /markets/quotes?symbols={sym}
 ```
 
-`fast_info` is preferred because it makes fewer HTTP requests. Fall back to `info` if `fast_info` doesn't have the needed fields.
+`fetch_price` calls `fetch_quote` which hits the Tradier quotes endpoint. It returns a dict with `ticker`, `price`, `previous_close`, `change`, `change_pct`, `timestamp`, `timestamp_iso`.
 
 ---
 
 ## Formatted Output
-
-Matches Section 3 of OUTPUT.md:
 
 ```
 Current IWM Price: $210.45 🟢 (+$0.65 / +0.31%)
@@ -83,10 +76,10 @@ Analysis Time: 2026-02-20 10:30:00
 
 | Scenario | Behavior |
 |----------|----------|
-| Invalid ticker symbol | yfinance raises exception → stderr message, exit code 1 |
+| Invalid ticker symbol | Tradier API returns error → stderr message, exit code 1 |
 | Market closed (weekend/holiday) | Returns last available price (Friday's close). Still works — shows stale timestamp. |
-| Network failure | yfinance raises exception → stderr message, exit code 1 |
-| yfinance rate limit (429) | yfinance raises exception → stderr message, exit code 1 |
+| Network failure | Tradier API request fails → stderr message, exit code 1 |
+| Tradier rate limit | Request fails after 3 retries → stderr message, exit code 1 |
 
 ---
 

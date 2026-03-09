@@ -188,13 +188,13 @@ with open(day_file, 'w') as f:
 
 | Metric | Value |
 |--------|-------|
-| Snapshot size | ~2 KB (5 strikes, all fields) |
-| Runs per day | ~39 (every 10 min, 9:30-16:00 = 39 intervals) |
-| Daily file size | ~78 KB |
+| Snapshot size | ~2 KB (10 strikes, all fields) |
+| Runs per day | ~6 (6 scheduled report times) |
+| Daily file size | ~12 KB |
 | Weekly file count | 5 files (Mon-Fri) |
-| Weekly total | ~390 KB |
-| Annual total (per ticker) | ~20 MB (252 trading days) |
-| 10 tickers, 5 years | ~1 GB |
+| Weekly total | ~60 KB |
+| Annual total (per ticker) | ~3 MB (252 trading days) |
+| 10 tickers, 5 years | ~150 MB |
 
 ---
 
@@ -202,12 +202,12 @@ with open(day_file, 'w') as f:
 
 Location: `data/cron.log`
 
-Contains stderr output from cron runs. Crontab appends both stdout and stderr:
+Contains output from `run_all.sh` — diagnostic messages and errors from `openclaw message send` calls. Crontab appends both stdout and stderr:
 
 ```cron
 ... run_all.sh >> .../data/cron.log 2>&1
 ```
 
-In practice, stdout from successful runs goes to Discord via `openclaw message send`, so only errors and the script's own logging end up in cron.log.
+Note: eva.py stderr is discarded by the script (`2>/dev/null`), so individual command errors do not appear here. Only the script's own output and Discord delivery errors are logged.
 
 Log rotation is not yet implemented. The file will grow indefinitely. A future enhancement could truncate or rotate it.

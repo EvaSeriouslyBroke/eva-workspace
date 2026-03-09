@@ -1,15 +1,15 @@
 # News Research Command
 
-The `news_research.py` script performs deep news research for a ticker — fetching full article content and web search results beyond what `toolkit.py news` provides.
+The `eva.py news-research` subcommand performs deep news research for a ticker — fetching full article content and web search results beyond what `eva.py news` provides.
 
-**This is a separate script**, not a `toolkit.py` subcommand. It produces JSON output for Eva to synthesize into analysis.
+It produces JSON output for Eva to synthesize into analysis.
 
 ---
 
 ## Usage
 
 ```
-python3 news_research.py --ticker <SYM> [--max-articles 3] [--max-search 5]
+python3 eva.py news-research --ticker <SYM> [--max-articles 3] [--max-search 5]
 ```
 
 | Flag | Default | Description |
@@ -22,10 +22,10 @@ python3 news_research.py --ticker <SYM> [--max-articles 3] [--max-search 5]
 
 ## What It Does
 
-1. **Fetches yfinance headlines** — Same as `toolkit.py news`, but also extracts article URLs and summaries
+1. **Fetches DuckDuckGo news headlines** — Same as `eva.py news`, extracts article URLs and summaries
 2. **Extracts full article text** — Uses `trafilatura` to download and extract content from the top N article URLs (concurrent, 15s timeout per article)
 3. **Searches DuckDuckGo** — Queries `"{TICKER} stock news"` for recent results with snippets
-4. **Runs sentiment scoring** — Same keyword-based algorithm as `toolkit.py`
+4. **Runs sentiment scoring** — Same keyword-based algorithm as `eva.py news`
 5. **Outputs JSON** — All data as structured JSON to stdout
 
 ---
@@ -38,7 +38,7 @@ python3 news_research.py --ticker <SYM> [--max-articles 3] [--max-search 5]
 - Top `--max-articles` are fetched concurrently via `ThreadPoolExecutor`
 - Each URL is downloaded with `trafilatura.fetch_url()`, then content extracted with `trafilatura.extract()`
 - Content is capped at 3000 characters per article
-- If extraction fails or returns < 100 chars, falls back to yfinance `summary` field
+- If extraction fails or returns < 100 chars, falls back to DuckDuckGo `body` field
 - If both fail, article is marked as `"failed"`
 
 ### Web Search
@@ -97,7 +97,7 @@ python3 news_research.py --ticker <SYM> [--max-articles 3] [--max-search 5]
 | Value | Meaning |
 |-------|---------|
 | `trafilatura` | Full content successfully extracted |
-| `summary_fallback` | Extraction failed, used yfinance summary instead |
+| `summary_fallback` | Extraction failed, used DuckDuckGo summary instead |
 | `failed` | No content available |
 
 ### `coverage_quality` Values
@@ -114,11 +114,8 @@ python3 news_research.py --ticker <SYM> [--max-articles 3] [--max-search 5]
 
 | Package | Purpose |
 |---------|---------|
-| `trafilatura` | Article content extraction from URLs |
-| `duckduckgo-search` | Web search without API keys |
-| `yfinance` | Headline fetching (shared with toolkit.py) |
-
-These are only imported by `news_research.py` — `toolkit.py` and cron are unaffected.
+| `trafilatura` | Article content extraction from URLs (only imported when news-research runs) |
+| `duckduckgo-search` | News headline fetching and web search |
 
 ---
 
@@ -126,7 +123,7 @@ These are only imported by `news_research.py` — `toolkit.py` and cron are unaf
 
 | Scenario | Behavior |
 |----------|----------|
-| No headlines from yfinance | stderr message, exit 1 |
+| No headlines from DuckDuckGo | stderr message, exit 1 |
 | Paywalled article | Falls back to summary, logs in `errors` array |
 | trafilatura timeout | Falls back to summary, logs in `errors` array |
 | DuckDuckGo rate limited | Empty `web_search`, error logged |
@@ -135,6 +132,6 @@ These are only imported by `news_research.py` — `toolkit.py` and cron are unaf
 
 ---
 
-## Relationship to toolkit.py
+## Relationship to Other Subcommands
 
-`news_research.py` is a **separate standalone script**, not a toolkit.py subcommand. This keeps the existing toolkit and cron pipeline completely untouched. The only shared element is the sentiment scoring algorithm (duplicated, not imported, to keep scripts independent).
+The `news-research` subcommand shares the sentiment scoring algorithm and headline fetching with `eva.py news`. The heavy dependency `trafilatura` is only imported when this subcommand runs — other subcommands are unaffected.

@@ -25,8 +25,7 @@ name: stock-price
 description: >
   Check current stock prices and daily changes. Trigger when someone asks
   "what's X at", "price of X", "how's X doing", "check X price", or "X quote"
-  where X is any stock ticker symbol. Returns the current price with change
-  from previous close and color-coded sentiment indicators.
+  where X is any stock ticker symbol.
 metadata:
   openclaw:
     emoji: "💲"
@@ -41,7 +40,7 @@ Eva should:
 1. Extract the ticker symbol from the user's message
 2. Run the command:
    ```bash
-   python3 {baseDir}/../../options-toolkit/toolkit.py price --ticker {TICKER}
+   python3 {baseDir}/../../options-toolkit/eva.py price --ticker {TICKER}
    ```
 3. Post the output directly to the channel — no additional formatting needed
 

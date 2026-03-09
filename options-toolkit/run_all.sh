@@ -34,14 +34,14 @@ send_chunks() {
 
 for TICKER in $TICKERS; do
   # Regular report
-  OUTPUT=$(python3 "$DIR/toolkit.py" report --ticker "$TICKER" 2>/dev/null) || true
+  OUTPUT=$(python3 "$DIR/eva.py" report --ticker "$TICKER" 2>/dev/null) || true
   if [ -n "$OUTPUT" ]; then
     send_chunks "$OUTPUT" "$CHANNEL"
     sleep 2
   fi
 
   # End-of-day summary
-  SUMMARY=$(python3 "$DIR/toolkit.py" summary --ticker "$TICKER" 2>/dev/null) || true
+  SUMMARY=$(python3 "$DIR/eva.py" summary --ticker "$TICKER" 2>/dev/null) || true
   if [ -n "$SUMMARY" ]; then
     send_chunks "$SUMMARY" "$CHANNEL"
     sleep 2

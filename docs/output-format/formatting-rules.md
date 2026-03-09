@@ -1,6 +1,6 @@
 # Formatting Rules
 
-General formatting rules that apply across all sections of the report output. The authoritative spec is OUTPUT.md — this document elaborates on the rules defined there.
+General formatting rules that apply across all sections of the report output.
 
 ---
 
@@ -27,10 +27,11 @@ Used in:
 ```
 
 Used in:
-- Section 4: News headlines
-- Section 8: IV summary
+- News headlines (standalone `news` command)
+- IV summary (report chunk 3)
+- IV history header
 
-Note: Sections 6-7 (options tables) use code blocks with an emoji header instead.
+Note: Options tables use code blocks with an emoji header instead.
 
 ### Count Verification
 
@@ -98,39 +99,32 @@ Never omit the sign on change values. A positive change without `+` looks like a
 
 ## Emoji Color System
 
-Four emoji are used as color indicators throughout the report:
+Three emoji are used as color indicators throughout the report:
 
 | Emoji | Meaning | Used For |
 |-------|---------|----------|
-| 🟢 | Bullish / Positive / Cheap / Good | Positive price change, IV decrease, low IV, ITM, bullish volume |
-| 🟡 | Neutral / Stable / Normal | No change, moderate IV, ATM, balanced ratios, N/A values |
-| 🔴 | Bearish / Negative / Expensive / Bad | Negative price change, IV increase, high IV, bearish volume, expanding vol |
-| 🔵 | Out-of-the-money | OTM status only |
+| 🟢 | Bullish / Positive / Good | Positive price change, IV decrease, P/C ratio decrease |
+| 🟡 | Neutral / Stable | No price change, small skew change |
+| 🔴 | Bearish / Negative / Bad | Negative price change, IV increase, P/C ratio increase, large skew change |
 
 ### Where Each Appears
 
 **🟢 Green**:
-- Price change positive (Section 3)
-- IV < 20% (Sections 6-7 table)
-- IV decreased from previous run (Sections 6-7 IV Chg column)
-- Status: ITM (Sections 6-7)
-- P/C ratio decreased (Section 8)
+- Price change positive (price section)
+- IV decreased from previous run (IV summary)
+- P/C ratio decreased (IV summary)
 
 **🟡 Yellow**:
-- IV 20-35% (Sections 6-7)
-- IV unchanged or N/A (Sections 6-7)
-- Status: ATM (Sections 6-7)
-- Small skew change (Section 8)
+- Price unchanged (price section)
+- Small skew change in IV summary (|change| <= 1)
 
 **🔴 Red**:
-- Price change negative (Section 3)
-- IV > 35% (Sections 6-7)
-- IV increased from previous run (Sections 6-7)
-- P/C ratio increased (Section 8)
-- Skew change > 1 (Section 8)
+- Price change negative (price section)
+- IV increased from previous run (IV summary)
+- P/C ratio increased (IV summary)
+- Skew change > 1 (IV summary)
 
-**🔵 Blue**:
-- Status: OTM (Sections 6-7)
+Note: Options table strike cards use plain text status ("ITM", "ATM", "OTM") without emoji — emoji don't render well inside Discord code blocks.
 
 ---
 
@@ -171,12 +165,12 @@ The 85-character limit keeps headlines from wrapping too much in Discord's monos
 
 ## Conditional Lines
 
-Lines marked with `← only if ...` in OUTPUT.md are conditional. They MUST:
+Lines that are conditional MUST:
 - Appear when their condition is true
 - Be completely absent (not blank, not "N/A") when their condition is false
 
 This keeps the output clean — users don't see irrelevant information.
 
 Examples:
-- `IV Change: ...` line in Section 8 → only if previous data exists
+- `IV Change: ...` line in IV summary → only if previous data exists
 - `⚠️  High Fed/monetary policy focus` → only if >= 2 Fed headlines

@@ -18,8 +18,8 @@ Must be executable: `chmod +x run_all.sh`
 
 1. Reads `tickers.json` for the ticker list and Discord channel ID
 2. For each ticker:
-   a. Runs `toolkit.py report` — captures output, sends if non-empty
-   b. Runs `toolkit.py summary` — captures output, sends if non-empty
+   a. Runs `eva.py report` — captures output, sends if non-empty
+   b. Runs `eva.py summary` — captures output, sends if non-empty
 3. Both commands have their own schedule guards, so only the appropriate one produces output at any given time
 4. Splits output at `---SPLIT---` markers using a shared `send_chunks` function
 5. Sends each chunk to Discord via `openclaw message send`
@@ -60,46 +60,14 @@ Parse tickers.json using Python one-liners:
 - `CHANNEL` becomes the Discord channel ID: `"1474439221140787392"`
 
 ```bash
-for TICKER in $TICKERS; do
+send_chunks() {
+  local output="$1"
+  local channel="$2"
+  echo "$output" | awk -v ch="$channel" '...'
+}
 ```
 
-Loop through each ticker.
-
-```bash
-  OUTPUT=$(python3 "$DIR/toolkit.py" report --ticker "$TICKER" 2>/dev/null)
-```
-
-Run the report command. Capture stdout into `OUTPUT`. Send stderr to /dev/null (errors are already handled by toolkit.py exiting with code 1, which `set -e` would catch — but we use `2>/dev/null` to keep the log clean for expected scenarios like network hiccups).
-
-Stderr is discarded to keep the cron log clean for expected scenarios like network hiccups.
-
-```bash
-  [ -z "$OUTPUT" ] && continue
-```
-
-If output is empty (market hours check failed, or no data), skip to next ticker. This is the silent skip behavior.
-
-```bash
-  echo "$OUTPUT" | awk -v ch="$CHANNEL" '
-    BEGIN { buf="" }
-    /^---SPLIT---$/ {
-      if (buf != "") {
-        cmd = "openclaw message send --channel discord --target " ch " --message \047" buf "\047"
-        system(cmd)
-        system("sleep 1")
-      }
-      buf=""
-      next
-    }
-    { buf = buf (buf=="" ? "" : "\n") $0 }
-    END {
-      if (buf != "") {
-        cmd = "openclaw message send --channel discord --target " ch " --message \047" buf "\047"
-        system(cmd)
-      }
-    }
-  '
-```
+A shared function that splits text at `---SPLIT---` markers and sends each chunk to Discord via `openclaw message send`. Used for both reports and summaries.
 
 ### How the awk Splitting Works
 
@@ -122,11 +90,32 @@ openclaw message send --channel discord --target 1474439221140787392 --message "
 | `--message` | Chunk text | The message content |
 
 ```bash
-  sleep 2
+for TICKER in $TICKERS; do
+  # Regular report
+  OUTPUT=$(python3 "$DIR/eva.py" report --ticker "$TICKER" 2>/dev/null) || true
+  if [ -n "$OUTPUT" ]; then
+    send_chunks "$OUTPUT" "$CHANNEL"
+    sleep 2
+  fi
+
+  # End-of-day summary
+  SUMMARY=$(python3 "$DIR/eva.py" summary --ticker "$TICKER" 2>/dev/null) || true
+  if [ -n "$SUMMARY" ]; then
+    send_chunks "$SUMMARY" "$CHANNEL"
+    sleep 2
+  fi
 done
 ```
 
-Wait 2 seconds between tickers. This prevents flooding Discord and gives the API breathing room.
+For each ticker, the script runs both `report` and `summary`. Each command has its own schedule guard in Python, so only the appropriate one produces output at any given time:
+- Report runs at 6 scheduled times during market hours
+- Summary runs only at 4:01 PM ET
+
+**`|| true`** prevents `set -e` from killing the script if eva.py exits with code 1 (e.g., network failure). The script continues to the next ticker.
+
+**`2>/dev/null`** discards stderr from eva.py to keep the cron log clean. Errors are expected occasionally (network hiccups, rate limits).
+
+**`sleep 2`** between tickers prevents flooding Discord and gives the API breathing room.
 
 ---
 
@@ -161,8 +150,8 @@ Edit `tickers.json` directly. No restart needed — the script reads it fresh ea
 
 | Scenario | Behavior |
 |----------|----------|
-| toolkit.py exits with error (code 1) | `set -e` could stop the script. Consider wrapping in `\|\| true` to continue to next ticker. |
-| Network failure during report | toolkit.py fails → empty or error output → skip |
+| eva.py exits with error (code 1) | `set -e` could stop the script. Consider wrapping in `\|\| true` to continue to next ticker. |
+| Network failure during report | eva.py fails → empty or error output → skip |
 | `openclaw message send` fails | Error goes to cron.log. Chunk is lost. |
 | tickers.json missing | Python one-liner fails → script exits |
 | Discord rate limit | Unlikely with 1s sleeps, but would appear as send errors in log |
@@ -189,7 +178,7 @@ PATH=/usr/local/bin:/usr/bin:/home/henry/.npm-global/bin
 Or use full paths in the script:
 
 ```bash
-/usr/bin/python3 "$DIR/toolkit.py" ...
+/usr/bin/python3 "$DIR/eva.py" ...
 /home/henry/.npm-global/bin/openclaw message send ...
 ```
 
@@ -198,7 +187,7 @@ Or use full paths in the script:
 ## Timing Summary
 
 For a single ticker:
-- Report generation: ~3-5 seconds (yfinance API calls)
+- Report generation: ~3-5 seconds (Tradier API calls)
 - 3 chunks × 1s sleep: ~3 seconds
 - Total: ~6-8 seconds per ticker
 

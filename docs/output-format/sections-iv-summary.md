@@ -1,6 +1,6 @@
-# Section 8: Implied Volatility Summary
+# Chunk 3: Implied Volatility Summary
 
-This section presents all computed IV metrics, volume ratios, OI ratios, and skew. It forms the third chunk of the report (between the second and third `---SPLIT---` markers).
+This section presents all computed IV metrics, volume ratios, OI ratios, and skew. It forms the third and final chunk of the report (after the second `---SPLIT---` marker).
 
 ---
 
@@ -8,7 +8,7 @@ This section presents all computed IV metrics, volume ratios, OI ratios, and ske
 
 ```
 📊 IMPLIED VOLATILITY SUMMARY
-──────────────────────────────────────────────────────────────────────────────────────────
+────────────────────────────────────────
 ```
 
 ---
@@ -156,7 +156,7 @@ No change values, no color emoji on changes. Clean and simple.
 
 ## Footer
 
-Section 8 is the final data section. After the skew line, the report appends a footer and save confirmation:
+This is the final data section. After the skew line, the report appends a footer and save confirmation:
 
 ```
 Put/Call IV Skew:       +1.60%  (-0.20% change) 🟡

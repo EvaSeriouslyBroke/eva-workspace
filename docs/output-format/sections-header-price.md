@@ -1,4 +1,4 @@
-# Sections 1-3: History, Header, Price
+# Chunk 1: History, Header, Price
 
 These three sections form the first chunk of the report (before the first `---SPLIT---` marker).
 
@@ -38,13 +38,13 @@ Use the largest appropriate unit. `90 minutes ago` → `1 hours ago` (keep it si
 ## Section 2: Main Header
 
 ```
-==========================================================================================
+========================================
   🎯 {TICKER} OPTIONS TRADING ANALYZER
-==========================================================================================
+========================================
 ```
 
 - `{TICKER}` is the uppercase ticker symbol (e.g., `IWM`, `SPY`)
-- Two lines of 90 `=` characters above and below
+- Two lines of 40 `=` characters above and below
 - Two leading spaces before the emoji
 - This is NOT hardcoded to "IWM" — it uses whatever ticker was passed
 
@@ -103,9 +103,3 @@ Target Expiration: ...
 ```
 
 This keeps Sections 1-3 in the first Discord message.
-
----
-
-## News (Disabled)
-
-News fetching and formatting functions (`fetch_news`, `format_news`) exist in toolkit.py but are not included in the report output. The `news` subcommand still works standalone via `toolkit.py news --ticker TICKER`.

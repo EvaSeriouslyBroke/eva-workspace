@@ -4,27 +4,24 @@ Every non-obvious choice in the toolkit and why it was made. If you're wondering
 
 ---
 
-## Why yfinance
+## Why Tradier API
 
-**Decision**: Use `yfinance` (unofficial Yahoo Finance wrapper) as the sole data source.
+**Decision**: Use Tradier API as the primary market data and trading API, with DuckDuckGo for news.
 
 **Alternatives considered**:
-- **Tradier** — Free sandbox tier, 60 req/min, 15-min delay, ORATS-quality IV. Good API but requires account signup and API key management.
+- **yfinance** — Original choice. Zero setup, but unofficial API that could break, no trading capability, and Yahoo tightened rate limits. Replaced during the unified refactor.
 - **Charles Schwab** — Free with brokerage account, 120 req/min, real-time. Requires OAuth flow, account setup.
 - **Polygon.io** — Free tier limited for options data. Paid tiers expensive.
 - **CBOE/Livevol** — Institutional-grade, paid. Overkill for this use case.
 
-**Why yfinance wins**:
-1. **Zero setup** — `pip install yfinance` and go. No API key, no account, no OAuth.
-2. **IV per strike** — `impliedVolatility` field on every contract. Most free APIs don't provide this.
-3. **Single-ticker use case** — We fetch one ticker at a time with gaps between. yfinance handles this fine.
-4. **News included** — `Ticker.news` provides headlines without a separate API.
-5. **Options chain** — `Ticker.option_chain(expiry)` returns calls and puts DataFrames with all needed columns.
+**Why Tradier wins**:
+1. **Unified data + trading** — Single API for market data, options chains with greeks, AND order execution. No need for separate data and trading providers.
+2. **IV per strike with greeks** — `mid_iv`, `smv_vol`, delta, gamma, theta, vega on every contract.
+3. **Paper trading sandbox** — Free sandbox environment with identical API surface. Test strategies without risk.
+4. **Real-time data** — No 15-minute delay on quotes (sandbox has delays but live is real-time).
+5. **Clean REST API** — Well-documented, simple authentication, predictable responses.
 
-**Known limitations**:
-- Yahoo has tightened rate limits (429 errors possible with bulk requests). Our single-ticker-at-a-time pattern avoids this.
-- Data is 15-minute delayed for some fields. Acceptable for options analysis (IV doesn't change dramatically minute-to-minute).
-- Unofficial API — could break if Yahoo changes their backend. Risk accepted for simplicity.
+**For news**: DuckDuckGo via the `duckduckgo-search` library — no API key needed, free, returns headlines with URLs for deep extraction via trafilatura.
 
 ---
 
@@ -74,7 +71,7 @@ Every non-obvious choice in the toolkit and why it was made. If you're wondering
 
 **Decision**: Never delete historical data files. Let them accumulate indefinitely.
 
-**Storage math**: ~2KB per snapshot × 39 runs/day (every 10 min, 9:30-16:00 = 39 intervals) × 252 trading days/year = **~20MB/year per ticker**. Even with 10 tickers, that's 200MB/year. Negligible.
+**Storage math**: ~2KB per snapshot × 6 runs/day (6 scheduled report times) × 252 trading days/year = **~3MB/year per ticker**. Even with 10 tickers, that's 30MB/year. Negligible.
 
 **Benefits of keeping everything**:
 1. **Trend analysis** — Can look at IV trends over weeks, months, quarters
@@ -101,7 +98,7 @@ Every non-obvious choice in the toolkit and why it was made. If you're wondering
 - Database (SQLite) — adds dependency, harder to inspect/debug
 
 **Week/day grouping wins because**:
-1. **Manageable file sizes** — Each daily file has ~39 entries (~78KB). Easy to open, inspect, edit.
+1. **Manageable file sizes** — Each daily file has ~6 entries (~12KB). Easy to open, inspect, edit.
 2. **Natural browsing** — `ls data/IWM/` shows weeks. `ls data/IWM/2026-W08/` shows days. Intuitive.
 3. **Easy comparison** — Finding "yesterday's data" is just looking at the previous day file in the same or adjacent week folder.
 4. **Simple implementation** — `mkdir -p` for the week folder, JSON array append for the day file.
@@ -111,14 +108,14 @@ Every non-obvious choice in the toolkit and why it was made. If you're wondering
 
 ## Why `--force` Flag
 
-**Decision**: The `report` command silently exits (code 0, no output) outside market hours unless `--force` is passed.
+**Decision**: The `report` command silently exits (code 0, no output) outside scheduled times unless `--force` is passed.
 
 **Two execution contexts**:
-1. **Cron** — Fires broadly (9:00-16:50 ET) but toolkit self-filters to 9:30-16:00 ET. Outside those hours, cron runs should produce nothing. No output means `run_all.sh` skips sending to Discord. Clean.
-2. **Interactive** — User asks "run the report for IWM" at 8 PM. They expect a report, not silence. `--force` bypasses the hours check.
+1. **Cron** — Fires at both EST and EDT UTC equivalents, but the Python guard only allows fires that match the SCHEDULE. Outside those times, cron runs should produce nothing. No output means `run_all.sh` skips sending to Discord. Clean.
+2. **Interactive** — User asks "run the report for IWM" at 8 PM. They expect a report, not silence. `--force` bypasses the schedule check.
 
-**Why not just skip the hours check entirely**:
-- Cron would send stale/after-hours data to Discord 78 times a day (every 10 min, 24/7) instead of 39 times
+**Why not just skip the schedule check entirely**:
+- Cron would send reports at wrong-season UTC fires (13 fires/day instead of 6-7 producing output)
 - After-hours option pricing is thin, spreads are wide, IV is unreliable
 
 **Why not use a separate flag like `--cron`**:
@@ -131,7 +128,7 @@ Every non-obvious choice in the toolkit and why it was made. If you're wondering
 
 **Decision**: The report output includes literal `---SPLIT---` lines at logical section boundaries. The caller (run_all.sh or Eva) splits on these markers.
 
-**The problem**: Discord has a 2000-character message limit. Reports are ~4000-5000 characters. They need to be split into chunks.
+**The problem**: Discord has a 2000-character message limit. Reports are ~3000-4000 characters. They need to be split into chunks.
 
 **Alternative approaches**:
 - Split at character count (e.g., every 1900 chars) — breaks mid-line, mid-table, mid-section. Ugly.
@@ -139,24 +136,26 @@ Every non-obvious choice in the toolkit and why it was made. If you're wondering
 - Have the script send to Discord directly — couples the script to Discord, can't use stdout for other purposes.
 
 **`---SPLIT---` markers win because**:
-1. **Logical breaks** — Each chunk is a complete, coherent section (header+price+news, tables, summary+footer).
+1. **Logical breaks** — Each chunk is a complete, coherent section.
 2. **Predictable** — Always 3 chunks at the same section boundaries.
 3. **Target sizing** — Each chunk targets <1900 chars (100-char safety margin).
 4. **Caller decides** — Script is a pure function (input → output). Whether output goes to Discord, a file, or stdout display is the caller's decision.
 5. **Simple parsing** — `awk '/^---SPLIT---$/' { ... }` is trivial.
 
 **3 chunks**:
-1. History + Header + Price + News (Sections 1-4)
-2. Expiry + Call Table + Put Table (Sections 5-7)
-3. IV Summary + Footer + Save Confirmation (Section 8)
+1. History + Header + Price
+2. Call Table + Put Table
+3. IV Summary + Footer + Save Confirmation
 
 ---
 
 ## Why stdout-Based Architecture
 
-**Decision**: `toolkit.py` writes formatted output to stdout and errors to stderr. It never sends messages, writes to Discord, or does any delivery.
+**Decision**: `eva.py` writes formatted output to stdout and errors to stderr. Market data commands (`price`, `chain`, `news`, `history`, `report`, `summary`) are pure stdout — they never send messages or do delivery. The caller handles delivery.
 
-**Principle**: Scripts are pure functions — `(ticker, flags) → formatted text`. Delivery is the caller's responsibility.
+**Exception**: The `buy` and `sell` commands also send trade notification messages to the paper-trading Discord channel via `openclaw message send`. This is intentional — trade notifications are part of the command's action, not a delivery concern.
+
+**Principle**: Market data commands are pure functions — `(ticker, flags) → formatted text`. Delivery is the caller's responsibility.
 
 **Benefits**:
 1. **Testable** — Run the script, capture stdout, compare to expected output. No mocking Discord.
@@ -165,41 +164,35 @@ Every non-obvious choice in the toolkit and why it was made. If you're wondering
 4. **Error separation** — Errors go to stderr, so a wrapper script won't accidentally send error messages to Discord.
 5. **No credentials** — The script doesn't need Discord tokens or channel IDs.
 
-**This means**:
+**This means** (for market data commands):
 - `run_all.sh` handles splitting and `openclaw message send` calls
 - Eva's skill instructions handle splitting and posting
-- The script itself is completely delivery-agnostic
+- Market data commands are completely delivery-agnostic
 
 ---
 
 ## Why Not Handle NYSE Holidays
 
-**Decision**: The market hours guard checks time-of-day and weekday but does NOT check for NYSE holidays (Good Friday, MLK Day, etc.).
+**Decision**: The schedule guard checks time-of-day and weekday but does NOT check for NYSE holidays (Good Friday, MLK Day, etc.).
 
 **Why not**:
 - Requires either hardcoding a holiday calendar (maintenance burden) or a package like `exchange_calendars` (extra dependency)
-- Impact is low: on a holiday, the script runs but yfinance returns stale data or empty chains. The report either shows "no data" or shows yesterday's closing data — neither is harmful.
+- Impact is low: on a holiday, the script runs but Tradier returns stale data or the market is closed. The report either shows stale data or produces empty chains — neither is harmful.
 - Cron still only fires Mon-Fri, so only ~9 holidays/year are affected.
 
 Impact is accepted — not a bug.
 
 ---
 
-## Why a Separate Script for Deep News Research
+## Why a Separate Subcommand for Deep News Research
 
-**Decision**: Create `news_research.py` as a standalone script rather than adding a `deep-news` subcommand to `toolkit.py`.
+**Decision**: Implement deep news research as the `news-research` subcommand of `eva.py`, with lazy imports for its heavy dependencies.
 
-**Alternatives considered**:
-- **New subcommand in toolkit.py** — Adds `trafilatura` and `duckduckgo-search` as dependencies of the main CLI. Cron imports them even when running `report`. Risk of breakage.
-- **Extend existing `news` command** — Adding `--deep` flag bloats a simple command. Different output format (JSON for AI synthesis vs formatted text for direct posting).
-
-**Separate script wins because**:
-1. **Isolation** — `toolkit.py` and cron pipeline are completely unaffected. New dependencies (`trafilatura`, `duckduckgo-search`) only load when `news_research.py` runs.
-2. **Different output paradigm** — `toolkit.py news` outputs formatted text for direct posting. `news_research.py` outputs JSON for Eva to synthesize. Mixing these in one command would be awkward.
-3. **Different use case** — Quick headlines (2s) vs deep analysis (8-10s). Different intents, different tools.
+**Why a separate subcommand** (not merged into `news`):
+1. **Different output paradigm** — `eva.py news` outputs formatted text for direct posting. `eva.py news-research` outputs JSON for Eva to synthesize. Different intents, different outputs.
+2. **Different use case** — Quick headlines (2s) vs deep analysis (8-10s). Different intents, different tools.
+3. **Lazy imports** — `trafilatura` is only imported when `news-research` runs. Other subcommands and cron are unaffected.
 4. **Failure isolation** — If trafilatura breaks or DuckDuckGo rate-limits, it only affects deep research. Cron reports and quick headlines keep working.
-
-**Trade-off**: Sentiment scoring logic is duplicated (not imported from toolkit.py). This is intentional — keeps both scripts fully independent. The algorithm is simple (~40 lines) and unlikely to diverge.
 
 ---
 

@@ -1,10 +1,10 @@
-# Sections 5-7: Expiry Selection, Call Table, Put Table
+# Chunk 2: Expiry Selection, Call Table, Put Table
 
-These three sections form the second chunk of the report (between the first and second `---SPLIT---` markers).
+These sections form the second chunk of the report (between the first and second `---SPLIT---` markers).
 
 ---
 
-## Section 5: Target Expiration
+## Section 4: Target Expiration
 
 Two lines identifying the selected expiry and ATM strike:
 
@@ -15,7 +15,7 @@ ATM Strike: $210
 
 ### Expiry Selection Logic
 
-1. Fetch all available expirations from yfinance: `ticker.options`
+1. Fetch all available expirations from Tradier: `GET /markets/options/expirations`
 2. Compute DTE for each: `(expiry_date - today).days`
 3. Select the one closest to 120 DTE
 4. If equidistant, pick the later expiry
@@ -30,7 +30,7 @@ Rounded to nearest integer. This determines the center of the 5-strike window.
 
 ---
 
-## Section 6: Call Options — Stacked Cards
+## Section 5: Call Options — Stacked Cards
 
 ### Sub-Header
 
@@ -89,7 +89,7 @@ No emoji for status — inside a code block, emoji don't render well.
 
 Format: `IV: XX.XX%`
 
-Source: `impliedVolatility * 100` from yfinance.
+Source: `greeks.mid_iv * 100` or `greeks.smv_vol * 100` from Tradier.
 
 #### IV Chg (Line 2)
 
@@ -126,7 +126,7 @@ Format: `B/A: $X.XX/$X.XX` — bid/ask side by side.
 
 ---
 
-## Section 7: Put Options — Stacked Cards
+## Put Options — Stacked Cards
 
 ### Sub-Header
 
@@ -178,6 +178,6 @@ $208 OTM | IV: 24.80%
 
 ## Chunk Boundary
 
-After Section 7, insert the second `---SPLIT---` marker.
+After Section 6, insert the second `---SPLIT---` marker.
 
-Sections 5-7 together target ~1200 chars with the card format (well under the 2000-char Discord limit).
+Sections 4-6 together target ~1200 chars with the card format (well under the 2000-char Discord limit).

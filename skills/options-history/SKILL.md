@@ -11,13 +11,13 @@ metadata:
 Extract the ticker symbol from the user's message. Then run:
 
 ```bash
-python3 {baseDir}/../../options-toolkit/toolkit.py history --ticker {TICKER}
+python3 {baseDir}/../../options-toolkit/eva.py history --ticker {TICKER}
 ```
 
 If the user mentions a specific number of days (e.g., "last 10 days"), add `--days N`:
 
 ```bash
-python3 {baseDir}/../../options-toolkit/toolkit.py history --ticker {TICKER} --days 10
+python3 {baseDir}/../../options-toolkit/eva.py history --ticker {TICKER} --days 10
 ```
 
 Post the output directly to the channel.

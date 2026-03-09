@@ -7,7 +7,7 @@
 
 ## When This Skill Is Used
 
-This skill is **not the default for user news requests**. It is only used when headlines are being fed into a larger report or summary (e.g. the cron report's Section 4). For any direct user request about news, Eva uses `stock-news-deep` instead.
+This skill is **not the default for user news requests**. It is only used when Eva needs a fast, formatted news snippet (e.g., composing a multi-part response). For any direct user request about news, Eva uses `stock-news-deep` instead.
 
 ## SKILL.md Content
 
@@ -15,10 +15,11 @@ This skill is **not the default for user news requests**. It is only used when h
 ---
 name: stock-news
 description: >
-  Get recent news headlines and sentiment analysis for any stock ticker. Trigger
-  when someone asks "news on X", "any headlines for X", "what's in the news
-  about X", "X news", or "anything going on with X" where X is a stock ticker.
-  Returns up to 8 recent headlines with sentiment scoring and key themes.
+  Quick headline summary for a stock ticker — no deep analysis. ONLY use this when
+  you need a fast, formatted news snippet (e.g. composing a multi-part response).
+  For any direct user request about news — including "X news", "news on X",
+  "what's going on with X" — use the stock-news-deep skill instead, which provides
+  real analysis.
 metadata:
   openclaw:
     emoji: "📰"
@@ -33,7 +34,7 @@ Eva should:
 1. Extract the ticker symbol from the user's message
 2. Run the command:
    ```bash
-   python3 {baseDir}/../../options-toolkit/toolkit.py news --ticker {TICKER}
+   python3 {baseDir}/../../options-toolkit/eva.py news --ticker {TICKER}
    ```
 3. Post the output directly to the channel
 
@@ -43,7 +44,7 @@ Eva should:
 
 ```
 📰 LIVE NEWS HEADLINES
-──────────────────────────────────────────────────────────────────────────────────────────
+────────────────────────────────────────
 
 Recent Headlines (6 articles):
   1. Fed Signals Patience on Rate Cuts Amid Inflation Concerns
@@ -83,7 +84,7 @@ Eva should ask: "Which ticker do you want news for?"
 
 ## Distinction from stock-news-deep
 
-This skill provides **quick headlines** (~2s response) — post formatted text as-is. It is only used for internal/report purposes. `stock-news-deep` is the default for all user-facing news requests (~8-10s, AI-synthesized analysis).
+This skill provides **quick headlines** (~2s response) — post formatted text as-is. It is only used when Eva needs a fast formatted snippet. `stock-news-deep` is the default for all user-facing news requests (~8-10s, AI-synthesized analysis).
 
 - User asks "IWM news" → **stock-news-deep** (always)
-- Cron report Section 4 → **stock-news** (internal, formatted text)
+- Eva composing a multi-part response → **stock-news** (fast, formatted text)

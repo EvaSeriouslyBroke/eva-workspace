@@ -27,7 +27,7 @@ description: >
   Show recent IV history and trends from stored data. Trigger when someone asks
   "IV history for X", "how has X IV been trending", "previous runs for X",
   "X history", "what was IV on X yesterday", or "X trend" where X is a stock
-  ticker. Returns a table of recent trading days with IV, price, and ratio data.
+  ticker.
 metadata:
   openclaw:
     emoji: "📅"
@@ -42,13 +42,13 @@ Eva should:
 1. Extract the ticker symbol from the user's message
 2. Run the command:
    ```bash
-   python3 {baseDir}/../../options-toolkit/toolkit.py history --ticker {TICKER}
+   python3 {baseDir}/../../options-toolkit/eva.py history --ticker {TICKER}
    ```
 3. Post the output directly to the channel
 
 If the user mentions a specific number of days (e.g., "last 10 days"), add `--days N`:
    ```bash
-   python3 {baseDir}/../../options-toolkit/toolkit.py history --ticker {TICKER} --days 10
+   python3 {baseDir}/../../options-toolkit/eva.py history --ticker {TICKER} --days 10
    ```
 
 ---
@@ -57,7 +57,7 @@ If the user mentions a specific number of days (e.g., "last 10 days"), add `--da
 
 ```
 📊 IV HISTORY - IWM (Last 5 Trading Days)
-──────────────────────────────────────────────────────────────────────────────────────────
+────────────────────────────────────────
 
 Date          Price      Avg IV     Call IV    Put IV     P/C Vol    P/C OI     Skew
 2026-02-20    $210.45    25.30%     24.50%     26.10%     1.05       0.92       +1.60%

@@ -7,7 +7,7 @@ Generates an end-of-day summary comparing market open to close, with technical a
 ## Usage
 
 ```
-python3 toolkit.py summary --ticker IWM [--force]
+python3 eva.py summary --ticker IWM [--force]
 ```
 
 ### Flags
@@ -28,12 +28,13 @@ Without `--force`, the summary only runs at **4:01 PM ET** (`SUMMARY_SCHEDULE = 
 ## What It Does
 
 1. Loads **all snapshots from today** (`load_today_snapshots()`)
-2. Compares the first snapshot (market open) with the last snapshot (close/current)
-3. Computes intraday ranges for price, IV, volume, OI, and skew
-4. Generates technical analysis (rules-based) and market assessment
-5. Outputs a day rating (BULLISH / SLIGHTLY BULLISH / NEUTRAL / SLIGHTLY BEARISH / BEARISH)
+2. Finds the first snapshot with valid IV (>= 1%) — skips early-morning snapshots where IV reads as 0%
+3. Compares that first valid snapshot with the last snapshot of the day
+4. Computes intraday ranges for price, IV, volume, OI, and skew
+5. Generates technical analysis (rules-based) and market assessment
+6. Outputs a day rating (BULLISH / SLIGHTLY BULLISH / NEUTRAL / SLIGHTLY BEARISH / BEARISH)
 
-Requires at least 2 snapshots from today. If fewer exist, exits silently.
+Requires at least 2 snapshots from today with at least one having valid IV (>= 1%). If these conditions aren't met, exits silently.
 
 ---
 
@@ -49,9 +50,9 @@ Requires at least 2 snapshots from today. If fewer exist, exits silently.
 📅 2026-03-04 | Market Close
 
 Price Action:
-  Open: $210.00 → Close: $211.25
-  Day Change: +$1.25 (+0.60%) 🟢
-  Day Range: $209.50 - $211.80
+  Open: $208.00 → Close: $211.25
+  Day Change: +$3.25 (+1.56%) 🟢
+  Day Range: $207.50 - $211.80
   Snapshots: 6
 ```
 
@@ -88,13 +89,13 @@ Skew:
 Technical:
   • IV contracted — volatility sellers dominated
   • P/C vol ratio < 0.8 — call-heavy flow
-  • Call OI up, put OI flat/down — bullish positioning
+  • P/C OI ratio declining — call OI gaining vs puts
   • Skew narrowing — put premium declining
 
 Market Assessment:
   • Price up + IV down = healthy rally with confidence
   • Volume sentiment shifted bullish through the day
-  • Significant move (+1.25%) — high conviction day
+  • Significant move (+1.56%) — high conviction day
 
 Day Rating: BULLISH 🟢
 
@@ -139,12 +140,12 @@ Additional signals:
 
 ## Day Rating Score
 
-Scoring factors (each +1 or -1):
-- Price direction
-- IV direction (down = bullish)
-- P/C vol ratio level (< 0.9 bullish, > 1.1 bearish)
-- P/C OI ratio change (declining = bullish, rising = bearish)
-- Skew change (narrowing = bullish)
+5 independent scoring factors (each can contribute +1 or -1, range -5 to +5):
+- Price direction (up +1, down -1)
+- IV direction (down +1, up -1)
+- P/C vol ratio level (< 0.9 +1, > 1.1 -1)
+- P/C OI ratio change (< -0.05 +1, > +0.05 -1)
+- Skew change (< -0.3 +1, > +0.3 -1)
 
 | Score | Rating |
 |-------|--------|

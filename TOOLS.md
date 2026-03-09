@@ -3,29 +3,29 @@
 ## Toolkit Location
 
 ```
-~/.openclaw/workspace/options-toolkit/toolkit.py
+~/.openclaw/workspace/options-toolkit/eva.py
 ```
 
 ## Commands
 
 ```bash
 # Price check
-python3 toolkit.py price --ticker IWM
-python3 toolkit.py price --ticker IWM --json
+python3 eva.py price --ticker IWM
+python3 eva.py price --ticker IWM --json
 
-# Options chain (5 strikes near ATM, ~120 DTE)
-python3 toolkit.py chain --ticker IWM
-python3 toolkit.py chain --ticker IWM --dte 60
+# Options chain (10 strikes near ATM, ~120 DTE)
+python3 eva.py chain --ticker IWM
+python3 eva.py chain --ticker IWM --dte 60
 
 # News + sentiment
-python3 toolkit.py news --ticker IWM
+python3 eva.py news --ticker IWM
 
 # IV history from stored data (no API calls)
-python3 toolkit.py history --ticker IWM
-python3 toolkit.py history --ticker IWM --days 10
+python3 eva.py history --ticker IWM
+python3 eva.py history --ticker IWM --days 10
 
 # Full report (always use --force for interactive)
-python3 toolkit.py report --ticker IWM --force
+python3 eva.py report --ticker IWM --force
 ```
 
 ## Data Location
@@ -44,13 +44,64 @@ options-toolkit/tickers.json    # Tickers + Discord channel for scheduled report
 
 ## Cron
 
-Reports run automatically every 30 min during market hours (9:30-16:00 ET, Mon-Fri) via `run_all.sh`. The toolkit's own market hours check filters out pre-9:30 and post-16:00 fires.
+Reports run at 6 scheduled times during each trading day (9:31, 11:00, 12:30, 14:00, 15:00, 15:59 ET) plus a 4:01 PM summary, via `run_all.sh`. Crontab fires at both EST and EDT UTC equivalents; eva.py self-filters to the correct ET time.
 
-Crontab entry:
+See `docs/scheduling/cron-setup.md` for the full crontab entries and timezone handling.
+
+## Paper Trading
+
 ```
-TZ=America/New_York
-*/30 9-16 * * 1-5 /home/henry/.openclaw/workspace/options-toolkit/run_all.sh >> /home/henry/.openclaw/workspace/options-toolkit/data/cron.log 2>&1
+~/.openclaw/workspace/options-toolkit/eva.py
 ```
+
+### Commands
+
+```bash
+# Evaluation JSON (respects market hours, use --force to bypass)
+python3 eva.py evaluate --ticker IWM
+python3 eva.py evaluate --ticker IWM --force
+python3 eva.py evaluate --all            # All tickers from trading_tickers.json
+
+# Portfolio status (formatted for Discord)
+python3 eva.py status
+
+# Buy a call or put
+python3 eva.py buy --ticker IWM --type call --strike 265 --expiry 2026-06-30 --reason "Mean reversion — dipped 3%"
+
+# Sell to close
+python3 eva.py sell --ticker IWM --type call --strike 265 --expiry 2026-06-30 --reason "Thesis played out"
+
+# Order history with reasoning
+python3 eva.py trade-history
+python3 eva.py trade-history --limit 50
+
+# Reset (user-only, never autonomous)
+python3 eva.py reset --confirm
+```
+
+All commands accept `--mode paper|real` (default: paper). Real mode is not implemented yet.
+
+### Config
+
+```
+options-toolkit/tradier.json    # Tradier API credentials (paper + future real)
+```
+
+### Paper Trading Data
+
+```
+options-toolkit/data/paper-trading/
+  reasons.json            # Order ID → reasoning mapping
+  known_positions.json    # Position tracker for closed-trade detection
+  log.jsonl               # Structured event log
+
+options-toolkit/data/{TICKER}/iv/
+  {YYYY-MM-DD}.json       # IV snapshots per ticker (built by evaluate)
+```
+
+### Paper Trading Cron
+
+Evaluation runs every 15 min during market hours via OpenClaw cron → `paper-trade-evaluate` skill → Discord `paper-trading` channel.
 
 ## Key Metrics to Know
 

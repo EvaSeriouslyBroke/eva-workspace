@@ -11,7 +11,7 @@ metadata:
 Extract the ticker symbol from the user's message. Then run with `--force` (always, since this is interactive):
 
 ```bash
-python3 {baseDir}/../../options-toolkit/toolkit.py summary --ticker {TICKER} --force
+python3 {baseDir}/../../options-toolkit/eva.py summary --ticker {TICKER} --force
 ```
 
 The output will contain `---SPLIT---` markers.

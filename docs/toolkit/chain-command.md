@@ -7,7 +7,7 @@ The `chain` subcommand fetches and displays the options chain for a given ticker
 ## Usage
 
 ```
-python3 toolkit.py chain --ticker <SYM> [--dte <N>] [--json]
+python3 eva.py chain --ticker <SYM> [--dte <N>] [--json]
 ```
 
 | Flag | Default | Description |
@@ -18,22 +18,18 @@ python3 toolkit.py chain --ticker <SYM> [--dte <N>] [--json]
 
 ## How Expiry Selection Works
 
-1. Fetch all available expirations: `yf.Ticker(sym).options` → list of date strings (e.g., `['2026-03-21', '2026-04-18', '2026-05-16', ...]`)
+1. Fetch all available expirations from Tradier: `GET /markets/options/expirations?symbol={sym}`
 2. For each expiration, compute DTE: `(expiry_date - today).days`
 3. Pick the expiry with DTE closest to the target (default 120)
 4. If two expiries are equidistant, pick the later one (more time value)
 
 ```python
-import yfinance as yf
-from datetime import date
+from eva.tradier import fetch_expirations, load_config
+from eva.symbols import select_expiry
 
-ticker = yf.Ticker(sym)
-expirations = ticker.options  # List of 'YYYY-MM-DD' strings
-
-today = date.today()
-target_dte = 120
-
-best = min(expirations, key=lambda exp: abs((date.fromisoformat(exp) - today).days - target_dte))
+cfg = load_config("paper")
+expirations = fetch_expirations(cfg, sym)  # List of 'YYYY-MM-DD' strings
+best = select_expiry(expirations, target_dte=120)
 ```
 
 ---
@@ -50,21 +46,21 @@ Current price rounded to the nearest integer. For IWM at $210.45, ATM = $210. Fo
 
 ## Strike Selection
 
-`select_strikes(chain_df, price, count)` picks the `count` strikes closest to the current price, sorted descending.
+`select_strikes(strikes, price, count)` picks the `count` strikes nearest to the current price, sorted descending.
 
 ### Standalone `chain` command
 
-Fetches **5** strikes closest to the current price.
+Fetches **10** strikes closest to the current price (via `fetch_options_chain` which calls `select_strikes` with `count=10`).
 
 ### `report` command
 
-Fetches **10** strikes closest to the current price from yfinance. All 10 are saved to the snapshot for historical IV tracking. The report then selects the **5 closest to the current price** for display. This means if the price moves between runs, the wider 10-strike window still provides previous IV data for comparison.
+Uses the same `fetch_options_chain` (10 strikes). All 10 are saved to the snapshot for historical IV tracking. The report then selects the **5 closest to the current price** for display. This means if the price moves between runs, the wider 10-strike window still provides previous IV data for comparison.
 
 ```
 Example for IWM at $210.45 (ATM = $210):
 
 Fetched (10 strikes): $206-$215
-Displayed (5 strikes, descending):
+Report displays (5 strikes, descending):
   $212  ← 2 above ATM
   $211  ← 1 above ATM
   $210  ← ATM
@@ -79,66 +75,79 @@ If strikes don't exist at every $1 increment (some tickers use $2.50 or $5 incre
 ## Fetching the Chain Data
 
 ```python
-chain = ticker.option_chain(best_expiry)
+from eva.tradier import fetch_chain_raw, load_config
 
-calls_df = chain.calls  # pandas DataFrame
-puts_df = chain.puts    # pandas DataFrame
+cfg = load_config("paper")
+raw_chain = fetch_chain_raw(cfg, sym, best_expiry)
+# Calls: GET /markets/options/chains?symbol={sym}&expiration={exp}&greeks=true
 ```
 
-### Columns Used from DataFrame
+### Fields Used from Tradier Response
 
-| DataFrame Column | Display Column | Format |
-|-----------------|----------------|--------|
+| Tradier Field | Display Field | Format |
+|---------------|---------------|--------|
 | `strike` | Strike | `$XXX` |
-| `impliedVolatility` | IV | `XX.XX%` (multiply by 100) |
+| `greeks.mid_iv` or `greeks.smv_vol` | IV | `XX.XX%` (multiply by 100) |
 | `bid` | Bid | `$X.XX` |
 | `ask` | Ask | `$X.XX` |
-| `lastPrice` | Last | `$X.XX` |
+| `last` | Last | `$X.XX` |
 | `volume` | Vol | Comma-separated integer |
-| `openInterest` | OI | Comma-separated integer |
+| `open_interest` | OI | Comma-separated integer |
 
-Note: yfinance returns `impliedVolatility` as a decimal (e.g., 0.2450 for 24.50%). Multiply by 100 for display.
+Note: Tradier returns IV as a decimal in the greeks (e.g., 0.2450 for 24.50%). Multiply by 100 for display.
 
 ---
 
 ## Formatted Output
 
-Matches Sections 5-7 of OUTPUT.md.
-
-### Section 5: Target Expiration Header
+### Target Expiration Header
 
 ```
 Target Expiration: 2026-05-16 (85 days)
 ATM Strike: $210
 ```
 
-### Section 6: Call Options Table
+### Call Options — Stacked Cards
+
+The emoji header sits outside the code block so it renders on Discord:
 
 ```
-📈 CALL OPTIONS - Implied Volatility
-──────────────────────────────────────────────────────────────────────────────────────────
-
-Strike       IV           IV Chg       Bid        Ask        Last       Vol        OI           Status
-$212        🟡 24.50%     N/A         $3.20      $3.45      $3.30      1,245      8,901        OTM 🔵
-$211        🟡 23.80%     N/A         $3.85      $4.10      $3.95      2,100      12,345       OTM 🔵
-$210        🟡 23.20%     N/A         $4.50      $4.75      $4.60      3,456      15,678       ATM 🟡
-$209        🟡 22.90%     N/A         $5.20      $5.45      $5.30      1,890      10,234       ITM 🟢
-$208        🟡 22.50%     N/A         $5.90      $6.15      $6.00      987        7,654        ITM 🟢
+📈 CALLS
 ```
 
-### Section 7: Put Options Table
+Each strike is a 3-line card inside a code block, separated by blank lines (10 cards total, showing abbreviated example with 3):
 
-Same format. Status rules are reversed (see below).
+~~~
+```
+$212 OTM | IV: 24.50%
+  Chg: N/A | B/A: $3.20/$3.45
+  Last: $3.30 | Vol: 1,245 | OI: 8,901
 
----
+$210 ATM | IV: 23.20%
+  Chg: N/A | B/A: $4.50/$4.75
+  Last: $4.60 | Vol: 3,456 | OI: 15,678
 
-## IV Color Rules
+$208 ITM | IV: 22.50%
+  Chg: N/A | B/A: $5.90/$6.15
+  Last: $6.00 | Vol: 987 | OI: 7,654
+```
+~~~
 
-| IV Value | Emoji | Meaning |
-|----------|-------|---------|
-| < 20% | 🟢 | Low / cheap |
-| 20% - 35% | 🟡 | Normal |
-| > 35% | 🔴 | High / expensive |
+### Put Options — Stacked Cards
+
+```
+📉 PUTS
+```
+
+Same 3-line card format. Status rules are reversed (see below).
+
+### Card Rules
+
+- **Sorted descending** by strike price (highest first)
+- **Line 1**: `$STRIKE STATUS | IV: XX.XX%`
+- **Line 2**: `  Chg: {change} | B/A: $bid/$ask`
+- **Line 3**: `  Last: $X.XX | Vol: N,NNN | OI: N,NNN`
+- No emoji for status inside code blocks (they don't render well)
 
 ---
 
@@ -146,12 +155,11 @@ Same format. Status rules are reversed (see below).
 
 The `chain` command run standalone (not as part of `report`) shows `N/A` for IV change because it doesn't load history. The `report` command populates this column with actual changes.
 
-| Condition | Display | Emoji |
-|-----------|---------|-------|
-| IV increased from last run | `+X.XX% (+X.X%)` | 🔴 |
-| IV decreased from last run | `-X.XX% (-X.X%)` | 🟢 |
-| No change | `--` | 🟡 |
-| No previous data | `N/A` | 🟡 |
+| Condition | Display |
+|-----------|---------|
+| IV increased from last run | `+X.XX% (+X.X%)` |
+| IV decreased from last run | `-X.XX% (-X.X%)` |
+| No previous data | `N/A` |
 
 The format `+X.XX% (+X.X%)` shows:
 - First: absolute change in IV percentage points
@@ -165,25 +173,19 @@ Example: IV was 22.00%, now 23.10% → `+1.10% (+5.0%)`
 
 ### For Calls
 
-| Condition | Status | Emoji |
-|-----------|--------|-------|
-| Strike < current price | ITM | 🟢 |
-| Strike = ATM strike | ATM | 🟡 |
-| Strike > current price | OTM | 🔵 |
+| Condition | Status |
+|-----------|--------|
+| Strike < current price | ITM |
+| Strike = ATM strike | ATM |
+| Strike > current price | OTM |
 
 ### For Puts (Reversed)
 
-| Condition | Status | Emoji |
-|-----------|--------|-------|
-| Strike > current price | ITM | 🟢 |
-| Strike = ATM strike | ATM | 🟡 |
-| Strike < current price | OTM | 🔵 |
-
----
-
-## Table Sorting
-
-Both call and put tables: **5 strikes, sorted descending by strike price** (highest first).
+| Condition | Status |
+|-----------|--------|
+| Strike > current price | ITM |
+| Strike = ATM strike | ATM |
+| Strike < current price | OTM |
 
 ---
 
@@ -232,6 +234,6 @@ Both call and put tables: **5 strikes, sorted descending by strike price** (high
 | Invalid ticker | stderr message, exit 1 |
 | No options available | stderr: "No options data available for {SYM}", exit 1 |
 | No expiry near target DTE | Uses closest available (could be far from target) |
-| Strike gaps (e.g., $5 increments) | Selects nearest 5 available strikes to ATM |
+| Strike gaps (e.g., $5 increments) | Selects nearest available strikes to ATM |
 | Missing volume/OI data | Shows 0 |
 | Network failure | stderr message, exit 1 |

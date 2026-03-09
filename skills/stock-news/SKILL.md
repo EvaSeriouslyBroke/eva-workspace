@@ -1,6 +1,6 @@
 ---
 name: stock-news
-description: "Quick headline summary for a stock ticker — no deep analysis. ONLY use this when the output is being fed into a larger report or summary (e.g. the cron report's Section 4). For any direct user request about news — including 'X news', 'news on X', 'what's going on with X' — use the stock-news-deep skill instead, which provides real analysis."
+description: "Quick headline summary for a stock ticker — no deep analysis. ONLY use this when you need a fast, formatted news snippet (e.g. composing a multi-part response). For any direct user request about news — including 'X news', 'news on X', 'what's going on with X' — use the stock-news-deep skill instead, which provides real analysis."
 metadata:
   openclaw:
     emoji: "📰"
@@ -11,7 +11,7 @@ metadata:
 Extract the ticker symbol from the user's message. Then run:
 
 ```bash
-python3 {baseDir}/../../options-toolkit/toolkit.py news --ticker {TICKER}
+python3 {baseDir}/../../options-toolkit/eva.py news --ticker {TICKER}
 ```
 
 Post the output directly to the channel.

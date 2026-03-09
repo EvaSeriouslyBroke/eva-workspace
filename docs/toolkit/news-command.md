@@ -7,7 +7,7 @@ The `news` subcommand fetches recent headlines for a ticker and provides sentime
 ## Usage
 
 ```
-python3 toolkit.py news --ticker <SYM> [--json]
+python3 eva.py news --ticker <SYM> [--json]
 ```
 
 ---
@@ -15,33 +15,27 @@ python3 toolkit.py news --ticker <SYM> [--json]
 ## What It Fetches
 
 ```python
-import yfinance as yf
-ticker = yf.Ticker(sym)
-articles = ticker.news  # List of dicts
+from duckduckgo_search import DDGS
+
+with DDGS() as ddgs:
+    results = list(ddgs.news(f"{ticker} stock news", max_results=8))
 ```
 
 ### Fields Extracted Per Article
 
 | Field | Source | Description |
 |-------|--------|-------------|
-| Title | `article['title']` | Headline text |
-| Publisher | `article['publisher']` | Source name (Reuters, CNBC, etc.) |
-| Date | `article['providerPublishTime']` | Unix timestamp → formatted date |
-| URL | `article['content']['clickThroughUrl']` or `article['link']` | Article link (used by `news_research.py`, ignored by `format_news()`) |
-| Summary | `article['content']['summary']` or `article['summary']` | Brief summary text (used by `news_research.py` as fallback) |
-| Content Type | `article['content']['contentType']` or `article['type']` | e.g. "STORY", "VIDEO" (used by `news_research.py` to deprioritize video) |
-
-### URL Extraction
-
-The `fetch_news()` function extracts article URLs from yfinance data. For `content`-style responses, URLs come from `clickThroughUrl` (dict with `url` key, or bare string) with `canonicalUrl` as fallback. For responses without a `content` dict, URLs come from the `link` field.
-
-These extra fields (`url`, `summary`, `content_type`) are included in the parsed dict but **ignored by `format_news()`** — the formatted text output is unchanged. They are used by `news_research.py` for deep article extraction.
+| Title | `r['title']` | Headline text |
+| Publisher | `r['source']` | Source name (Reuters, CNBC, etc.) |
+| Date | `r['date']` | ISO timestamp → formatted as YYYY-MM-DD |
+| URL | `r['url']` | Article link (used by `eva.py news-research`) |
+| Summary | `r['body']` | Brief summary text (used by `eva.py news-research` as fallback) |
 
 ### Limits
 
 - Display up to **8 headlines** (the most recent ones)
-- If yfinance returns fewer than 8, show all available
-- If yfinance returns 0, show warning: `⚠️  No news headlines available`
+- If DuckDuckGo returns fewer than 8, show all available
+- If DuckDuckGo returns 0, show warning: `⚠️  No news headlines available`
 
 ---
 
@@ -60,11 +54,9 @@ Rule: If `len(headline) > 85`, display `headline[:85] + "..."`
 
 ## Formatted Output
 
-Matches Section 4 of OUTPUT.md:
-
 ```
 📰 LIVE NEWS HEADLINES
-──────────────────────────────────────────────────────────────────────────────────────────
+────────────────────────────────────────
 
 Recent Headlines (6 articles):
   1. Fed Signals Patience on Rate Cuts Amid Inflation Concerns
@@ -162,10 +154,9 @@ These lines appear ONLY when their condition is met:
       "title": "Fed Signals Patience on Rate Cuts Amid Inflation Concerns",
       "publisher": "Reuters",
       "date": "2026-02-20",
-      "url": "https://finance.yahoo.com/news/...",
+      "url": "https://...",
       "summary": "Federal Reserve officials...",
-      "content_type": "STORY",
-      "score": -1
+      "content_type": ""
     }
   ],
   "sentiment": {
@@ -189,5 +180,6 @@ These lines appear ONLY when their condition is met:
 | No news available | Shows `⚠️  No news headlines available`, sentiment = Neutral (0) |
 | Invalid ticker | stderr message, exit 1 |
 | Network failure | stderr message, exit 1 |
+| DuckDuckGo rate limited | Warning to stderr, empty headlines |
 | Headline missing publisher | Shows "Unknown" as publisher |
 | Headline missing date | Shows "N/A" as date |

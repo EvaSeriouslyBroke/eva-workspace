@@ -29,9 +29,10 @@ description: >
   everything — you just run it and read the JSON output. No browser or web
   search tools needed. This is the DEFAULT news skill for any user-facing news
   request. Trigger when someone asks about news for a ticker: "X news",
-  "news on X", "what's going on with X", "summarize the recent X news",
-  "dig into X news", "research X news", or any request about a specific news
-  topic related to a ticker.
+  "news on X", "what's going on with X", "anything happening with X",
+  "summarize the recent X news", "trump tariff news for X",
+  "dig into X news", "research X news", "what's really going on with X",
+  or any request about a specific news topic related to a ticker.
 metadata:
   openclaw:
     emoji: "🔬"
@@ -44,7 +45,7 @@ metadata:
 
 Eva should:
 1. Extract the ticker symbol from the user's message
-2. Run `python3 {baseDir}/../../options-toolkit/news_research.py --ticker {TICKER}`
+2. Run `python3 {baseDir}/../../options-toolkit/eva.py news-research --ticker {TICKER}`
 3. Read the JSON output
 4. Check `coverage_quality` and be transparent about data gaps
 5. Write a synthesized analysis (90% news substance, 10% market impact)
@@ -83,9 +84,9 @@ Flowing prose with bold emphasis. Example:
 
 | Aspect | stock-news | stock-news-deep |
 |--------|-----------|----------------|
-| When used | Internal/report only (cron Section 4) | **All user-facing news requests** |
+| When used | Internal use (fast formatted snippet) | **All user-facing news requests** |
 | Speed | ~2 seconds | ~8-10 seconds |
-| Data source | yfinance headlines only | yfinance + full articles + web search |
+| Data source | DuckDuckGo headlines only | DuckDuckGo headlines + full articles + web search |
 | Output | Formatted text (post as-is) | JSON → Eva synthesizes |
 | Eva's role | Relay | Analyze and write |
 | Depth | Headlines + sentiment | Full article content + cross-source synthesis |

@@ -27,8 +27,6 @@ description: >
   Show options chain data with implied volatility for any ticker. Trigger when
   someone asks for "options chain", "calls and puts", "options for X", "X chain",
   "X strikes", or "what are X options looking like" where X is a stock ticker.
-  Returns call and put tables with IV, bid/ask, volume, and open interest for
-  5 strikes near the money.
 metadata:
   openclaw:
     emoji: "⛓️"
@@ -43,7 +41,7 @@ Eva should:
 1. Extract the ticker symbol from the user's message
 2. Run the command:
    ```bash
-   python3 {baseDir}/../../options-toolkit/toolkit.py chain --ticker {TICKER}
+   python3 {baseDir}/../../options-toolkit/eva.py chain --ticker {TICKER}
    ```
 3. Post the output directly to the channel
 
@@ -51,32 +49,38 @@ Eva should:
 
 ## Expected Output
 
+The output uses stacked 3-line cards inside code blocks (10 strikes, showing abbreviated example with 3):
+
 ```
 Target Expiration: 2026-05-16 (85 days)
 ATM Strike: $210
-
-📈 CALL OPTIONS - Implied Volatility
-──────────────────────────────────────────────────────────────────────────────────────────
-
-Strike       IV           IV Chg       Bid        Ask        Last       Vol        OI           Status
-$212        🟡 24.50%     N/A 🟡      $3.20      $3.45      $3.30      1,245      8,901        OTM 🔵
-$211        🟡 23.80%     N/A 🟡      $3.85      $4.10      $3.95      2,100      12,345       OTM 🔵
-$210        🟡 23.20%     N/A 🟡      $4.50      $4.75      $4.60      3,456      15,678       ATM 🟡
-$209        🟡 22.90%     N/A 🟡      $5.20      $5.45      $5.30      1,890      10,234       ITM 🟢
-$208        🟡 22.50%     N/A 🟡      $5.90      $6.15      $6.00      987        7,654        ITM 🟢
-
-📉 PUT OPTIONS - Implied Volatility
-──────────────────────────────────────────────────────────────────────────────────────────
-
-Strike       IV           IV Chg       Bid        Ask        Last       Vol        OI           Status
-$212        🟡 26.80%     N/A 🟡      $5.10      $5.35      $5.20      890        6,543        ITM 🟢
-$211        🟡 26.20%     N/A 🟡      $4.40      $4.65      $4.50      1,200      8,901        ITM 🟢
-$210        🟡 25.80%     N/A 🟡      $3.80      $4.05      $3.90      2,890      13,456       ATM 🟡
-$209        🟡 25.30%     N/A 🟡      $3.20      $3.45      $3.30      1,567      9,876        OTM 🔵
-$208        🟡 24.80%     N/A 🟡      $2.70      $2.95      $2.80      734        5,432        OTM 🔵
 ```
+```
+📈 CALLS
+```
+~~~
+```
+$212 OTM | IV: 24.50%
+  Chg: N/A | B/A: $3.20/$3.45
+  Last: $3.30 | Vol: 1,245 | OI: 8,901
 
-This output is longer but still fits in one Discord message (~1500 chars). Eva posts it as-is.
+$210 ATM | IV: 23.20%
+  Chg: N/A | B/A: $4.50/$4.75
+  Last: $4.60 | Vol: 3,456 | OI: 15,678
+
+$208 ITM | IV: 22.50%
+  Chg: N/A | B/A: $5.90/$6.15
+  Last: $6.00 | Vol: 987 | OI: 7,654
+```
+~~~
+```
+📉 PUTS
+```
+(same card format, with reversed ITM/OTM status)
+
+Standalone `chain` always shows `N/A` for IV change (no history loaded). The `report` command populates actual change values.
+
+Eva posts the output as-is. Single Discord message.
 
 ---
 

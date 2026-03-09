@@ -56,7 +56,7 @@ The body contains detailed instructions that are loaded ONLY when the skill is t
 When triggered, run the following command:
 
 \`\`\`bash
-python3 {baseDir}/../../options-toolkit/toolkit.py price --ticker {TICKER}
+python3 {baseDir}/../../options-toolkit/eva.py price --ticker {TICKER}
 \`\`\`
 
 Replace {TICKER} with the ticker symbol from the user's message.
@@ -110,10 +110,10 @@ Skill file: ~/.openclaw/workspace/skills/stock-price/SKILL.md
 This allows skills to reference their own files or navigate to other parts of the workspace using relative paths:
 
 ```bash
-python3 {baseDir}/../../options-toolkit/toolkit.py price --ticker IWM
+python3 {baseDir}/../../options-toolkit/eva.py price --ticker IWM
 #       ^^^^^^^^ = skills/stock-price/
 #       ../../   = workspace/
-#       options-toolkit/toolkit.py
+#       options-toolkit/eva.py
 ```
 
 ---
@@ -123,7 +123,7 @@ python3 {baseDir}/../../options-toolkit/toolkit.py price --ticker IWM
 Eva uses the `exec` tool to run shell commands. When a skill says "run this command," Eva calls:
 
 ```
-exec: python3 ~/.openclaw/workspace/options-toolkit/toolkit.py price --ticker IWM
+exec: python3 ~/.openclaw/workspace/options-toolkit/eva.py price --ticker IWM
 ```
 
 Behavior:
@@ -148,6 +148,24 @@ Eva then takes the stdout and posts it to the channel (or processes it according
 6. Agent captures output and responds
 
 The agent uses natural language understanding — it doesn't need exact trigger phrase matches. "How's IWM doing today?" would match "how's X doing" in the stock-price skill description.
+
+---
+
+## Separation of Concerns
+
+Skills are **mechanical, not strategic**. They define process — never strategy.
+
+| Layer | Location | Owns |
+|-------|----------|------|
+| **Strategy** | `strategy/PAPER.md` | When to buy/sell/hold, entry/exit criteria, position rules, risk management |
+| **Skills** | `skills/*/SKILL.md` | Commands to run, output parsing, step ordering, error handling, formatting |
+| **Identity** | `IDENTITY.md`, `SOUL.md` | Personality, tone, communication style |
+
+A skill may reference `PAPER.md` (e.g., "apply rules from PAPER.md") but must not restate those rules inline. One source of truth per concern.
+
+**What belongs in a skill:** commands and flags, output parsing (JSON fields, split markers), step ordering, error handling, data guards (skip if IV is 0), format rules (chunk sizes, Discord limits).
+
+**What does NOT belong in a skill:** when to buy or sell, what IV threshold is "elevated", whether to double down or cut losses, market opinions, analytical frameworks.
 
 ---
 
