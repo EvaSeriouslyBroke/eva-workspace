@@ -10,6 +10,7 @@ from eva.commands import (
     cmd_history,
     cmd_news,
     cmd_news_research,
+    cmd_pending_experience,
     cmd_price,
     cmd_report,
     cmd_reset,
@@ -90,6 +91,9 @@ def main():
     p_trade_history = subparsers.add_parser("trade-history", help="Order history with reasoning")
     p_trade_history.add_argument("--limit", type=int, default=20)
 
+    p_pending = subparsers.add_parser("pending-experience", help="Show/clear pending experience updates")
+    p_pending.add_argument("--clear", action="store_true", help="Clear pending updates after processing")
+
     p_reset = subparsers.add_parser("reset", help="Cancel all orders and close positions (user-only)")
     p_reset.add_argument("--confirm", action="store_true", required=True)
 
@@ -113,6 +117,7 @@ def main():
         "buy": cmd_buy,
         "sell": cmd_sell,
         "trade-history": cmd_trade_history,
+        "pending-experience": cmd_pending_experience,
         "reset": cmd_reset,
     }
 

@@ -53,7 +53,7 @@ python3 eva.py evaluate --all [--force]
 **Position snapshots:** Each cycle records price, IV, and Greeks for every open position belonging to the ticker (saved to `position-snapshots/{OCC}.jsonl`). When a position closes, its full snapshot history is included in `recently_closed` as `position_snapshots` alongside `entry_market_context`. Closed entries are deleted from `known_positions.json`. Open positions include a `snapshot_count` field indicating history depth.
 
 **Local files read:** `known_positions.json`, `reasons.json`
-**Local files written:** `known_positions.json` (reflected status, closed entry deletion), `position-snapshots/*.jsonl`
+**Local files written:** `known_positions.json` (reflected status, closed entry deletion), `pending_experience_updates.json` (closed position data for reflect skill), `position-snapshots/*.jsonl`
 
 ---
 
@@ -112,6 +112,25 @@ Same flags as `buy`.
 **Local files written:** `reasons.json`, `log.jsonl`
 
 **Discord:** Automatically sends a trade notification to the paper-trading channel.
+
+---
+
+## `pending-experience`
+
+Show or clear pending experience updates from closed positions.
+
+```bash
+python3 eva.py pending-experience
+python3 eva.py pending-experience --clear
+```
+
+**Flags:**
+- `--clear` — delete the pending file after processing
+
+**Output:** JSON array of closed position records (same format as `recently_closed`). Empty array (`[]`) if nothing pending.
+
+**Local files read:** `pending_experience_updates.json`
+**Local files written:** `pending_experience_updates.json` (deleted when `--clear`)
 
 ---
 

@@ -67,18 +67,19 @@ You trade options autonomously in Tradier's sandbox using `options-toolkit/eva.p
 | Skill | Command | When to Use |
 |-------|---------|-------------|
 | `paper-trade-evaluate` | `eva.py evaluate --all` | Autonomous cron cycle (every 15 min) |
+| `paper-trade-reflect` | `eva.py pending-experience` | Autonomous cron cycle (~7 min after evaluate) |
 | `paper-trade-status` | `eva.py status` | "paper trading status", "portfolio" |
 | `paper-trade-history` | `eva.py trade-history` | "trade history", "recent trades" |
 
 ### Autonomous Evaluation
 
-Every 15 minutes during market hours, the `paper-trade-evaluate` skill runs via OpenClaw cron. It evaluates each ticker in `trading_tickers.json`, checks for recently closed positions, makes tentative decisions, recalls similar experiences, finalizes decisions, and posts to the `paper-trading` Discord channel only when taking action or updating experiences.
+Every 15 minutes during market hours, the `paper-trade-evaluate` skill runs via OpenClaw cron. It evaluates each ticker in `trading_tickers.json`, makes tentative decisions, recalls similar experiences, finalizes decisions, and posts to the `paper-trading` Discord channel only when taking action. Experience creation from closed trades is handled separately by the `paper-trade-reflect` skill, which runs ~7 minutes after each evaluate cycle.
 
 ### Strategy & Experiences
 
 - **Strategy:** Read `strategy/PAPER.md` before every evaluation cycle — it defines your trading rules
 - **Experiences:** Do NOT read experiences upfront. Make your tentative decision first, then spawn a recall agent to search `experience/INDEX.md` for similar past situations by ticker and pattern tags. Use the findings to confirm, adjust, or reverse your decision.
-- When a trade closes, ALWAYS update the relevant experience file before making new trades
+- When a trade closes, the `paper-trade-reflect` skill handles experience updates in a separate session — do not create experiences during evaluate cycles
 - You write experiences as living theses — see `experience/README.md` for the format
 
 ### Paper Trading Data

@@ -59,6 +59,7 @@ docs/
 │   ├── options-report-skill.md            ← Trigger phrases, exec command, expected output
 │   ├── options-summary-skill.md          ← EOD summary: triggers, analysis output
 │   ├── paper-trade-evaluate-skill.md    ← Autonomous trading cycle: context, evaluation, execution
+│   ├── paper-trade-reflect-skill.md    ← Experience creation from closed trades
 │   ├── paper-trade-status-skill.md      ← Portfolio status: triggers, output
 │   └── paper-trade-history-skill.md     ← Trade history: triggers, output
 │
@@ -127,6 +128,7 @@ docs/
     options-report/SKILL.md
     options-summary/SKILL.md
     paper-trade-evaluate/SKILL.md
+    paper-trade-reflect/SKILL.md
     paper-trade-status/SKILL.md
     paper-trade-history/SKILL.md
   docs/                     ← This documentation

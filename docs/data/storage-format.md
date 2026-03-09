@@ -24,6 +24,7 @@ and give paper trading future knowledge of live data.
   {mode}-trading/                  ← "paper-trading" or "real-trading"
     reasons.json                   ← Order reasoning
     known_positions.json           ← Position tracker
+    pending_experience_updates.json ← Closed positions awaiting experience processing
     log.jsonl                      ← Event log
     position-snapshots/            ← Per-position price/greeks history
       {OCC_SYMBOL}.jsonl           ← One file per position (append-only)

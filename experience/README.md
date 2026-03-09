@@ -6,6 +6,8 @@ Eva's thesis-based learning system for paper trading. Each experience is a livin
 
 Eva recalls experiences **after** forming a tentative decision — like a human thinking "have I seen this before?" She spawns a recall agent that searches INDEX.md by ticker and pattern tags, reads matching files, and returns findings. Eva then confirms, adjusts, or reverses her decision based on past evidence.
 
+Experience *creation* is handled by the `paper-trade-reflect` skill in a separate session. When positions close, the data is persisted to `pending_experience_updates.json` and the reflect skill processes it ~7 minutes later.
+
 ## Structure
 
 ```

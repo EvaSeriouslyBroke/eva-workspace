@@ -29,10 +29,12 @@ from eva.formatters import (
 )
 from eva.news import fetch_news, research
 from eva.storage import (
+    clear_pending_experience_updates,
     data_dir,
     load_history,
     load_iv_history,
     load_known_positions,
+    load_pending_experience_updates,
     load_previous,
     load_reasons,
     log_event,
@@ -568,6 +570,16 @@ def cmd_sell(args):
         sys.exit(1)
 
 
+def cmd_pending_experience(args):
+    """Show or clear pending experience updates."""
+    if args.clear:
+        clear_pending_experience_updates(args.mode)
+        print("Pending experience updates cleared.")
+    else:
+        updates = load_pending_experience_updates(args.mode)
+        print(json.dumps(updates, indent=2))
+
+
 def cmd_trade_history(args):
     """Show order history with reasoning."""
     cfg = load_config(args.mode)
@@ -642,6 +654,7 @@ def cmd_reset(args):
         if os.path.exists(path):
             with open(path, "w") as f:
                 json.dump({}, f)
+    clear_pending_experience_updates(mode)
 
     log_event(mode, {"event": "reset"})
     print("Reset complete.")

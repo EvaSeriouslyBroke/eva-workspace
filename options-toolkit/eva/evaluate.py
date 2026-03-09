@@ -10,7 +10,8 @@ from eva.storage import (
     count_position_snapshots, load_iv_history, load_known_positions,
     load_market_history, load_news_history, load_position_snapshots,
     load_reasons, save_known_positions, save_market_snapshot,
-    save_news_snapshot, save_position_snapshot,
+    save_news_snapshot, save_pending_experience_updates,
+    save_position_snapshot,
 )
 from eva.symbols import parse_occ_symbol
 from eva.tradier import (
@@ -91,6 +92,7 @@ def detect_recently_closed(mode, current_positions, orders):
             })
 
     if recently_closed:
+        save_pending_experience_updates(mode, recently_closed)
         for item in recently_closed:
             known.pop(item["symbol"], None)
         save_known_positions(mode, known)

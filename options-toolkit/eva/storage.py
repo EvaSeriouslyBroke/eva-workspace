@@ -358,6 +358,38 @@ def save_news_snapshot(mode, ticker, headlines):
 
 
 
+def load_pending_experience_updates(mode):
+    """Load pending experience updates waiting to be processed."""
+    path = os.path.join(data_dir(mode), "pending_experience_updates.json")
+    if os.path.exists(path):
+        with open(path) as f:
+            return json.load(f)
+    return []
+
+
+def save_pending_experience_updates(mode, updates):
+    """Persist recently closed positions for the reflect skill.
+
+    Merges with any existing pending updates, deduplicating by symbol.
+    """
+    existing = load_pending_experience_updates(mode)
+    existing_symbols = {item["symbol"] for item in existing}
+    for item in updates:
+        if item["symbol"] not in existing_symbols:
+            existing.append(item)
+            existing_symbols.add(item["symbol"])
+    path = os.path.join(data_dir(mode), "pending_experience_updates.json")
+    with open(path, "w") as f:
+        json.dump(existing, f, indent=2)
+
+
+def clear_pending_experience_updates(mode):
+    """Clear pending experience updates after successful processing."""
+    path = os.path.join(data_dir(mode), "pending_experience_updates.json")
+    if os.path.exists(path):
+        os.remove(path)
+
+
 def load_news_history(mode, ticker, days=7):
     """Load recent news history for a ticker.
 

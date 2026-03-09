@@ -8,7 +8,7 @@ Eva trades options autonomously in Tradier's sandbox environment, building an ex
 - **CLI**: `eva.py` — unified CLI with subcommands for evaluate, status, buy, sell, trade-history, reset
 - **Strategy**: `strategy/PAPER.md` — unrestricted experimentation (any DTE, any strategy, no position limits)
 - **Experiences**: `experience/` — living theses refined by trade evidence and observational patterns
-- **Skills**: 3 OpenClaw skills (evaluate, status, history) — 1 autonomous, 2 interactive
+- **Skills**: 4 OpenClaw skills (evaluate, reflect, status, history) — 2 autonomous, 2 interactive
 - **Cron**: Every 15 minutes during market hours via OpenClaw cron
 
 ## Data Isolation
@@ -25,6 +25,7 @@ Paper and real trading are fully isolated:
 Tradier handles portfolio state, orders, and market data. We store only:
 - `reasons.json` — maps Tradier order IDs to Eva's reasoning + rich market_context at trade time
 - `known_positions.json` — tracks open positions with entry context and market_context (all Greeks, IV rank/percentile, price trends, news); each OCC symbol maps to a list of buy entries (supports averaging into positions); entries deleted when closing is detected
+- `pending_experience_updates.json` — closed positions awaiting experience processing by the reflect skill; written by `detect_recently_closed`, read and cleared by `paper-trade-reflect`
 - `log.jsonl` — append-only event log for debugging
 - `position-snapshots/{OCC}.jsonl` — per-position price/IV/Greeks history recorded every evaluate cycle
 
@@ -33,9 +34,9 @@ Tradier handles portfolio state, orders, and market data. We store only:
 1. `buy` command appends an entry to the OCC symbol's list in `known_positions.json` with `reflected: false` and rich market_context (multiple buys of the same contract accumulate as separate entries)
 2. Each `evaluate` cycle checks Tradier positions — when the position appears, sets `reflected: true` on all unreflected entries
 3. Once all entries are reflected, if the position disappears from Tradier → detected as closed
-4. Closed positions appear in `recently_closed` output with `needs_experience_update: true` and full `position_snapshots` history
+4. Closed positions are persisted to `pending_experience_updates.json` with `needs_experience_update: true` and full `position_snapshots` history
 5. The entry is deleted from `known_positions.json`
-6. Eva reflects on the trade, updates experience files
+6. The `paper-trade-reflect` skill reads `pending_experience_updates.json`, creates/updates experience files, and clears the pending file
 7. If no sell order found and expiry has passed → classified as "expired"
 
 Positions with `reflected: false` are never treated as closed — they're new buys that haven't been confirmed by Tradier yet.

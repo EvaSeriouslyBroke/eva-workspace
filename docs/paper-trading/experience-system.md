@@ -48,7 +48,7 @@ Keep the **5 most recent** entries detailed in the Recent section. When adding a
 
 ### Writing Experiences
 
-- **From trades:** The `evaluate` command outputs `recently_closed` with `needs_experience_update: true`. The `paper-trade-evaluate` skill checks for recently closed positions before making new decisions. Eva updates experience files, then proceeds with evaluation. Evidence entries include date, mode tag (`[paper]`/`[real]`), and description.
+- **From trades:** The `evaluate` command detects closed positions and persists them to `pending_experience_updates.json`. The `paper-trade-reflect` skill (running ~7 min after each evaluate cycle) reads this file, creates/updates experience files, then clears the pending file. This two-phase approach ensures closed-position data is never lost even if a single cycle fails. Evidence entries include date, mode tag (`[paper]`/`[real]`), and description.
 - **From observations:** Eva can create experience files from patterns noticed in `news_history` and `market_history` data (14 days each) without having traded. For example, noticing that tariff news consistently precedes a 2-day IWM dip. These observational experiences use the same file format but note `[observed]` in evidence entries.
 
 ### Recalling Experiences

@@ -165,6 +165,21 @@ tail -f ~/.openclaw/workspace/options-toolkit/data/cron.log
 
 ---
 
-## Why Not OpenClaw Cron?
+## OpenClaw Cron Jobs (Paper Trading)
 
-See [design-decisions.md](../architecture/design-decisions.md#why-system-crontab-over-openclaw-cron). In short: system cron is free, fast, and deterministic. OpenClaw cron burns tokens on LLM calls for a mechanical task.
+Paper trading uses OpenClaw cron (not system cron) because the tasks require LLM reasoning.
+
+| Job | Schedule (ET) | Purpose |
+|-----|--------------|---------|
+| `paper-trade-eval` | `:00, :15, :30, :45` (9-15 Mon-Fri) | Autonomous trading evaluation |
+| `paper-trade-reflect` | `:07, :22, :37, :52` (9-15 Mon-Fri) | Experience creation from closed trades |
+
+The reflect job runs ~7 minutes after each evaluate job, giving evaluate time to complete (~96s typical). Both deliver to the `paper-trading` Discord channel.
+
+Config: `~/.openclaw/cron/jobs.json`
+
+---
+
+## Why Not OpenClaw Cron for Reports?
+
+See [design-decisions.md](../architecture/design-decisions.md#why-system-crontab-over-openclaw-cron). In short: system cron is free, fast, and deterministic. OpenClaw cron burns tokens on LLM calls for a mechanical task. Paper trading uses OpenClaw cron because evaluation and reflection require LLM reasoning.

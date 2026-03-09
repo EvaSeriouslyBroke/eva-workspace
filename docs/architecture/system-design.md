@@ -93,7 +93,7 @@ This document describes every component of the Options Toolkit, how they connect
 
 - **Location**: `~/.openclaw/workspace/options-toolkit/eva.py` (entry point) + `eva/` package
 - **Language**: Python 3.x
-- **Interface**: CLI with subcommands (`price`, `chain`, `news`, `news-research`, `history`, `report`, `summary`, `evaluate`, `status`, `buy`, `sell`, `trade-history`, `reset`)
+- **Interface**: CLI with subcommands (`price`, `chain`, `news`, `news-research`, `history`, `report`, `summary`, `evaluate`, `status`, `buy`, `sell`, `trade-history`, `pending-experience`, `reset`)
 - **Dependencies**: `requests`, `duckduckgo-search`, `trafilatura`, standard library (`json`, `datetime`, `argparse`, `sys`, `os`, `statistics`, `zoneinfo`)
 - **Behavior**: Stdout-based — output goes to stdout, errors go to stderr. Exception: `buy` and `sell` commands also send Discord trade notifications via `openclaw message send`.
 - **Exit codes**: 0 = success (with or without output), 1 = error
@@ -132,11 +132,11 @@ This document describes every component of the Options Toolkit, how they connect
 - **Behavior**: Pure stdout-based JSON output, errors to stderr
 - **Purpose**: Fetches news via DuckDuckGo, extracts full article content via trafilatura, outputs structured JSON for Eva to synthesize
 
-### 6. SKILL.md Files (10 total)
+### 6. SKILL.md Files (11 total)
 
 - **Location**: `~/.openclaw/workspace/skills/{skill-name}/SKILL.md`
 - **Purpose**: Tell Eva when and how to run toolkit commands
-- **Skills**: stock-price, options-chain, stock-news, stock-news-deep, options-history, options-report, options-summary, paper-trade-evaluate, paper-trade-status, paper-trade-history
+- **Skills**: stock-price, options-chain, stock-news, stock-news-deep, options-history, options-report, options-summary, paper-trade-evaluate, paper-trade-reflect, paper-trade-status, paper-trade-history
 
 ### 7. Paper Trading Subcommands (in `eva.py`)
 
@@ -250,13 +250,23 @@ This document describes every component of the Options Toolkit, how they connect
    f. Diffs `known_positions.json` against Tradier to detect closed trades; deletes closed entries from `known_positions.json`
    g. Saves IV snapshot for historical tracking; saves news snapshot only if no snapshot exists for today
    h. Outputs JSON array to stdout
-4. Eva checks `recently_closed` — updates experience files for closed trades
+4. Recently closed positions are persisted to `pending_experience_updates.json` for the reflect skill
 5. Eva makes tentative buy/sell/hold decisions based on strategy + market data
 5b. For tickers where Eva plans to buy or double down: runs `news-research` for deep article extraction
 6. Eva spawns recall agents to search `experience/` for similar past situations (by ticker + pattern tags)
 7. Eva reviews recall findings — confirms, adjusts, or reverses tentative decisions
 8. If acting: runs `buy` or `sell` command, posts to Discord paper-trading channel
 9. If holding: stays silent
+
+### Paper Trading — Autonomous Reflection (~7 Min After Evaluate)
+
+1. OpenClaw cron fires `paper-trade-reflect` skill
+2. Eva reads experience system docs and strategy
+3. Runs `python3 eva.py pending-experience` to fetch pending closed positions
+4. If pending updates exist: for each closed position, analyzes trade outcome using position snapshots, entry/close reasons, and market context
+5. Creates or updates experience files with evidence entries
+6. Runs `python3 eva.py pending-experience --clear` to clear the pending file
+7. Posts a brief note about what was learned (silent if nothing pending)
 
 ### Paper Trading — Interactive (User Request)
 
@@ -312,6 +322,7 @@ This document describes every component of the Options Toolkit, how they connect
       options-report/SKILL.md
       options-summary/SKILL.md
       paper-trade-evaluate/SKILL.md
+      paper-trade-reflect/SKILL.md
       paper-trade-status/SKILL.md
       paper-trade-history/SKILL.md
 

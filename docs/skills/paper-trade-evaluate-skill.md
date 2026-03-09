@@ -3,7 +3,7 @@
 **Skill name**: `paper-trade-evaluate`
 **Location**: `~/.openclaw/workspace/skills/paper-trade-evaluate/SKILL.md`
 
-Eva's autonomous trading cycle — triggered by cron or on-demand. The most complex skill, involving strategy reading, data evaluation, news research, experience recall, and trade execution.
+Eva's autonomous trading cycle — triggered by cron or on-demand. Involves strategy reading, data evaluation, news research, experience recall, and trade execution. Experience *creation* is handled by the separate `paper-trade-reflect` skill.
 
 ---
 
@@ -62,14 +62,9 @@ Use everything to form your initial idea:
 
 **News-price correlation:** Compare `news_history` (14 days) with `market_history` (14 days of price + IV + Greeks) side by side. Look for patterns: did a specific news event precede a price move? Did IV spike before or after news? This is how you learn from history without having to trade first.
 
-### 3. Process Recently Closed Positions
+### 3. Note Recently Closed
 
-If `recently_closed` contains positions with `needs_experience_update: true`:
-
-1. Find or create the relevant experience file in `experience/`
-2. Add evidence (supporting or contradicting) with today's date and `[paper]` tag
-3. Update the Analysis section if understanding has deepened
-4. Update `experience/INDEX.md` if a new file was created
+If `recently_closed` contains any entries, note them for context but do NOT create or update experience files here. The `paper-trade-reflect` skill handles experience updates in a separate session.
 
 ### 4. Make Tentative Decisions
 
@@ -159,8 +154,6 @@ python3 {baseDir}/../../options-toolkit/eva.py sell --ticker {TICKER} --type {ca
 ### 9. Report
 
 - **Trade action:** `buy`/`sell` commands auto-send Discord notifications.
-- **Experience update:** Post a brief note about what was learned.
-- **Observational experience:** If you noticed a strong news-price pattern but didn't trade on it, you may create an experience file to remember it for next time.
 - **Hold (no action):** Stay silent.
 
 ---

@@ -11,3 +11,4 @@ One-line lookup table for all experiences. Updated whenever an experience is cre
 
 | File | Ticker | Thesis | Tags | Confidence |
 |------|--------|--------|------|------------|
+| tickers/BAC/mean-reversion-in-downtrend.md | BAC | Mean reversion calls fail when stock is in sustained downtrend below both SMAs | mean-reversion, downtrend, financial-sector, below-sma, calls | low |
