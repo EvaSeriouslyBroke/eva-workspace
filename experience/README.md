@@ -28,7 +28,7 @@ Each `.md` file in `general/` or `tickers/{TICKER}/` follows this structure:
 
 **Thesis:** {One-sentence claim}
 **Applies to:** {Ticker(s) or "general"}
-**Tags:** {comma-separated}
+**Tags:** {comma-separated — MUST include a regime tag and a DTE bucket tag}
 **Confidence:** {low | medium | high | disproven}
 **Last Updated:** {YYYY-MM-DD}
 
@@ -43,9 +43,9 @@ Each `.md` file in `general/` or `tickers/{TICKER}/` follows this structure:
 {One-paragraph digest of older evidence — key patterns, notable outliers.}
 
 ### Recent
-- {YYYY-MM-DD} [paper] [supporting]: {What happened and why}
-- {YYYY-MM-DD} [paper] [contradicting]: {What happened and why}
-- {YYYY-MM-DD} [hindsight] [supporting]: {Post-sale analysis insight}
+- {YYYY-MM-DD} [paper] [supporting] [bear] [dte-short]: {What happened and why}
+- {YYYY-MM-DD} [paper] [contradicting] [bull] [dte-medium]: {What happened and why}
+- {YYYY-MM-DD} [hindsight] [supporting] [bear] [dte-short]: {Post-sale analysis insight}
 - {YYYY-MM-DD} [observed]: {Pattern spotted in data without trading}
 
 ## Exceptions & Nuances
@@ -59,15 +59,39 @@ Each `.md` file in `general/` or `tickers/{TICKER}/` follows this structure:
 
 Keep the **5 most recent** entries detailed in the Recent section. When adding a 6th, roll the oldest entry into the Summary paragraph and update the counts. Summary should capture the gist — don't lose important outliers or turning points, but don't keep every line item.
 
+## Required Tags
+
+Every experience MUST include a **market regime** tag and a **DTE bucket** tag. These go in both the file-level Tags field and on each evidence entry.
+
+### Market Regime (at trade entry)
+
+| Tag | Meaning |
+|-----|---------|
+| `bull` | Broad market in uptrend (above key SMAs, positive trajectory) |
+| `bear` | Broad market in downtrend (below key SMAs, negative trajectory) |
+| `transition` | Market shifting between regimes (mixed signals, turning points) |
+| `unclear` | No clear regime signal |
+
+### DTE Bucket (at trade entry)
+
+| Tag | DTE Range |
+|-----|-----------|
+| `dte-short` | **< 45 DTE** |
+| `dte-medium` | **45–90 DTE** |
+| `dte-long` | **> 90 DTE** |
+
+These tags prevent conflating patterns that work in one regime/timeframe but fail in another. When evidence accumulates across regimes, an experience may split into regime-specific files (e.g., one for bull, one for bear) if the pattern behaves differently.
+
 ## Evolution Rules
 
-1. **New pattern observed** → create experience file, add to INDEX.md
+1. **New pattern observed** → create experience file with required tags, add to INDEX.md
 2. **Supporting trade** → add recent evidence entry, optionally strengthen confidence
 3. **Contradicting trade** → add recent evidence, analyze why, update Analysis, add Exceptions
-4. **Proven wrong** → set confidence to "disproven", explain why in Analysis — never delete
-5. **Observational pattern** → spotted in news_history + market_history correlation without trading → create experience with `[observed]` tag in evidence
-6. **Analysis section** gets rewritten (not appended) as understanding deepens
-7. **Evidence** stays compact — recent entries are detailed, older ones are summarized with counts
+4. **Regime-dependent behavior** → if contradicting evidence comes from a different regime, consider splitting into separate regime-specific experience files rather than weakening confidence
+5. **Proven wrong** → set confidence to "disproven", explain why in Analysis — never delete
+6. **Observational pattern** → spotted in news_history + market_history correlation without trading → create experience with `[observed]` tag in evidence
+7. **Analysis section** gets rewritten (not appended) as understanding deepens
+8. **Evidence** stays compact — recent entries are detailed, older ones are summarized with counts
 
 ## Confidence Levels
 

@@ -51,10 +51,9 @@ If the array is empty, skip to maintenance.
 
 For each pending entry:
 1. Analyze the trade outcome using position snapshots, entry/close reasons, and market context
-2. Find or create the relevant experience file
-3. Add evidence with `[paper]` tag and `[supporting]`/`[contradicting]` label
-4. Update Analysis and confidence if warranted
-5. Update INDEX.md if a new file was created
+2. Determine market regime and DTE bucket at trade entry
+3. Find or create the relevant experience file, add `[paper]` evidence entry
+4. Follow the format, tagging, and evolution rules in `experience/README.md`
 
 ### 4. Clear Pending Updates
 

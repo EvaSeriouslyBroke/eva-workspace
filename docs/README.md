@@ -61,8 +61,10 @@ docs/
 │   ├── paper-trade-evaluate-skill.md    ← Autonomous trading cycle: context, evaluation, execution
 │   ├── paper-trade-reflect-skill.md    ← Experience creation from closed trades
 │   ├── paper-trade-hindsight-skill.md  ← Post-sale hindsight analysis
+│   ├── paper-trade-strategy-skill.md   ← Strategy modification with no-assumptions enforcement
 │   ├── paper-trade-status-skill.md      ← Portfolio status: triggers, output
-│   └── paper-trade-history-skill.md     ← Trade history: triggers, output
+│   ├── paper-trade-history-skill.md     ← Trade history: triggers, output
+│   └── workspace-lookup-skill.md        ← Self-reference: docs-first codebase navigation
 │
 ├── output-format/
 │   ├── formatting-rules.md                ← Dividers, emoji, numbers, signs, colors
@@ -135,7 +137,9 @@ docs/
     paper-trade-evaluate/SKILL.md
     paper-trade-reflect/SKILL.md
     paper-trade-hindsight/SKILL.md
+    paper-trade-strategy/SKILL.md
     paper-trade-status/SKILL.md
     paper-trade-history/SKILL.md
+    workspace-lookup/SKILL.md
   docs/                     ← This documentation
 ```

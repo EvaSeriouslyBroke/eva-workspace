@@ -37,15 +37,8 @@ For each entry with `needs_experience_update: true`:
    - `position_snapshots` — full lifecycle: price, IV, Greeks at every evaluation cycle
    - `buy_entries` — all buys if the position was averaged into
 3. Determine: was the thesis supported or contradicted? What happened to price, IV, and Greeks over the position's life?
-4. Find or create the relevant experience file:
-   - Search `experience/tickers/{TICKER}/` for an existing file matching this pattern
-   - Search `experience/general/` for broader patterns that apply
-   - If no matching experience exists, create a new one
-5. Update the experience file:
-   - Add an evidence entry with today's date and `[paper]` tag
-   - Mark as `[supporting]` or `[contradicting]` based on outcome
-   - Update the Analysis section if understanding has deepened
-   - Update confidence level if warranted
+4. Determine market regime and DTE bucket at trade entry (see `experience/README.md` for tag definitions)
+5. Find or create the relevant experience file — follow the evolution rules and evidence format in `experience/README.md`
 6. If a new experience file was created, add it to `{baseDir}/../../experience/INDEX.md`
 
 ## 4. Clear Pending Updates

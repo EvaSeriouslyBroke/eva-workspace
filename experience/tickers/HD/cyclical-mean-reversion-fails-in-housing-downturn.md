@@ -2,7 +2,7 @@
 
 **Thesis:** Buying calls on HD for mean reversion fails when the stock is in a sustained cyclical downturn driven by macro headwinds (high rates, weak housing turnover, declining sales).
 **Applies to:** HD
-**Tags:** mean-reversion, cyclical-downturn, housing-sensitive, high-rates, below-sma, calls
+**Tags:** mean-reversion, cyclical-downturn, housing-sensitive, high-rates, below-sma, calls, bear, dte-long
 **Confidence:** low
 **Last Updated:** 2026-03-09
 
@@ -29,7 +29,7 @@ The key error was conflating "oversold technically" with "ready to bounce." In c
 1 supporting observation: The thesis failed — HD dropped another -2.9% from entry to exit, continuing its downtrend. The expected mean reversion never materialized because the downward pressure was structural/cyclical, not temporary sentiment.
 
 ### Recent
-- 2026-03-09 [supporting] [paper] HD 360C Aug 21: Entered on mean reversion thesis at 357.86 with stock down -1.03% day, -6% week, -7.6% month. Exited after deep research confirmed cyclical headwinds from high rates, low housing turnover, declining sales (-3.8% in Q4). Stock confirmed in downtrend below both SMAs. Position closed via sell_to_close after recognizing thesis was broken. Stock dropped -2.9% from entry to exit. Lesson: "Oversold" in a cyclical stock during macro headwinds is not a catalyst — it's a warning.
+- 2026-03-09 [paper] [supporting] [bear] [dte-medium]: HD 360C Aug 21 entered on mean reversion thesis at 357.86 with stock down -1.03% day, -6% week, -7.6% month. Exited after deep research confirmed cyclical headwinds from high rates, low housing turnover, declining sales (-3.8% in Q4). Stock confirmed in downtrend below both SMAs. Position closed via sell_to_close after recognizing thesis was broken. Stock dropped -2.9% from entry to exit. Lesson: "Oversold" in a cyclical stock during macro headwinds is not a catalyst — it's a warning.
 
 ## Exceptions & Nuances
 

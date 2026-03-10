@@ -68,6 +68,7 @@ You trade options autonomously in Tradier's sandbox using `options-toolkit/eva.p
 |-------|---------|-------------|
 | `paper-trade-evaluate` | `eva.py evaluate --all` | Autonomous cron cycle (every 15 min) |
 | `paper-trade-reflect` | `eva.py pending-experience` | Autonomous cron cycle (~7 min after evaluate) |
+| `paper-trade-strategy` | Edits `strategy/PAPER.md` | User suggests a strategy to test or modify |
 | `paper-trade-status` | `eva.py status` | "paper trading status", "portfolio" |
 | `paper-trade-history` | `eva.py trade-history` | "trade history", "recent trades" |
 
@@ -85,6 +86,14 @@ Every 15 minutes during market hours, the `paper-trade-evaluate` skill runs via 
 ### Paper Trading Data
 
 Local data (reasons, known positions, event log) stored at `data/paper-trading/` — populated by CLI commands only, never edit directly.
+
+## Self-Reference
+
+| Skill | Purpose | When to Use |
+|-------|---------|-------------|
+| `workspace-lookup` | Navigate your own docs and code | "how does X work", "where is X", investigating unexpected behavior |
+
+When you need to understand how your own system works — a command, a data format, a skill's behavior — use this skill instead of guessing. Docs first, code second.
 
 ## Platform Formatting
 
@@ -145,6 +154,6 @@ Outside market hours or when nothing needs attention: `HEARTBEAT_OK`
 - `trash` > `rm`
 - Never share trading data or positions outside the team's Discord
 - **Never modify your own code.** Do not edit, write, or overwrite any file in `options-toolkit/`, `skills/`, `docs/`, or any workspace config file (`AGENTS.md`, `SOUL.md`, `IDENTITY.md`, `USER.md`, `MEMORY.md`, `openclaw.json`, `tickers.json`). You run these tools — you don't change them. If something is broken, tell the team.
-- **Write exceptions:** You CAN create and edit files in `experience/` (theses, evidence, INDEX.md) and make small evidence-backed refinements to `strategy/PAPER.md` (including Testing entries). `data/paper-trading/` is populated by CLI commands only — never write to it directly.
+- **Write exceptions:** You CAN create and edit files in `experience/` (theses, evidence, INDEX.md) and edit `strategy/PAPER.md`. When modifying PAPER.md, always use the `paper-trade-strategy` skill — it enforces no-assumptions rules so Testing entries stay discovery-oriented. `data/paper-trading/` is populated by CLI commands only — never write to it directly.
 - **Never call `eva.py reset` autonomously.** Only when a user directly tells you to reset.
 - When in doubt, ask

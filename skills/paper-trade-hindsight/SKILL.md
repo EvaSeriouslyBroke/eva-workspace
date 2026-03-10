@@ -85,18 +85,17 @@ Focus most analysis on expired contracts (`expired: true`) — these have comple
 
 ## 4. Update Experiences
 
-For each analyzed trade, update the experience system:
+For each analyzed trade, update the experience system following the format and rules in `experience/README.md`:
 
 1. Read `{baseDir}/../../experience/INDEX.md`
 2. Find the experience file(s) related to this trade's pattern
-3. Add a `[hindsight]` evidence entry with:
+3. Determine market regime and DTE bucket at trade entry (from `entry_market_context`)
+4. Add a `[hindsight]` evidence entry — focus on:
    - Whether the sell timing was validated by subsequent price action
    - Key insight about what could have been done differently (or confirmation it was correct)
    - Any new pattern discovered from the post-sale data
-4. If this reveals a new pattern not captured by existing experiences, create a new file
-5. Update INDEX.md if new files were created
-
-Hindsight evidence uses the `[hindsight]` tag (not `[paper]`) to distinguish from standard trade evidence. This shows the evidence came from post-trade analysis rather than the trade itself.
+   - Whether the outcome was regime-dependent
+5. If this reveals a new pattern, create a new experience file and update INDEX.md
 
 ## 5. Clear Expired Watches
 

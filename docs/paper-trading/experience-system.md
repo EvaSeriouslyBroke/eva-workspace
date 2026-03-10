@@ -1,59 +1,6 @@
 # Experience System
 
-Eva's thesis-based learning system. Each experience is a living document that evolves as trades confirm or contradict its thesis.
-
-## Directory Structure
-
-```
-experience/
-├── README.md              ← How the system works
-├── INDEX.md               ← Lookup table for experience recall
-├── general/               ← Market-wide patterns
-│   └── (created by Eva)
-└── tickers/               ← Ticker-specific patterns
-    └── {TICKER}/          ← Created per ticker as needed
-```
-
-## File Format
-
-Each experience file is a thesis with:
-- **Thesis** — one-sentence core claim
-- **Applies to** — general or specific ticker
-- **Tags** — for index lookup
-- **Confidence** — low / medium / high / disproven
-- **Analysis** — current best understanding (rewritten as it deepens, never appended)
-- **Evidence** — Summary (counts + digest of older evidence) + Recent (up to 5 detailed entries, tagged `[paper]`, `[real]`, `[hindsight]`, or `[observed]`)
-- **Exceptions & Nuances** — conditions where the thesis doesn't hold
-
-## INDEX.md
-
-Lookup table for the experience recall agent. One-line summaries with tags so it can quickly find relevant files by ticker and pattern. Organized by section (General, then per-ticker). Does not duplicate confidence — the agent reads the actual file for that.
-
-## Evolution Lifecycle
-
-1. **New pattern observed** → create experience file + add to INDEX.md
-2. **Supporting trade** → add evidence entry, optionally strengthen confidence
-3. **Contradicting trade** → add evidence, analyze why, update Analysis, add Exceptions
-4. **Pattern becomes clear** → rewrite Analysis with deeper understanding
-5. **Thesis proven wrong** → set confidence to "disproven", explain why — never delete
-6. **Observational pattern** → Eva spots a news→price correlation in history data without having traded on it — creates an experience to remember for next time
-
-Disproven theses are kept to prevent re-learning the same wrong lesson. Observational experiences let Eva learn from history without requiring firsthand trades.
-
-## Confidence Levels
-
-- **low** — initial observation, 1-2 trades, pattern may be coincidence
-- **medium** — confirmed across multiple independent conditions (different market days, different setups, or different timeframes). Requires substantial evidence.
-- **high** — strong track record with clear causal understanding across varied conditions.
-- **disproven** — evidence shows the thesis is wrong. Kept to avoid re-learning.
-
-**Do not upgrade confidence** based on correlated trades — multiple trades from the same day, the same decision (a buy + double-down is one play), or the same market conditions. Confidence upgrades require evidence from **different occasions** separated by time, conditions, or setup variations.
-
-## Evidence Management
-
-`[supporting]` and `[contradicting]` tags are relative to the **experience file's thesis**, not the original trade thesis. When the thesis is rewritten (especially inverted), re-tag all existing evidence entries and update the summary counts to match the new thesis direction.
-
-Keep the **5 most recent** entries detailed in the Recent section. When adding a 6th, roll the oldest into the Summary paragraph and update the counts. Summary captures the gist — important outliers and turning points are preserved, but individual line items are not.
+Eva's thesis-based learning system. The canonical reference for file format, required tags, confidence levels, evolution rules, and evidence management is **`experience/README.md`**. This doc covers only how the experience system integrates with paper trading.
 
 ## Integration with Paper Trading
 

@@ -62,7 +62,7 @@ Priority on expired contracts (complete lifecycle data).
 
 ### 4. Update Experiences
 
-Add `[hindsight]` evidence entries to relevant experience files. Create new experiences if post-sale patterns were discovered.
+Add `[hindsight]` evidence entries to relevant experience files following the rules in `experience/README.md`. Create new experiences if post-sale patterns were discovered.
 
 ### 5. Clear Expired Watches
 
