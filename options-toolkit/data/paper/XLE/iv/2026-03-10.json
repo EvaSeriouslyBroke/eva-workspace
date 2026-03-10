@@ -1,0 +1,782 @@
+[
+  {
+    "ts": "2026-03-10T10:15:18.990395-04:00",
+    "price": 55.695,
+    "avg_call_iv": 28.2,
+    "avg_put_iv": 28.4,
+    "avg_call_greeks": {
+      "delta": 0.5577,
+      "gamma": 0.0415,
+      "theta": -0.0132,
+      "vega": 0.1288,
+      "rho": 0.0818
+    },
+    "avg_put_greeks": {
+      "delta": -0.4423,
+      "gamma": 0.0415,
+      "theta": -0.0132,
+      "vega": 0.1288,
+      "rho": 0.0818
+    }
+  },
+  {
+    "ts": "2026-03-10T10:30:17.371276-04:00",
+    "price": 56.035,
+    "avg_call_iv": 28.2,
+    "avg_put_iv": 27.9,
+    "avg_call_greeks": {
+      "delta": 0.5138,
+      "gamma": 0.0423,
+      "theta": -0.0141,
+      "vega": 0.1292,
+      "rho": 0.0827
+    },
+    "avg_put_greeks": {
+      "delta": -0.4862,
+      "gamma": 0.0423,
+      "theta": -0.0141,
+      "vega": 0.1292,
+      "rho": 0.0827
+    }
+  },
+  {
+    "ts": "2026-03-10T10:32:15.821612-04:00",
+    "price": 56.085,
+    "avg_call_iv": 28.2,
+    "avg_put_iv": 27.9,
+    "avg_call_greeks": {
+      "delta": 0.5138,
+      "gamma": 0.0423,
+      "theta": -0.0141,
+      "vega": 0.1292,
+      "rho": 0.0827
+    },
+    "avg_put_greeks": {
+      "delta": -0.4862,
+      "gamma": 0.0423,
+      "theta": -0.0141,
+      "vega": 0.1292,
+      "rho": 0.0827
+    }
+  },
+  {
+    "ts": "2026-03-10T10:34:08.702314-04:00",
+    "price": 56.11,
+    "avg_call_iv": 28.2,
+    "avg_put_iv": 27.9,
+    "avg_call_greeks": {
+      "delta": 0.5138,
+      "gamma": 0.0423,
+      "theta": -0.0141,
+      "vega": 0.1292,
+      "rho": 0.0827
+    },
+    "avg_put_greeks": {
+      "delta": -0.4862,
+      "gamma": 0.0423,
+      "theta": -0.0141,
+      "vega": 0.1292,
+      "rho": 0.0827
+    }
+  },
+  {
+    "ts": "2026-03-10T10:45:28.756212-04:00",
+    "price": 56.19,
+    "avg_call_iv": 28.2,
+    "avg_put_iv": 27.9,
+    "avg_call_greeks": {
+      "delta": 0.5138,
+      "gamma": 0.0423,
+      "theta": -0.0141,
+      "vega": 0.1292,
+      "rho": 0.0827
+    },
+    "avg_put_greeks": {
+      "delta": -0.4862,
+      "gamma": 0.0423,
+      "theta": -0.0141,
+      "vega": 0.1292,
+      "rho": 0.0827
+    }
+  },
+  {
+    "ts": "2026-03-10T11:00:22.785665-04:00",
+    "price": 56.27,
+    "avg_call_iv": 28.1,
+    "avg_put_iv": 27.8,
+    "avg_call_greeks": {
+      "delta": 0.4922,
+      "gamma": 0.0423,
+      "theta": -0.0139,
+      "vega": 0.1287,
+      "rho": 0.0794
+    },
+    "avg_put_greeks": {
+      "delta": -0.5078,
+      "gamma": 0.0423,
+      "theta": -0.0139,
+      "vega": 0.1287,
+      "rho": 0.0794
+    }
+  },
+  {
+    "ts": "2026-03-10T11:04:25.111488-04:00",
+    "price": 56.245,
+    "avg_call_iv": 28.1,
+    "avg_put_iv": 27.8,
+    "avg_call_greeks": {
+      "delta": 0.4922,
+      "gamma": 0.0423,
+      "theta": -0.0139,
+      "vega": 0.1287,
+      "rho": 0.0794
+    },
+    "avg_put_greeks": {
+      "delta": -0.5078,
+      "gamma": 0.0423,
+      "theta": -0.0139,
+      "vega": 0.1287,
+      "rho": 0.0794
+    }
+  },
+  {
+    "ts": "2026-03-10T11:16:46.800749-04:00",
+    "price": 56.425,
+    "avg_call_iv": 28.1,
+    "avg_put_iv": 27.8,
+    "avg_call_greeks": {
+      "delta": 0.4922,
+      "gamma": 0.0423,
+      "theta": -0.0139,
+      "vega": 0.1287,
+      "rho": 0.0794
+    },
+    "avg_put_greeks": {
+      "delta": -0.5078,
+      "gamma": 0.0423,
+      "theta": -0.0139,
+      "vega": 0.1287,
+      "rho": 0.0794
+    }
+  },
+  {
+    "ts": "2026-03-10T11:30:34.368055-04:00",
+    "price": 56.33,
+    "avg_call_iv": 27.5,
+    "avg_put_iv": 27.8,
+    "avg_call_greeks": {
+      "delta": 0.522,
+      "gamma": 0.0422,
+      "theta": -0.0134,
+      "vega": 0.1302,
+      "rho": 0.0779
+    },
+    "avg_put_greeks": {
+      "delta": -0.4781,
+      "gamma": 0.0422,
+      "theta": -0.0134,
+      "vega": 0.1302,
+      "rho": 0.0779
+    }
+  },
+  {
+    "ts": "2026-03-10T11:45:31.528016-04:00",
+    "price": 56.235,
+    "avg_call_iv": 27.5,
+    "avg_put_iv": 27.8,
+    "avg_call_greeks": {
+      "delta": 0.522,
+      "gamma": 0.0422,
+      "theta": -0.0134,
+      "vega": 0.1302,
+      "rho": 0.0779
+    },
+    "avg_put_greeks": {
+      "delta": -0.4781,
+      "gamma": 0.0422,
+      "theta": -0.0134,
+      "vega": 0.1302,
+      "rho": 0.0779
+    }
+  },
+  {
+    "ts": "2026-03-10T12:00:40.718374-04:00",
+    "price": 56.35,
+    "avg_call_iv": 27.5,
+    "avg_put_iv": 27.8,
+    "avg_call_greeks": {
+      "delta": 0.522,
+      "gamma": 0.0422,
+      "theta": -0.0134,
+      "vega": 0.1302,
+      "rho": 0.0779
+    },
+    "avg_put_greeks": {
+      "delta": -0.4781,
+      "gamma": 0.0422,
+      "theta": -0.0134,
+      "vega": 0.1302,
+      "rho": 0.0779
+    }
+  },
+  {
+    "ts": "2026-03-10T12:02:17.879538-04:00",
+    "price": 56.3395,
+    "avg_call_iv": 27.5,
+    "avg_put_iv": 27.8,
+    "avg_call_greeks": {
+      "delta": 0.522,
+      "gamma": 0.0422,
+      "theta": -0.0134,
+      "vega": 0.1302,
+      "rho": 0.0779
+    },
+    "avg_put_greeks": {
+      "delta": -0.4781,
+      "gamma": 0.0422,
+      "theta": -0.0134,
+      "vega": 0.1302,
+      "rho": 0.0779
+    }
+  },
+  {
+    "ts": "2026-03-10T12:15:29.388410-04:00",
+    "price": 56.2185,
+    "avg_call_iv": 27.5,
+    "avg_put_iv": 27.8,
+    "avg_call_greeks": {
+      "delta": 0.522,
+      "gamma": 0.0422,
+      "theta": -0.0134,
+      "vega": 0.1302,
+      "rho": 0.0779
+    },
+    "avg_put_greeks": {
+      "delta": -0.4781,
+      "gamma": 0.0422,
+      "theta": -0.0134,
+      "vega": 0.1302,
+      "rho": 0.0779
+    }
+  },
+  {
+    "ts": "2026-03-10T12:16:04.117450-04:00",
+    "price": 56.2175,
+    "avg_call_iv": 27.5,
+    "avg_put_iv": 27.8,
+    "avg_call_greeks": {
+      "delta": 0.522,
+      "gamma": 0.0422,
+      "theta": -0.0134,
+      "vega": 0.1302,
+      "rho": 0.0779
+    },
+    "avg_put_greeks": {
+      "delta": -0.4781,
+      "gamma": 0.0422,
+      "theta": -0.0134,
+      "vega": 0.1302,
+      "rho": 0.0779
+    }
+  },
+  {
+    "ts": "2026-03-10T12:30:24.528579-04:00",
+    "price": 56.265,
+    "avg_call_iv": 27.4,
+    "avg_put_iv": 27.2,
+    "avg_call_greeks": {
+      "delta": 0.5163,
+      "gamma": 0.043,
+      "theta": -0.0136,
+      "vega": 0.1294,
+      "rho": 0.0819
+    },
+    "avg_put_greeks": {
+      "delta": -0.4837,
+      "gamma": 0.043,
+      "theta": -0.0136,
+      "vega": 0.1294,
+      "rho": 0.0819
+    }
+  },
+  {
+    "ts": "2026-03-10T12:45:20.920908-04:00",
+    "price": 56.14,
+    "avg_call_iv": 27.5,
+    "avg_put_iv": 27.3,
+    "avg_call_greeks": {
+      "delta": 0.5379,
+      "gamma": 0.0429,
+      "theta": -0.0137,
+      "vega": 0.1299,
+      "rho": 0.0849
+    },
+    "avg_put_greeks": {
+      "delta": -0.4621,
+      "gamma": 0.0429,
+      "theta": -0.0137,
+      "vega": 0.1299,
+      "rho": 0.0849
+    }
+  },
+  {
+    "ts": "2026-03-10T13:00:33.535192-04:00",
+    "price": 56.07,
+    "avg_call_iv": 27.5,
+    "avg_put_iv": 27.3,
+    "avg_call_greeks": {
+      "delta": 0.5379,
+      "gamma": 0.0429,
+      "theta": -0.0137,
+      "vega": 0.1299,
+      "rho": 0.0849
+    },
+    "avg_put_greeks": {
+      "delta": -0.4621,
+      "gamma": 0.0429,
+      "theta": -0.0137,
+      "vega": 0.1299,
+      "rho": 0.0849
+    }
+  },
+  {
+    "ts": "2026-03-10T13:01:01.257916-04:00",
+    "price": 56.055,
+    "avg_call_iv": 27.5,
+    "avg_put_iv": 27.3,
+    "avg_call_greeks": {
+      "delta": 0.5379,
+      "gamma": 0.0429,
+      "theta": -0.0137,
+      "vega": 0.1299,
+      "rho": 0.0849
+    },
+    "avg_put_greeks": {
+      "delta": -0.4621,
+      "gamma": 0.0429,
+      "theta": -0.0137,
+      "vega": 0.1299,
+      "rho": 0.0849
+    }
+  },
+  {
+    "ts": "2026-03-10T13:15:44.375649-04:00",
+    "price": 55.96,
+    "avg_call_iv": 27.5,
+    "avg_put_iv": 27.3,
+    "avg_call_greeks": {
+      "delta": 0.5379,
+      "gamma": 0.0429,
+      "theta": -0.0137,
+      "vega": 0.1299,
+      "rho": 0.0849
+    },
+    "avg_put_greeks": {
+      "delta": -0.4621,
+      "gamma": 0.0429,
+      "theta": -0.0137,
+      "vega": 0.1299,
+      "rho": 0.0849
+    }
+  },
+  {
+    "ts": "2026-03-10T13:30:23.414709-04:00",
+    "price": 55.815,
+    "avg_call_iv": 27.2,
+    "avg_put_iv": 27.3,
+    "avg_call_greeks": {
+      "delta": 0.5293,
+      "gamma": 0.0431,
+      "theta": -0.0136,
+      "vega": 0.1288,
+      "rho": 0.0821
+    },
+    "avg_put_greeks": {
+      "delta": -0.4707,
+      "gamma": 0.0431,
+      "theta": -0.0136,
+      "vega": 0.1288,
+      "rho": 0.0821
+    }
+  },
+  {
+    "ts": "2026-03-10T13:32:02.992745-04:00",
+    "price": 55.645,
+    "avg_call_iv": 27.4,
+    "avg_put_iv": 27.5,
+    "avg_call_greeks": {
+      "delta": 0.5507,
+      "gamma": 0.0425,
+      "theta": -0.0135,
+      "vega": 0.1273,
+      "rho": 0.0848
+    },
+    "avg_put_greeks": {
+      "delta": -0.4493,
+      "gamma": 0.0425,
+      "theta": -0.0135,
+      "vega": 0.1273,
+      "rho": 0.0848
+    }
+  },
+  {
+    "ts": "2026-03-10T13:45:44.511567-04:00",
+    "price": 55.7,
+    "avg_call_iv": 27.4,
+    "avg_put_iv": 27.5,
+    "avg_call_greeks": {
+      "delta": 0.5507,
+      "gamma": 0.0425,
+      "theta": -0.0135,
+      "vega": 0.1273,
+      "rho": 0.0848
+    },
+    "avg_put_greeks": {
+      "delta": -0.4493,
+      "gamma": 0.0425,
+      "theta": -0.0135,
+      "vega": 0.1273,
+      "rho": 0.0848
+    }
+  },
+  {
+    "ts": "2026-03-10T14:01:09.118103-04:00",
+    "price": 55.82,
+    "avg_call_iv": 27.2,
+    "avg_put_iv": 27.3,
+    "avg_call_greeks": {
+      "delta": 0.5293,
+      "gamma": 0.0431,
+      "theta": -0.0136,
+      "vega": 0.1288,
+      "rho": 0.0821
+    },
+    "avg_put_greeks": {
+      "delta": -0.4707,
+      "gamma": 0.0431,
+      "theta": -0.0136,
+      "vega": 0.1288,
+      "rho": 0.0821
+    }
+  },
+  {
+    "ts": "2026-03-10T14:02:55.875755-04:00",
+    "price": 55.855,
+    "avg_call_iv": 27.2,
+    "avg_put_iv": 27.3,
+    "avg_call_greeks": {
+      "delta": 0.5293,
+      "gamma": 0.0431,
+      "theta": -0.0136,
+      "vega": 0.1288,
+      "rho": 0.0821
+    },
+    "avg_put_greeks": {
+      "delta": -0.4707,
+      "gamma": 0.0431,
+      "theta": -0.0136,
+      "vega": 0.1288,
+      "rho": 0.0821
+    }
+  },
+  {
+    "ts": "2026-03-10T14:04:30.868766-04:00",
+    "price": 55.89,
+    "avg_call_iv": 27.2,
+    "avg_put_iv": 27.3,
+    "avg_call_greeks": {
+      "delta": 0.5293,
+      "gamma": 0.0431,
+      "theta": -0.0136,
+      "vega": 0.1288,
+      "rho": 0.0821
+    },
+    "avg_put_greeks": {
+      "delta": -0.4707,
+      "gamma": 0.0431,
+      "theta": -0.0136,
+      "vega": 0.1288,
+      "rho": 0.0821
+    }
+  },
+  {
+    "ts": "2026-03-10T14:15:18.515387-04:00",
+    "price": 55.61,
+    "avg_call_iv": 27.4,
+    "avg_put_iv": 27.5,
+    "avg_call_greeks": {
+      "delta": 0.5507,
+      "gamma": 0.0425,
+      "theta": -0.0135,
+      "vega": 0.1273,
+      "rho": 0.0848
+    },
+    "avg_put_greeks": {
+      "delta": -0.4493,
+      "gamma": 0.0425,
+      "theta": -0.0135,
+      "vega": 0.1273,
+      "rho": 0.0848
+    }
+  },
+  {
+    "ts": "2026-03-10T14:16:03.229370-04:00",
+    "price": 55.59,
+    "avg_call_iv": 27.4,
+    "avg_put_iv": 27.5,
+    "avg_call_greeks": {
+      "delta": 0.5507,
+      "gamma": 0.0425,
+      "theta": -0.0135,
+      "vega": 0.1273,
+      "rho": 0.0848
+    },
+    "avg_put_greeks": {
+      "delta": -0.4493,
+      "gamma": 0.0425,
+      "theta": -0.0135,
+      "vega": 0.1273,
+      "rho": 0.0848
+    }
+  },
+  {
+    "ts": "2026-03-10T14:16:17.645043-04:00",
+    "price": 55.55,
+    "avg_call_iv": 27.4,
+    "avg_put_iv": 27.5,
+    "avg_call_greeks": {
+      "delta": 0.5507,
+      "gamma": 0.0425,
+      "theta": -0.0135,
+      "vega": 0.1273,
+      "rho": 0.0848
+    },
+    "avg_put_greeks": {
+      "delta": -0.4493,
+      "gamma": 0.0425,
+      "theta": -0.0135,
+      "vega": 0.1273,
+      "rho": 0.0848
+    }
+  },
+  {
+    "ts": "2026-03-10T14:30:16.779343-04:00",
+    "price": 55.7,
+    "avg_call_iv": 27.7,
+    "avg_put_iv": 27.1,
+    "avg_call_greeks": {
+      "delta": 0.5346,
+      "gamma": 0.0429,
+      "theta": -0.0138,
+      "vega": 0.1279,
+      "rho": 0.0873
+    },
+    "avg_put_greeks": {
+      "delta": -0.4654,
+      "gamma": 0.0429,
+      "theta": -0.0138,
+      "vega": 0.1279,
+      "rho": 0.0873
+    }
+  },
+  {
+    "ts": "2026-03-10T14:30:44.736730-04:00",
+    "price": 55.77,
+    "avg_call_iv": 27.7,
+    "avg_put_iv": 27.1,
+    "avg_call_greeks": {
+      "delta": 0.5346,
+      "gamma": 0.0429,
+      "theta": -0.0138,
+      "vega": 0.1279,
+      "rho": 0.0873
+    },
+    "avg_put_greeks": {
+      "delta": -0.4654,
+      "gamma": 0.0429,
+      "theta": -0.0138,
+      "vega": 0.1279,
+      "rho": 0.0873
+    }
+  },
+  {
+    "ts": "2026-03-10T14:31:27.013856-04:00",
+    "price": 55.825,
+    "avg_call_iv": 27.6,
+    "avg_put_iv": 26.9,
+    "avg_call_greeks": {
+      "delta": 0.5132,
+      "gamma": 0.0435,
+      "theta": -0.0138,
+      "vega": 0.129,
+      "rho": 0.0848
+    },
+    "avg_put_greeks": {
+      "delta": -0.4868,
+      "gamma": 0.0435,
+      "theta": -0.0138,
+      "vega": 0.129,
+      "rho": 0.0848
+    }
+  },
+  {
+    "ts": "2026-03-10T14:31:51.084012-04:00",
+    "price": 55.81,
+    "avg_call_iv": 27.6,
+    "avg_put_iv": 26.9,
+    "avg_call_greeks": {
+      "delta": 0.5132,
+      "gamma": 0.0435,
+      "theta": -0.0138,
+      "vega": 0.129,
+      "rho": 0.0848
+    },
+    "avg_put_greeks": {
+      "delta": -0.4868,
+      "gamma": 0.0435,
+      "theta": -0.0138,
+      "vega": 0.129,
+      "rho": 0.0848
+    }
+  },
+  {
+    "ts": "2026-03-10T14:46:00.586026-04:00",
+    "price": 55.645,
+    "avg_call_iv": 27.7,
+    "avg_put_iv": 27.1,
+    "avg_call_greeks": {
+      "delta": 0.5346,
+      "gamma": 0.0429,
+      "theta": -0.0138,
+      "vega": 0.1279,
+      "rho": 0.0873
+    },
+    "avg_put_greeks": {
+      "delta": -0.4654,
+      "gamma": 0.0429,
+      "theta": -0.0138,
+      "vega": 0.1279,
+      "rho": 0.0873
+    }
+  },
+  {
+    "ts": "2026-03-10T15:02:07.825202-04:00",
+    "price": 55.85,
+    "avg_call_iv": 27.6,
+    "avg_put_iv": 26.9,
+    "avg_call_greeks": {
+      "delta": 0.5132,
+      "gamma": 0.0435,
+      "theta": -0.0138,
+      "vega": 0.129,
+      "rho": 0.0848
+    },
+    "avg_put_greeks": {
+      "delta": -0.4868,
+      "gamma": 0.0435,
+      "theta": -0.0138,
+      "vega": 0.129,
+      "rho": 0.0848
+    }
+  },
+  {
+    "ts": "2026-03-10T15:15:28.801161-04:00",
+    "price": 55.69,
+    "avg_call_iv": 27.7,
+    "avg_put_iv": 27.1,
+    "avg_call_greeks": {
+      "delta": 0.5346,
+      "gamma": 0.0429,
+      "theta": -0.0138,
+      "vega": 0.1279,
+      "rho": 0.0873
+    },
+    "avg_put_greeks": {
+      "delta": -0.4654,
+      "gamma": 0.0429,
+      "theta": -0.0138,
+      "vega": 0.1279,
+      "rho": 0.0873
+    }
+  },
+  {
+    "ts": "2026-03-10T15:31:28.173723-04:00",
+    "price": 55.825,
+    "avg_call_iv": 27.5,
+    "avg_put_iv": 27.4,
+    "avg_call_greeks": {
+      "delta": 0.5169,
+      "gamma": 0.0432,
+      "theta": -0.0136,
+      "vega": 0.1292,
+      "rho": 0.0802
+    },
+    "avg_put_greeks": {
+      "delta": -0.4831,
+      "gamma": 0.0432,
+      "theta": -0.0136,
+      "vega": 0.1292,
+      "rho": 0.0802
+    }
+  },
+  {
+    "ts": "2026-03-10T15:45:18.221045-04:00",
+    "price": 55.715,
+    "avg_call_iv": 27.5,
+    "avg_put_iv": 27.5,
+    "avg_call_greeks": {
+      "delta": 0.5383,
+      "gamma": 0.0425,
+      "theta": -0.0136,
+      "vega": 0.1282,
+      "rho": 0.0828
+    },
+    "avg_put_greeks": {
+      "delta": -0.4617,
+      "gamma": 0.0425,
+      "theta": -0.0136,
+      "vega": 0.1282,
+      "rho": 0.0828
+    }
+  },
+  {
+    "ts": "2026-03-10T15:46:08.101035-04:00",
+    "price": 55.725,
+    "avg_call_iv": 27.5,
+    "avg_put_iv": 27.5,
+    "avg_call_greeks": {
+      "delta": 0.5383,
+      "gamma": 0.0425,
+      "theta": -0.0136,
+      "vega": 0.1282,
+      "rho": 0.0828
+    },
+    "avg_put_greeks": {
+      "delta": -0.4617,
+      "gamma": 0.0425,
+      "theta": -0.0136,
+      "vega": 0.1282,
+      "rho": 0.0828
+    }
+  },
+  {
+    "ts": "2026-03-10T15:46:24.098470-04:00",
+    "price": 55.745,
+    "avg_call_iv": 27.5,
+    "avg_put_iv": 27.5,
+    "avg_call_greeks": {
+      "delta": 0.5383,
+      "gamma": 0.0425,
+      "theta": -0.0136,
+      "vega": 0.1282,
+      "rho": 0.0828
+    },
+    "avg_put_greeks": {
+      "delta": -0.4617,
+      "gamma": 0.0425,
+      "theta": -0.0136,
+      "vega": 0.1282,
+      "rho": 0.0828
+    }
+  }
+]
