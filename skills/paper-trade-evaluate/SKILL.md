@@ -31,7 +31,11 @@ Use everything to form your initial idea:
 - **All Greeks:** delta, gamma, theta, vega, rho — for every near-money option
 - **IV context:** current IV, IV rank, IV percentile, 52-week IV high/low
 - **Trends:** SMA 50/200 signals, returns (1w/1m/3m/6m/1y), 52-week price range
-- **Volume & open interest:** per strike, put/call ratios
+- **Technical indicators:** RSI (overbought/oversold), ATR (volatility magnitude), Bollinger Bands (mean reversion zones, %B position)
+- **Key levels:** previous day high/low (support/resistance)
+- **Broader market:** SPY price, change %, trends — compare to detect isolated vs market-wide moves
+- **Volume:** intraday volume, daily volume in recent candles, 50-day average volume — compare to spot unusual activity
+- **Open interest & ratios:** per strike, put/call ratios
 - **News headlines:** today's cached headlines with sentiment
 - **Available expirations:** all expiries with DTE — look for short-term opportunities too
 

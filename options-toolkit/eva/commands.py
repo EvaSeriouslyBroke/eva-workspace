@@ -13,8 +13,11 @@ from datetime import date, datetime, timedelta
 from statistics import mean
 
 from eva import DISCORD_CHANNEL, ET, MAJOR_DIV, SCRIPT_DIR
-from eva.analysis import compute_directional_score, score_sentiment
-from eva.evaluate import build_evaluate
+from eva.analysis import (
+    compute_directional_score, compute_iv_rank, compute_rsi, compute_atr,
+    compute_bollinger_bands, compute_trends, score_sentiment, _num,
+)
+from eva.evaluate import build_evaluate, fetch_spy_context
 from eva.formatters import (
     format_chain,
     format_history_iv,
@@ -35,6 +38,7 @@ from eva.storage import (
     load_closed_watches,
     load_history,
     load_iv_history,
+    last_evaluate_age_seconds,
     load_known_positions,
     load_pending_experience_updates,
     load_position_snapshots,
@@ -295,6 +299,14 @@ def cmd_evaluate(args):
     if not args.force and not is_market_open(cfg):
         sys.exit(0)
 
+    # Guard: skip if evaluated less than 60 seconds ago (prevents duplicate calls)
+    if not args.force:
+        age = last_evaluate_age_seconds(args.mode)
+        if age is not None and age < 60:
+            print("Skipping evaluate: last run was {:.0f}s ago".format(age),
+                  file=sys.stderr)
+            sys.exit(0)
+
     # Determine ticker list
     if args.all:
         tickers_path = os.path.join(SCRIPT_DIR, "trading_tickers.json")
@@ -320,12 +332,16 @@ def cmd_evaluate(args):
     except Exception as e:
         orders = []
 
+    # Pre-fetch SPY context once for all tickers
+    spy_context = fetch_spy_context(cfg, include_trends=True)
+
     # Evaluate each ticker (only quote/history/chain are per-ticker)
     results = []
     for ticker in tickers:
         try:
             result = build_evaluate(cfg, ticker, args.mode,
-                                    account=account, positions=positions, orders=orders)
+                                    account=account, positions=positions, orders=orders,
+                                    spy_context=spy_context)
             results.append(result)
             log_event(args.mode, {"event": "evaluate", "ticker": ticker})
         except Exception as e:
@@ -383,7 +399,6 @@ def cmd_buy(args):
         # Get IV context
         iv_context = {}
         try:
-            from eva.analysis import compute_iv_rank
             iv_history = load_iv_history(ticker, mode=args.mode)
             if entry_iv and iv_history:
                 avg_ivs = [(d, (c + p) / 2) for d, c, p in iv_history]
@@ -398,24 +413,16 @@ def cmd_buy(args):
         except Exception:
             pass
 
-        # Get price trends
+        # Get price trends (full dict — includes RSI, ATR, Bollinger, volume, etc.)
         trends_snapshot = {}
         try:
-            from eva.analysis import compute_trends
             history_data = fetch_history(cfg, ticker, days=365)
-            trends = compute_trends(history_data, entry_price)
-            trends_snapshot = {
-                "sma_signal": trends.get("sma_signal"),
-                "sma_50": trends.get("sma_50"),
-                "sma_200": trends.get("sma_200"),
-                "price_vs_52w_pct": trends.get("price_vs_52w_pct"),
-                "price_52w_high": trends.get("price_52w_high"),
-                "price_52w_low": trends.get("price_52w_low"),
-                "returns": trends.get("returns", {}),
-                "trend_summary": trends.get("trend_summary"),
-            }
+            trends_snapshot = compute_trends(history_data, entry_price)
         except Exception:
             pass
+
+        # Get broader market context (SPY)
+        spy_context = fetch_spy_context(cfg) if ticker.upper() != "SPY" else {}
 
         # Save news headlines with trade context (lightweight — deep research
         # should have been done before deciding to buy)
@@ -451,6 +458,7 @@ def cmd_buy(args):
             "iv_context": iv_context,
             "trends": trends_snapshot,
             "news": news_at_entry,
+            "broader_market": spy_context,
         }
 
         # Save reason with rich context
@@ -578,6 +586,7 @@ def cmd_sell(args):
             open_reason = open_reasons[0] if len(open_reasons) == 1 else " | ".join(f"Buy {i+1}: {r}" for i, r in enumerate(open_reasons))
             total_cost = sum(e.get("cost_basis", 0) for e in entries)
             total_qty = sum(e.get("quantity", 1) for e in entries)
+            pre_sale_snaps = load_position_snapshots(args.mode, occ)
             save_pending_experience_updates(args.mode, [{
                 "symbol": occ,
                 "type": first.get("type", ""),
@@ -591,15 +600,50 @@ def cmd_sell(args):
                 "needs_experience_update": True,
                 "entry_market_context": first.get("market_context", {}),
                 "buy_entries": entries,
-                "position_snapshots": load_position_snapshots(args.mode, occ),
+                "position_snapshots": pre_sale_snaps,
+                "pre_sale_analysis": _build_pre_sale_analysis(
+                    pre_sale_snaps, total_cost, total_qty, sell_price),
             }])
 
-            # Add to closed watches for post-sale tracking until expiration
+            # Build rich sell market context (mirrors buy-time context)
+            sell_trends = {}
+            sell_spy_context = {}
+            sell_iv_context = {}
+            try:
+                sell_history = fetch_history(cfg, ticker, days=365)
+                sell_trends = compute_trends(sell_history, sell_underlying_price)
+            except Exception:
+                pass
+
+            try:
+                sell_iv_history = load_iv_history(ticker, mode=args.mode)
+                if sell_iv_history and sell_iv:
+                    iv_tuples = [(d, (c + p) / 2) for d, c, p in sell_iv_history]
+                    s_rank, s_pct = compute_iv_rank(sell_iv, iv_tuples)
+                    all_ivs = [(c + p) / 2 for _, c, p in sell_iv_history]
+                    sell_iv_context = {
+                        "iv_rank": s_rank,
+                        "iv_percentile": s_pct,
+                        "iv_52w_high": round(max(all_ivs), 1),
+                        "iv_52w_low": round(min(all_ivs), 1),
+                    }
+            except Exception:
+                pass
+
+            try:
+                if ticker.upper() != "SPY":
+                    sell_spy_context = fetch_spy_context(cfg)
+            except Exception:
+                pass
+
             sell_market_context = {
                 "underlying_price": sell_underlying_price,
                 "option_price": sell_price,
                 "iv": sell_iv,
                 "greeks": sell_greeks,
+                "iv_context": sell_iv_context,
+                "trends": sell_trends,
+                "broader_market": sell_spy_context,
             }
             watches = load_closed_watches(args.mode)
             watches[occ] = {
@@ -658,7 +702,13 @@ def _build_daily_trajectory(snapshots):
         ivs = [s.get("iv", 0) for s in snaps]
         underlyings = [s.get("underlying_price", 0) for s in snaps]
         close_greeks = snaps[-1].get("greeks", {})
-        trajectory.append({
+
+        # Stock OHLC — use enriched fields if available, else synthesize
+        # from underlying_price values (backward compat with old snapshots)
+        stock_highs = [s["stock_high"] for s in snaps if s.get("stock_high")]
+        stock_lows = [s["stock_low"] for s in snaps if s.get("stock_low")]
+
+        entry = {
             "date": day,
             "bid_open": bids[0],
             "bid_high": max(bids),
@@ -666,13 +716,83 @@ def _build_daily_trajectory(snapshots):
             "bid_close": bids[-1],
             "iv_open": ivs[0],
             "iv_close": ivs[-1],
+            "underlying_open": snaps[0].get("stock_open") or underlyings[0],
+            "underlying_high": max(stock_highs) if stock_highs else max(underlyings),
+            "underlying_low": min(stock_lows) if stock_lows else min(underlyings),
             "underlying_close": underlyings[-1],
             "delta": close_greeks.get("delta", 0),
             "theta": close_greeks.get("theta", 0),
             "dte": snaps[-1].get("dte", 0),
             "snapshots": len(snaps),
-        })
+        }
+        # Stock volume — last snapshot has cumulative intraday volume
+        stock_vol = snaps[-1].get("stock_volume")
+        if stock_vol:
+            entry["underlying_volume"] = stock_vol
+        trajectory.append(entry)
     return trajectory
+
+
+def _find_peak_trough(snapshots):
+    """Find peak and trough bid prices from a list of snapshots.
+
+    Skips zero bids for trough to avoid stale/bad quotes.
+    Returns (peak_bid, peak_ts, peak_underlying,
+             trough_bid, trough_ts, trough_underlying).
+    """
+    peak_bid = 0
+    peak_ts = ""
+    peak_underlying = 0
+    trough_bid = float("inf")
+    trough_ts = ""
+    trough_underlying = 0
+    for snap in snapshots:
+        bid = snap.get("bid", 0)
+        if bid > peak_bid:
+            peak_bid = bid
+            peak_ts = snap.get("ts", "")
+            peak_underlying = snap.get("underlying_price", 0)
+        if 0 < bid < trough_bid:
+            trough_bid = bid
+            trough_ts = snap.get("ts", "")
+            trough_underlying = snap.get("underlying_price", 0)
+    if trough_bid == float("inf"):
+        trough_bid = 0
+    return peak_bid, peak_ts, peak_underlying, trough_bid, trough_ts, trough_underlying
+
+
+def _build_pre_sale_analysis(snapshots, cost_basis, qty, sell_price):
+    """Analyze the position lifecycle between buy and sell.
+
+    Builds a daily trajectory and identifies peak/trough during the hold
+    so Eva can see if there was a better exit point before the actual sell.
+    """
+    if not snapshots:
+        return {}
+
+    daily_trajectory = _build_daily_trajectory(snapshots)
+
+    (peak_bid, peak_ts, peak_underlying,
+     trough_bid, trough_ts, trough_underlying) = _find_peak_trough(snapshots)
+
+    peak_value = round(peak_bid * 100 * qty, 2)
+    trough_value = round(trough_bid * 100 * qty, 2)
+
+    return {
+        "daily_trajectory": daily_trajectory,
+        "peak_bid": peak_bid,
+        "peak_date": peak_ts[:10] if peak_ts else "",
+        "peak_value": peak_value,
+        "peak_pnl": round(peak_value - cost_basis, 2) if cost_basis else 0,
+        "peak_pnl_pct": round((peak_value - cost_basis) / cost_basis * 100, 1) if cost_basis else 0,
+        "underlying_at_peak": peak_underlying,
+        "trough_bid": trough_bid,
+        "trough_date": trough_ts[:10] if trough_ts else "",
+        "trough_value": trough_value,
+        "underlying_at_trough": trough_underlying,
+        "sold_near_peak": sell_price >= peak_bid * 0.95 if peak_bid else False,
+        "snapshot_count": len(snapshots),
+    }
 
 
 def _find_key_moments(post_sale):
@@ -686,6 +806,93 @@ def _find_key_moments(post_sale):
         "latest": post_sale[-1],
     }
     return moments
+
+
+def _build_stock_context(cfg, ticker, sell_date, key_dates, history=None):
+    """Build stock-level context for hindsight: trajectory + indicators at key dates.
+
+    Accepts optional pre-fetched history to avoid redundant API calls.
+    Slices and computes indicators at each key date so Eva can see what the
+    stock was doing (not just the option).
+    """
+
+    if history is None:
+        try:
+            history = fetch_history(cfg, ticker, days=365)
+        except Exception:
+            return {}
+
+    if not history:
+        return {}
+
+    # Stock trajectory: daily OHLCV from sell_date onward
+    trajectory = []
+    sell_idx = None
+    for i, d in enumerate(history):
+        if d["date"] >= sell_date:
+            if sell_idx is None:
+                sell_idx = i
+            trajectory.append({
+                "date": d["date"],
+                "open": _num(d.get("open")),
+                "high": _num(d.get("high")),
+                "low": _num(d.get("low")),
+                "close": _num(d.get("close")),
+                "volume": int(_num(d.get("volume"))),
+            })
+
+    # Compute 50-day avg volume as of sell date for comparison
+    if sell_idx is not None and sell_idx >= 50:
+        pre_sell_vols = [int(_num(history[j].get("volume")))
+                         for j in range(sell_idx - 50, sell_idx)]
+        avg_vol = round(sum(pre_sell_vols) / len(pre_sell_vols))
+    else:
+        avg_vol = None
+
+    # Compute indicators at each key date
+    indicators_at_dates = {}
+    for label, target_date in key_dates.items():
+        if not target_date:
+            continue
+        # Find the index of this date (or nearest prior)
+        idx = None
+        for i, d in enumerate(history):
+            if d["date"] <= target_date:
+                idx = i
+            else:
+                break
+        if idx is None:
+            continue
+
+        # Slice history up to this date and compute indicators
+        slice_data = history[:idx + 1]
+        closes = [_num(d.get("close")) for d in slice_data if _num(d.get("close")) > 0]
+
+        entry = {"date": target_date}
+        if closes:
+            entry["price"] = closes[-1]
+            rsi = compute_rsi(closes)
+            if rsi is not None:
+                entry["rsi_14"] = rsi
+            atr = compute_atr(slice_data)
+            if atr is not None:
+                entry["atr_14"] = atr
+            bb = compute_bollinger_bands(closes)
+            if bb:
+                entry["bollinger_pct_b"] = bb["pct_b"]
+            if len(closes) >= 50:
+                entry["sma_50"] = round(sum(closes[-50:]) / 50, 2)
+            if len(closes) >= 200:
+                entry["sma_200"] = round(sum(closes[-200:]) / 200, 2)
+
+        indicators_at_dates[label] = entry
+
+    result = {
+        "stock_trajectory": trajectory,
+        "avg_volume_50d": avg_vol,
+        "indicators_at_key_dates": indicators_at_dates,
+    }
+    return result
 
 
 def _load_context_around_dates(mode, ticker, target_dates, window=1):
@@ -767,6 +974,11 @@ def cmd_hindsight(args):
         print(f"Cleared {len(expired_symbols)} expired watches.")
         return
 
+    cfg = load_config(mode)
+
+    # Pre-fetch history per ticker (avoid redundant API calls for same ticker)
+    history_cache = {}
+
     results = []
     for symbol, watch in watches.items():
         cost_basis = watch.get("cost_basis", 0)
@@ -780,6 +992,10 @@ def cmd_hindsight(args):
         pre_sale = load_position_snapshots(mode, symbol)
         post_sale = load_post_sale_snapshots(mode, symbol)
 
+        # Pre-sale analysis — what happened during the hold (was there a better exit?)
+        pre_sale_analysis = _build_pre_sale_analysis(
+            pre_sale, cost_basis, watch.get("quantity", 1), watch.get("sell_price", 0))
+
         # Compute counterfactual from post-sale snapshots
         counterfactual = {}
         if post_sale:
@@ -792,21 +1008,11 @@ def cmd_hindsight(args):
             hold_to_now_pnl_pct = round(hold_to_now_pnl / cost_basis * 100, 1) if cost_basis else 0
 
             # Peak and trough after sale
-            peak_bid = 0
-            peak_ts = ""
-            trough_bid = float("inf")
-            trough_ts = ""
-            for snap in post_sale:
-                bid = snap.get("bid", 0)
-                if bid > peak_bid:
-                    peak_bid = bid
-                    peak_ts = snap.get("ts", "")
-                if bid < trough_bid:
-                    trough_bid = bid
-                    trough_ts = snap.get("ts", "")
+            (peak_bid, peak_ts, peak_underlying,
+             trough_bid, trough_ts, trough_underlying) = _find_peak_trough(post_sale)
 
             peak_value = round(peak_bid * 100 * qty, 2)
-            trough_value = round(trough_bid * 100 * qty, 2) if trough_bid != float("inf") else 0
+            trough_value = round(trough_bid * 100 * qty, 2)
 
             counterfactual = {
                 "hold_to_now_value": hold_to_now_value,
@@ -816,8 +1022,10 @@ def cmd_hindsight(args):
                 "avoided_downside": round(sell_proceeds - trough_value, 2),
                 "peak_value_after_sale": peak_value,
                 "peak_date": peak_ts[:10] if peak_ts else "",
+                "underlying_at_peak": peak_underlying,
                 "trough_value_after_sale": trough_value,
                 "trough_date": trough_ts[:10] if trough_ts else "",
+                "underlying_at_trough": trough_underlying,
                 "sell_was_optimal": sell_proceeds >= hold_to_now_value,
                 "post_sale_snapshots_count": len(post_sale),
             }
@@ -841,17 +1049,65 @@ def cmd_hindsight(args):
         key_moments = _find_key_moments(post_sale)
 
         # News and market context around key dates (sell, peak, trough)
-        key_dates = [
+        key_dates_list = [
             watch.get("sell_date", ""),
             counterfactual.get("peak_date", "") if counterfactual else "",
             counterfactual.get("trough_date", "") if counterfactual else "",
         ]
         context = _load_context_around_dates(
-            mode, watch.get("ticker", ""), key_dates)
+            mode, watch.get("ticker", ""), key_dates_list)
+
+        # Stock context — what the STOCK did during the hold and after the sell
+        ticker_name = watch.get("ticker", "")
+        if ticker_name and ticker_name not in history_cache:
+            try:
+                history_cache[ticker_name] = fetch_history(cfg, ticker_name, days=365)
+            except Exception:
+                history_cache[ticker_name] = []
+
+        # Derive entry date from first pre-sale snapshot or buy entries
+        entry_date = ""
+        if pre_sale:
+            entry_date = pre_sale[0].get("ts", "")[:10]
+
+        # Post-sale stock context (sell → now)
+        stock_context = {}
+        try:
+            stock_context = _build_stock_context(
+                cfg, ticker_name,
+                watch.get("sell_date", ""),
+                {
+                    "at_sell": watch.get("sell_date", ""),
+                    "at_peak": counterfactual.get("peak_date", "") if counterfactual else "",
+                    "at_trough": counterfactual.get("trough_date", "") if counterfactual else "",
+                    "latest": date.today().isoformat(),
+                },
+                history=history_cache.get(ticker_name),
+            )
+        except Exception:
+            pass
+
+        # Hold-period stock context (entry → sell)
+        hold_stock_context = {}
+        if entry_date:
+            try:
+                hold_stock_context = _build_stock_context(
+                    cfg, ticker_name,
+                    entry_date,
+                    {
+                        "at_entry": entry_date,
+                        "at_option_peak": pre_sale_analysis.get("peak_date", ""),
+                        "at_option_trough": pre_sale_analysis.get("trough_date", ""),
+                        "at_sell": watch.get("sell_date", ""),
+                    },
+                    history=history_cache.get(ticker_name),
+                )
+            except Exception:
+                pass
 
         result = {
             "symbol": symbol,
-            "ticker": watch.get("ticker", ""),
+            "ticker": ticker_name,
             "type": watch.get("type", ""),
             "strike": watch.get("strike", 0),
             "expiry": watch.get("expiry", ""),
@@ -869,11 +1125,13 @@ def cmd_hindsight(args):
             "close_reason": watch.get("close_reason", ""),
             "entry_market_context": watch.get("entry_market_context", {}),
             "sell_market_context": watch.get("sell_market_context", {}),
+            "pre_sale_analysis": pre_sale_analysis,
+            "hold_stock_context": hold_stock_context,
+            "stock_context": stock_context,
             "daily_trajectory": daily_trajectory,
             "key_moments": key_moments,
             "news_around_key_dates": context["news"],
             "market_around_key_dates": context["market"],
-            "pre_sale_snapshot_count": len(pre_sale),
             "post_sale_snapshot_count": len(post_sale),
         }
         results.append(result)

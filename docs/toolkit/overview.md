@@ -87,7 +87,7 @@ Both check:
   - If --force is set: skip this check entirely
 ```
 
-The `evaluate` command checks if the market is open via Tradier's `/markets/clock` endpoint. If closed, it exits silently unless `--force` is passed.
+The `evaluate` command checks if the market is open via Tradier's `/markets/clock` endpoint. If closed, it exits silently unless `--force` is passed. It also has a dedup guard: if the last evaluate event in `log.jsonl` is less than 60 seconds old, it exits silently (prevents duplicate calls from LLM agents re-running the command within a single session). Both guards are bypassed by `--force`.
 
 These checks use Python's `zoneinfo` module with `America/New_York`, which handles DST correctly. The check is performed before any API calls.
 

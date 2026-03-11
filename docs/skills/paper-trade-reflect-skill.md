@@ -50,10 +50,20 @@ If the array is empty, skip to maintenance.
 ### 3. Process Each Closed Position
 
 For each pending entry:
-1. Analyze the trade outcome using position snapshots, entry/close reasons, and market context
-2. Determine market regime and DTE bucket at trade entry
-3. Find or create the relevant experience file, add `[paper]` evidence entry
-4. Follow the format, tagging, and evolution rules in `experience/README.md`
+1. Analyze the trade outcome using all available data:
+   - `open_reason` — why the trade was entered
+   - `close_reason` — why it was closed
+   - `closed_how` — sell_to_close or expired
+   - `cost_basis` — what was paid
+   - `entry_market_context` — market conditions at entry (price, IV, Greeks, trends with RSI/ATR/Bollinger/volume, IV rank/percentile, SPY context, news)
+   - `position_snapshots` — full lifecycle: price, IV, Greeks at every evaluation cycle
+   - `pre_sale_analysis` — hold-period summary: day-by-day option + stock trajectory, peak/trough during the hold with dates, P&L, and underlying stock price at those moments (`underlying_at_peak`, `underlying_at_trough`), whether Eva sold near the peak. Use this to assess exit timing — did the option peak mid-hold and decline before the sell? Did stock price movements explain the option's behavior?
+   - `buy_entries` — all buys if the position was averaged into
+2. Determine: was the thesis supported or contradicted? What happened to price, IV, and Greeks over the position's life? Did Eva exit at a good time or hold too long?
+3. Consider all open questions from `PAPER.md` this trade speaks to — tag evidence with relevant questions even if the trade was originally motivated by only one
+4. Determine market regime and DTE bucket at trade entry
+5. Find or create the relevant experience file, add `[paper]` evidence entry
+6. Follow the format, tagging, and evolution rules in `experience/README.md`
 
 ### 4. Clear Pending Updates
 

@@ -21,6 +21,41 @@ from eva.tradier import (
 )
 
 
+def _quote_price(quote):
+    """Extract price from a quote dict, falling back through last → close → 0."""
+    return quote.get("last", 0) or quote.get("close", 0) or 0
+
+
+def _quote_change_pct(quote):
+    """Extract change percentage from a quote dict, handling string values."""
+    pct = quote.get("change_percentage", 0) or 0
+    if isinstance(pct, str):
+        pct = float(pct.replace("%", ""))
+    return pct
+
+
+def fetch_spy_context(cfg, include_trends=False):
+    """Fetch SPY price and change for broader market context.
+
+    Returns dict with spy_price, spy_change_pct, and optionally spy_trends.
+    Returns empty dict on failure.
+    """
+    try:
+        spy_quote = fetch_quote(cfg, "SPY")
+        spy_price = _quote_price(spy_quote)
+        spy_change_pct = _quote_change_pct(spy_quote)
+        result = {
+            "spy_price": spy_price,
+            "spy_change_pct": round(spy_change_pct, 2),
+        }
+        if include_trends:
+            spy_history = fetch_history(cfg, "SPY", days=365)
+            result["spy_trends"] = compute_trends(spy_history, spy_price)
+        return result
+    except Exception:
+        return {}
+
+
 def order_option_info(order):
     """Extract option_symbol and side from an order (top-level or leg)."""
     opt_sym = order.get("option_symbol", "")
@@ -101,7 +136,7 @@ def detect_recently_closed(mode, current_positions, orders):
     return recently_closed
 
 
-def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None):
+def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None, spy_context=None):
     """Build the full evaluation JSON for a ticker.
 
     Accepts pre-fetched account/positions/orders to avoid redundant API calls
@@ -142,7 +177,7 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None)
     current_price = 0
     try:
         quote = fetch_quote(cfg, ticker)
-        current_price = quote.get("last", 0) or quote.get("close", 0) or 0
+        current_price = _quote_price(quote)
     except Exception:
         pass
 
@@ -252,9 +287,7 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None)
 
     # Market data
     try:
-        change_pct = quote.get("change_percentage", 0) or 0
-        if isinstance(change_pct, str):
-            change_pct = float(change_pct.replace("%", ""))
+        change_pct = _quote_change_pct(quote)
 
         history_data = fetch_history(cfg, ticker, days=365)
         trends = compute_trends(history_data, current_price)
@@ -352,6 +385,7 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None)
             "last": current_price,
             "change_pct": round(change_pct, 2),
             "range_position": round((current_price - intraday_low) / intraday_range * 100) if intraday_range > 0 else 50,
+            "volume": int(quote.get("volume", 0) or 0),
         }
 
         # Recent daily candles
@@ -367,6 +401,7 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None)
                 "low": _num(d.get("low")),
                 "close": d_close,
                 "change_pct": day_change,
+                "volume": int(_num(d.get("volume"))),
             })
         recent_days.reverse()
 
@@ -422,6 +457,13 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None)
     except Exception as e:
         result["market"] = {"error": str(e)}
         result["affordable_options"] = []
+
+    # Broader market context — SPY as a benchmark for market-wide vs isolated moves
+    if ticker.upper() != "SPY":
+        if spy_context is None:
+            spy_context = fetch_spy_context(cfg, include_trends=True)
+        if spy_context:
+            result["broader_market"] = spy_context
 
     # Market history — recent days of price + IV + Greeks for pattern spotting
     try:
@@ -495,6 +537,10 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None)
                 total_cost = sum(e.get("cost_basis", 0) for e in active_positions[sym])
                 snapshot = {
                     "underlying_price": current_price,
+                    "stock_open": _num(quote.get("open")) or current_price,
+                    "stock_high": _num(quote.get("high")) or current_price,
+                    "stock_low": _num(quote.get("low")) or current_price,
+                    "stock_volume": int(quote.get("volume", 0) or 0),
                     "dte": pos_data.get("dte", 0),
                     "cost_basis": total_cost,
                     "unrealized_pnl": pos_data.get("unrealized_pnl", 0),
@@ -544,6 +590,10 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None)
                                 pass
                             snapshot = {
                                 "underlying_price": current_price,
+                                "stock_open": _num(quote.get("open")) or current_price,
+                                "stock_high": _num(quote.get("high")) or current_price,
+                                "stock_low": _num(quote.get("low")) or current_price,
+                                "stock_volume": int(quote.get("volume", 0) or 0),
                                 "dte": dte,
                                 "bid": opt.get("bid", 0) or 0,
                                 "ask": opt.get("ask", 0) or 0,

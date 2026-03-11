@@ -82,6 +82,25 @@ Every experience MUST include a **market regime** tag and a **DTE bucket** tag. 
 
 These tags prevent conflating patterns that work in one regime/timeframe but fail in another. When evidence accumulates across regimes, an experience may split into regime-specific files (e.g., one for bull, one for bear) if the pattern behaves differently.
 
+## Open Questions & Cross-Question Evidence
+
+The strategy (`PAPER.md`) defines open questions Eva is trying to answer:
+
+1. **Catching a Falling Knife** — What signals distinguish continued decline
+   from a stock near its bottom?
+2. **Bounce-Back Signals** — After a drop, what tells us recovery is coming?
+3. **Bearish Reversal Detection** — When rising, what signals an upcoming drop
+   or bearish stretch?
+
+Use all available data — price action, Greeks, IV, volume, news, and general
+stock price context — to build evidence toward these questions.
+
+A single trade often provides evidence for multiple questions. When reflecting
+on a closed trade, consider all questions it speaks to — not just the one that
+motivated the entry. Tag each evidence entry with the relevant question(s) it
+informs. Create or update experience files for each question the trade speaks
+to, even if the trade was originally motivated by only one.
+
 ## Evolution Rules
 
 1. **New pattern observed** → create experience file with required tags, add to INDEX.md

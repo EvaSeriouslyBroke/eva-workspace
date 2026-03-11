@@ -169,6 +169,41 @@ def log_event(mode, event_data):
         f.write(json.dumps(event_data) + "\n")
 
 
+def last_evaluate_age_seconds(mode):
+    """Return seconds since the last 'evaluate' event, or None if no log.
+
+    Reads only the tail of the log file for efficiency (log grows forever).
+    """
+    path = os.path.join(data_dir(mode), "log.jsonl")
+    if not os.path.exists(path):
+        return None
+    # Read last 8KB — enough for ~50 recent entries
+    try:
+        size = os.path.getsize(path)
+        with open(path) as f:
+            if size > 8192:
+                f.seek(size - 8192)
+                f.readline()  # skip partial first line
+            lines = f.readlines()
+    except OSError:
+        return None
+    last_ts = None
+    for line in lines:
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            entry = json.loads(line)
+            if entry.get("event") == "evaluate":
+                last_ts = entry.get("ts")
+        except (json.JSONDecodeError, KeyError):
+            continue
+    if last_ts is None:
+        return None
+    last_dt = datetime.fromisoformat(last_ts)
+    return (datetime.now(ET) - last_dt).total_seconds()
+
+
 # ── Position snapshot storage (data/{mode}-trading/position-snapshots/) ──────
 
 def save_position_snapshot(mode, symbol, snapshot):

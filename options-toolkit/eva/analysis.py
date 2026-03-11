@@ -1,5 +1,6 @@
 """Analysis — trends, chain summary, IV rank, sentiment, directional scoring."""
 
+from math import sqrt
 from statistics import mean
 
 
@@ -142,6 +143,71 @@ def _num(v):
         return 0
 
 
+# ── Technical indicators ─────────────────────────────────────────────────────
+
+def compute_rsi(closes, period=14):
+    """Compute RSI from a list of closing prices. Returns 0-100 or None."""
+    if len(closes) < period + 1:
+        return None
+    recent = closes[-(period + 1):]
+    gains = []
+    losses = []
+    for i in range(1, len(recent)):
+        diff = recent[i] - recent[i - 1]
+        if diff > 0:
+            gains.append(diff)
+            losses.append(0)
+        else:
+            gains.append(0)
+            losses.append(abs(diff))
+    avg_gain = sum(gains) / period
+    avg_loss = sum(losses) / period
+    if avg_loss == 0:
+        return 100.0
+    rs = avg_gain / avg_loss
+    return round(100 - (100 / (1 + rs)), 1)
+
+
+def compute_atr(history_data, period=14):
+    """Compute Average True Range from daily OHLC data. Returns ATR or None."""
+    if len(history_data) < period + 1:
+        return None
+    recent = history_data[-(period + 1):]
+    trs = []
+    for i in range(1, len(recent)):
+        high = _num(recent[i].get("high"))
+        low = _num(recent[i].get("low"))
+        prev_close = _num(recent[i - 1].get("close"))
+        if not (high and low and prev_close):
+            continue
+        tr = max(high - low, abs(high - prev_close), abs(low - prev_close))
+        trs.append(tr)
+    if not trs:
+        return None
+    return round(sum(trs) / len(trs), 2)
+
+
+def compute_bollinger_bands(closes, period=20, num_std=2):
+    """Compute Bollinger Bands. Returns dict with middle, upper, lower, %B or None."""
+    if len(closes) < period:
+        return None
+    recent = closes[-period:]
+    middle = sum(recent) / period
+    variance = sum((x - middle) ** 2 for x in recent) / period
+    std = sqrt(variance)
+    upper = middle + num_std * std
+    lower = middle - num_std * std
+    current = closes[-1]
+    band_width = upper - lower
+    pct_b = round((current - lower) / band_width * 100, 1) if band_width > 0 else 50
+    return {
+        "upper": round(upper, 2),
+        "middle": round(middle, 2),
+        "lower": round(lower, 2),
+        "pct_b": pct_b,
+    }
+
+
 # ── Price trend computation ──────────────────────────────────────────────────
 
 def compute_trends(history_data, current_price):
@@ -152,6 +218,7 @@ def compute_trends(history_data, current_price):
     closes = [_num(d.get("close")) for d in history_data if _num(d.get("close")) > 0]
     highs = [_num(d.get("high")) for d in history_data if _num(d.get("high")) > 0]
     lows = [_num(d.get("low")) for d in history_data if _num(d.get("low")) > 0]
+    volumes = [int(_num(d.get("volume"))) for d in history_data if _num(d.get("volume")) > 0]
 
     if not closes:
         return {}
@@ -196,7 +263,17 @@ def compute_trends(history_data, current_price):
         direction = "up" if returns["1y"] >= 0 else "down"
         parts.append(f"{direction} {abs(returns['1y'])}% over 12 months")
 
-    return {
+    # Technical indicators from existing data
+    rsi = compute_rsi(closes)
+    atr = compute_atr(history_data)
+    bollinger = compute_bollinger_bands(closes)
+
+    # Previous day high/low (key support/resistance levels)
+    last_day = history_data[-1]
+    prev_day_high = round(_num(last_day.get("high")), 2) or None
+    prev_day_low = round(_num(last_day.get("low")), 2) or None
+
+    result = {
         "price_52w_high": round(high_52w, 2),
         "price_52w_low": round(low_52w, 2),
         "price_vs_52w_pct": round((current_price - low_52w) / range_52w * 100),
@@ -205,7 +282,16 @@ def compute_trends(history_data, current_price):
         "sma_signal": sma_signal,
         "returns": returns,
         "trend_summary": ", ".join(parts),
+        "rsi_14": rsi,
+        "atr_14": atr,
+        "prev_day_high": prev_day_high,
+        "prev_day_low": prev_day_low,
+        "avg_volume_50d": round(sum(volumes[-50:]) / len(volumes[-50:])) if len(volumes) >= 50 else None,
     }
+    if bollinger:
+        result["bollinger"] = bollinger
+
+    return result
 
 
 # ── Chain summary builder ───────────────────────────────────────────────────

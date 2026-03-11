@@ -270,14 +270,17 @@ Created when a position is first evaluated, grows until the position closes.
 Files persist after closing for experience reflection.
 
 ```jsonl
-{"ts":"2026-03-06T13:15:00-05:00","underlying_price":250.24,"dte":168,"cost_basis":1923.0,"unrealized_pnl":0.0,"pnl_pct":0.0,"bid":19.20,"ask":19.30,"last":19.23,"iv":25.7,"greeks":{"delta":0.563,"gamma":0.0088,"theta":-0.0586,"vega":0.6556,"rho":0.5615}}
-{"ts":"2026-03-06T13:30:00-05:00","underlying_price":250.89,"dte":168,"cost_basis":1923.0,"unrealized_pnl":177.0,"pnl_pct":9.2,"bid":21.00,"ask":21.10,"last":21.00,"iv":26.4,"greeks":{"delta":0.571,"gamma":0.0086,"theta":-0.0590,"vega":0.6600,"rho":0.5650}}
+{"ts":"2026-03-06T13:15:00-05:00","underlying_price":250.24,"stock_open":249.80,"stock_high":250.50,"stock_low":249.60,"stock_volume":1234567,"dte":168,"cost_basis":1923.0,"unrealized_pnl":0.0,"pnl_pct":0.0,"bid":19.20,"ask":19.30,"last":19.23,"iv":25.7,"greeks":{"delta":0.563,"gamma":0.0088,"theta":-0.0586,"vega":0.6556,"rho":0.5615}}
 ```
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `ts` | string (ISO 8601) | Timestamp of the evaluation |
 | `underlying_price` | float | Stock price at evaluation time |
+| `stock_open` | float | Stock open price for the day |
+| `stock_high` | float | Stock high price for the day |
+| `stock_low` | float | Stock low price for the day |
+| `stock_volume` | int | Stock intraday volume |
 | `dte` | int | Days to expiration |
 | `cost_basis` | float | Original cost of the position |
 | `unrealized_pnl` | float | Current unrealized P&L in dollars |
@@ -328,7 +331,10 @@ JSON object keyed by OCC symbol. Tracks sold contracts that continue to be monit
       "underlying_price": 252.10,
       "option_price": 21.50,
       "iv": 26.0,
-      "greeks": { "delta": 0.58, "gamma": 0.009, "theta": -0.06, "vega": 0.65, "rho": 0.56 }
+      "greeks": { "delta": 0.58, "gamma": 0.009, "theta": -0.06, "vega": 0.65, "rho": 0.56 },
+      "iv_context": { "iv_rank": 45, "iv_percentile": 52, "iv_52w_high": 42.1, "iv_52w_low": 18.3 },
+      "trends": { "sma_signal": "below_both", "rsi_14": 38.2, "atr_14": 3.45, "..." : "..." },
+      "broader_market": { "spy_price": 520.50, "spy_change_pct": -0.85 }
     }
   }
 }
@@ -352,14 +358,17 @@ JSON object keyed by OCC symbol. Tracks sold contracts that continue to be monit
 JSONL file tracking a sold contract's price, IV, and Greeks after Eva sold it. Same concept as position snapshots, but for contracts Eva no longer holds. Enables counterfactual analysis: what would have happened if she held?
 
 ```jsonl
-{"ts":"2026-03-07T09:45:00-05:00","underlying_price":252.50,"dte":71,"bid":22.10,"ask":22.30,"last":22.20,"iv":26.8,"greeks":{"delta":0.590,"gamma":0.0086,"theta":-0.0620,"vega":0.6500,"rho":0.5600}}
-{"ts":"2026-03-07T10:00:00-05:00","underlying_price":253.10,"dte":71,"bid":22.80,"ask":23.00,"last":22.90,"iv":27.1,"greeks":{"delta":0.598,"gamma":0.0084,"theta":-0.0630,"vega":0.6480,"rho":0.5620}}
+{"ts":"2026-03-07T09:45:00-05:00","underlying_price":252.50,"stock_open":251.80,"stock_high":253.00,"stock_low":251.50,"stock_volume":2345678,"dte":71,"bid":22.10,"ask":22.30,"last":22.20,"iv":26.8,"greeks":{"delta":0.590,"gamma":0.0086,"theta":-0.0620,"vega":0.6500,"rho":0.5600}}
 ```
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `ts` | string (ISO 8601) | Timestamp of the evaluation |
 | `underlying_price` | float | Stock price at evaluation time |
+| `stock_open` | float | Stock open price for the day |
+| `stock_high` | float | Stock high price for the day |
+| `stock_low` | float | Stock low price for the day |
+| `stock_volume` | int | Stock intraday volume |
 | `dte` | int | Days to expiration |
 | `bid` | float | Option bid price |
 | `ask` | float | Option ask price |
