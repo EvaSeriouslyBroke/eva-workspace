@@ -318,5 +318,85 @@
       "spy_change_pct": -0.5
     },
     "ts": "2026-03-11T12:03:49.567548-04:00"
+  },
+  {
+    "price": 475.005,
+    "avg_call_iv": 26.9,
+    "avg_put_iv": 26.9,
+    "avg_call_greeks": {
+      "delta": 0.5678,
+      "gamma": 0.0052,
+      "theta": -0.1404,
+      "vega": 1.0924,
+      "rho": 0.8286
+    },
+    "avg_put_greeks": {
+      "delta": -0.4322,
+      "gamma": 0.0052,
+      "theta": -0.1404,
+      "vega": 1.0924,
+      "rho": 0.8286
+    },
+    "intraday": {
+      "open": 476.13,
+      "high": 477.45,
+      "low": 473.13,
+      "last": 475.005,
+      "change_pct": -0.6,
+      "range_position": 43,
+      "volume": 4060135
+    },
+    "trends": {
+      "price_52w_high": 509.7,
+      "price_52w_low": 268.36,
+      "price_vs_52w_pct": 86,
+      "sma_50": 449.89,
+      "sma_200": 369.21,
+      "sma_signal": "above_both",
+      "returns": {
+        "1w": 0.7,
+        "1m": 1.7,
+        "3m": 23.2,
+        "6m": 42.2
+      },
+      "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+      "rsi_14": 58.2,
+      "atr_14": 12.24,
+      "prev_day_high": 477.45,
+      "prev_day_low": 473.13,
+      "avg_volume_50d": 19385212,
+      "bollinger": {
+        "upper": 490.4,
+        "middle": 470.09,
+        "lower": 449.78,
+        "pct_b": 62.1
+      }
+    },
+    "iv_context": {
+      "current_avg_iv": 26.9,
+      "avg_call_iv": 26.9,
+      "avg_put_iv": 26.9,
+      "iv_rank": 13,
+      "iv_percentile": 33,
+      "data_points": 3,
+      "iv_52w_high": 27.9,
+      "iv_52w_low": 26.8,
+      "call_iv_52w_high": 27.9,
+      "call_iv_52w_low": 26.8,
+      "put_iv_52w_high": 27.9,
+      "put_iv_52w_low": 26.7
+    },
+    "sentiment": {
+      "pc_vol_ratio": 0.74,
+      "pc_oi_ratio": null,
+      "skew": null,
+      "news_sentiment_label": "Slightly Bullish",
+      "news_sentiment_score": 3
+    },
+    "broader_market": {
+      "spy_price": 673.9457,
+      "spy_change_pct": -0.48
+    },
+    "ts": "2026-03-11T12:17:41.619022-04:00"
   }
 ]
