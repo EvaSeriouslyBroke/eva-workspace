@@ -42,6 +42,7 @@ docs/
 │   ├── news-command.md                    ← `news` subcommand: inputs, logic, output format
 │   ├── news-research-command.md           ← `eva.py news-research`: deep article extraction
 │   ├── history-command.md                 ← `history` subcommand: inputs, logic, output format
+│   ├── snapshots-command.md               ← `snapshots` subcommand: browse/peaks market snapshots
 │   ├── report-command.md                  ← `report` subcommand: full report generation
 │   └── summary-command.md                 ← `summary` subcommand: end-of-day summary with analysis
 │
@@ -56,6 +57,7 @@ docs/
 │   ├── stock-news-skill.md                ← Trigger phrases, exec command, expected output
 │   ├── stock-news-deep-skill.md           ← Deep news analysis: triggers, AI synthesis rules
 │   ├── options-history-skill.md           ← Trigger phrases, exec command, expected output
+│   ├── market-snapshots-skill.md          ← Trigger phrases, exec command, expected output
 │   ├── options-report-skill.md            ← Trigger phrases, exec command, expected output
 │   ├── options-summary-skill.md          ← EOD summary: triggers, analysis output
 │   ├── paper-trade-evaluate-skill.md    ← Autonomous trading cycle: context, evaluation, execution
@@ -110,7 +112,8 @@ docs/
       {TICKER}/
         {YYYY}-W{WW}/
           {YYYY-MM-DD}.json
-        iv/                 ← IV snapshots for rank computation
+        snapshots/          ← Market snapshots (primary)
+        iv/                 ← IV snapshots (legacy fallback)
       paper-trading/        ← Paper trading local data
         reasons.json
         known_positions.json
@@ -132,6 +135,7 @@ docs/
     stock-news/SKILL.md
     stock-news-deep/SKILL.md
     options-history/SKILL.md
+    market-snapshots/SKILL.md
     options-report/SKILL.md
     options-summary/SKILL.md
     paper-trade-evaluate/SKILL.md

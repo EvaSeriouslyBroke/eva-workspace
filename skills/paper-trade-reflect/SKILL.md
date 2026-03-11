@@ -38,6 +38,8 @@ For each entry with `needs_experience_update: true`:
    - `pre_sale_analysis` — hold-period summary: day-by-day option + stock trajectory, peak/trough during the hold with dates, P&L, and underlying stock price at those moments (`underlying_at_peak`, `underlying_at_trough`), whether Eva sold near the peak. Use this to assess exit timing — did the option peak mid-hold and decline before the sell? Did stock price movements explain the option's behavior?
    - `buy_entries` — all buys if the position was averaged into
 3. Determine: was the thesis supported or contradicted? What happened to price, IV, and Greeks over the position's life? Did Eva exit at a good time or hold too long?
+
+   **Historical context:** If you need to understand what the broader market was doing during the hold, or find peaks/troughs around the trade dates, use the `market-snapshots` skill. It can show trends, IV context, sentiment, and broader market conditions for any date range.
 4. Consider all open questions from `{baseDir}/../../strategy/PAPER.md` this trade speaks to — tag evidence with relevant questions and create/update experience files for each, even if the trade was originally motivated by only one
 5. Determine market regime and DTE bucket at trade entry (see `experience/README.md` for tag definitions)
 6. Find or create the relevant experience file — follow the evolution rules and evidence format in `experience/README.md`

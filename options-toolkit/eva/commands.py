@@ -47,6 +47,8 @@ from eva.storage import (
     load_post_sale_snapshots,
     load_previous,
     load_reasons,
+    load_snapshots_daily,
+    load_snapshots_range,
     log_event,
     save_closed_watches,
     save_known_positions,
@@ -194,6 +196,123 @@ def cmd_history(args):
         print(json.dumps(out, indent=2))
     else:
         print(format_history_iv(snapshots, sym))
+
+
+def cmd_snapshots(args):
+    """Browse or analyze market snapshots."""
+    mode = args.mode
+    ticker = args.ticker.upper()
+
+    if args.peaks:
+        _cmd_snapshots_peaks(args, mode, ticker)
+    else:
+        _cmd_snapshots_browse(args, mode, ticker)
+
+
+def _cmd_snapshots_browse(args, mode, ticker):
+    """Browse mode — show snapshots for a date range, optionally filtered."""
+    to_date = args.to_date or date.today().isoformat()
+    from_date = args.from_date or (date.today() - timedelta(days=7)).isoformat()
+    fields = [f.strip() for f in args.fields.split(",")] if args.fields else None
+
+    snapshots = load_snapshots_range(ticker, from_date, to_date, mode=mode)
+    if not snapshots:
+        print(json.dumps({
+            "ticker": ticker, "from": from_date, "to": to_date,
+            "snapshots": [], "message": f"No snapshots found for {ticker}"
+        }, indent=2))
+        return
+
+    # Condense to last-of-day unless --all-intraday
+    if not args.all_intraday:
+        by_date = {}
+        for snap in reversed(snapshots):  # oldest first, so last assignment = newest
+            d = snap.get("date", snap.get("ts", "")[:10])
+            by_date[d] = snap
+        snapshots = [by_date[d] for d in sorted(by_date.keys(), reverse=True)]
+
+    # Filter fields if specified
+    if fields:
+        snapshots = _filter_snapshot_fields(snapshots, fields)
+
+    result = {
+        "ticker": ticker,
+        "from": from_date,
+        "to": to_date,
+        "count": len(snapshots),
+        "snapshots": snapshots,
+    }
+    print(json.dumps(result, indent=2))
+
+
+def _cmd_snapshots_peaks(args, mode, ticker):
+    """Peaks mode — find price/IV peaks and troughs with full context."""
+    days = args.days or 30
+    daily = load_snapshots_daily(ticker, days=days, mode=mode)
+
+    if not daily:
+        print(json.dumps({
+            "ticker": ticker, "days": days,
+            "message": f"No snapshots found for {ticker}"
+        }, indent=2))
+        return
+
+    # Find price peak/trough
+    price_peak_date, price_peak_snap = max(daily, key=lambda x: x[1].get("price", 0))
+    price_trough_date, price_trough_snap = min(daily, key=lambda x: x[1].get("price", float("inf")))
+
+    # Find IV peak/trough (average of call + put)
+    def _avg_iv(snap):
+        c = snap.get("avg_call_iv", 0) or 0
+        p = snap.get("avg_put_iv", 0) or 0
+        return (c + p) / 2 if (c or p) else 0
+
+    iv_peak_date, iv_peak_snap = max(daily, key=lambda x: _avg_iv(x[1]))
+    iv_trough_date, iv_trough_snap = min(
+        [(d, s) for d, s in daily if _avg_iv(s) > 0],
+        key=lambda x: _avg_iv(x[1]),
+        default=daily[-1],
+    )
+
+    def _moment(d, snap):
+        entry = {"date": d}
+        entry.update(snap)
+        entry.pop("ts", None)
+        return entry
+
+    result = {
+        "ticker": ticker,
+        "days": days,
+        "data_points": len(daily),
+        "date_range": {"from": daily[-1][0], "to": daily[0][0]},
+        "price_peak": _moment(price_peak_date, price_peak_snap),
+        "price_trough": _moment(price_trough_date, price_trough_snap),
+        "iv_peak": _moment(iv_peak_date, iv_peak_snap),
+        "iv_trough": _moment(iv_trough_date, iv_trough_snap),
+        "current": _moment(daily[0][0], daily[0][1]),
+    }
+    print(json.dumps(result, indent=2))
+
+
+# Valid field groups for snapshot filtering
+_SNAPSHOT_FIELD_GROUPS = {
+    "iv": {"price", "avg_call_iv", "avg_put_iv", "avg_call_greeks", "avg_put_greeks"},
+    "intraday": {"intraday"},
+    "trends": {"trends"},
+    "iv_context": {"iv_context"},
+    "sentiment": {"sentiment"},
+    "broader_market": {"broader_market"},
+}
+
+
+def _filter_snapshot_fields(snapshots, fields):
+    """Filter snapshots to only include requested field groups."""
+    keep = {"ts", "date"}  # always include
+    for f in fields:
+        group_keys = _SNAPSHOT_FIELD_GROUPS.get(f)
+        if group_keys:
+            keep.update(group_keys)
+    return [{k: v for k, v in snap.items() if k in keep} for snap in snapshots]
 
 
 def cmd_summary(args):

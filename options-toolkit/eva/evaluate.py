@@ -339,13 +339,9 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None,
         avg_call_greeks = _avg_greeks(near_calls)
         avg_put_greeks = _avg_greeks(near_puts)
 
-        # Save market snapshot and compute IV rank
+        # Compute IV rank
         avg_call_iv = chain_summary.get("avg_call_iv")
         avg_put_iv = chain_summary.get("avg_put_iv")
-        if avg_call_iv and avg_call_iv > 0 and avg_put_iv and avg_put_iv > 0:
-            save_market_snapshot(ticker, current_price, avg_call_iv, avg_put_iv,
-                                avg_call_greeks=avg_call_greeks,
-                                avg_put_greeks=avg_put_greeks, mode=mode)
 
         current_avg_iv = round(((avg_call_iv or 0) + (avg_put_iv or 0)) / 2, 1) if (avg_call_iv or avg_put_iv) else None
         iv_history = load_iv_history(ticker, mode=mode)
@@ -495,6 +491,50 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None,
         result["news_history"] = load_news_history(mode, ticker, days=14)
     except Exception:
         result["news_history"] = []
+
+    # Save rich market snapshot — captures the full picture for later querying
+    try:
+        market = result.get("market", {})
+        if (isinstance(market, dict) and not market.get("error")
+                and market.get("iv_context", {}).get("avg_call_iv")
+                and market.get("iv_context", {}).get("avg_put_iv")):
+            snap = {
+                "price": market.get("price", 0),
+                "avg_call_iv": market["iv_context"]["avg_call_iv"],
+                "avg_put_iv": market["iv_context"]["avg_put_iv"],
+            }
+            if avg_call_greeks:
+                snap["avg_call_greeks"] = avg_call_greeks
+            if avg_put_greeks:
+                snap["avg_put_greeks"] = avg_put_greeks
+            if market.get("intraday"):
+                snap["intraday"] = market["intraday"]
+            if market.get("trends"):
+                snap["trends"] = market["trends"]
+            if market.get("iv_context"):
+                snap["iv_context"] = market["iv_context"]
+            cs = market.get("chain_summary", {})
+            if cs:
+                snap["sentiment"] = {
+                    "pc_vol_ratio": cs.get("pc_vol_ratio"),
+                    "pc_oi_ratio": cs.get("pc_oi_ratio"),
+                    "skew": cs.get("skew"),
+                }
+            news_data = result.get("news", {})
+            if news_data.get("sentiment"):
+                snap.setdefault("sentiment", {}).update({
+                    "news_sentiment_label": news_data["sentiment"].get("label"),
+                    "news_sentiment_score": news_data["sentiment"].get("score"),
+                })
+            broader = result.get("broader_market", {})
+            if broader:
+                snap["broader_market"] = {
+                    "spy_price": broader.get("spy_price"),
+                    "spy_change_pct": broader.get("spy_change_pct"),
+                }
+            save_market_snapshot(ticker, snap, mode=mode)
+    except Exception as e:
+        print(f"Warning: rich snapshot save failed: {e}", file=sys.stderr)
 
     # Position snapshots — record option price/IV/greeks for open positions.
     # Enables hindsight analysis: Eva can see how a position evolved over time

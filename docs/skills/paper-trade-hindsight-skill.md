@@ -59,6 +59,7 @@ For each entry, investigate the full lifecycle — both during the hold and afte
 - **Counterfactual** — realized P&L vs hold-to-now, peak/trough values (with underlying stock price at each), missed upside, avoided downside.
 - **News around key dates** — headlines near the sell, peak, and trough dates. Identify catalysts — was a peak caused by predictable news or a surprise?
 - **Market around key dates** — stock price and IV environment at those moments.
+- For richer context around key dates, use the `market-snapshots` skill to browse detailed snapshots near the sell, peak, or trough, or find price/IV extremes over a wider window.
 
 ### Investigation Process
 

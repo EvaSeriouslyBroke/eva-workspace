@@ -16,6 +16,7 @@ from eva.commands import (
     cmd_report,
     cmd_reset,
     cmd_sell,
+    cmd_snapshots,
     cmd_status,
     cmd_summary,
     cmd_trade_history,
@@ -53,6 +54,15 @@ def main():
     p_history.add_argument("--ticker", required=True)
     p_history.add_argument("--days", type=int, default=5)
     p_history.add_argument("--json", action="store_true")
+
+    p_snapshots = subparsers.add_parser("snapshots", help="Browse or analyze market snapshots")
+    p_snapshots.add_argument("--ticker", required=True)
+    p_snapshots.add_argument("--from", dest="from_date", help="Start date (YYYY-MM-DD)")
+    p_snapshots.add_argument("--to", dest="to_date", help="End date (YYYY-MM-DD)")
+    p_snapshots.add_argument("--fields", help="Comma-separated field groups: iv,intraday,trends,iv_context,sentiment,broader_market")
+    p_snapshots.add_argument("--peaks", action="store_true", help="Find price/IV peaks and troughs")
+    p_snapshots.add_argument("--days", type=int, default=30, help="Lookback days for peaks mode (default: 30)")
+    p_snapshots.add_argument("--all-intraday", action="store_true", help="Show all intraday snapshots instead of last-of-day")
 
     p_report = subparsers.add_parser("report", help="Full options analysis report")
     p_report.add_argument("--ticker", required=True)
@@ -116,6 +126,7 @@ def main():
         "news": cmd_news,
         "news-research": cmd_news_research,
         "history": cmd_history,
+        "snapshots": cmd_snapshots,
         "report": cmd_report,
         "summary": cmd_summary,
         "evaluate": cmd_evaluate,

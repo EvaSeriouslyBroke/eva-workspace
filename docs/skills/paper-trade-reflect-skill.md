@@ -58,6 +58,7 @@ For each pending entry:
    - `entry_market_context` — market conditions at entry (price, IV, Greeks, trends with RSI/ATR/Bollinger/volume, IV rank/percentile, SPY context, news)
    - `position_snapshots` — full lifecycle: price, IV, Greeks at every evaluation cycle
    - `pre_sale_analysis` — hold-period summary: day-by-day option + stock trajectory, peak/trough during the hold with dates, P&L, and underlying stock price at those moments (`underlying_at_peak`, `underlying_at_trough`), whether Eva sold near the peak. Use this to assess exit timing — did the option peak mid-hold and decline before the sell? Did stock price movements explain the option's behavior?
+   - For richer hold-period context, use the `market-snapshots` skill to see how trends, IV context, sentiment, and broader market conditions evolved between entry and exit.
    - `buy_entries` — all buys if the position was averaged into
 2. Determine: was the thesis supported or contradicted? What happened to price, IV, and Greeks over the position's life? Did Eva exit at a good time or hold too long?
 3. Consider all open questions from `PAPER.md` this trade speaks to — tag evidence with relevant questions even if the trade was originally motivated by only one

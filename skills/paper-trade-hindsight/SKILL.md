@@ -90,6 +90,8 @@ Compare Greeks between these moments: did delta increase significantly (option w
 
 **Market around key dates** (`market_around_key_dates`): Stock price and IV environment on those same dates. Shows whether the underlying stock's IV was expanding or contracting, and where the stock price was relative to recent history.
 
+**Deeper snapshot context:** The hindsight data includes market context at key dates, but if you need richer context (trends, IV rank, sentiment, broader market) or want to find peaks around specific dates, use the `market-snapshots` skill. It can browse snapshots by date range with field filters, or find price/IV peaks and troughs to understand whether sell timing was driven by stock-specific or market-wide conditions.
+
 ### Investigation Process
 
 For each trade, work through these questions using the trajectory and context data:

@@ -46,7 +46,7 @@ python3 eva.py evaluate --all [--force]
 - `available_expirations` — all option expirations with DTE, so Eva can see short-term options too
 - `affordable_options` — options within settled_cash budget, with all Greeks (delta, gamma, theta, vega, rho, open_interest)
 
-**IV tracking:** Each evaluation saves an IV snapshot to `data/{mode}/{TICKER}/iv/{date}.json`. Over time this builds a history used to compute `iv_context` — IV rank (position in 52-week range), IV percentile (% of days IV was lower), and 52-week high/low.
+**IV tracking:** Each evaluation saves a market snapshot to `data/{mode}/{TICKER}/snapshots/{date}.json` with expanded data (intraday, trends, IV context, sentiment, broader market). Over time this builds a history used to compute `iv_context` — IV rank (position in 52-week range), IV percentile (% of days IV was lower), and 52-week high/low. The legacy `iv/` directory is still read as a fallback when no `snapshots/` data exists.
 
 **News tracking:** Each evaluation fetches fresh headlines from yfinance and saves a snapshot to `data/{mode}/{TICKER}/news/{date}.json` (appended each cycle). The 14-day history is included in evaluation output as `news_history`. Deep news research is done separately via the `news-research` command, only for tickers Eva wants to buy or double down on.
 

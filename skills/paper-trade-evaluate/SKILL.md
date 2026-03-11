@@ -41,6 +41,8 @@ Use everything to form your initial idea:
 
 **News-price correlation:** Compare `news_history` (14 days) with `market_history` (14 days of price + IV + Greeks) side by side. Look for patterns: did a specific news event precede a price move? Did IV spike before or after news? This is how you learn from history without having to trade first.
 
+**Deeper historical context:** If you need more history than the 14-day window, or want to find price/IV peaks and troughs, use the `market-snapshots` skill. It can browse snapshots by date range with field filters, or find price/IV peaks and troughs with full context at each extreme.
+
 ## 3. Note Recently Closed
 
 If `recently_closed` contains any entries, note them for context but do NOT create or update experience files here. The `paper-trade-reflect` skill handles experience updates in a separate session.

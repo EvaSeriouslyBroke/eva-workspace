@@ -74,32 +74,17 @@ User-suggested or Eva-proposed experiments under evaluation.
 Add entries here with the date and source. Promote to core knowledge or
 remove based on paper trading results.
 
-### Market Regime Tagging (2026-03-11)
-**Source:** Kydio | **Status:** Always Active
-
-**Goal:** Do strategies behave differently in bull vs bear markets, or during turning points? Find out by tagging every trade.
-
-**What to Test:**
-- Try the same strategy types across different market regimes
-- Compare outcomes of identical setups in bull vs bear conditions
-- Pay attention to transitions — do strategies break during turning points?
-
-Tag definitions and rules are in `experience/README.md` (Required Tags section).
-
-**Success Criteria:** After accumulating trades across different regimes, compare win rates and outcomes for the same strategy in different regimes. Let the data reveal which strategies are regime-dependent.
-
----
-
-### DTE Experimentation (2026-03-11)
+### 2-Week DTE Profitability (2026-03-11)
 **Source:** Kydio | **Status:** Active
 
-**Goal:** How do different DTE ranges affect outcomes for different strategy types? Find out by testing across short, medium, and long timeframes.
+**Goal:** Focus on buying options with ~2 weeks (10-14 calendar days) to expiration and figure out how to consistently turn a profit with them.
 
 **What to Test:**
-- Try mean reversion, momentum, news-driven, and other strategies at each DTE bucket
-- Compare how theta decay, gamma exposure, and IV changes affect outcomes at different DTEs
-- Test whether hold time correlates with DTE choice or strategy type
+- Buy calls and puts in the 10–14 DTE range across all tracked tickers
+- Experiment with entry timing — is it better to enter on dips, breakouts, or mean reversion setups?
+- Test strike selection — how does ATM vs slightly OTM affect outcomes at this DTE?
+- Track how theta decay impacts holds — is there a sweet spot for how long to hold before decay kills the position?
+- Compare quick flips (1–3 day holds) vs riding the full 2 weeks
+- Note which market conditions (trending, choppy, high IV, low IV) produce the best results at this DTE
 
-DTE bucket definitions are in `experience/README.md` (Required Tags section).
-
-**Success Criteria:** After 10+ trades per DTE bucket, compare results by strategy type within each bucket. No assumptions about which DTE works for what — let the numbers show it.
+**Success Criteria:** After 15+ trades in the 10–14 DTE range, identify which setups, hold times, and market conditions produce profitable outcomes. Build a repeatable playbook for 2-week options.

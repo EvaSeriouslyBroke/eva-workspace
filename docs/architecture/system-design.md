@@ -93,7 +93,7 @@ This document describes every component of the Options Toolkit, how they connect
 
 - **Location**: `~/.openclaw/workspace/options-toolkit/eva.py` (entry point) + `eva/` package
 - **Language**: Python 3.x
-- **Interface**: CLI with subcommands (`price`, `chain`, `news`, `news-research`, `history`, `report`, `summary`, `evaluate`, `status`, `buy`, `sell`, `trade-history`, `pending-experience`, `reset`)
+- **Interface**: CLI with subcommands (`price`, `chain`, `news`, `news-research`, `history`, `snapshots`, `report`, `summary`, `evaluate`, `status`, `buy`, `sell`, `trade-history`, `pending-experience`, `reset`)
 - **Dependencies**: `requests`, `duckduckgo-search`, `trafilatura`, standard library (`json`, `datetime`, `argparse`, `sys`, `os`, `statistics`, `zoneinfo`)
 - **Behavior**: Stdout-based — output goes to stdout, errors go to stderr. Exception: `buy` and `sell` commands also send Discord trade notifications via `openclaw message send`.
 - **Exit codes**: 0 = success (with or without output), 1 = error
@@ -132,11 +132,11 @@ This document describes every component of the Options Toolkit, how they connect
 - **Behavior**: Pure stdout-based JSON output, errors to stderr
 - **Purpose**: Fetches news via DuckDuckGo, extracts full article content via trafilatura, outputs structured JSON for Eva to synthesize
 
-### 6. SKILL.md Files (11 total)
+### 6. SKILL.md Files (12 total)
 
 - **Location**: `~/.openclaw/workspace/skills/{skill-name}/SKILL.md`
 - **Purpose**: Tell Eva when and how to run toolkit commands
-- **Skills**: stock-price, options-chain, stock-news, stock-news-deep, options-history, options-report, options-summary, paper-trade-evaluate, paper-trade-reflect, paper-trade-status, paper-trade-history
+- **Skills**: stock-price, options-chain, stock-news, stock-news-deep, options-history, market-snapshots, options-report, options-summary, paper-trade-evaluate, paper-trade-reflect, paper-trade-status, paper-trade-history
 
 ### 7. Paper Trading Subcommands (in `eva.py`)
 
@@ -301,7 +301,9 @@ This document describes every component of the Options Toolkit, how they connect
               2026-02-18.json
             2026-W09/
               2026-02-20.json
-            iv/                            ← IV snapshots for rank computation
+            snapshots/                     ← Market snapshots (primary)
+              2026-03-07.json
+            iv/                            ← IV snapshots (legacy fallback)
               2026-03-07.json
             news/                          ← News snapshots for sentiment history
               2026-03-07.json
@@ -319,6 +321,7 @@ This document describes every component of the Options Toolkit, how they connect
       stock-news/SKILL.md
       stock-news-deep/SKILL.md
       options-history/SKILL.md
+      market-snapshots/SKILL.md
       options-report/SKILL.md
       options-summary/SKILL.md
       paper-trade-evaluate/SKILL.md

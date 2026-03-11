@@ -17,8 +17,10 @@ and give paper trading future knowledge of live data.
     {TICKER}/
       {YYYY}-W{WW}/
         {YYYY-MM-DD}.json          ← Report snapshots
+      snapshots/
+        {YYYY-MM-DD}.json          ← Market snapshots (primary)
       iv/
-        {YYYY-MM-DD}.json          ← IV history
+        {YYYY-MM-DD}.json          ← IV history (legacy fallback)
       news.json                    ← All headlines for this ticker (single file)
   {mode}-trading/                  ← "paper-trading" or "real-trading"
     reasons.json                   ← Order reasoning
@@ -39,6 +41,9 @@ data/
   paper/
     IWM/
       2026-W07/
+        2026-02-10.json
+        2026-02-11.json
+      snapshots/
         2026-02-10.json
         2026-02-11.json
       iv/
@@ -146,10 +151,15 @@ Each daily file is a **JSON array** of snapshot objects. One snapshot is appende
 
 ## Market Snapshot History
 
-**Location**: `data/{mode}/{TICKER}/iv/{YYYY-MM-DD}.json`
+**Primary location**: `data/{mode}/{TICKER}/snapshots/{YYYY-MM-DD}.json`
+**Legacy fallback**: `data/{mode}/{TICKER}/iv/{YYYY-MM-DD}.json`
 
 JSON array of market snapshots saved during each evaluation (one file per day,
-multiple entries per day). Directory is named `iv/` for backward compatibility.
+multiple entries per day). The `snapshots/` directory is the primary store;
+old `iv/` files are still read by the fallback system when no `snapshots/`
+data exists for a given date.
+
+### Core Fields
 
 ```json
 [
@@ -184,6 +194,18 @@ multiple entries per day). Directory is named `iv/` for backward compatibility.
 | `avg_put_iv` | float | Average IV of near-money puts (percentage) |
 | `avg_call_greeks` | object | Average Greeks of near-money calls (delta, gamma, theta, vega, rho) |
 | `avg_put_greeks` | object | Average Greeks of near-money puts |
+
+### Expanded Field Groups (snapshots/ only)
+
+Snapshots in the `snapshots/` directory include additional field groups beyond the core:
+
+| Field Group | Key | Contents |
+|-------------|-----|----------|
+| Intraday | `intraday` | open, high, low, last, change_pct, range_position, volume |
+| Trends | `trends` | SMA 50/200, RSI, ATR, returns (1w/1m/3m), trend_summary |
+| IV Context | `iv_context` | iv_rank, iv_percentile, iv_52w_high, iv_52w_low |
+| Sentiment | `sentiment` | pc_vol_ratio, pc_oi_ratio, skew, news_sentiment_label, news_sentiment_score |
+| Broader Market | `broader_market` | SPY price, SPY change_pct |
 
 Used to compute IV rank/percentile (52-week positioning) and for Eva to
 reference historical market conditions when recognizing patterns.

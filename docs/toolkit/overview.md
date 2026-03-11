@@ -19,6 +19,7 @@ python3 eva.py <command> --ticker <SYM> [flags]
 | `news` | Headlines + sentiment analysis | Check market news for a ticker |
 | `news-research` | Deep article extraction + web search | In-depth news analysis |
 | `history` | Recent IV history from stored data | Track IV trends over days |
+| `snapshots` | Browse or query stored market snapshots | Date-ranged browsing, peak/trough finding |
 | `report` | Facts-only options data report | Complete options data snapshot |
 | `summary` | End-of-day summary with analysis | After-close recap of the day's moves |
 
@@ -39,13 +40,18 @@ python3 eva.py <command> --ticker <SYM> [flags]
 
 | Flag | Applies To | Required | Description |
 |------|-----------|----------|-------------|
-| `--ticker <SYM>` | price, chain, news, news-research, history, report, summary, buy, sell | Yes | Ticker symbol (e.g., IWM, SPY, QQQ) |
+| `--ticker <SYM>` | price, chain, news, news-research, history, snapshots, report, summary, buy, sell | Yes | Ticker symbol (e.g., IWM, SPY, QQQ) |
 | `--ticker <SYM>` or `--all` | evaluate | One required | Single ticker or all from trading_tickers.json |
 | `--mode paper\|real` | All commands | No | Trading mode (default: paper) |
 | `--force` | report, summary, evaluate | No | Skip schedule/market hours check |
 | `--json` | price, chain, news, history, report | No | Output raw JSON instead of formatted text |
 | `--dte <N>` | chain | No | Target DTE for expiry selection (default: 120) |
-| `--days <N>` | history | No | Number of trading days to show (default: 5) |
+| `--days <N>` | history, snapshots (peaks mode) | No | Number of trading days to show (default: 5 for history, 30 for snapshots peaks) |
+| `--from <DATE>` | snapshots | No | Start date YYYY-MM-DD (default: 7 days ago) |
+| `--to <DATE>` | snapshots | No | End date YYYY-MM-DD (default: today) |
+| `--fields <LIST>` | snapshots | No | Comma-separated field groups: iv, intraday, trends, iv_context, sentiment, broader_market |
+| `--peaks` | snapshots | No | Switch to peaks mode (find price/IV extremes) |
+| `--all-intraday` | snapshots | No | Show all intraday snapshots instead of last-of-day |
 
 ---
 
@@ -91,7 +97,7 @@ The `evaluate` command checks if the market is open via Tradier's `/markets/cloc
 
 These checks use Python's `zoneinfo` module with `America/New_York`, which handles DST correctly. The check is performed before any API calls.
 
-Other subcommands (`price`, `chain`, `news`, `news-research`, `history`) do NOT have schedule checks. They always return data when asked.
+Other subcommands (`price`, `chain`, `news`, `news-research`, `history`, `snapshots`) do NOT have schedule checks. They always return data when asked.
 
 ---
 
@@ -196,6 +202,6 @@ When `--json` is passed, instead of formatted text, the command outputs a JSON o
 - Testing (easier to assert on structured data than formatted text)
 - Future integrations
 
-Available on: `price`, `chain`, `news`, `history`, `report`. Not available on: `summary`, `evaluate`, `status`, `buy`, `sell`, `trade-history`, `reset`.
+Available on: `price`, `chain`, `news`, `history`, `report`. Not available on: `snapshots`, `summary`, `evaluate`, `status`, `buy`, `sell`, `trade-history`, `reset`.
 
 Each command's JSON schema is documented in its respective doc file.
