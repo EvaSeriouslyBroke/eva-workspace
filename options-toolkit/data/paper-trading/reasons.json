@@ -325,5 +325,86 @@
         "spy_change_pct": -0.37
       }
     }
+  },
+  "26275283": {
+    "reason": "Double down on momentum play. Meta multi-year AI partnership confirmed - 00B+ deal for AI computing infrastructure. AMD up 2.2% on genuine fundamental catalyst. Stock beaten down 21% from highs, 39% below fair value. High IV (56.7%) justified by news flow. Delta 0.564 with elevated gamma (0.006) provides explosive upside exposure. Building into strength with 2-week DTE experiment criteria. Entry context: momentum breakout on verifiable catalyst, not speculation. Expect continued upside as hyperscaler spending on AI infrastructure accelerates.",
+    "timestamp": "2026-03-11T13:17:59.399934-04:00",
+    "side": "buy_to_open",
+    "symbol": "AMD260717C00200000",
+    "market_context": {
+      "price": 205.27,
+      "change_pct": 1.01,
+      "iv": 55.3,
+      "option_greeks": {
+        "delta": 0.613,
+        "gamma": 0.0057,
+        "theta": -0.1122,
+        "vega": 0.4665,
+        "rho": 0.3334
+      },
+      "iv_context": {
+        "iv_rank": 4,
+        "iv_percentile": 33,
+        "iv_52w_high": 56.5,
+        "iv_52w_low": 55.2
+      },
+      "trends": {
+        "price_52w_high": 267.08,
+        "price_52w_low": 76.48,
+        "price_vs_52w_pct": 68,
+        "sma_50": 216.93,
+        "sma_200": 189.99,
+        "sma_signal": "mixed",
+        "returns": {
+          "1w": 1.6,
+          "1m": -5.0,
+          "3m": -7.2,
+          "6m": 31.7
+        },
+        "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+        "rsi_14": 51.2,
+        "atr_14": 9.25,
+        "prev_day_high": 209.21,
+        "prev_day_low": 204.3,
+        "avg_volume_50d": 37997143,
+        "bollinger": {
+          "upper": 214.31,
+          "middle": 202.67,
+          "lower": 191.04,
+          "pct_b": 61.2
+        }
+      },
+      "news": [
+        {
+          "title": "Meta announces 4 new AI chips, raising competitive stakes with Nvidia, AMD",
+          "publisher": "Yahoo Finance",
+          "date": "2026-03-11"
+        },
+        {
+          "title": "Will New Custom AI Chips Propel Meta Platforms to $750?",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-11"
+        },
+        {
+          "title": "Synopsys rolls out new software tools for designing AI chips",
+          "publisher": "Reuters",
+          "date": "2026-03-11"
+        },
+        {
+          "title": "Here\u2019s What Bernstein Think About Nvidia (NVDA)",
+          "publisher": "Insider Monkey",
+          "date": "2026-03-11"
+        },
+        {
+          "title": "Advanced Micro Devices (AMD) Enters a Multi-Year Partnership With Adeia",
+          "publisher": "Insider Monkey",
+          "date": "2026-03-11"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 676.22,
+        "spy_change_pct": -0.15
+      }
+    }
   }
 }
