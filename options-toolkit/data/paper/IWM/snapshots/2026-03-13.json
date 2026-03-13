@@ -3118,5 +3118,85 @@
       "spy_change_pct": -0.33
     },
     "ts": "2026-03-13T14:00:17.579831-04:00"
+  },
+  {
+    "price": 245.59,
+    "avg_call_iv": 27.4,
+    "avg_put_iv": 27.4,
+    "avg_call_greeks": {
+      "delta": 0.5606,
+      "gamma": 0.0089,
+      "theta": -0.06,
+      "vega": 0.6293,
+      "rho": 0.524
+    },
+    "avg_put_greeks": {
+      "delta": -0.4394,
+      "gamma": 0.0089,
+      "theta": -0.06,
+      "vega": 0.6293,
+      "rho": 0.524
+    },
+    "intraday": {
+      "open": 249.26,
+      "high": 250.61,
+      "low": 245.535,
+      "last": 245.59,
+      "change_pct": -0.74,
+      "range_position": 1,
+      "volume": 37887781
+    },
+    "trends": {
+      "price_52w_high": 271.6,
+      "price_52w_low": 171.73,
+      "price_vs_52w_pct": 74,
+      "sma_50": 260.38,
+      "sma_200": 240.18,
+      "sma_signal": "mixed",
+      "returns": {
+        "1w": -2.1,
+        "1m": -7.3,
+        "3m": -3.6,
+        "6m": 2.0
+      },
+      "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+      "rsi_14": 31.9,
+      "atr_14": 5.98,
+      "prev_day_high": 250.61,
+      "prev_day_low": 245.53,
+      "avg_volume_50d": 42411852,
+      "bollinger": {
+        "upper": 271.19,
+        "middle": 259.01,
+        "lower": 246.84,
+        "pct_b": -5.1
+      }
+    },
+    "iv_context": {
+      "current_avg_iv": 27.4,
+      "avg_call_iv": 27.4,
+      "avg_put_iv": 27.4,
+      "iv_rank": 100,
+      "iv_percentile": 100,
+      "data_points": 7,
+      "iv_52w_high": 27.3,
+      "iv_52w_low": 25.4,
+      "call_iv_52w_high": 27.3,
+      "call_iv_52w_low": 25.3,
+      "put_iv_52w_high": 27.3,
+      "put_iv_52w_low": 25.4
+    },
+    "sentiment": {
+      "pc_vol_ratio": 0.37,
+      "pc_oi_ratio": null,
+      "skew": null,
+      "news_sentiment_label": "Slightly Bearish",
+      "news_sentiment_score": -1
+    },
+    "broader_market": {
+      "spy_price": 662.6,
+      "spy_change_pct": -0.52
+    },
+    "ts": "2026-03-13T14:15:11.183260-04:00"
   }
 ]
