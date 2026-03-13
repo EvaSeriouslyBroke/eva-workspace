@@ -123,19 +123,20 @@ The sell command immediately writes the closed position (with entry context, sna
 
 ## `hindsight`
 
-Post-sale hindsight analysis for closed watches.
+Post-sale hindsight analysis for closed watches. Designed for per-symbol invocation — `run_hindsight.sh` dispatches one agent session per symbol.
 
 ```bash
-python3 eva.py hindsight
+python3 eva.py hindsight --list
 python3 eva.py hindsight --symbol IWM260517C00250000
 python3 eva.py hindsight --expired-only
 python3 eva.py hindsight --clear-expired
 ```
 
 **Flags:**
-- `--symbol` — specific OCC symbol to analyze
+- `--list` — list symbols awaiting hindsight analysis (lightweight, no API calls)
+- `--symbol` — analyze a specific OCC symbol
 - `--expired-only` — only show expired contracts with complete lifecycle data
-- `--clear-expired` — remove expired contracts from watch list after analysis
+- `--clear-expired` — remove expired contracts and watches >30 days past sell date
 
 **Output:** JSON with per-contract analysis including:
 - `realized_pnl` / `realized_pnl_pct` — what Eva actually made/lost

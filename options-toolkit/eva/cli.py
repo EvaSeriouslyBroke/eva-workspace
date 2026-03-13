@@ -104,8 +104,9 @@ def main():
 
     p_hindsight = subparsers.add_parser("hindsight", help="Post-sale hindsight analysis")
     p_hindsight.add_argument("--symbol", help="Specific OCC symbol to analyze")
+    p_hindsight.add_argument("--list", action="store_true", help="List symbols awaiting hindsight analysis")
     p_hindsight.add_argument("--expired-only", action="store_true", help="Only show expired contracts")
-    p_hindsight.add_argument("--clear-expired", action="store_true", help="Remove expired contracts from watch list")
+    p_hindsight.add_argument("--clear-expired", action="store_true", help="Remove expired and stale (>30 days past sell) watches")
 
     p_pending = subparsers.add_parser("pending-experience", help="Show/clear pending experience updates")
     p_pending.add_argument("--clear", action="store_true", help="Clear pending updates after processing")

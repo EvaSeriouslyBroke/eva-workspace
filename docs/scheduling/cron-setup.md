@@ -189,11 +189,28 @@ Paper trading uses OpenClaw cron (not system cron) because the tasks require LLM
 |-----|--------------|---------|
 | `paper-trade-eval` | `:00, :15, :30, :45` (9-15 Mon-Fri) | Autonomous trading evaluation |
 | `paper-trade-reflect` | `:07, :22, :37, :52` (9-15 Mon-Fri) | Experience creation from closed trades |
-| `paper-trade-hindsight` | `4:15 PM Fridays` | Post-sale hindsight analysis |
 
-The reflect job runs ~7 minutes after each evaluate job, giving evaluate time to complete (~96s typical). The hindsight job runs weekly on Fridays after market close to analyze sold contracts with full week of post-sale data. All deliver to the `paper-trading` Discord channel.
+The reflect job runs ~7 minutes after each evaluate job, giving evaluate time to complete (~96s typical). All deliver to the `paper-trading` Discord channel.
 
 Config: `~/.openclaw/cron/jobs.json`
+
+## Hindsight Dispatch (System Cron)
+
+Hindsight analysis runs via system cron + `run_hindsight.sh`, not OpenClaw cron. The dispatch script:
+
+1. Calls `eva.py hindsight --list` to get closed watches
+2. For each symbol, triggers an isolated agent session via `openclaw agent`
+3. Runs `eva.py hindsight --clear-expired` to clean up expired/stale watches
+
+Each symbol gets its own agent session to keep context small and space out API calls.
+
+### Crontab Entry
+
+```cron
+15 20,21 * * 5 /home/henry/.openclaw/workspace/options-toolkit/run_hindsight.sh >> /home/henry/.openclaw/workspace/options-toolkit/data/cron.log 2>&1
+```
+
+Fires at both UTC equivalents for 4:15 PM ET (EST: 21:15, EDT: 20:15). The script has a timezone guard (`TZ=America/New_York date +%H`) that skips the wrong-season fire.
 
 ---
 

@@ -19,4 +19,5 @@ Lookup table for experience recall. One-line summaries with tags so Eva can quic
 | tickers/NVDA/news-momentum-fails-without-trend-alignment.md | NVDA | News-driven momentum calls fail without clear upward technical setup | news-driven, momentum, short-dte, mixed-trend, calls, transition, dte-short |
 | tickers/QQQ/geopolitical-dips-are-short-lived.md | QQQ | QQQ tends to recover quickly from geopolitical-driven dips as tech sector resilience outweighs temporary fear, making bearish trades on geopolitical news risky unless exited rapidly | geopolitical, mean-reversion, tech-resilience, puts, transition, dte-medium |
 | tickers/XLE/momentum-oil-geopolitical.md | XLE | Energy sector momentum continuation on oil volatility with geopolitical catalyst | momentum, oil-volatility, geopolitical, sector-rotation, calls, bull, dte-short |
+| tickers/GLD/bounce-back-fails-when-macro-fear-fades.md | GLD | Bounce-back calls fail when macro fear fades faster than underlying can recover | bounce-back, macro-correlation, inflation-hedge, oil-volatility, calls, bull, dte-long |
 

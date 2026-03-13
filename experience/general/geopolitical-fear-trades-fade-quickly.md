@@ -18,9 +18,10 @@ The challenge is distinguishing between sustained geopolitical-driven moves and 
 ## Evidence
 
 ### Summary
-1 supporting observation. Early evidence suggests geopolitical fear trades require immediate entry and tight profit-taking discipline. The window of opportunity is narrow.
+2 supporting observations. Early evidence suggests geopolitical fear trades require immediate entry and tight profit-taking discipline. The window of opportunity is narrow. Both long and short trades based on fear correlations fail when the fear dissipates faster than expected.
 
 ### Recent
+- 2026-03-13 [paper] [supporting] [bull] [dte-long] [Q1: Catching a Falling Knife] [Q2: Bounce-Back Signals]: GLD 470C bought on oil-driven inflation fears (-1.5% dip, 130 DTE). Thesis: temporary correlation noise, gold resumes hedge role. Oil fears faded within 48 hours faster than gold could reclaim support. Stock bounced +3% next day (option +17%) but sold at -12.4% after thesis invalidated. Key lesson: Macro-correlation trades fail when the correlation dissolves before the underlying responds — fear fading can undermine both bullish and bearish theses that rely on that fear persisting.
 - 2026-03-13 [paper] [supporting] [bear] [dte-medium] [Q1: Catching a Falling Knife] [Q3: Bearish Reversal Detection]: QQQ put bought on Iran/oil fear (IV rank 100%, VIX 23.57) saw thesis fail within 24 hours. Oil prices eased, markets rallied. Position peaked at +8.8% when QQQ hit $597.26 at open 3/13, but quickly reversed as fears subsided. Sold at loss as thesis invalidated. Key lesson: Geopolitical fear moves fade fast — require either immediate capture of the initial drop or acceptance that the window closes quickly.
 
 ## Exceptions & Nuances

@@ -918,10 +918,11 @@ def _find_key_moments(post_sale):
     """Extract full snapshots at peak, trough, and boundaries."""
     if not post_sale:
         return {}
+    nonzero = [s for s in post_sale if s.get("bid", 0) > 0]
     moments = {
         "first_after_sell": post_sale[0],
         "at_peak": max(post_sale, key=lambda s: s.get("bid", 0)),
-        "at_trough": min(post_sale, key=lambda s: s.get("bid", 0)),
+        "at_trough": min(nonzero, key=lambda s: s.get("bid", 0)) if nonzero else post_sale[0],
         "latest": post_sale[-1],
     }
     return moments
@@ -1063,6 +1064,26 @@ def cmd_hindsight(args):
         print(json.dumps([], indent=2))
         return
 
+    today = date.today()
+
+    # --list: output symbol list with basic metadata (no API calls)
+    if args.list:
+        result = []
+        for sym, w in watches.items():
+            result.append({
+                "symbol": sym,
+                "ticker": w.get("ticker", ""),
+                "type": w.get("type", ""),
+                "strike": w.get("strike", 0),
+                "expiry": w.get("expiry", ""),
+                "sell_date": w.get("sell_date", ""),
+                "expired": w.get("expiry", "9999") <= today.isoformat(),
+                "realized_pnl": round(
+                    w.get("sell_proceeds", 0) - w.get("cost_basis", 0), 2),
+            })
+        print(json.dumps(result, indent=2))
+        return
+
     # Filter by symbol if specified
     if args.symbol:
         sym = args.symbol.upper()
@@ -1074,23 +1095,37 @@ def cmd_hindsight(args):
     # Filter expired-only if requested
     if args.expired_only:
         watches = {s: w for s, w in watches.items()
-                   if w.get("expiry", "9999") <= date.today().isoformat()}
+                   if w.get("expiry", "9999") <= today.isoformat()}
 
-    # Clear expired watches — skip analysis, just clean up.
+    # Clear expired and stale watches — skip analysis, just clean up.
+    # Removes: expired contracts + watches >30 days past sell date.
     # Re-load the full set so prior --symbol/--expired-only filtering
     # doesn't cause non-matching watches to be silently deleted.
     if args.clear_expired:
         all_watches = load_closed_watches(mode)
-        expired_symbols = [sym for sym, w in all_watches.items()
-                           if w.get("expiry", "9999") <= date.today().isoformat()]
-        if expired_symbols:
-            for sym in expired_symbols:
+        to_remove = []
+        for sym, w in all_watches.items():
+            # Expired contracts
+            if w.get("expiry", "9999") <= today.isoformat():
+                to_remove.append(sym)
+                continue
+            # Stale watches — sold more than 30 days ago
+            sell_date_str = w.get("sell_date", "")
+            if sell_date_str:
+                try:
+                    sell_dt = date.fromisoformat(sell_date_str)
+                    if (today - sell_dt).days > 30:
+                        to_remove.append(sym)
+                except ValueError:
+                    pass
+        if to_remove:
+            for sym in to_remove:
                 all_watches.pop(sym, None)
                 snap_path = os.path.join(data_dir(mode), "post-sale-snapshots", f"{sym}.jsonl")
                 if os.path.exists(snap_path):
                     os.remove(snap_path)
             save_closed_watches(mode, all_watches)
-        print(f"Cleared {len(expired_symbols)} expired watches.")
+        print(f"Cleared {len(to_remove)} watches (expired + stale).")
         return
 
     cfg = load_config(mode)
@@ -1105,7 +1140,7 @@ def cmd_hindsight(args):
         realized_pnl = sell_proceeds - cost_basis
         realized_pnl_pct = round(realized_pnl / cost_basis * 100, 1) if cost_basis else 0
 
-        expired = watch.get("expiry", "9999") <= date.today().isoformat()
+        expired = watch.get("expiry", "9999") <= today.isoformat()
 
         # Load pre-sale and post-sale snapshots
         pre_sale = load_position_snapshots(mode, symbol)
