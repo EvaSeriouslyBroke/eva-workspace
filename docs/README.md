@@ -107,7 +107,7 @@ docs/
     tickers.json            ← Ticker list + Discord channel (reports)
     trading_tickers.json    ← Ticker list (paper trading evaluate --all)
     run_all.sh              ← Cron wrapper script
-    tradier.json            ← Tradier API credentials
+    # tradier.json lives at ~/.openclaw/tradier.json (outside repo)
     data/                   ← Persistent history (grows forever)
       {TICKER}/
         {YYYY}-W{WW}/

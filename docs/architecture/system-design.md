@@ -144,12 +144,12 @@ This document describes every component of the Options Toolkit, how they connect
 - **Dependencies**: `requests`, standard library
 - **Behavior**: Stdout-based — output goes to stdout, errors go to stderr. `buy` and `sell` also send trade notification messages to the paper-trading Discord channel.
 - **Exit codes**: 0 = success, 1 = error
-- **Config**: Reads `tradier.json` for API credentials per mode
+- **Config**: Reads `~/.openclaw/tradier.json` for API credentials per mode
 - **Local data**: `data/{mode}-trading/` — reasons, known positions, position snapshots, event log
 
 ### 8. `tradier.json` — Tradier API Config
 
-- **Location**: `~/.openclaw/workspace/options-toolkit/tradier.json`
+- **Location**: `~/.openclaw/tradier.json` (outside the repo)
 - **Contents**: API token, account ID, and base URL per mode (paper/real)
 - **Not version controlled** — contains secrets
 
@@ -291,7 +291,7 @@ This document describes every component of the Options Toolkit, how they connect
       tickers.json                         ← Ticker config (reports)
       trading_tickers.json                 ← Ticker config (paper trading evaluate --all)
       run_all.sh                           ← Cron wrapper
-      tradier.json                         ← Tradier API credentials
+      # tradier.json lives at ~/.openclaw/tradier.json (outside repo)
       data/
         cron.log                           ← Execution log
         paper/                             ← Paper mode market data (15-min delayed)

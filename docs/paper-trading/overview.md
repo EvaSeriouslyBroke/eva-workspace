@@ -14,7 +14,7 @@ Eva trades options autonomously in Tradier's sandbox environment, building an ex
 ## Data Isolation
 
 Paper and real trading are fully isolated:
-- **Config**: `tradier.json` has separate `paper` and `real` sections (only paper implemented)
+- **Config**: `~/.openclaw/tradier.json` has separate `paper` and `real` sections (only paper implemented)
 - **API**: Sandbox URL vs live URL — never mixed
 - **Trading data**: `data/paper-trading/` vs `data/real-trading/` — separate directories for reasons, positions, logs
 - **Market data**: `data/paper/{TICKER}/` vs `data/live/{TICKER}/` — separate directories for snapshots, IV, and news (sandbox data is 15-min delayed vs real-time)

@@ -84,7 +84,7 @@ All commands accept `--mode paper|real` (default: paper). Real mode is not imple
 ### Config
 
 ```
-options-toolkit/tradier.json    # Tradier API credentials (paper + future real)
+~/.openclaw/tradier.json       # Tradier API credentials (outside repo)
 ```
 
 ### Paper Trading Data

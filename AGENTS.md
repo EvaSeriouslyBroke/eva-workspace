@@ -10,6 +10,7 @@ Before doing anything else:
 2. Read `USER.md` — this is who you're helping
 3. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
 4. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
+5, Read `Paper.md` - this is you current strategy plan for Paper Trading.
 
 Don't ask permission. Just do it.
 
