@@ -34,6 +34,20 @@ experience/
   tickers/{TICKER}/  — Ticker-specific patterns
 ```
 
+## Hindsight
+
+After Eva sells a position, she doesn't walk away — she keeps watching. The closed contract goes into a watch list, and every evaluation cycle continues recording snapshots (price, IV, Greeks, underlying movement) until the contract expires. This builds a complete counterfactual timeline: what actually happened after she sold.
+
+Every Friday after market close, a hindsight analysis runs for each watched contract. It answers five questions:
+
+1. **Sell timing** — Did the option decline after the sell (good timing) or rally (left money on the table)?
+2. **Better exits** — Were there higher peaks during the hold period that she missed?
+3. **Rebuy opportunity** — Did the option drop post-sale enough to create a window to re-enter?
+4. **Indicator signals** — Which indicators (RSI, Bollinger, IV, volume) predicted the post-sale moves?
+5. **Luck vs skill** — Was the outcome driven by learnable patterns or unpredictable events?
+
+Findings feed back into the experience system as `[hindsight]`-tagged evidence, closing the loop between trading decisions and actual outcomes. Expired and stale watches (30+ days past sell) are automatically cleaned up after analysis.
+
 ## Toolkit
 
 Eva's CLI (`eva.py`) handles all market data fetching, option chain analysis, trade execution, and data persistence. Key commands:
