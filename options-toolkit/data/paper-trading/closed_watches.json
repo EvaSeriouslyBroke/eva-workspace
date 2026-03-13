@@ -409,5 +409,127 @@
         "spy_change_pct": 0.61
       }
     }
+  },
+  "GLD260717C00470000": {
+    "ticker": "GLD",
+    "type": "call",
+    "strike": 470.0,
+    "expiry": "2026-07-17",
+    "quantity": 1,
+    "cost_basis": 3360.0,
+    "sell_date": "2026-03-13",
+    "sell_proceeds": 2945.0,
+    "sell_price": 29.45,
+    "sell_iv": 27.3,
+    "open_reason": "Inflation hedge play: GLD down -1.53% due to oil surge above 00 creating inflation/rate hike fears. This is short-term correlation noise \u2014 gold fundamentals remain strong with bullish sentiment score of 5. Fed policy uncertainty supports gold as hedge. Stock at 66, buying ATM 470C with 130 DTE. IV at 28.4% is moderate. Thesis: Oil-driven inflation fears are temporary; gold resumes role as inflation hedge when market adjusts expectations.",
+    "close_reason": "Thesis invalidation: Oil-driven inflation fears faded faster than expected as oil prices eased from recent surge. GLD failed to hold support at 66 entry level. Original thesis assumed temporary correlation between oil spike and gold weakness, but market adjusted expectations quickly. No structural driver supporting gold as inflation hedge in current environment. Cutting position before weekend theta decay accelerates. Pattern: failed macro correlation trade - valuable data for inflation-hedge timing.",
+    "entry_market_context": {
+      "price": 466.525,
+      "change_pct": -1.48,
+      "iv": 28.3,
+      "option_greeks": {
+        "delta": 0.548,
+        "gamma": 0.005,
+        "theta": -0.1454,
+        "vega": 1.1041,
+        "rho": 0.7937
+      },
+      "iv_context": {
+        "iv_rank": 50,
+        "iv_percentile": 0,
+        "iv_52w_high": 28.4,
+        "iv_52w_low": 28.4
+      },
+      "trends": {
+        "sma_signal": "above_both",
+        "sma_50": 447.28,
+        "sma_200": 367.46,
+        "price_vs_52w_pct": 82,
+        "price_52w_high": 509.7,
+        "price_52w_low": 265.64,
+        "returns": {
+          "1w": -4.8,
+          "1m": 5.6,
+          "3m": 20.5,
+          "6m": 40.9
+        },
+        "trend_summary": "Uptrend \u2014 above 50 and 200 SMA"
+      },
+      "news": [
+        {
+          "title": "Update: Gold Falls As Oil's Rise Above US$100 Brings Worries of Higher Inflation and Interest Rates",
+          "publisher": "MT Newswires",
+          "date": "2026-03-09"
+        },
+        {
+          "title": "Gold Falls Ss Oil's Rise Above US$100 Brings Worries of Higher Inflation and Interest Rates",
+          "publisher": "MT Newswires",
+          "date": "2026-03-09"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Monday Amid Oil Price Surge",
+          "publisher": "MT Newswires",
+          "date": "2026-03-09"
+        },
+        {
+          "title": "Gold Slips Toward $5,120 as Oil Surges Above $100 and Dollar Strengthens",
+          "publisher": "GuruFocus.com",
+          "date": "2026-03-09"
+        },
+        {
+          "title": "GLD\u2019s $75 Billion Couldn\u2019t Shield It From the Tariff-Driven Selloff",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-07"
+        }
+      ]
+    },
+    "sell_market_context": {
+      "underlying_price": 463.97,
+      "option_price": 29.45,
+      "iv": 27.3,
+      "greeks": {
+        "delta": 0.531,
+        "gamma": 0.0053,
+        "theta": -0.1417,
+        "vega": 1.0879,
+        "rho": 0.7495
+      },
+      "iv_context": {
+        "iv_rank": 45,
+        "iv_percentile": 80,
+        "iv_52w_high": 27.9,
+        "iv_52w_low": 26.8
+      },
+      "trends": {
+        "price_52w_high": 509.7,
+        "price_52w_low": 271.55,
+        "price_vs_52w_pct": 81,
+        "sma_50": 452.58,
+        "sma_200": 370.8,
+        "sma_signal": "above_both",
+        "returns": {
+          "1w": -2.0,
+          "1m": -0.8,
+          "3m": 19.3,
+          "6m": 38.6
+        },
+        "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+        "rsi_14": 39.6,
+        "atr_14": 11.92,
+        "prev_day_high": 470.1,
+        "prev_day_low": 461.11,
+        "avg_volume_50d": 19239172,
+        "bollinger": {
+          "upper": 489.5,
+          "middle": 470.74,
+          "lower": 451.99,
+          "pct_b": 31.9
+        }
+      },
+      "broader_market": {
+        "spy_price": 663.57,
+        "spy_change_pct": -0.38
+      }
+    }
   }
 }
