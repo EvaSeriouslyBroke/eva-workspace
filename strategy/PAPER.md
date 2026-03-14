@@ -88,3 +88,52 @@ remove based on paper trading results.
 - Note which market conditions (trending, choppy, high IV, low IV) produce the best results at this DTE
 
 **Success Criteria:** After 15+ trades in the 10–14 DTE range, identify which setups, hold times, and market conditions produce profitable outcomes. Build a repeatable playbook for 2-week options.
+
+### Entry-Day Momentum Validation for Short-DTE News Plays (2026-03-14)
+**Source:** Hindsight — NVDA260325C00190000 | **Status:** Active
+
+**Goal:** Test whether immediate price response to news is a reliable predictor of success for short-DTE (<15 days) momentum trades.
+
+**What to Test:**
+- Enter calls on news catalysts with 10-15 DTE
+- Track stock price movement within first 4 hours of entry day
+- If stock closes flat or down on entry day, exit immediately next morning vs holding
+- Compare outcomes: immediate exit (same/next day) vs holding 2-3 days waiting for momentum
+- Note correlation between entry-day price action and ultimate trade outcome
+- Test if "offsetting news" (competitor announcements, market weakness) neutralizes catalysts
+
+**Hypothesis:** Short-DTE news plays require immediate price confirmation. If the stock doesn't respond positively within the first trading day, the thesis is invalidated and early exit minimizes losses.
+
+**Success Criteria:** After 10+ short-DTE news-driven trades, determine if entry-day price action is a reliable signal. If trades that close flat/down on entry day consistently lose money, establish "same-day exit" as a hard rule for this setup.
+
+### RSI >70 + Bollinger %B >100 Profit-Taking Validation (2026-03-14)
+**Source:** Hindsight — XLE260327C00057000 | **Status:** Active
+
+**Goal:** Validate whether the RSI >70 + Bollinger %B >100 technical exhaustion signal reliably marks near-term peaks across multiple tickers and momentum setups.
+
+**What to Test:**
+- Enter momentum continuation trades (calls on uptrending stocks, sector rotation plays, news-driven momentum)
+- Hold until either: (a) RSI >70 AND Bollinger %B >100, or (b) 3 days elapsed, or (c) -20% loss
+- Compare outcomes between "sell at exhaustion signal" vs "hold for extended gains"
+- Test across different sectors: energy (XLE), tech (QQQ, NVDA), financials (BAC), small-caps (IWM)
+- Track how quickly prices decline after the signal triggers (same day, next day, or doesn't decline)
+
+**Hypothesis:** The combination of RSI >70 (momentum exhaustion) and Bollinger %B >100 (statistical extreme) provides a reliable near-term peak signal for momentum trades. Exiting on this signal captures optimal gains before mean reversion begins.
+
+**Success Criteria:** After 8+ momentum trades across 3+ different tickers, if 75%+ of exits at RSI >70 + %B >100 are followed by price declines within 24-48 hours, promote this signal to a core profit-taking rule. If success rate is <50%, the signal is not reliable enough for systematic use.
+
+### Catalyst Fade vs Independent Drivers Test (2026-03-14)
+**Source:** Hindsight — QQQ260417P00595000 | **Status:** Active
+
+**Goal:** Determine whether to exit directional trades when the original catalyst fades, or hold if the underlying has independent technical drivers.
+
+**What to Test:**
+- Enter puts on news-driven bearish setups (geopolitical fear, sector rotation, earnings warnings)
+- Track both: (a) catalyst strength (headlines, sentiment shifts) AND (b) underlying technicals (trend, SMA position, RSI momentum)
+- When catalyst fades (e.g., oil fears ease), check if underlying is below 50 SMA with negative momentum
+- Compare outcomes: "exit on catalyst fade" vs "hold if independent bearish drivers exist"
+- Test across QQQ, IWM, SPY, XLE, sector ETFs
+
+**Hypothesis:** Exiting solely because the catalyst fades is a mistake when the underlying has independent bearish drivers (below 50 SMA, negative momentum, poor sector dynamics). The catalyst and the trend are separate — one fading doesn't invalidate the other.
+
+**Success Criteria:** After 6+ trades where catalyst fades but underlying remains technically weak, if holding produces better outcomes than exiting in 60%+ of cases, establish "check independent drivers before exiting" as a core rule. Track P&L difference between early exit vs holding for technical targets.

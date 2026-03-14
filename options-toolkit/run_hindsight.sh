@@ -26,6 +26,7 @@ fi
 # Trigger an isolated agent session for each symbol
 for SYM in $SYMBOLS; do
   openclaw agent \
+    --agent main \
     -m "Run hindsight analysis for $SYM. Use the paper-trade-hindsight skill." \
     --deliver \
     --channel discord \

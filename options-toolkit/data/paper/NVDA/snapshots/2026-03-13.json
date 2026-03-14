@@ -3038,5 +3038,565 @@
       "spy_change_pct": -0.52
     },
     "ts": "2026-03-13T14:15:15.202307-04:00"
+  },
+  {
+    "price": 180.356,
+    "avg_call_iv": 44.5,
+    "avg_put_iv": 44.5,
+    "avg_call_greeks": {
+      "delta": 0.5774,
+      "gamma": 0.0084,
+      "theta": -0.0816,
+      "vega": 0.4141,
+      "rho": 0.2926
+    },
+    "avg_put_greeks": {
+      "delta": -0.4226,
+      "gamma": 0.0084,
+      "theta": -0.0816,
+      "vega": 0.4141,
+      "rho": 0.2926
+    },
+    "intraday": {
+      "open": 184.92,
+      "high": 186.09,
+      "low": 180.19,
+      "last": 180.356,
+      "change_pct": -1.52,
+      "range_position": 3,
+      "volume": 112055127
+    },
+    "trends": {
+      "price_52w_high": 212.19,
+      "price_52w_low": 86.62,
+      "price_vs_52w_pct": 75,
+      "sma_50": 185.46,
+      "sma_200": 177.39,
+      "sma_signal": "mixed",
+      "returns": {
+        "1w": 1.4,
+        "1m": -5.1,
+        "3m": -1.9,
+        "6m": 1.8
+      },
+      "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+      "rsi_14": 39.4,
+      "atr_14": 6.27,
+      "prev_day_high": 186.09,
+      "prev_day_low": 180.19,
+      "avg_volume_50d": 177598676,
+      "bollinger": {
+        "upper": 194.37,
+        "middle": 184.96,
+        "lower": 175.55,
+        "pct_b": 25.6
+      }
+    },
+    "iv_context": {
+      "current_avg_iv": 44.5,
+      "avg_call_iv": 44.5,
+      "avg_put_iv": 44.5,
+      "iv_rank": 100,
+      "iv_percentile": 50,
+      "data_points": 4,
+      "iv_52w_high": 44.5,
+      "iv_52w_low": 43.2,
+      "call_iv_52w_high": 44.5,
+      "call_iv_52w_low": 43.1,
+      "put_iv_52w_high": 44.5,
+      "put_iv_52w_low": 43.2
+    },
+    "sentiment": {
+      "pc_vol_ratio": 0.91,
+      "pc_oi_ratio": null,
+      "skew": null,
+      "news_sentiment_label": "Neutral",
+      "news_sentiment_score": 0
+    },
+    "broader_market": {
+      "spy_price": 663.27,
+      "spy_change_pct": -0.42
+    },
+    "ts": "2026-03-13T14:30:17.987965-04:00"
+  },
+  {
+    "price": 180.45,
+    "avg_call_iv": 44.5,
+    "avg_put_iv": 44.5,
+    "avg_call_greeks": {
+      "delta": 0.5774,
+      "gamma": 0.0084,
+      "theta": -0.0816,
+      "vega": 0.4141,
+      "rho": 0.2926
+    },
+    "avg_put_greeks": {
+      "delta": -0.4226,
+      "gamma": 0.0084,
+      "theta": -0.0816,
+      "vega": 0.4141,
+      "rho": 0.2926
+    },
+    "intraday": {
+      "open": 184.92,
+      "high": 186.09,
+      "low": 180.0,
+      "last": 180.45,
+      "change_pct": -1.47,
+      "range_position": 7,
+      "volume": 115806106
+    },
+    "trends": {
+      "price_52w_high": 212.19,
+      "price_52w_low": 86.62,
+      "price_vs_52w_pct": 75,
+      "sma_50": 185.46,
+      "sma_200": 177.39,
+      "sma_signal": "mixed",
+      "returns": {
+        "1w": 1.5,
+        "1m": -5.1,
+        "3m": -1.8,
+        "6m": 1.9
+      },
+      "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+      "rsi_14": 39.5,
+      "atr_14": 6.28,
+      "prev_day_high": 186.09,
+      "prev_day_low": 180.0,
+      "avg_volume_50d": 177673677,
+      "bollinger": {
+        "upper": 194.37,
+        "middle": 184.96,
+        "lower": 175.56,
+        "pct_b": 25.9
+      }
+    },
+    "iv_context": {
+      "current_avg_iv": 44.5,
+      "avg_call_iv": 44.5,
+      "avg_put_iv": 44.5,
+      "iv_rank": 100,
+      "iv_percentile": 50,
+      "data_points": 4,
+      "iv_52w_high": 44.5,
+      "iv_52w_low": 43.2,
+      "call_iv_52w_high": 44.5,
+      "call_iv_52w_low": 43.1,
+      "put_iv_52w_high": 44.5,
+      "put_iv_52w_low": 43.2
+    },
+    "sentiment": {
+      "pc_vol_ratio": 0.79,
+      "pc_oi_ratio": null,
+      "skew": null,
+      "news_sentiment_label": "Slightly Bearish",
+      "news_sentiment_score": -1
+    },
+    "broader_market": {
+      "spy_price": 663.13,
+      "spy_change_pct": -0.44
+    },
+    "ts": "2026-03-13T14:45:14.835387-04:00"
+  },
+  {
+    "price": 180.9201,
+    "avg_call_iv": 44.5,
+    "avg_put_iv": 44.5,
+    "avg_call_greeks": {
+      "delta": 0.5774,
+      "gamma": 0.0084,
+      "theta": -0.0816,
+      "vega": 0.4141,
+      "rho": 0.2926
+    },
+    "avg_put_greeks": {
+      "delta": -0.4226,
+      "gamma": 0.0084,
+      "theta": -0.0816,
+      "vega": 0.4141,
+      "rho": 0.2926
+    },
+    "intraday": {
+      "open": 184.92,
+      "high": 186.09,
+      "low": 180.0,
+      "last": 180.9201,
+      "change_pct": -1.22,
+      "range_position": 15,
+      "volume": 119581687
+    },
+    "trends": {
+      "price_52w_high": 212.19,
+      "price_52w_low": 86.62,
+      "price_vs_52w_pct": 75,
+      "sma_50": 185.47,
+      "sma_200": 177.39,
+      "sma_signal": "mixed",
+      "returns": {
+        "1w": 1.7,
+        "1m": -4.8,
+        "3m": -1.6,
+        "6m": 2.1
+      },
+      "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+      "rsi_14": 39.8,
+      "atr_14": 6.28,
+      "prev_day_high": 186.09,
+      "prev_day_low": 180.0,
+      "avg_volume_50d": 177749263,
+      "bollinger": {
+        "upper": 194.35,
+        "middle": 184.99,
+        "lower": 175.63,
+        "pct_b": 28.4
+      }
+    },
+    "iv_context": {
+      "current_avg_iv": 44.5,
+      "avg_call_iv": 44.5,
+      "avg_put_iv": 44.5,
+      "iv_rank": 100,
+      "iv_percentile": 50,
+      "data_points": 4,
+      "iv_52w_high": 44.5,
+      "iv_52w_low": 43.2,
+      "call_iv_52w_high": 44.5,
+      "call_iv_52w_low": 43.1,
+      "put_iv_52w_high": 44.5,
+      "put_iv_52w_low": 43.2
+    },
+    "sentiment": {
+      "pc_vol_ratio": 0.63,
+      "pc_oi_ratio": null,
+      "skew": null,
+      "news_sentiment_label": "Slightly Bullish",
+      "news_sentiment_score": 2
+    },
+    "broader_market": {
+      "spy_price": 664.36,
+      "spy_change_pct": -0.26
+    },
+    "ts": "2026-03-13T15:00:49.631007-04:00"
+  },
+  {
+    "price": 180.99,
+    "avg_call_iv": 44.2,
+    "avg_put_iv": 44.2,
+    "avg_call_greeks": {
+      "delta": 0.5561,
+      "gamma": 0.0085,
+      "theta": -0.0815,
+      "vega": 0.4175,
+      "rho": 0.2833
+    },
+    "avg_put_greeks": {
+      "delta": -0.4439,
+      "gamma": 0.0085,
+      "theta": -0.0815,
+      "vega": 0.4175,
+      "rho": 0.2833
+    },
+    "intraday": {
+      "open": 184.92,
+      "high": 186.09,
+      "low": 180.0,
+      "last": 180.99,
+      "change_pct": -1.18,
+      "range_position": 16,
+      "volume": 122863097
+    },
+    "trends": {
+      "price_52w_high": 212.19,
+      "price_52w_low": 86.62,
+      "price_vs_52w_pct": 75,
+      "sma_50": 185.48,
+      "sma_200": 177.39,
+      "sma_signal": "mixed",
+      "returns": {
+        "1w": 1.8,
+        "1m": -4.8,
+        "3m": -1.5,
+        "6m": 2.2
+      },
+      "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+      "rsi_14": 39.9,
+      "atr_14": 6.28,
+      "prev_day_high": 186.09,
+      "prev_day_low": 180.0,
+      "avg_volume_50d": 177814882,
+      "bollinger": {
+        "upper": 194.35,
+        "middle": 184.99,
+        "lower": 175.64,
+        "pct_b": 28.6
+      }
+    },
+    "iv_context": {
+      "current_avg_iv": 44.2,
+      "avg_call_iv": 44.2,
+      "avg_put_iv": 44.2,
+      "iv_rank": 78,
+      "iv_percentile": 50,
+      "data_points": 4,
+      "iv_52w_high": 44.5,
+      "iv_52w_low": 43.2,
+      "call_iv_52w_high": 44.5,
+      "call_iv_52w_low": 43.1,
+      "put_iv_52w_high": 44.5,
+      "put_iv_52w_low": 43.2
+    },
+    "sentiment": {
+      "pc_vol_ratio": 0.79,
+      "pc_oi_ratio": null,
+      "skew": null,
+      "news_sentiment_label": "Slightly Bullish",
+      "news_sentiment_score": 2
+    },
+    "broader_market": {
+      "spy_price": 664.14,
+      "spy_change_pct": -0.29
+    },
+    "ts": "2026-03-13T15:15:17.441348-04:00"
+  },
+  {
+    "price": 180.835,
+    "avg_call_iv": 44.2,
+    "avg_put_iv": 44.3,
+    "avg_call_greeks": {
+      "delta": 0.5819,
+      "gamma": 0.0084,
+      "theta": -0.0823,
+      "vega": 0.414,
+      "rho": 0.2935
+    },
+    "avg_put_greeks": {
+      "delta": -0.4181,
+      "gamma": 0.0084,
+      "theta": -0.0823,
+      "vega": 0.414,
+      "rho": 0.2935
+    },
+    "intraday": {
+      "open": 184.92,
+      "high": 186.09,
+      "low": 180.0,
+      "last": 180.835,
+      "change_pct": -1.26,
+      "range_position": 14,
+      "volume": 126027863
+    },
+    "trends": {
+      "price_52w_high": 212.19,
+      "price_52w_low": 86.62,
+      "price_vs_52w_pct": 75,
+      "sma_50": 185.47,
+      "sma_200": 177.39,
+      "sma_signal": "mixed",
+      "returns": {
+        "1w": 1.7,
+        "1m": -4.8,
+        "3m": -1.6,
+        "6m": 2.1
+      },
+      "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+      "rsi_14": 39.8,
+      "atr_14": 6.28,
+      "prev_day_high": 186.09,
+      "prev_day_low": 180.0,
+      "avg_volume_50d": 177878172,
+      "bollinger": {
+        "upper": 194.35,
+        "middle": 184.98,
+        "lower": 175.62,
+        "pct_b": 27.9
+      }
+    },
+    "iv_context": {
+      "current_avg_iv": 44.2,
+      "avg_call_iv": 44.2,
+      "avg_put_iv": 44.3,
+      "iv_rank": 78,
+      "iv_percentile": 50,
+      "data_points": 4,
+      "iv_52w_high": 44.5,
+      "iv_52w_low": 43.2,
+      "call_iv_52w_high": 44.5,
+      "call_iv_52w_low": 43.1,
+      "put_iv_52w_high": 44.5,
+      "put_iv_52w_low": 43.2
+    },
+    "sentiment": {
+      "pc_vol_ratio": 0.7,
+      "pc_oi_ratio": null,
+      "skew": null,
+      "news_sentiment_label": "Slightly Bearish",
+      "news_sentiment_score": -1
+    },
+    "broader_market": {
+      "spy_price": 663.64,
+      "spy_change_pct": -0.37
+    },
+    "ts": "2026-03-13T15:30:23.630221-04:00"
+  },
+  {
+    "price": 180.6799,
+    "avg_call_iv": 44.2,
+    "avg_put_iv": 44.3,
+    "avg_call_greeks": {
+      "delta": 0.5819,
+      "gamma": 0.0084,
+      "theta": -0.0823,
+      "vega": 0.414,
+      "rho": 0.2935
+    },
+    "avg_put_greeks": {
+      "delta": -0.4181,
+      "gamma": 0.0084,
+      "theta": -0.0823,
+      "vega": 0.414,
+      "rho": 0.2935
+    },
+    "intraday": {
+      "open": 184.92,
+      "high": 186.09,
+      "low": 180.0,
+      "last": 180.6799,
+      "change_pct": -1.35,
+      "range_position": 11,
+      "volume": 130522391
+    },
+    "trends": {
+      "price_52w_high": 212.19,
+      "price_52w_low": 86.62,
+      "price_vs_52w_pct": 75,
+      "sma_50": 185.47,
+      "sma_200": 177.39,
+      "sma_signal": "mixed",
+      "returns": {
+        "1w": 1.6,
+        "1m": -4.9,
+        "3m": -1.7,
+        "6m": 2.0
+      },
+      "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+      "rsi_14": 39.6,
+      "atr_14": 6.28,
+      "prev_day_high": 186.09,
+      "prev_day_low": 180.0,
+      "avg_volume_50d": 177968064,
+      "bollinger": {
+        "upper": 194.36,
+        "middle": 184.98,
+        "lower": 175.59,
+        "pct_b": 27.1
+      }
+    },
+    "iv_context": {
+      "current_avg_iv": 44.2,
+      "avg_call_iv": 44.2,
+      "avg_put_iv": 44.3,
+      "iv_rank": 78,
+      "iv_percentile": 50,
+      "data_points": 4,
+      "iv_52w_high": 44.5,
+      "iv_52w_low": 43.2,
+      "call_iv_52w_high": 44.5,
+      "call_iv_52w_low": 43.1,
+      "put_iv_52w_high": 44.5,
+      "put_iv_52w_low": 43.2
+    },
+    "sentiment": {
+      "pc_vol_ratio": 0.68,
+      "pc_oi_ratio": null,
+      "skew": null,
+      "news_sentiment_label": "Slightly Bearish",
+      "news_sentiment_score": -1
+    },
+    "broader_market": {
+      "spy_price": 662.59,
+      "spy_change_pct": -0.53
+    },
+    "ts": "2026-03-13T15:45:16.881802-04:00"
+  },
+  {
+    "price": 180.72,
+    "avg_call_iv": 44.2,
+    "avg_put_iv": 44.3,
+    "avg_call_greeks": {
+      "delta": 0.5819,
+      "gamma": 0.0084,
+      "theta": -0.0823,
+      "vega": 0.414,
+      "rho": 0.2935
+    },
+    "avg_put_greeks": {
+      "delta": -0.4181,
+      "gamma": 0.0084,
+      "theta": -0.0823,
+      "vega": 0.414,
+      "rho": 0.2935
+    },
+    "intraday": {
+      "open": 184.92,
+      "high": 186.09,
+      "low": 180.0,
+      "last": 180.72,
+      "change_pct": -1.33,
+      "range_position": 12,
+      "volume": 130768404
+    },
+    "trends": {
+      "price_52w_high": 212.19,
+      "price_52w_low": 86.62,
+      "price_vs_52w_pct": 75,
+      "sma_50": 185.47,
+      "sma_200": 177.39,
+      "sma_signal": "mixed",
+      "returns": {
+        "1w": 1.6,
+        "1m": -4.9,
+        "3m": -1.7,
+        "6m": 2.0
+      },
+      "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+      "rsi_14": 39.7,
+      "atr_14": 6.28,
+      "prev_day_high": 186.09,
+      "prev_day_low": 180.0,
+      "avg_volume_50d": 177973028,
+      "bollinger": {
+        "upper": 194.36,
+        "middle": 184.98,
+        "lower": 175.6,
+        "pct_b": 27.3
+      }
+    },
+    "iv_context": {
+      "current_avg_iv": 44.2,
+      "avg_call_iv": 44.2,
+      "avg_put_iv": 44.3,
+      "iv_rank": 78,
+      "iv_percentile": 50,
+      "data_points": 4,
+      "iv_52w_high": 44.5,
+      "iv_52w_low": 43.2,
+      "call_iv_52w_high": 44.5,
+      "call_iv_52w_low": 43.1,
+      "put_iv_52w_high": 44.5,
+      "put_iv_52w_low": 43.2
+    },
+    "sentiment": {
+      "pc_vol_ratio": 0.68,
+      "pc_oi_ratio": null,
+      "skew": null,
+      "news_sentiment_label": "Slightly Bearish",
+      "news_sentiment_score": -1
+    },
+    "broader_market": {
+      "spy_price": 662.74,
+      "spy_change_pct": -0.5
+    },
+    "ts": "2026-03-13T15:45:50.923145-04:00"
   }
 ]
