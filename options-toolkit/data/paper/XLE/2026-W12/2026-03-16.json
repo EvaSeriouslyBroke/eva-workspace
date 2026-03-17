@@ -1,0 +1,96 @@
+[
+  {
+    "timestamp": "2026-03-16T11:35:44.973803-04:00",
+    "price": 58.07,
+    "prev_close": 57.7,
+    "expiry": "2026-07-17",
+    "avg_call_iv": 27.57,
+    "avg_put_iv": 28.2,
+    "overall_avg_iv": 27.88,
+    "pc_vol_ratio": 0.27,
+    "pc_oi_ratio": 0.8,
+    "skew": 0.63,
+    "strikes": {
+      "65": {
+        "call_iv": 26.36,
+        "call_vol": 22,
+        "call_oi": 2727,
+        "put_iv": 29.71,
+        "put_vol": 0,
+        "put_oi": 0
+      },
+      "60": {
+        "call_iv": 27.1,
+        "call_vol": 26,
+        "call_oi": 2791,
+        "put_iv": 28.02,
+        "put_vol": 2,
+        "put_oi": 424
+      },
+      "59": {
+        "call_iv": 27.49,
+        "call_vol": 0,
+        "call_oi": 197,
+        "put_iv": 28.1,
+        "put_vol": 0,
+        "put_oi": 13
+      },
+      "58": {
+        "call_iv": 27.81,
+        "call_vol": 12,
+        "call_oi": 565,
+        "put_iv": 27.49,
+        "put_vol": 4,
+        "put_oi": 1176
+      },
+      "57": {
+        "call_iv": 27.6,
+        "call_vol": 19,
+        "call_oi": 1311,
+        "put_iv": 28.66,
+        "put_vol": 0,
+        "put_oi": 1106
+      },
+      "56": {
+        "call_iv": 27.83,
+        "call_vol": 7,
+        "call_oi": 4068,
+        "put_iv": 28.73,
+        "put_vol": 11,
+        "put_oi": 4442
+      },
+      "55": {
+        "call_iv": 28.14,
+        "call_vol": 0,
+        "call_oi": 1980,
+        "put_iv": 28.14,
+        "put_vol": 16,
+        "put_oi": 4795
+      },
+      "54": {
+        "call_iv": 28.09,
+        "call_vol": 0,
+        "call_oi": 1258,
+        "put_iv": 29.52,
+        "put_vol": 0,
+        "put_oi": 259
+      },
+      "53": {
+        "call_iv": 28.33,
+        "call_vol": 0,
+        "call_oi": 420,
+        "put_iv": 29.41,
+        "put_vol": 0,
+        "put_oi": 1170
+      },
+      "52": {
+        "call_iv": 29.09,
+        "call_vol": 0,
+        "call_oi": 1510,
+        "put_iv": 29.55,
+        "put_vol": 34,
+        "put_oi": 1010
+      }
+    }
+  }
+]

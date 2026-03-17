@@ -835,5 +835,11 @@
         "spy_change_pct": -0.32
       }
     }
+  },
+  "26432548": {
+    "reason": "Exiting per validated experience: mean reversion calls fail when stock is below both 50 and 200 SMAs. BAC at 47.34, well below 50 SMA (~52.8) and 200 SMA (~50.6). Three previous BAC trades with this same thesis all failed (-8.3%, -20.6%, -1.4% losses). Pattern is consistent: financial sector weakness persists longer than expected, and 'no bad news' does not equal 'due for bounce.' Cutting losses before further damage \u2014 the experience specifically advises waiting for reclaim of 50 SMA or bounce off lower support before mean reversion entry.",
+    "timestamp": "2026-03-16T12:05:47.187279-04:00",
+    "side": "sell_to_close",
+    "symbol": "BAC260717C00050000"
   }
 }

@@ -1,0 +1,96 @@
+[
+  {
+    "timestamp": "2026-03-16T11:35:44.583524-04:00",
+    "price": 184.62,
+    "prev_close": 180.25,
+    "expiry": "2026-07-17",
+    "avg_call_iv": 42.56,
+    "avg_put_iv": 42.49,
+    "overall_avg_iv": 42.52,
+    "pc_vol_ratio": 0.44,
+    "pc_oi_ratio": 1.34,
+    "skew": -0.07,
+    "strikes": {
+      "210": {
+        "call_iv": 40.16,
+        "call_vol": 80,
+        "call_oi": 7058,
+        "put_iv": 40.01,
+        "put_vol": 0,
+        "put_oi": 575
+      },
+      "205": {
+        "call_iv": 40.53,
+        "call_vol": 17,
+        "call_oi": 812,
+        "put_iv": 40.45,
+        "put_vol": 1,
+        "put_oi": 7
+      },
+      "200": {
+        "call_iv": 40.83,
+        "call_vol": 280,
+        "call_oi": 11378,
+        "put_iv": 41.01,
+        "put_vol": 2,
+        "put_oi": 3152
+      },
+      "195": {
+        "call_iv": 41.36,
+        "call_vol": 83,
+        "call_oi": 3568,
+        "put_iv": 41.35,
+        "put_vol": 2,
+        "put_oi": 1713
+      },
+      "190": {
+        "call_iv": 41.89,
+        "call_vol": 208,
+        "call_oi": 6735,
+        "put_iv": 41.85,
+        "put_vol": 3,
+        "put_oi": 4542
+      },
+      "185": {
+        "call_iv": 42.54,
+        "call_vol": 78,
+        "call_oi": 5738,
+        "put_iv": 42.44,
+        "put_vol": 59,
+        "put_oi": 4106
+      },
+      "180": {
+        "call_iv": 43.18,
+        "call_vol": 188,
+        "call_oi": 9225,
+        "put_iv": 43.07,
+        "put_vol": 92,
+        "put_oi": 23804
+      },
+      "175": {
+        "call_iv": 43.82,
+        "call_vol": 9,
+        "call_oi": 4128,
+        "put_iv": 43.73,
+        "put_vol": 93,
+        "put_oi": 5240
+      },
+      "170": {
+        "call_iv": 44.6,
+        "call_vol": 2,
+        "call_oi": 1385,
+        "put_iv": 44.45,
+        "put_vol": 192,
+        "put_oi": 13196
+      },
+      "165": {
+        "call_iv": 45.11,
+        "call_vol": 1,
+        "call_oi": 837,
+        "put_iv": 45.32,
+        "put_vol": 324,
+        "put_oi": 13079
+      }
+    }
+  }
+]

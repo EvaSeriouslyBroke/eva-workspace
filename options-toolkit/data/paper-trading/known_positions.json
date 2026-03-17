@@ -1,20 +1,4 @@
 {
-  "IWM260821C00250000": [
-    {
-      "order_id": "25966279",
-      "reason": "Mean reversion play: IWM down 2.56% today, -4.3% for the week with no IWM-specific fundamental driver. News shows general market pressure/Middle East tension but nothing structural to small-caps. IV at 25.7% is moderate (not elevated). Buying ATM 250C with 168 DTE to capture potential recovery. Thesis: dip is overreaction, expecting reversion toward 50 SMA at 260.39.",
-      "entry_price": 250.245,
-      "entry_iv": 25.7,
-      "entry_date": "2026-03-06",
-      "ticker": "IWM",
-      "type": "call",
-      "strike": 250.0,
-      "expiry": "2026-08-21",
-      "quantity": 1,
-      "cost_basis": 1923.0,
-      "reflected": true
-    }
-  ],
   "AMD260717C00200000": [
     {
       "order_id": "26200020",
@@ -269,97 +253,6 @@
       }
     }
   ],
-  "BAC260717C00050000": [
-    {
-      "order_id": "26330243",
-      "reason": "Mean reversion play on oversold BAC. Stock at 7.26, down -2.6% today and -12.9% YTD. RSI at 25.6 (oversold), trading below both 50 and 200 SMA. IV Rank 100% reflects elevated uncertainty but bank reported strong Q1 trading revenue (+double digits). Low P/C ratio (0.09) signals extreme bearish sentiment - contrarian opportunity. Buying slightly OTM 50C with 127 DTE to capture potential bounce. Pattern: oversold + strong fundamentals + contrarian sentiment. Testing: catching falling knives with fundamental support.",
-      "entry_price": 47.39,
-      "entry_iv": 30.6,
-      "entry_date": "2026-03-12",
-      "ticker": "BAC",
-      "type": "call",
-      "strike": 50.0,
-      "expiry": "2026-07-17",
-      "quantity": 1,
-      "cost_basis": 253.0,
-      "reflected": true,
-      "market_context": {
-        "price": 47.39,
-        "change_pct": -2.33,
-        "iv": 30.6,
-        "option_greeks": {
-          "delta": 0.476,
-          "gamma": 0.0489,
-          "theta": -0.0139,
-          "vega": 0.1146,
-          "rho": 0.0715
-        },
-        "iv_context": {
-          "iv_rank": 8,
-          "iv_percentile": 50,
-          "iv_52w_high": 33.6,
-          "iv_52w_low": 30.4
-        },
-        "trends": {
-          "price_52w_high": 57.55,
-          "price_52w_low": 33.06,
-          "price_vs_52w_pct": 59,
-          "sma_50": 52.81,
-          "sma_200": 50.59,
-          "sma_signal": "below_both",
-          "returns": {
-            "1w": -4.3,
-            "1m": -14.4,
-            "3m": -11.5,
-            "6m": -5.5
-          },
-          "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
-          "rsi_14": 25.9,
-          "atr_14": 1.65,
-          "prev_day_high": 47.78,
-          "prev_day_low": 47.2,
-          "avg_volume_50d": 40870711,
-          "bollinger": {
-            "upper": 54.32,
-            "middle": 50.65,
-            "lower": 46.97,
-            "pct_b": 5.7
-          }
-        },
-        "news": [
-          {
-            "title": "How The Ecolab (ECL) Narrative Is Shifting With New Price Targets And Ongoing Risks",
-            "publisher": "Simply Wall St.",
-            "date": "2026-03-12"
-          },
-          {
-            "title": "Salesforce Taps Bonds for Buybacks as Investors Demand More Yield",
-            "publisher": "Zacks",
-            "date": "2026-03-12"
-          },
-          {
-            "title": "Bank of America is Bullish on The Williams Companies, Inc. (WMB)",
-            "publisher": "Insider Monkey",
-            "date": "2026-03-12"
-          },
-          {
-            "title": "How The Investment Story For Domino\u2019s Pizza (DPZ) Is Shifting As Analyst Views Diverge",
-            "publisher": "Simply Wall St.",
-            "date": "2026-03-12"
-          },
-          {
-            "title": "How The InterContinental Hotels Group (LSE:IHG) Investment Story Is Shifting With Mixed Analyst Views",
-            "publisher": "Simply Wall St.",
-            "date": "2026-03-12"
-          }
-        ],
-        "broader_market": {
-          "spy_price": 669.98,
-          "spy_change_pct": -0.94
-        }
-      }
-    }
-  ],
   "QQQ260821C00600000": [
     {
       "order_id": "26386012",
@@ -448,6 +341,26 @@
           "spy_price": 663.95,
           "spy_change_pct": -0.32
         }
+      }
+    }
+  ],
+  "IWM260821C00250000": [
+    {
+      "order_id": "25966279",
+      "reason": "Mean reversion play: IWM down 2.56% today, -4.3% for the week with no IWM-specific fundamental driver. News shows general market pressure/Middle East tension but nothing structural to small-caps. IV at 25.7% is moderate (not elevated). Buying ATM 250C with 168 DTE to capture potential recovery. Thesis: dip is overreaction, expecting reversion toward 50 SMA at 260.39.",
+      "entry_price": 250.245,
+      "entry_iv": 25.7,
+      "entry_date": "2026-03-06",
+      "ticker": "IWM",
+      "type": "call",
+      "strike": 250.0,
+      "expiry": "2026-08-21",
+      "quantity": 1,
+      "cost_basis": 1923.0,
+      "reflected": true,
+      "market_context": {
+        "price": 250.245,
+        "iv": 25.7
       }
     }
   ]

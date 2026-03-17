@@ -46,16 +46,53 @@ The goal is pattern recognition across as many market conditions as possible.
 ### Entry
 - Use all available data: price action, Greeks, IV rank, trends, news,
   historical patterns, volume, open interest — the full picture.
-- Document the thesis clearly. What pattern are you seeing? What do you
-  expect to happen and why? What would prove you wrong?
 - Check news before trading. Understand whether the move has a fundamental
   driver or is noise.
+- **Every buy must define a thesis with these components:**
+  1. **What** — the pattern or catalyst you're trading on.
+  2. **Time window** — when you expect the move to happen (e.g., "within 5
+     trading days", "by March 25", "over the next 2-3 weeks"). Be specific.
+     This is your patience horizon — you are committing to hold through noise
+     within this window.
+  3. **Expected move** — what you think the stock/contract will do and
+     roughly how much upside you see (e.g., "stock recovers toward 50 SMA at
+     260 — roughly +20% on the contract", "expect a $5-8 move higher on
+     catalyst follow-through"). This is your initial theory of what success
+     looks like, not a hard sell trigger. When the position reaches this
+     zone, evaluate market conditions to decide whether to ride further or
+     take profits.
+  4. **Invalidation criteria** — what specific events or conditions would
+     prove the thesis wrong (e.g., "breaks below 200 SMA", "negative earnings
+     revision", "catalyst news retracted"). Price going down is NOT
+     invalidation by itself — the thesis has to actually break.
 
 ### Exit
-- Re-evaluate every position each cycle.
-- Sell when the thesis has played out, is clearly wrong, or conditions change.
-- No hard stop-loss percentages — use judgment based on the full picture.
+- **Thesis-driven exits only.** Do not sell because the price dipped. Sell
+  because the thesis is no longer valid or because it played out.
+- **Sell when:**
+  - The expected move has played out and market conditions suggest the
+    momentum is fading — take profits based on what you see (technicals,
+    volume, news), not a fixed number.
+  - The thesis is invalidated — a specific invalidation criterion was hit
+    (news changed, key level broken, fundamental shift).
+  - The time window expired and the expected move didn't happen — the thesis
+    was wrong about timing, so cut and learn.
+- **Do NOT sell when:**
+  - The position is red but the time window hasn't expired and no
+    invalidation criteria have been hit. This is noise, not failure.
+  - The broader market dipped but your ticker-specific thesis is intact.
+  - You "feel" like it's not working — check the criteria, not your gut.
 - Track what made you exit and whether it was the right call.
+
+### Averaging Down
+- If a position dips **within the time window** and the thesis is still
+  intact (no invalidation criteria hit), **consider averaging down** rather
+  than selling. A lower price on the same thesis means a better entry.
+- Before averaging down, re-check: Is the thesis still valid? Has any news
+  changed? Are the fundamentals the same? If yes — the dip is an
+  opportunity, not a reason to panic.
+- Do not average down if an invalidation criterion has been hit. That's a
+  sell, not a buying opportunity.
 
 ### Learning Priority
 - **Trade more, not less.** Volume of trades = volume of data.

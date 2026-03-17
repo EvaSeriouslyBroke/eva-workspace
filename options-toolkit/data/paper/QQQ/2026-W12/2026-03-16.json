@@ -1,0 +1,284 @@
+[
+  {
+    "timestamp": "2026-03-16T11:35:35.665010-04:00",
+    "price": 601.23,
+    "prev_close": 593.72,
+    "expiry": "2026-06-30",
+    "avg_call_iv": 23.28,
+    "avg_put_iv": 23.29,
+    "overall_avg_iv": 23.29,
+    "pc_vol_ratio": 0.88,
+    "pc_oi_ratio": 1.58,
+    "skew": 0.02,
+    "strikes": {
+      "625": {
+        "call_iv": 20.82,
+        "call_vol": 4,
+        "call_oi": 520,
+        "put_iv": 20.9,
+        "put_vol": 0,
+        "put_oi": 758
+      },
+      "620": {
+        "call_iv": 21.3,
+        "call_vol": 28,
+        "call_oi": 766,
+        "put_iv": 21.37,
+        "put_vol": 8,
+        "put_oi": 694
+      },
+      "615": {
+        "call_iv": 21.71,
+        "call_vol": 80,
+        "call_oi": 1481,
+        "put_iv": 21.94,
+        "put_vol": 1,
+        "put_oi": 800
+      },
+      "610": {
+        "call_iv": 22.28,
+        "call_vol": 9,
+        "call_oi": 496,
+        "put_iv": 22.31,
+        "put_vol": 6,
+        "put_oi": 400
+      },
+      "605": {
+        "call_iv": 22.71,
+        "call_vol": 12,
+        "call_oi": 744,
+        "put_iv": 22.85,
+        "put_vol": 6,
+        "put_oi": 540
+      },
+      "600": {
+        "call_iv": 23.31,
+        "call_vol": 94,
+        "call_oi": 2366,
+        "put_iv": 23.27,
+        "put_vol": 33,
+        "put_oi": 4229
+      },
+      "595": {
+        "call_iv": 23.68,
+        "call_vol": 12,
+        "call_oi": 414,
+        "put_iv": 23.81,
+        "put_vol": 32,
+        "put_oi": 323
+      },
+      "590": {
+        "call_iv": 24.41,
+        "call_vol": 12,
+        "call_oi": 289,
+        "put_iv": 24.23,
+        "put_vol": 46,
+        "put_oi": 1309
+      },
+      "585": {
+        "call_iv": 24.55,
+        "call_vol": 2,
+        "call_oi": 194,
+        "put_iv": 24.81,
+        "put_vol": 11,
+        "put_oi": 1341
+      },
+      "580": {
+        "call_iv": 25.16,
+        "call_vol": 20,
+        "call_oi": 1762,
+        "put_iv": 25.22,
+        "put_vol": 88,
+        "put_oi": 1927
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-16T14:01:27.919741-04:00",
+    "price": 600.96,
+    "prev_close": 593.72,
+    "expiry": "2026-06-30",
+    "avg_call_iv": 23.27,
+    "avg_put_iv": 23.18,
+    "overall_avg_iv": 23.23,
+    "pc_vol_ratio": 4.43,
+    "pc_oi_ratio": 1.58,
+    "skew": -0.08,
+    "strikes": {
+      "625": {
+        "call_iv": 20.75,
+        "call_vol": 47,
+        "call_oi": 520,
+        "put_iv": 20.79,
+        "put_vol": 1,
+        "put_oi": 758
+      },
+      "620": {
+        "call_iv": 21.25,
+        "call_vol": 33,
+        "call_oi": 766,
+        "put_iv": 21.26,
+        "put_vol": 18,
+        "put_oi": 694
+      },
+      "615": {
+        "call_iv": 21.75,
+        "call_vol": 82,
+        "call_oi": 1481,
+        "put_iv": 21.76,
+        "put_vol": 1,
+        "put_oi": 800
+      },
+      "610": {
+        "call_iv": 22.25,
+        "call_vol": 34,
+        "call_oi": 496,
+        "put_iv": 22.22,
+        "put_vol": 24,
+        "put_oi": 400
+      },
+      "605": {
+        "call_iv": 22.75,
+        "call_vol": 19,
+        "call_oi": 744,
+        "put_iv": 22.69,
+        "put_vol": 15,
+        "put_oi": 540
+      },
+      "600": {
+        "call_iv": 23.26,
+        "call_vol": 102,
+        "call_oi": 2366,
+        "put_iv": 23.19,
+        "put_vol": 677,
+        "put_oi": 4229
+      },
+      "595": {
+        "call_iv": 23.76,
+        "call_vol": 14,
+        "call_oi": 414,
+        "put_iv": 23.67,
+        "put_vol": 32,
+        "put_oi": 323
+      },
+      "590": {
+        "call_iv": 24.31,
+        "call_vol": 12,
+        "call_oi": 289,
+        "put_iv": 24.15,
+        "put_vol": 53,
+        "put_oi": 1309
+      },
+      "585": {
+        "call_iv": 24.6,
+        "call_vol": 3,
+        "call_oi": 194,
+        "put_iv": 24.67,
+        "put_vol": 11,
+        "put_oi": 1341
+      },
+      "580": {
+        "call_iv": 25.02,
+        "call_vol": 20,
+        "call_oi": 1762,
+        "put_iv": 25.15,
+        "put_vol": 99,
+        "put_oi": 1927
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-16T14:19:48.131541-04:00",
+    "price": 600.96,
+    "prev_close": 593.72,
+    "expiry": "2026-06-30",
+    "avg_call_iv": 23.15,
+    "avg_put_iv": 23.11,
+    "overall_avg_iv": 23.13,
+    "pc_vol_ratio": 4.44,
+    "pc_oi_ratio": 1.58,
+    "skew": -0.03,
+    "strikes": {
+      "625": {
+        "call_iv": 20.67,
+        "call_vol": 47,
+        "call_oi": 520,
+        "put_iv": 20.7,
+        "put_vol": 1,
+        "put_oi": 758
+      },
+      "620": {
+        "call_iv": 21.17,
+        "call_vol": 33,
+        "call_oi": 766,
+        "put_iv": 21.19,
+        "put_vol": 38,
+        "put_oi": 694
+      },
+      "615": {
+        "call_iv": 21.68,
+        "call_vol": 82,
+        "call_oi": 1481,
+        "put_iv": 21.68,
+        "put_vol": 3,
+        "put_oi": 800
+      },
+      "610": {
+        "call_iv": 22.16,
+        "call_vol": 34,
+        "call_oi": 496,
+        "put_iv": 22.15,
+        "put_vol": 24,
+        "put_oi": 400
+      },
+      "605": {
+        "call_iv": 22.65,
+        "call_vol": 19,
+        "call_oi": 744,
+        "put_iv": 22.61,
+        "put_vol": 16,
+        "put_oi": 540
+      },
+      "600": {
+        "call_iv": 23.16,
+        "call_vol": 104,
+        "call_oi": 2366,
+        "put_iv": 23.12,
+        "put_vol": 687,
+        "put_oi": 4229
+      },
+      "595": {
+        "call_iv": 23.66,
+        "call_vol": 14,
+        "call_oi": 414,
+        "put_iv": 23.59,
+        "put_vol": 32,
+        "put_oi": 323
+      },
+      "590": {
+        "call_iv": 24.1,
+        "call_vol": 12,
+        "call_oi": 289,
+        "put_iv": 24.09,
+        "put_vol": 53,
+        "put_oi": 1309
+      },
+      "585": {
+        "call_iv": 24.37,
+        "call_vol": 3,
+        "call_oi": 194,
+        "put_iv": 24.6,
+        "put_vol": 11,
+        "put_oi": 1341
+      },
+      "580": {
+        "call_iv": 24.86,
+        "call_vol": 20,
+        "call_oi": 1762,
+        "put_iv": 25.08,
+        "put_vol": 99,
+        "put_oi": 1927
+      }
+    }
+  }
+]

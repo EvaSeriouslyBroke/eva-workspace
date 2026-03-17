@@ -1,0 +1,96 @@
+[
+  {
+    "timestamp": "2026-03-16T11:35:43.724053-04:00",
+    "price": 459.575,
+    "prev_close": 460.84,
+    "expiry": "2026-07-17",
+    "avg_call_iv": 27.15,
+    "avg_put_iv": 27.35,
+    "overall_avg_iv": 27.25,
+    "pc_vol_ratio": 0.14,
+    "pc_oi_ratio": 0.4,
+    "skew": 0.2,
+    "strikes": {
+      "485": {
+        "call_iv": 27.52,
+        "call_vol": 7,
+        "call_oi": 1695,
+        "put_iv": 27.84,
+        "put_vol": 0,
+        "put_oi": 198
+      },
+      "480": {
+        "call_iv": 27.36,
+        "call_vol": 113,
+        "call_oi": 1889,
+        "put_iv": 27.81,
+        "put_vol": 0,
+        "put_oi": 61
+      },
+      "475": {
+        "call_iv": 27.25,
+        "call_vol": 9,
+        "call_oi": 1243,
+        "put_iv": 27.67,
+        "put_vol": 1,
+        "put_oi": 321
+      },
+      "470": {
+        "call_iv": 27.23,
+        "call_vol": 77,
+        "call_oi": 1603,
+        "put_iv": 27.56,
+        "put_vol": 1,
+        "put_oi": 423
+      },
+      "465": {
+        "call_iv": 27.04,
+        "call_vol": 46,
+        "call_oi": 1650,
+        "put_iv": 27.3,
+        "put_vol": 10,
+        "put_oi": 254
+      },
+      "460": {
+        "call_iv": 26.99,
+        "call_vol": 10,
+        "call_oi": 2441,
+        "put_iv": 27.38,
+        "put_vol": 12,
+        "put_oi": 561
+      },
+      "455": {
+        "call_iv": 27.27,
+        "call_vol": 62,
+        "call_oi": 816,
+        "put_iv": 27.35,
+        "put_vol": 1,
+        "put_oi": 760
+      },
+      "450": {
+        "call_iv": 27.23,
+        "call_vol": 13,
+        "call_oi": 680,
+        "put_iv": 27.15,
+        "put_vol": 6,
+        "put_oi": 865
+      },
+      "445": {
+        "call_iv": 27.11,
+        "call_vol": 40,
+        "call_oi": 1305,
+        "put_iv": 27.07,
+        "put_vol": 322,
+        "put_oi": 2031
+      },
+      "440": {
+        "call_iv": 27.06,
+        "call_vol": 1,
+        "call_oi": 713,
+        "put_iv": 27.3,
+        "put_vol": 4,
+        "put_oi": 629
+      }
+    }
+  }
+]
