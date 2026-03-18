@@ -841,5 +841,248 @@
     "timestamp": "2026-03-16T12:05:47.187279-04:00",
     "side": "sell_to_close",
     "symbol": "BAC260717C00050000"
+  },
+  "26469492": {
+    "reason": "Technical exhaustion play on XLE. RSI at 73.7 (>70 overbought), Bollinger %B at 95.6 near upper band. Experience from XLE momentum trades shows RSI >70 + %B >100 reliably marks near-term peaks. Energy sector extended +27% YTD on Iran oil conflict catalyst that may be fading. Stock at 52-week highs (8.37) showing momentum exhaustion. Testing: RSI/%B profit-taking validation thesis in reverse \u2014 entering puts at technical extremes for mean reversion. Time window: 5-7 trading days for pullback toward 50 SMA (2.41). Invalidated if oil spikes on new Iran developments or XLE breaks above 8.50.",
+    "timestamp": "2026-03-17T09:34:41.340849-04:00",
+    "side": "buy_to_open",
+    "symbol": "XLE260327P00057000",
+    "market_context": {
+      "price": 57.9,
+      "change_pct": 0,
+      "iv": 29.3,
+      "option_greeks": {
+        "delta": -0.39,
+        "gamma": 0.1392,
+        "theta": -0.0396,
+        "vega": 0.0375,
+        "rho": 0.0071
+      },
+      "iv_context": {
+        "iv_rank": 100,
+        "iv_percentile": 100,
+        "iv_52w_high": 28.8,
+        "iv_52w_low": 27.1
+      },
+      "trends": {
+        "price_52w_high": 58.37,
+        "price_52w_low": 37.24,
+        "price_vs_52w_pct": 98,
+        "sma_50": 52.41,
+        "sma_200": 46.06,
+        "sma_signal": "above_both",
+        "returns": {
+          "1w": 4.1,
+          "1m": 6.5,
+          "3m": 27.2,
+          "6m": 31.1
+        },
+        "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+        "rsi_14": 73.6,
+        "atr_14": 1.21,
+        "prev_day_high": 58.37,
+        "prev_day_low": 58.06,
+        "avg_volume_50d": 58667142,
+        "bollinger": {
+          "upper": 58.33,
+          "middle": 56.19,
+          "lower": 54.05,
+          "pct_b": 95.3
+        }
+      },
+      "news": [
+        {
+          "title": "Oil prices should see immediate relief at Iran war's end: Analyst",
+          "publisher": "Yahoo Finance Video",
+          "date": "2026-03-16"
+        },
+        {
+          "title": "Trump pushes for NATO support in bid to reopen Strait of Hormuz",
+          "publisher": "Yahoo Finance Video",
+          "date": "2026-03-16"
+        },
+        {
+          "title": "Exchange-Traded Funds Higher, Equity Futures Mixed Pre-Bell Tuesday Ahead of US Federal Reserve Meeting",
+          "publisher": "MT Newswires",
+          "date": "2026-03-17"
+        },
+        {
+          "title": "Warren Buffett\u2019s parting gift to Berkshire Hathaway: a $2 billion Iran oil windfall",
+          "publisher": "MarketWatch",
+          "date": "2026-03-17"
+        },
+        {
+          "title": "Sector Update: Energy Stocks Rise Late Afternoon",
+          "publisher": "MT Newswires",
+          "date": "2026-03-16"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 669.03,
+        "spy_change_pct": 0
+      }
+    }
+  },
+  "26478706": {
+    "reason": "Double down on mean reversion thesis. Original position (QQQ260821C00600000) entered at Bollinger %B -6.3 (lower band) on March 13 is working (+1.7%). Thesis: QQQ recovering from geopolitical dip toward 50 SMA at 612.89. Current RSI 41.7 (room to run), Bollinger %B 48% (middle of band), price between 50/200 SMA. News supports: VIX falling despite global chaos, 'buy the dip' sentiment emerging, Fed meeting may provide clarity. Experience supports: QQQ geopolitical dips are short-lived (experience/tickers/QQQ/geopolitical-dips-are-short-lived.md). Time window: 5-7 trading days for move toward 612.89. Expected move: Stock toward 50 SMA = ~+15-20% on contract. Invalidated if QQQ breaks below 200 SMA at 591.84 or Fed delivers hawkish surprise.",
+    "timestamp": "2026-03-17T11:17:41.688756-04:00",
+    "side": "buy_to_open",
+    "symbol": "QQQ260821C00600000",
+    "market_context": {
+      "price": 604.98,
+      "change_pct": 0.77,
+      "iv": 23.6,
+      "option_greeks": {
+        "delta": 0.588,
+        "gamma": 0.0042,
+        "theta": -0.1426,
+        "vega": 1.5421,
+        "rho": 1.3498
+      },
+      "iv_context": {
+        "iv_rank": 19,
+        "iv_percentile": 17,
+        "iv_52w_high": 25.1,
+        "iv_52w_low": 23.2
+      },
+      "trends": {
+        "price_52w_high": 637.01,
+        "price_52w_low": 402.39,
+        "price_vs_52w_pct": 86,
+        "sma_50": 612.89,
+        "sma_200": 591.84,
+        "sma_signal": "mixed",
+        "returns": {
+          "1w": -0.5,
+          "1m": 0.5,
+          "3m": -1.4,
+          "6m": 2.2
+        },
+        "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+        "rsi_14": 41.7,
+        "atr_14": 10.77,
+        "prev_day_high": 605.9,
+        "prev_day_low": 602.28,
+        "avg_volume_50d": 63345759,
+        "bollinger": {
+          "upper": 615.68,
+          "middle": 605.46,
+          "lower": 595.24,
+          "pct_b": 47.7
+        }
+      },
+      "news": [
+        {
+          "title": "The VIX Is Falling Despite Global Chaos \u2014 Here\u2019s What the Fear Gauge Is Actually Telling You",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-17"
+        },
+        {
+          "title": "Should You Be Greedy When Others are Fearful? ETFs in Focus",
+          "publisher": "Zacks",
+          "date": "2026-03-17"
+        },
+        {
+          "title": "Exchange-Traded Funds Higher, Equity Futures Mixed Pre-Bell Tuesday Ahead of US Federal Reserve Meeting",
+          "publisher": "MT Newswires",
+          "date": "2026-03-17"
+        },
+        {
+          "title": "Exchange-Traded Funds Rise as US Equities Advance After Midday",
+          "publisher": "MT Newswires",
+          "date": "2026-03-16"
+        },
+        {
+          "title": "Is Dow ETF Better-Positioned Than S&P 500 & Nasdaq Amid Iran War?",
+          "publisher": "Zacks",
+          "date": "2026-03-16"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 673.01,
+        "spy_change_pct": 0.6
+      }
+    }
+  },
+  "26497153": {
+    "reason": "QQQ mean reversion call \u2014 riding the geopolitical fear fade pattern. QQQ at 603.63 between 50/200 SMA with RSI 40.5 (room to run). IV at 23.4% is cheap (rank 3). Deep news research shows VIX falling despite global chaos, 'buy the dip' sentiment emerging ahead of Fed meeting. Experience recall (QQQ geopolitical-dips-are-short-lived) validates quick recovery from fear-driven dips \u2014 prior March 12-13 dip recovered exactly as pattern predicts. Stock positioned between SMAs (not below both) so mean reversion has better odds than prior failed put trade. Time window: 5-7 trading days for move toward 50 SMA at 612.86 (~+1.5% stock = ~+25% contract). Invalidated if QQQ breaks below 200 SMA at 591.84 or Fed delivers hawkish surprise. Tags: mean-reversion, geopolitical-recovery, low-iv-entry, between-sma, 2-week-dte-experiment.",
+    "timestamp": "2026-03-17T13:04:04.796711-04:00",
+    "side": "buy_to_open",
+    "symbol": "QQQ260327C00600000",
+    "market_context": {
+      "price": 603.3301,
+      "change_pct": 0.5,
+      "iv": 23.5,
+      "option_greeks": {
+        "delta": 0.556,
+        "gamma": 0.0165,
+        "theta": -0.4646,
+        "vega": 0.3962,
+        "rho": 0.0812
+      },
+      "iv_context": {
+        "iv_rank": 9,
+        "iv_percentile": 17,
+        "iv_52w_high": 25.1,
+        "iv_52w_low": 23.4
+      },
+      "trends": {
+        "price_52w_high": 637.01,
+        "price_52w_low": 402.39,
+        "price_vs_52w_pct": 86,
+        "sma_50": 612.86,
+        "sma_200": 591.83,
+        "sma_signal": "mixed",
+        "returns": {
+          "1w": -0.7,
+          "1m": 0.2,
+          "3m": -1.7,
+          "6m": 2.0
+        },
+        "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+        "rsi_14": 40.4,
+        "atr_14": 10.77,
+        "prev_day_high": 605.9,
+        "prev_day_low": 601.87,
+        "avg_volume_50d": 63593365,
+        "bollinger": {
+          "upper": 615.64,
+          "middle": 605.38,
+          "lower": 595.13,
+          "pct_b": 40.6
+        }
+      },
+      "news": [
+        {
+          "title": "The VIX Is Falling Despite Global Chaos \u2014 Here\u2019s What the Fear Gauge Is Actually Telling You",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-17"
+        },
+        {
+          "title": "Should You Be Greedy When Others are Fearful? ETFs in Focus",
+          "publisher": "Zacks",
+          "date": "2026-03-17"
+        },
+        {
+          "title": "Exchange-Traded Funds Higher, Equity Futures Mixed Pre-Bell Tuesday Ahead of US Federal Reserve Meeting",
+          "publisher": "MT Newswires",
+          "date": "2026-03-17"
+        },
+        {
+          "title": "Exchange-Traded Funds Rise as US Equities Advance After Midday",
+          "publisher": "MT Newswires",
+          "date": "2026-03-16"
+        },
+        {
+          "title": "Is Dow ETF Better-Positioned Than S&P 500 & Nasdaq Amid Iran War?",
+          "publisher": "Zacks",
+          "date": "2026-03-16"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 671.31,
+        "spy_change_pct": 0.35
+      }
+    }
   }
 }
