@@ -8,11 +8,15 @@
 
 **Confidence:** medium
 
-**Last Updated:** 2026-03-14
+**Last Updated:** 2026-03-18
 
 ## Analysis
 
 The RSI >70 + Bollinger %B >100 exhaustion signal has been validated across multiple trades with strong hindsight confirmation.
+
+**Recent Contradiction (XLE Put Mean Reversion):**
+- A mean reversion attempt (buying puts) using this signal as an entry faild when a strong fundamental driver (Iran oil conflict persistent uncertainty) kept price elevated despite technical extremes. RSI remained >74 and %B remained >97 during the hold.
+- **Key takeaway:** Technical exhaustion signals the *start* of a high-risk zone for long positions, but does not guarantee an immediate or significant reversal if fundamental momentum is strong.
 
 **XLE Case Study (Primary Validation):**
 - Entry: RSI 63.6, %B 89.5 — not overbought, room to run
@@ -33,14 +37,16 @@ The exhaustion window is narrow. In XLE, the option held peak for minutes, not h
 ## Evidence
 
 ### Summary
-2 supporting observations. Exit timing validated by subsequent price declines in both cases.
+2 supporting, 1 contradicting observations. Exit timing validated by subsequent price declines in both supporting cases. Contradiction occurred when fundamental momentum (oil) overrode technical overbought conditions.
 
 ### Recent
+- 2026-03-18 [paper] [contradicting] [bull] [dte-short] [question: Bearish Reversal Detection]: XLE mean reversion puts failed after entry at RSI 73.7, %B 95.6. XLE remained overbought (RSI 74.8, %B 97.7) as the Iran oil catalyst persisted. Technical exhaustion signaled a plateau rather than a reversal. Exit at -13% loss as fundamentals overrode the technical signal.
 - 2026-03-14 [hindsight] [supporting] [bull] [dte-short] [question: Bearish Reversal Detection]: XLE post-sale analysis confirms RSI >70 + %B >100 as reliable exhaustion signal. Option declined from $1.86 (exit) to $1.61 (-13.4%) by next close, with intraday low at $0.98 (-47%). Underlying XLE declined from $58.1 (52-week high) to $57.7 (-0.7%). Technical exhaustion correctly marked peak — holding would have given back 13-47% of gains. "Sell_was_optimal: true" confirmed.
 - 2026-03-12 [paper] [supporting] [bull] [dte-short] [question: Bearish Reversal Detection]: XLE momentum trade. Entry at RSI 63.6, Bollinger %B 89.5 (not overbought). Exit at RSI 71.4, Bollinger %B 105.1 (overbought + above upper band). Sold at $1.86 when intraday peak was $1.86 — captured 100% of available move. Underlying continued higher briefly but option did not exceed exit price.
 
 ## Exceptions & Nuances
 
+- **Persistent Fundamentals:** News catalysts (like war/supply shocks) can keep a stock overbought for much longer than purely technical runs. Do not bet on an immediate reversal solely on technicals if a heavy fundamental driver is active.
 - **Parabolic trends:** In extreme momentum (e.g., meme stocks, crypto), overbought can stay overbought for extended periods — this signal may be premature
 - **Requires both signals:** RSI >70 alone or %B >100 alone is insufficient — need the combination
 - **Timeframe matters:** Signal works best for intraday/single-day momentum plays; multi-day positions may see signals trigger early

@@ -643,5 +643,142 @@
         "spy_change_pct": 1.12
       }
     }
+  },
+  "XLE260327P00057000": {
+    "ticker": "XLE",
+    "type": "put",
+    "strike": 57.0,
+    "expiry": "2026-03-27",
+    "quantity": 1,
+    "cost_basis": 250.0,
+    "sell_date": "2026-03-18",
+    "sell_proceeds": 49.0,
+    "sell_price": 0.49,
+    "sell_iv": 29.1,
+    "open_reason": "Technical exhaustion play on XLE. RSI at 73.7 (>70 overbought), Bollinger %B at 95.6 near upper band. Experience from XLE momentum trades shows RSI >70 + %B >100 reliably marks near-term peaks. Energy sector extended +27% YTD on Iran oil conflict catalyst that may be fading. Stock at 52-week highs (8.37) showing momentum exhaustion. Testing: RSI/%B profit-taking validation thesis in reverse \u2014 entering puts at technical extremes for mean reversion. Time window: 5-7 trading days for pullback toward 50 SMA (2.41). Invalidated if oil spikes on new Iran developments or XLE breaks above 8.50.",
+    "close_reason": "Exiting XLE put (XLE260327P00057000) at 58.65. Thesis invalidation: technical exhaustion failed to trigger reversal. Original entry at RSI 73.7, Bollinger %B 95.6 was based on the 'Technical Exhaustion as Profit-Taking Signal' experience (general/profit-taking-technical-exhaustion.md), which suggests RSI >70 + %B >100 marks near-term peaks. However, XLE has stayed overbought (current RSI 74.8, %B 97.7) and continued to edge higher. External news shows the energy sector 'keeps asserting itself as a market leader' with the Iran oil conflict catalyst proving more persistent than a 1-2 day fade. Per PAPER.md rules, exiting because the technical exhaustion pattern is not producing the expected pullback and the fundamental driver (oil) remains strong. Cutting loss (-13% on contract) before theta decay on 9 DTE accelerates.",
+    "entry_market_context": {
+      "price": 57.9,
+      "change_pct": 0,
+      "iv": 29.3,
+      "option_greeks": {
+        "delta": -0.39,
+        "gamma": 0.1392,
+        "theta": -0.0396,
+        "vega": 0.0375,
+        "rho": 0.0071
+      },
+      "iv_context": {
+        "iv_rank": 100,
+        "iv_percentile": 100,
+        "iv_52w_high": 28.8,
+        "iv_52w_low": 27.1
+      },
+      "trends": {
+        "price_52w_high": 58.37,
+        "price_52w_low": 37.24,
+        "price_vs_52w_pct": 98,
+        "sma_50": 52.41,
+        "sma_200": 46.06,
+        "sma_signal": "above_both",
+        "returns": {
+          "1w": 4.1,
+          "1m": 6.5,
+          "3m": 27.2,
+          "6m": 31.1
+        },
+        "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+        "rsi_14": 73.6,
+        "atr_14": 1.21,
+        "prev_day_high": 58.37,
+        "prev_day_low": 58.06,
+        "avg_volume_50d": 58667142,
+        "bollinger": {
+          "upper": 58.33,
+          "middle": 56.19,
+          "lower": 54.05,
+          "pct_b": 95.3
+        }
+      },
+      "news": [
+        {
+          "title": "Oil prices should see immediate relief at Iran war's end: Analyst",
+          "publisher": "Yahoo Finance Video",
+          "date": "2026-03-16"
+        },
+        {
+          "title": "Trump pushes for NATO support in bid to reopen Strait of Hormuz",
+          "publisher": "Yahoo Finance Video",
+          "date": "2026-03-16"
+        },
+        {
+          "title": "Exchange-Traded Funds Higher, Equity Futures Mixed Pre-Bell Tuesday Ahead of US Federal Reserve Meeting",
+          "publisher": "MT Newswires",
+          "date": "2026-03-17"
+        },
+        {
+          "title": "Warren Buffett\u2019s parting gift to Berkshire Hathaway: a $2 billion Iran oil windfall",
+          "publisher": "MarketWatch",
+          "date": "2026-03-17"
+        },
+        {
+          "title": "Sector Update: Energy Stocks Rise Late Afternoon",
+          "publisher": "MT Newswires",
+          "date": "2026-03-16"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 669.03,
+        "spy_change_pct": 0
+      }
+    },
+    "sell_market_context": {
+      "underlying_price": 58.655,
+      "option_price": 0.49,
+      "iv": 29.1,
+      "greeks": {
+        "delta": -0.293,
+        "gamma": 0.1395,
+        "theta": -0.0344,
+        "vega": 0.0324,
+        "rho": 0.0066
+      },
+      "iv_context": {
+        "iv_rank": 100,
+        "iv_percentile": 100,
+        "iv_52w_high": 28.8,
+        "iv_52w_low": 26.8
+      },
+      "trends": {
+        "price_52w_high": 59.05,
+        "price_52w_low": 37.24,
+        "price_vs_52w_pct": 98,
+        "sma_50": 52.66,
+        "sma_200": 46.15,
+        "sma_signal": "above_both",
+        "returns": {
+          "1w": 2.9,
+          "1m": 9.1,
+          "3m": 29.8,
+          "6m": 30.7
+        },
+        "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+        "rsi_14": 74.9,
+        "atr_14": 1.18,
+        "prev_day_high": 58.94,
+        "prev_day_low": 58.62,
+        "avg_volume_50d": 57626612,
+        "bollinger": {
+          "upper": 58.76,
+          "middle": 56.41,
+          "lower": 54.06,
+          "pct_b": 97.8
+        }
+      },
+      "broader_market": {
+        "spy_price": 668.77,
+        "spy_change_pct": -0.31
+      }
+    }
   }
 }
