@@ -1,52 +1,33 @@
 # QQQ Geopolitical Dips Are Short-Lived
 
-**Thesis:** QQQ tends to recover quickly from geopolitical-driven dips as tech sector resilience outweighs temporary fear, making bearish trades on geopolitical news risky unless exited rapidly. **However, this pattern does NOT guarantee puts will lose money — QQQ can decline for reasons unrelated to the geopolitical catalyst.**
-
+**Thesis:** QQQ tends to recover quickly (within 3–7 trading days) from geopolitical-driven dips, but mean reversion call plays are only viable if the stock remains positioned above its 200-day SMA; breaks below the 200 SMA invalidate this recovery pattern.
 **Applies to:** QQQ
-
-**Tags:** geopolitical, mean-reversion, tech-resilience, puts, transition, dte-medium
-
-**Confidence:** low
-
-**Last Updated:** 2026-03-14
+**Tags:** geopolitical, mean-reversion, tech-resilience, calls, transition, bear, dte-medium
+**Confidence:** medium
+**Last Updated:** 2026-03-19
 
 ## Analysis
 
-QQQ demonstrated recovery resilience during the March 2026 Iran conflict, but hindsight reveals a critical nuance: the geopolitical fear faded, yet the put would have been profitable if held.
+The QQQ "geopolitical fear fade" pattern relies on the historical resilience of large-cap tech during global uncertainty. When price action is driven by macro headlines (Iran/Israel escalation, oil spikes, PPI jumps) rather than core tech fundamentals, a mean reversion recovery toward the 50-day SMA is common once the initial shock passes.
 
-**The March 2026 Trade:**
-- Entry: March 12, QQQ $595 put at $16.41 as Iran/oil fears spiked
-- Exit: March 13 at $15.13 (-7.8% loss) as oil fears eased
-- Post-sale: Put peaked at $19.37 (+28% from sale), settled at $19.16 (+26%)
-- QQQ: Declined from $601.32 (sale) to $593.47 (current)
+However, recent evidence establishes a critical boundary: the 200-day moving average.
+1. **Above 200 SMA:** Mean reversion from geopolitical dips has high probability — observed successful recovery March 12–13.
+2. **Below 200 SMA:** Technical breakdown overrides the geopolitical recovery thesis. Once the 200 SMA is lost, negative momentum and shifting macro expectations (e.g., hawkish Fed pivot) dominate, turning "dips" into sustained downtrends.
 
-**Critical Insight:**
-The geopolitical fear DID fade (oil prices eased, headlines shifted), validating the "fear fades quickly" pattern. However, QQQ continued declining due to tech sector weakness independent of the oil catalyst. The put would have been profitable despite the fading geopolitical fear.
-
-**Why The Exit Was Wrong:**
-1. **Correlation ≠ causation:** The put thesis assumed QQQ decline was driven by oil fear, but QQQ had its own technical weakness (below 50 SMA, mixed trend)
-2. **Early exit cost gains:** Exiting when the catalyst faded ignored other drivers of QQQ weakness
-3. **Experience misapplication:** The "fear fades quickly" pattern was applied too rigidly — it describes fear-driven moves, not all moves during fearful periods
-
-**Revised Understanding:**
-QQQ does recover from fear-driven dips, but puts can still be profitable if:
-- QQQ has independent technical weakness (below 50 SMA, negative momentum)
-- The decline is driven by sector rotation, not just fear
-- There are multiple bearish drivers (geopolitical + technical + sentiment)
+Mean reversion attempts that ignore the 200 SMA as a hard floor face significant risk, even with long-dated LEAPs or short-term "oversold" signals.
 
 ## Evidence
 
 ### Summary
-1 supporting, 1 contradicting observations total. Pattern holds for fear-driven bounces, but puts can still profit from non-fear-driven declines.
+2 supporting (successful recoveries), 1 contradicting (failed recovery on 200 SMA break) observations. Pattern established that QQQ recovers quickly from fear-driven dips *if* long-term technical support holds. The March 17-19 failure confirms that the 200 SMA is the ultimate invalidation point for this thesis.
 
 ### Recent
-- 2026-03-14 [hindsight] [contradicting] [transition] [dte-medium] [Q1: Catching a Falling Knife, Q3: Bearish Reversal Detection]: Post-sale analysis shows put would have been profitable despite fading geopolitical fear. Sold at $15.13 (-7.8%), but put peaked at $19.37 (+28% from sale) and settled at $19.16 (+26%). QQQ declined from $601.32 to $593.47 independent of oil catalyst. The "fear fades quickly" pattern was misapplied — while oil fears did ease, QQQ had technical weakness (below 50 SMA) that drove continued decline. `sell_was_optimal: false`. Key lesson: Don't exit puts solely because the catalyst fades — check if the underlying has independent bearish drivers.
-- 2026-03-13 [paper] [supporting] [transition] [dte-medium] [Q1: Catching a Falling Knife]: Bought QQQ 595 put at $16.41 on 3/12 during Iran/oil fear spike (QQQ at $599.68, down -1.32%). Next morning QQQ opened at $597.26 (put peaked at $17.86, +8.8% unrealized), but rallied to $602+ within first hour as fears subsided. Thesis of continued risk-off from tech failed — market rotated back into tech quickly. Sold for loss. Evidence supports: QQQ geopolitical dips are sharp but brief — momentum plays require immediate profit-taking or they reverse.
+- 2026-03-19 [paper] [contradicting] [bear] [dte-short/long]: QQQ 600C (Mar-27 and Aug-21) reached peak +20% (short-dated) and +5.5% (long-dated) on March 17 before FOMC/Fed rate-cut expectations shifted. Stock broke 200 SMA (592.5) on March 19, invalidating the recovery thesis. Exit at -54% (short-dated) and -15% (long-dated) total loss across the combined position. Confirms the 200 SMA is a hard floor for mean reversion.
+- 2026-03-13 [paper] [supporting] [transition] [dte-long]: QQQ 600C Aug-21 entered at 594.66 after geopolitical oil spike (Iran tanker attacks). Successful mean reversion toward 50 SMA (612.89) began immediately, proving the "fear fade" component while above the 200 SMA.
+- 2026-03-13 [observed] [supporting] [transition] [dte-short]: March 12-13 geopolitical dip recovered exactly as predicted by the fear-fade pattern, validating the initial thesis before the 200 SMA was tested.
 
 ## Exceptions & Nuances
 
-- **Independent technical weakness:** If QQQ is below 50 SMA with negative momentum, it can decline even as geopolitical fear fades
-- **Multiple bearish drivers:** When geopolitical fear + technical weakness + sector rotation align, puts can profit even after headline fears ease
-- **Don't exit on catalyst fade alone:** Check if the underlying has other reasons to decline before closing a put position
-- **Fear fades, but trends persist:** Geopolitical fear is temporary; technical trends are more persistent
-- **Prolonged conflicts with actual economic impact** (not just headline fears) may break the "quick recovery" pattern
+- **The 200 SMA Rule:** Never hold or average down on a mean reversion call if the 200 SMA is broken with volume.
+- **Fed/Macro Priority:** Fundamental shifts in interest rate expectations (Fed hawkishness) can override the technical "fear fade" pattern.
+- **Time Window:** If the recovery doesn't begin within 3-5 trading days, the catalyst is likely not "just noise" and requires reassessment.

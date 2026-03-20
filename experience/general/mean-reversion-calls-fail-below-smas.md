@@ -4,7 +4,7 @@
 **Applies to:** general (multi-ticker pattern)
 **Tags:** mean-reversion, downtrend, below-sma, technical-analysis, calls, trend-following, bear, dte-long
 **Confidence:** medium
-**Last Updated:** 2026-03-16
+**Last Updated:** 2026-03-19
 
 ## Analysis
 
@@ -25,9 +25,10 @@ The pattern is now validated across three distinct sectors/asset classes. When b
 ## Evidence
 
 ### Summary
-3 supporting observations across 3 different tickers (BAC, HD, IWM). All mean reversion call attempts failed with losses when entry occurred below both SMAs during sustained downtrends. Cross-ticker consistency across financials, cyclicals, and small-cap ETFs suggests this is a robust technical pattern. Confidence upgraded to medium.
+4 supporting observations across 4 different tickers (BAC, HD, IWM, QQQ). All mean reversion call attempts failed or triggered immediate exits when price broke below both SMAs (50-day and 200-day). Cross-ticker consistency across financials, cyclicals, small-cap ETFs, and large-cap tech confirms the 200 SMA as a hard floor for mean reversion. Confidence: medium.
 
 ### Recent
+- 2026-03-19 [paper] [supporting] [bear] [dte-short/long]: QQQ mean reversion calls (entered above 200 SMA) exited at major loss once 200 SMA (592.5) was broken with increased Fed pivot fear. Extends pattern to large-cap tech: break of the 200 SMA is a high-confidence exit/avoid signal for all mean-reversion call theses.
 - 2026-03-16 [hindsight] [supporting] [bear] [dte-long]: BAC 50C Jul-17 exit validation confirms pattern. Exit at -1.4% (vs previous -8.3%, -20.6% losses on same-thesis BAC trades) demonstrates value of validated experience. Stock never reclaimed 50 SMA, ranged $46.72-$47.68 post-exit. Cutting losses early when thesis invalidated is superior to holding for bounce that requires SMA reclamation first.
 - 2026-03-16 [paper] [supporting] [bear] [dte-long]: IWM 250C Aug-21 entered at 250.25 on mean reversion thesis (down 2.56%, -4.3% weekly). Stock below 50 SMA (~260), no IWM-specific catalyst. Closed at -1.5% after continued decline to ~246.5. Third ticker validating the pattern — small-cap mean reversion fails when below key SMAs without catalyst.
 - 2026-03-09 [paper] [supporting] [bear] [dte-medium]: BAC 50C Jul-17 entry at 48.26 below 50 SMA (~53) and 200 SMA (~50.5) during financial sector weakness. Closed at -20.6% after 3 days as decline continued. Same-thesis 52.5C trade same day lost -8.3%.

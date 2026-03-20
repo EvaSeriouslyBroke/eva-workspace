@@ -780,5 +780,279 @@
         "spy_change_pct": -0.31
       }
     }
+  },
+  "QQQ260327C00600000": {
+    "ticker": "QQQ",
+    "type": "call",
+    "strike": 600.0,
+    "expiry": "2026-03-27",
+    "quantity": 3,
+    "cost_basis": 2758.0,
+    "sell_date": "2026-03-19",
+    "sell_proceeds": 1302.0,
+    "sell_price": 4.34,
+    "sell_iv": 24.2,
+    "open_reason": "Buy 1: QQQ mean reversion call \u2014 riding the geopolitical fear fade pattern. QQQ at 603.63 between 50/200 SMA with RSI 40.5 (room to run). IV at 23.4% is cheap (rank 3). Deep news research shows VIX falling despite global chaos, 'buy the dip' sentiment emerging ahead of Fed meeting. Experience recall (QQQ geopolitical-dips-are-short-lived) validates quick recovery from fear-driven dips \u2014 prior March 12-13 dip recovered exactly as pattern predicts. Stock positioned between SMAs (not below both) so mean reversion has better odds than prior failed put trade. Time window: 5-7 trading days for move toward 50 SMA at 612.86 (~+1.5% stock = ~+25% contract). Invalidated if QQQ breaks below 200 SMA at 591.84 or Fed delivers hawkish surprise. Tags: mean-reversion, geopolitical-recovery, low-iv-entry, between-sma, 2-week-dte-experiment. | Buy 2: Expanding QQQ mean reversion position (2-week DTE experiment). Thesis: QQQ is consolidating between the 50 SMA (612.5) and 200 SMA (592.2) following a PPI-driven dip of -0.54% and geopolitical jitters (PPI jump, Iran escalation). Price 600.06 sits at Bollinger %B 26.0 and RSI 42.9, providing a low-IV entry (rank 23, percentile 14) for a recovery play. Deep news research (Zacks, Barchart) confirms 'buy the dip' sentiment ahead of FOMC, with history suggesting strong rebounds from fear-driven bottoms. Experience recall (tickers/QQQ/geopolitical-dips-are-short-lived.md) validates that QQQ recovers quickly from geopolitical fear, and the current 'between-SMA' setup has better statistical odds than prior 'below-both-SMA' failures. Time window: 5 trading days (by March 25) for recovery toward 50 SMA. Expected move: Stock recovers toward 612.5 (~+2% stock = ~+30-40% on contract). Invalidation criteria: QQQ breaks below 200 SMA at 592.2 or Fed delivers hawkish surprise (higher-for-longer dot plot). Tags: mean-reversion, geopolitical-recovery, low-iv-entry, between-sma, double-down, 2-week-dte-experiment. | Buy 3: Expanding QQQ mean reversion position (2-week DTE experiment). Thesis: QQQ is consolidating between the 50 SMA (612.5) and 200 SMA (592.2) following a PPI-driven dip of -0.54% and geopolitical jitters (PPI jump, Iran escalation). Price 600.06 sits at Bollinger %B 26.0 and RSI 42.9, providing a low-IV entry (rank 23, percentile 14) for a recovery play. Deep news research (Zacks, Barchart) confirms 'buy the dip' sentiment ahead of FOMC, with history suggesting strong rebounds from fear-driven bottoms. Experience recall (tickers/QQQ/geopolitical-dips-are-short-lived.md) validates that QQQ recovers quickly from geopolitical fear, and the current 'between-SMA' setup has better statistical odds than prior 'below-both-SMA' failures. Time window: 5 trading days (by March 25) for recovery toward 50 SMA. Expected move: Stock recovers toward 612.5 (~+2% stock = ~+30-40% on contract). Invalidation criteria: QQQ breaks below 200 SMA at 592.2 or Fed delivers hawkish surprise (higher-for-longer dot plot). Tags: mean-reversion, geopolitical-recovery, low-iv-entry, between-sma, double-down, 2-week-dte-experiment.",
+    "close_reason": "Exiting QQQ call (QQQ260327C00600000) at 590.04. Thesis invalidation: QQQ broke below its 200 SMA (592.5) following reduced Fed rate-cut expectations. Pattern matches 'general/mean-reversion-calls-fail-below-smas.md', which warns that mean reversion attempts below both key SMAs are statistically likely to fail as negative momentum dominates. Time window was still open, but the break of the key technical level and the fundamental shift in Fed outlook override the commitment to hold through noise. Cutting loss before FOMC volatility potentially worsens the breakdown.",
+    "entry_market_context": {
+      "price": 603.3301,
+      "change_pct": 0.5,
+      "iv": 23.5,
+      "option_greeks": {
+        "delta": 0.556,
+        "gamma": 0.0165,
+        "theta": -0.4646,
+        "vega": 0.3962,
+        "rho": 0.0812
+      },
+      "iv_context": {
+        "iv_rank": 9,
+        "iv_percentile": 17,
+        "iv_52w_high": 25.1,
+        "iv_52w_low": 23.4
+      },
+      "trends": {
+        "price_52w_high": 637.01,
+        "price_52w_low": 402.39,
+        "price_vs_52w_pct": 86,
+        "sma_50": 612.86,
+        "sma_200": 591.83,
+        "sma_signal": "mixed",
+        "returns": {
+          "1w": -0.7,
+          "1m": 0.2,
+          "3m": -1.7,
+          "6m": 2.0
+        },
+        "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+        "rsi_14": 40.4,
+        "atr_14": 10.77,
+        "prev_day_high": 605.9,
+        "prev_day_low": 601.87,
+        "avg_volume_50d": 63593365,
+        "bollinger": {
+          "upper": 615.64,
+          "middle": 605.38,
+          "lower": 595.13,
+          "pct_b": 40.6
+        }
+      },
+      "news": [
+        {
+          "title": "The VIX Is Falling Despite Global Chaos \u2014 Here\u2019s What the Fear Gauge Is Actually Telling You",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-17"
+        },
+        {
+          "title": "Should You Be Greedy When Others are Fearful? ETFs in Focus",
+          "publisher": "Zacks",
+          "date": "2026-03-17"
+        },
+        {
+          "title": "Exchange-Traded Funds Higher, Equity Futures Mixed Pre-Bell Tuesday Ahead of US Federal Reserve Meeting",
+          "publisher": "MT Newswires",
+          "date": "2026-03-17"
+        },
+        {
+          "title": "Exchange-Traded Funds Rise as US Equities Advance After Midday",
+          "publisher": "MT Newswires",
+          "date": "2026-03-16"
+        },
+        {
+          "title": "Is Dow ETF Better-Positioned Than S&P 500 & Nasdaq Amid Iran War?",
+          "publisher": "Zacks",
+          "date": "2026-03-16"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 671.31,
+        "spy_change_pct": 0.35
+      }
+    },
+    "sell_market_context": {
+      "underlying_price": 589.3301,
+      "option_price": 4.34,
+      "iv": 24.2,
+      "greeks": {
+        "delta": 0.354,
+        "gamma": 0.0169,
+        "theta": -0.4936,
+        "vega": 0.3344,
+        "rho": 0.0417
+      },
+      "iv_context": {
+        "iv_rank": 46,
+        "iv_percentile": 50,
+        "iv_52w_high": 25.4,
+        "iv_52w_low": 23.1
+      },
+      "trends": {
+        "price_52w_high": 637.01,
+        "price_52w_low": 402.39,
+        "price_vs_52w_pct": 80,
+        "sma_50": 611.71,
+        "sma_200": 592.54,
+        "sma_signal": "below_both",
+        "returns": {
+          "1w": -1.3,
+          "1m": -2.7,
+          "3m": -3.7,
+          "6m": -0.1
+        },
+        "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
+        "rsi_14": 37.8,
+        "atr_14": 10.55,
+        "prev_day_high": 593.13,
+        "prev_day_low": 587.08,
+        "avg_volume_50d": 63909542,
+        "bollinger": {
+          "upper": 617.22,
+          "middle": 604.13,
+          "lower": 591.04,
+          "pct_b": -6.3
+        }
+      },
+      "broader_market": {
+        "spy_price": 656.772,
+        "spy_change_pct": -0.71
+      }
+    }
+  },
+  "QQQ260821C00600000": {
+    "ticker": "QQQ",
+    "type": "call",
+    "strike": 600.0,
+    "expiry": "2026-08-21",
+    "quantity": 2,
+    "cost_basis": 8423.0,
+    "sell_date": "2026-03-19",
+    "sell_proceeds": 7274.0,
+    "sell_price": 36.37,
+    "sell_iv": 24.3,
+    "open_reason": "Buy 1: Mean reversion play at lower Bollinger band (pct_b -6.3). QQQ down -0.98% on weak GDP and PCE data but fears already priced in. Geopolitical oil spike fading ('Oil Prices Ease' headlines) - experience shows QQQ recovers quickly from geopolitical dips. Not below both SMAs (between 50/200), making this less risky than pure downtrend mean reversion. 161 DTE gives time for tech resilience to reassert. RSI 44.9 not oversold but technical exhaustion near lower band. Testing: Bollinger band mean reversion with geopolitical fear fade. | Buy 2: Double down on mean reversion thesis. Original position (QQQ260821C00600000) entered at Bollinger %B -6.3 (lower band) on March 13 is working (+1.7%). Thesis: QQQ recovering from geopolitical dip toward 50 SMA at 612.89. Current RSI 41.7 (room to run), Bollinger %B 48% (middle of band), price between 50/200 SMA. News supports: VIX falling despite global chaos, 'buy the dip' sentiment emerging, Fed meeting may provide clarity. Experience supports: QQQ geopolitical dips are short-lived (experience/tickers/QQQ/geopolitical-dips-are-short-lived.md). Time window: 5-7 trading days for move toward 612.89. Expected move: Stock toward 50 SMA = ~+15-20% on contract. Invalidated if QQQ breaks below 200 SMA at 591.84 or Fed delivers hawkish surprise.",
+    "close_reason": "Exiting long-dated QQQ call (QQQ260821C00600000) at 590.04. Thesis invalidation: QQQ dropped below its 200 SMA (592.5). Although 155 DTE gives time, 'general/mean-reversion-calls-fail-below-smas.md' experience demonstrates that technical breaks below both SMAs signal sustained negative regime shifts. Preserving capital as the 'between-SMA' setup has been lost. Will look to re-enter only if support is reclaimed or a new bullish catalyst emerges.",
+    "entry_market_context": {
+      "price": 594.66,
+      "change_pct": -0.44,
+      "iv": 24.6,
+      "option_greeks": {
+        "delta": 0.538,
+        "gamma": 0.0041,
+        "theta": -0.1452,
+        "vega": 1.5637,
+        "rho": 1.2353
+      },
+      "iv_context": {
+        "iv_rank": 62,
+        "iv_percentile": 50,
+        "iv_52w_high": 25.1,
+        "iv_52w_low": 23.7
+      },
+      "trends": {
+        "price_52w_high": 637.01,
+        "price_52w_low": 402.39,
+        "price_vs_52w_pct": 82,
+        "sma_50": 613.35,
+        "sma_200": 591.01,
+        "sma_signal": "mixed",
+        "returns": {
+          "1w": -0.8,
+          "1m": -3.0,
+          "3m": -5.3,
+          "6m": 1.8
+        },
+        "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+        "rsi_14": 45.4,
+        "atr_14": 10.95,
+        "prev_day_high": 603.6,
+        "prev_day_low": 592.62,
+        "avg_volume_50d": 63766893,
+        "bollinger": {
+          "upper": 615.45,
+          "middle": 605.4,
+          "lower": 595.35,
+          "pct_b": -3.5
+        }
+      },
+      "news": [
+        {
+          "title": "Exchange-Traded Funds Drop, US Equities Mixed After Midday",
+          "publisher": "MT Newswires",
+          "date": "2026-03-13"
+        },
+        {
+          "title": "Q4 GDP, Durable Goods Lower than Anticipated",
+          "publisher": "Zacks",
+          "date": "2026-03-13"
+        },
+        {
+          "title": "MAGS vs QQQ: The Concentrated ETF Bet That Cuts Both Ways",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-13"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Higher Pre-Bell Friday as Oil Prices Ease From Recent Surge",
+          "publisher": "MT Newswires",
+          "date": "2026-03-13"
+        },
+        {
+          "title": "Iran Tanker Attacks Sent the VIX Surging Today. Here Is What Could Push it To 50 From Here",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-12"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 663.95,
+        "spy_change_pct": -0.32
+      }
+    },
+    "sell_market_context": {
+      "underlying_price": 589.31,
+      "option_price": 36.37,
+      "iv": 24.3,
+      "greeks": {
+        "delta": 0.531,
+        "gamma": 0.0043,
+        "theta": -0.1447,
+        "vega": 1.5361,
+        "rho": 1.1752
+      },
+      "iv_context": {
+        "iv_rank": 50,
+        "iv_percentile": 62,
+        "iv_52w_high": 25.4,
+        "iv_52w_low": 23.1
+      },
+      "trends": {
+        "price_52w_high": 637.01,
+        "price_52w_low": 402.39,
+        "price_vs_52w_pct": 80,
+        "sma_50": 611.71,
+        "sma_200": 592.54,
+        "sma_signal": "below_both",
+        "returns": {
+          "1w": -1.3,
+          "1m": -2.7,
+          "3m": -3.7,
+          "6m": -0.1
+        },
+        "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
+        "rsi_14": 37.7,
+        "atr_14": 10.55,
+        "prev_day_high": 593.13,
+        "prev_day_low": 587.08,
+        "avg_volume_50d": 63909742,
+        "bollinger": {
+          "upper": 617.23,
+          "middle": 604.12,
+          "lower": 591.02,
+          "pct_b": -6.5
+        }
+      },
+      "broader_market": {
+        "spy_price": 656.66,
+        "spy_change_pct": -0.73
+      }
+    }
   }
 }

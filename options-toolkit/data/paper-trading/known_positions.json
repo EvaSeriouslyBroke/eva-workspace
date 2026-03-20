@@ -607,184 +607,182 @@
           "spy_change_pct": -1.09
         }
       }
-    }
-  ],
-  "QQQ260821C00600000": [
+    },
     {
-      "order_id": "26386012",
-      "reason": "Mean reversion play at lower Bollinger band (pct_b -6.3). QQQ down -0.98% on weak GDP and PCE data but fears already priced in. Geopolitical oil spike fading ('Oil Prices Ease' headlines) - experience shows QQQ recovers quickly from geopolitical dips. Not below both SMAs (between 50/200), making this less risky than pure downtrend mean reversion. 161 DTE gives time for tech resilience to reassert. RSI 44.9 not oversold but technical exhaustion near lower band. Testing: Bollinger band mean reversion with geopolitical fear fade.",
-      "entry_price": 594.66,
-      "entry_iv": 24.6,
-      "entry_date": "2026-03-13",
-      "ticker": "QQQ",
+      "order_id": "26656576",
+      "reason": "Expanding AMD core momentum position (MI455X/Samsung catalyst). Thesis: AMD securing HBM4 supply from Samsung and exploring Naver partnerships for 6th Gen EPYC creates a medium-term competitive advantage. Technicals: Price 199.11 is consolidating between 50 SMA (217) and 200 SMA (189) \u2014 a zone where mean reversion holds statistically better odds. Pattern: 'geopolitical-fear-trades-fade-quickly' (general/geopolitical-fear-trades-fade-quickly.md) suggests broader market drag on inflation data will clear, leaving stock-specific catalysts to drive price. Deep news research confirms expanded Samsung partnership for HBM4/DDR5 and Celestica AI switch tie-up. Time window: 2-3 weeks for supply chain news to fully circulate. Expected move: Recovery toward 50 SMA at 217 (~+8-10% stock = ~+40-50% on contract). Invalidation: Breaking below 200 SMA at 189 or negative supply chain revisions. Tags: momentum, partnership-catalyst, supply-chain, double-down, between-sma.",
+      "entry_price": 200.27,
+      "entry_iv": 53.9,
+      "entry_date": "2026-03-19",
+      "ticker": "AMD",
       "type": "call",
-      "strike": 600.0,
-      "expiry": "2026-08-21",
-      "quantity": 1,
-      "cost_basis": 4017.0,
+      "strike": 200.0,
+      "expiry": "2026-07-17",
+      "quantity": 2,
+      "cost_basis": 5220.0,
       "reflected": true,
       "market_context": {
-        "price": 594.66,
-        "change_pct": -0.44,
-        "iv": 24.6,
+        "price": 200.27,
+        "change_pct": 0.41,
+        "iv": 53.9,
         "option_greeks": {
-          "delta": 0.538,
-          "gamma": 0.0041,
-          "theta": -0.1452,
-          "vega": 1.5637,
-          "rho": 1.2353
+          "delta": 0.581,
+          "gamma": 0.0064,
+          "theta": -0.1111,
+          "vega": 0.4492,
+          "rho": 0.2983
         },
         "iv_context": {
-          "iv_rank": 62,
-          "iv_percentile": 50,
-          "iv_52w_high": 25.1,
-          "iv_52w_low": 23.7
+          "iv_rank": 31,
+          "iv_percentile": 33,
+          "iv_52w_high": 56.5,
+          "iv_52w_low": 52.8
         },
         "trends": {
-          "price_52w_high": 637.01,
-          "price_52w_low": 402.39,
-          "price_vs_52w_pct": 82,
-          "sma_50": 613.35,
-          "sma_200": 591.01,
+          "price_52w_high": 267.08,
+          "price_52w_low": 76.48,
+          "price_vs_52w_pct": 65,
+          "sma_50": 214.52,
+          "sma_200": 192.52,
           "sma_signal": "mixed",
           "returns": {
-            "1w": -0.8,
-            "1m": -3.0,
-            "3m": -5.3,
-            "6m": 1.8
+            "1w": 1.3,
+            "1m": 0.1,
+            "3m": -4.3,
+            "6m": 25.8
           },
           "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
-          "rsi_14": 45.4,
-          "atr_14": 10.95,
-          "prev_day_high": 603.6,
-          "prev_day_low": 592.62,
-          "avg_volume_50d": 63766893,
+          "rsi_14": 50.0,
+          "atr_14": 8.39,
+          "prev_day_high": 201.44,
+          "prev_day_low": 192.83,
+          "avg_volume_50d": 38036110,
           "bollinger": {
-            "upper": 615.45,
-            "middle": 605.4,
-            "lower": 595.35,
-            "pct_b": -3.5
+            "upper": 211.08,
+            "middle": 200.17,
+            "lower": 189.26,
+            "pct_b": 50.5
           }
         },
         "news": [
           {
-            "title": "Exchange-Traded Funds Drop, US Equities Mixed After Midday",
-            "publisher": "MT Newswires",
-            "date": "2026-03-13"
+            "title": "Micron Slips 4%: NVIDIA\u2019s HBM Supplier Just Posted Record Results, So Why Is It Falling?",
+            "publisher": "24/7 Wall St.",
+            "date": "2026-03-19"
           },
           {
-            "title": "Q4 GDP, Durable Goods Lower than Anticipated",
+            "title": "RBC Capital Maintains a Sector Perform Rating on Advanced Micro Devices (AMD) Stock",
+            "publisher": "Insider Monkey",
+            "date": "2026-03-19"
+          },
+          {
+            "title": "Not Even Elon Musk Can Get Nvidia Stock Moving",
+            "publisher": "Barrons.com",
+            "date": "2026-03-19"
+          },
+          {
+            "title": "Earnings Growth & Price Strength Make Advanced Micro Devices (AMD) a Stock to Watch",
             "publisher": "Zacks",
-            "date": "2026-03-13"
+            "date": "2026-03-19"
           },
           {
-            "title": "MAGS vs QQQ: The Concentrated ETF Bet That Cuts Both Ways",
-            "publisher": "24/7 Wall St.",
-            "date": "2026-03-13"
-          },
-          {
-            "title": "Exchange-Traded Funds, Equity Futures Higher Pre-Bell Friday as Oil Prices Ease From Recent Surge",
-            "publisher": "MT Newswires",
-            "date": "2026-03-13"
-          },
-          {
-            "title": "Iran Tanker Attacks Sent the VIX Surging Today. Here Is What Could Push it To 50 From Here",
-            "publisher": "24/7 Wall St.",
-            "date": "2026-03-12"
+            "title": "Will AI-Driven Chip Demand Help TSM Meet 2026 Revenue Growth Goal?",
+            "publisher": "Zacks",
+            "date": "2026-03-19"
           }
         ],
         "broader_market": {
-          "spy_price": 663.95,
-          "spy_change_pct": -0.32
+          "spy_price": 657.11,
+          "spy_change_pct": -0.66
         }
       }
     },
     {
-      "order_id": "26478706",
-      "reason": "Double down on mean reversion thesis. Original position (QQQ260821C00600000) entered at Bollinger %B -6.3 (lower band) on March 13 is working (+1.7%). Thesis: QQQ recovering from geopolitical dip toward 50 SMA at 612.89. Current RSI 41.7 (room to run), Bollinger %B 48% (middle of band), price between 50/200 SMA. News supports: VIX falling despite global chaos, 'buy the dip' sentiment emerging, Fed meeting may provide clarity. Experience supports: QQQ geopolitical dips are short-lived (experience/tickers/QQQ/geopolitical-dips-are-short-lived.md). Time window: 5-7 trading days for move toward 612.89. Expected move: Stock toward 50 SMA = ~+15-20% on contract. Invalidated if QQQ breaks below 200 SMA at 591.84 or Fed delivers hawkish surprise.",
-      "entry_price": 604.98,
-      "entry_iv": 23.6,
-      "entry_date": "2026-03-17",
-      "ticker": "QQQ",
+      "order_id": "26670741",
+      "reason": "Averaging down on AMD momentum breakout. Price 185.20 dropped below 200 SMA (189.03), entering 'Falling Knife' territory. Thesis: Samsung HBM4/MI455X catalyst is fundamental, not market-noise driven. Broad market tech rotation creating extreme value. Expected move: Reclaim 200 SMA and recover toward 50 SMA (217) within 2 weeks. Invalidation: Negative revision of Samsung/Meta partnerships.",
+      "entry_price": 205.245,
+      "entry_iv": 53.5,
+      "entry_date": "2026-03-19",
+      "ticker": "AMD",
       "type": "call",
-      "strike": 600.0,
-      "expiry": "2026-08-21",
-      "quantity": 1,
-      "cost_basis": 4406.0,
+      "strike": 200.0,
+      "expiry": "2026-07-17",
+      "quantity": 2,
+      "cost_basis": 5800.0,
       "reflected": true,
       "market_context": {
-        "price": 604.98,
-        "change_pct": 0.77,
-        "iv": 23.6,
+        "price": 205.245,
+        "change_pct": 2.9,
+        "iv": 53.5,
         "option_greeks": {
-          "delta": 0.588,
-          "gamma": 0.0042,
-          "theta": -0.1426,
-          "vega": 1.5421,
-          "rho": 1.3498
+          "delta": 0.598,
+          "gamma": 0.0063,
+          "theta": -0.1107,
+          "vega": 0.4502,
+          "rho": 0.3062
         },
         "iv_context": {
-          "iv_rank": 19,
-          "iv_percentile": 17,
-          "iv_52w_high": 25.1,
-          "iv_52w_low": 23.2
+          "iv_rank": 20,
+          "iv_percentile": 22,
+          "iv_52w_high": 56.5,
+          "iv_52w_low": 52.8
         },
         "trends": {
-          "price_52w_high": 637.01,
-          "price_52w_low": 402.39,
-          "price_vs_52w_pct": 86,
-          "sma_50": 612.89,
-          "sma_200": 591.84,
+          "price_52w_high": 267.08,
+          "price_52w_low": 76.48,
+          "price_vs_52w_pct": 68,
+          "sma_50": 214.62,
+          "sma_200": 192.55,
           "sma_signal": "mixed",
           "returns": {
-            "1w": -0.5,
-            "1m": 0.5,
-            "3m": -1.4,
-            "6m": 2.2
+            "1w": 3.8,
+            "1m": 2.6,
+            "3m": -1.9,
+            "6m": 29.0
           },
           "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
-          "rsi_14": 41.7,
-          "atr_14": 10.77,
-          "prev_day_high": 605.9,
-          "prev_day_low": 602.28,
-          "avg_volume_50d": 63345759,
+          "rsi_14": 53.8,
+          "atr_14": 8.69,
+          "prev_day_high": 205.62,
+          "prev_day_low": 192.83,
+          "avg_volume_50d": 38175302,
           "bollinger": {
-            "upper": 615.68,
-            "middle": 605.46,
-            "lower": 595.24,
-            "pct_b": 47.7
+            "upper": 211.55,
+            "middle": 200.42,
+            "lower": 189.28,
+            "pct_b": 71.7
           }
         },
         "news": [
           {
-            "title": "The VIX Is Falling Despite Global Chaos \u2014 Here\u2019s What the Fear Gauge Is Actually Telling You",
+            "title": "Samsung to Invest $73B in AI Chip Push",
+            "publisher": "GuruFocus.com",
+            "date": "2026-03-19"
+          },
+          {
+            "title": "AMD vs. Broadcom: Which Semiconductor Stock is a Buy Right Now?",
+            "publisher": "Zacks",
+            "date": "2026-03-19"
+          },
+          {
+            "title": "Micron Slips 4%: NVIDIA\u2019s HBM Supplier Just Posted Record Results, So Why Is It Falling?",
             "publisher": "24/7 Wall St.",
-            "date": "2026-03-17"
+            "date": "2026-03-19"
           },
           {
-            "title": "Should You Be Greedy When Others are Fearful? ETFs in Focus",
+            "title": "Broadcom's AI Push Boosts Semiconductor Sales: More Upside Ahead?",
             "publisher": "Zacks",
-            "date": "2026-03-17"
+            "date": "2026-03-19"
           },
           {
-            "title": "Exchange-Traded Funds Higher, Equity Futures Mixed Pre-Bell Tuesday Ahead of US Federal Reserve Meeting",
-            "publisher": "MT Newswires",
-            "date": "2026-03-17"
-          },
-          {
-            "title": "Exchange-Traded Funds Rise as US Equities Advance After Midday",
-            "publisher": "MT Newswires",
-            "date": "2026-03-16"
-          },
-          {
-            "title": "Is Dow ETF Better-Positioned Than S&P 500 & Nasdaq Amid Iran War?",
-            "publisher": "Zacks",
-            "date": "2026-03-16"
+            "title": "RBC Capital Maintains a Sector Perform Rating on Advanced Micro Devices (AMD) Stock",
+            "publisher": "Insider Monkey",
+            "date": "2026-03-19"
           }
         ],
         "broader_market": {
-          "spy_price": 673.01,
-          "spy_change_pct": 0.6
+          "spy_price": 662.07,
+          "spy_change_pct": 0.1
         }
       }
     }
@@ -1163,70 +1161,78 @@
           "spy_change_pct": -1.09
         }
       }
-    }
-  ],
-  "QQQ260327C00600000": [
+    },
     {
-      "order_id": "26497153",
-      "reason": "QQQ mean reversion call \u2014 riding the geopolitical fear fade pattern. QQQ at 603.63 between 50/200 SMA with RSI 40.5 (room to run). IV at 23.4% is cheap (rank 3). Deep news research shows VIX falling despite global chaos, 'buy the dip' sentiment emerging ahead of Fed meeting. Experience recall (QQQ geopolitical-dips-are-short-lived) validates quick recovery from fear-driven dips \u2014 prior March 12-13 dip recovered exactly as pattern predicts. Stock positioned between SMAs (not below both) so mean reversion has better odds than prior failed put trade. Time window: 5-7 trading days for move toward 50 SMA at 612.86 (~+1.5% stock = ~+25% contract). Invalidated if QQQ breaks below 200 SMA at 591.84 or Fed delivers hawkish surprise. Tags: mean-reversion, geopolitical-recovery, low-iv-entry, between-sma, 2-week-dte-experiment.",
-      "entry_price": 603.3301,
-      "entry_iv": 23.5,
-      "entry_date": "2026-03-17",
-      "ticker": "QQQ",
+      "order_id": "26670742",
+      "reason": "Averaging down on IWM mean reversion. Price 233.05 dipped below 200 SMA (245). Extreme bullish sentiment (P/C 0.14) suggests institutional floor. Macro-drag from Fed dot plot is primary driver. Expected move: Recovery toward midpoint of 50/200 SMA (252) within 10 days as market absorbs Fed data. Invalidation: IWM breaks below 225 support zone.",
+      "entry_price": 249.52,
+      "entry_iv": 25.9,
+      "entry_date": "2026-03-19",
+      "ticker": "IWM",
       "type": "call",
-      "strike": 600.0,
-      "expiry": "2026-03-27",
-      "quantity": 1,
-      "cost_basis": 1132.0,
+      "strike": 250.0,
+      "expiry": "2026-08-21",
+      "quantity": 2,
+      "cost_basis": 3662.0,
       "reflected": true,
       "market_context": {
-        "price": 603.3301,
-        "change_pct": 0.5,
-        "iv": 23.5,
+        "price": 249.52,
+        "change_pct": 1.43,
+        "iv": 25.9,
         "option_greeks": {
-          "delta": 0.556,
-          "gamma": 0.0165,
-          "theta": -0.4646,
-          "vega": 0.3962,
-          "rho": 0.0812
+          "delta": 0.529,
+          "gamma": 0.0097,
+          "theta": -0.0619,
+          "vega": 0.6331,
+          "rho": 0.4773
         },
         "iv_context": {
-          "iv_rank": 9,
-          "iv_percentile": 17,
-          "iv_52w_high": 25.1,
-          "iv_52w_low": 23.4
+          "iv_rank": 35,
+          "iv_percentile": 27,
+          "iv_52w_high": 27.2,
+          "iv_52w_low": 25.2
         },
         "trends": {
-          "price_52w_high": 637.01,
-          "price_52w_low": 402.39,
-          "price_vs_52w_pct": 86,
-          "sma_50": 612.86,
-          "sma_200": 591.83,
+          "price_52w_high": 271.6,
+          "price_52w_low": 171.73,
+          "price_vs_52w_pct": 78,
+          "sma_50": 260.21,
+          "sma_200": 241.05,
           "sma_signal": "mixed",
           "returns": {
-            "1w": -0.7,
-            "1m": 0.2,
-            "3m": -1.7,
-            "6m": 2.0
+            "1w": 0.9,
+            "1m": -5.5,
+            "3m": -0.2,
+            "6m": 4.4
           },
           "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
-          "rsi_14": 40.4,
-          "atr_14": 10.77,
-          "prev_day_high": 605.9,
-          "prev_day_low": 601.87,
-          "avg_volume_50d": 63593365,
+          "rsi_14": 35.6,
+          "atr_14": 6.15,
+          "prev_day_high": 250.09,
+          "prev_day_low": 242.52,
+          "avg_volume_50d": 43263549,
           "bollinger": {
-            "upper": 615.64,
-            "middle": 605.38,
-            "lower": 595.13,
-            "pct_b": 40.6
+            "upper": 269.46,
+            "middle": 256.04,
+            "lower": 242.63,
+            "pct_b": 25.9
           }
         },
         "news": [
           {
-            "title": "The VIX Is Falling Despite Global Chaos \u2014 Here\u2019s What the Fear Gauge Is Actually Telling You",
-            "publisher": "24/7 Wall St.",
-            "date": "2026-03-17"
+            "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Thursday Amid Rising Oil Prices, Reduced Rate-Cut Expectations",
+            "publisher": "MT Newswires",
+            "date": "2026-03-19"
+          },
+          {
+            "title": "The Zacks Analyst Blog Highlights SPY, QQQ, DIVG, BBEM, PBW and IWM",
+            "publisher": "Zacks",
+            "date": "2026-03-18"
+          },
+          {
+            "title": "Exchange-Traded Funds, Equity Futures Lower Ahead of Key Economic Data, FOMC Meeting",
+            "publisher": "MT Newswires",
+            "date": "2026-03-18"
           },
           {
             "title": "Should You Be Greedy When Others are Fearful? ETFs in Focus",
@@ -1237,199 +1243,282 @@
             "title": "Exchange-Traded Funds Higher, Equity Futures Mixed Pre-Bell Tuesday Ahead of US Federal Reserve Meeting",
             "publisher": "MT Newswires",
             "date": "2026-03-17"
-          },
-          {
-            "title": "Exchange-Traded Funds Rise as US Equities Advance After Midday",
-            "publisher": "MT Newswires",
-            "date": "2026-03-16"
-          },
-          {
-            "title": "Is Dow ETF Better-Positioned Than S&P 500 & Nasdaq Amid Iran War?",
-            "publisher": "Zacks",
-            "date": "2026-03-16"
           }
         ],
         "broader_market": {
-          "spy_price": 671.31,
-          "spy_change_pct": 0.35
+          "spy_price": 662.07,
+          "spy_change_pct": 0.1
         }
       }
-    },
+    }
+  ],
+  "XLE260417P00059000": [
     {
-      "order_id": "26554651",
-      "reason": "Expanding QQQ mean reversion position (2-week DTE experiment). Thesis: QQQ is consolidating between the 50 SMA (612.5) and 200 SMA (592.2) following a PPI-driven dip of -0.54% and geopolitical jitters (PPI jump, Iran escalation). Price 600.06 sits at Bollinger %B 26.0 and RSI 42.9, providing a low-IV entry (rank 23, percentile 14) for a recovery play. Deep news research (Zacks, Barchart) confirms 'buy the dip' sentiment ahead of FOMC, with history suggesting strong rebounds from fear-driven bottoms. Experience recall (tickers/QQQ/geopolitical-dips-are-short-lived.md) validates that QQQ recovers quickly from geopolitical fear, and the current 'between-SMA' setup has better statistical odds than prior 'below-both-SMA' failures. Time window: 5 trading days (by March 25) for recovery toward 50 SMA. Expected move: Stock recovers toward 612.5 (~+2% stock = ~+30-40% on contract). Invalidation criteria: QQQ breaks below 200 SMA at 592.2 or Fed delivers hawkish surprise (higher-for-longer dot plot). Tags: mean-reversion, geopolitical-recovery, low-iv-entry, between-sma, double-down, 2-week-dte-experiment.",
-      "entry_price": 599.721,
-      "entry_iv": 23.2,
-      "entry_date": "2026-03-18",
-      "ticker": "QQQ",
-      "type": "call",
-      "strike": 600.0,
-      "expiry": "2026-03-27",
+      "order_id": "26651302",
+      "reason": "Mean reversion play on extreme technical exhaustion (RSI 74.4, Bollinger %B 105.9). XLE is trading at its 52-week high (9.72) and is stretched 6.2% above its 50 SMA (52.93). Thesis: The energy sector's rally, driven by oil price spikes and Iran war escalation, has reached a statistical extreme. Broader market is in a confirmed downtrend (SPY below both SMAs), creating a momentum divergence that typically resolves with the leading sector (XLE) retracing. Deep news research (MT Newswires, Zacks) shows market participants weighing rising oil against reduced rate-cut expectations, with 'Reddit bullish' but 'crude telling a different story'. Experience 'general/profit-taking-technical-exhaustion.md' confirms RSI >70 + %B >100 as a reliable exhaustion signal, although a recent XLE put attempt failed because the oil catalyst persisted. I am entering slightly OTM (59P) with 120 DTE to give the thesis time to breathe. Time window: 5-8 trading days for initial mean reversion toward the upper Bollinger band (9.22). Expected move: XLE retraces to its 20-day middle Bollinger band at 6.61 (~-5% stock = ~+25-30% on contract). Invalidation: XLE breaks decisively above 0 on fresh escalation news or if RSI/Bollinger extremes are maintained for >3 days without price soften. Tags: mean-reversion, technical-exhaustion, peak-shorting, catalyst-fade, sector-rotation, momentum-divergence.",
+      "entry_price": 59.4099,
+      "entry_iv": 29.3,
+      "entry_date": "2026-03-19",
+      "ticker": "XLE",
+      "type": "put",
+      "strike": 59.0,
+      "expiry": "2026-04-17",
       "quantity": 1,
-      "cost_basis": 865.0,
+      "cost_basis": 195.0,
       "reflected": true,
       "market_context": {
-        "price": 599.721,
-        "change_pct": -0.6,
-        "iv": 23.2,
+        "price": 59.4099,
+        "change_pct": 1.68,
+        "iv": 29.3,
         "option_greeks": {
-          "delta": 0.511,
-          "gamma": 0.0187,
-          "theta": -0.4658,
-          "vega": 0.3772,
-          "rho": 0.0653
+          "delta": -0.452,
+          "gamma": 0.0803,
+          "theta": -0.0296,
+          "vega": 0.066,
+          "rho": 0.0191
         },
         "iv_context": {
-          "iv_rank": 3,
-          "iv_percentile": 14,
-          "iv_52w_high": 25.1,
-          "iv_52w_low": 23.1
+          "iv_rank": 100,
+          "iv_percentile": 100,
+          "iv_52w_high": 28.8,
+          "iv_52w_low": 26.8
         },
         "trends": {
-          "price_52w_high": 637.01,
-          "price_52w_low": 402.39,
-          "price_vs_52w_pct": 84,
-          "sma_50": 612.49,
-          "sma_200": 592.23,
-          "sma_signal": "mixed",
+          "price_52w_high": 59.72,
+          "price_52w_low": 37.24,
+          "price_vs_52w_pct": 99,
+          "sma_50": 52.93,
+          "sma_200": 46.24,
+          "sma_signal": "above_both",
           "returns": {
-            "1w": -1.3,
-            "1m": -0.3,
-            "3m": -1.8,
-            "6m": 1.4
+            "1w": 3.3,
+            "1m": 8.5,
+            "3m": 35.6,
+            "6m": 32.0
           },
-          "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
-          "rsi_14": 42.6,
-          "atr_14": 10.22,
-          "prev_day_high": 603.16,
-          "prev_day_low": 598.3,
-          "avg_volume_50d": 63724612,
+          "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+          "rsi_14": 73.9,
+          "atr_14": 1.19,
+          "prev_day_high": 59.72,
+          "prev_day_low": 58.52,
+          "avg_volume_50d": 57746780,
           "bollinger": {
-            "upper": 615.62,
-            "middle": 605.07,
-            "lower": 594.52,
-            "pct_b": 24.5
+            "upper": 59.19,
+            "middle": 56.61,
+            "lower": 54.02,
+            "pct_b": 104.2
           }
         },
         "news": [
           {
-            "title": "Exchange-Traded Funds Fall as US Equities Decline After Midday",
+            "title": "Exchange-Traded Funds Edge Lower as US Equities Fall After Midday",
+            "publisher": "MT Newswires",
+            "date": "2026-03-19"
+          },
+          {
+            "title": "Sector Update: Energy Stocks Advance Premarket Thursday",
+            "publisher": "MT Newswires",
+            "date": "2026-03-19"
+          },
+          {
+            "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Thursday Amid Rising Oil Prices, Reduced Rate-Cut Expectations",
+            "publisher": "MT Newswires",
+            "date": "2026-03-19"
+          },
+          {
+            "title": "Sector Update: Energy Stocks Higher Late Afternoon",
             "publisher": "MT Newswires",
             "date": "2026-03-18"
           },
           {
-            "title": "Is the Thrill Gone in QQQ? Where Investors Should Be Looking Now.",
-            "publisher": "Barchart",
-            "date": "2026-03-18"
-          },
-          {
-            "title": "The Zacks Analyst Blog Highlights SPY, QQQ, DIVG, BBEM, PBW and IWM",
-            "publisher": "Zacks",
-            "date": "2026-03-18"
-          },
-          {
-            "title": "Exchange-Traded Funds, Equity Futures Lower Ahead of Key Economic Data, FOMC Meeting",
+            "title": "Sector Update: Energy",
             "publisher": "MT Newswires",
-            "date": "2026-03-18"
-          },
-          {
-            "title": "3 Growth ETFs to Buy in 2026 and Hold Until Your Portfolio Hits 7 Figures",
-            "publisher": "24/7 Wall St.",
             "date": "2026-03-18"
           }
         ],
         "broader_market": {
-          "spy_price": 666.07975,
-          "spy_change_pct": -0.71
+          "spy_price": 657.21,
+          "spy_change_pct": -0.64
         }
       }
-    },
+    }
+  ],
+  "GLD260717C00470000": [
     {
-      "order_id": "26559959",
-      "reason": "Expanding QQQ mean reversion position (2-week DTE experiment). Thesis: QQQ is consolidating between the 50 SMA (612.5) and 200 SMA (592.2) following a PPI-driven dip of -0.54% and geopolitical jitters (PPI jump, Iran escalation). Price 600.06 sits at Bollinger %B 26.0 and RSI 42.9, providing a low-IV entry (rank 23, percentile 14) for a recovery play. Deep news research (Zacks, Barchart) confirms 'buy the dip' sentiment ahead of FOMC, with history suggesting strong rebounds from fear-driven bottoms. Experience recall (tickers/QQQ/geopolitical-dips-are-short-lived.md) validates that QQQ recovers quickly from geopolitical fear, and the current 'between-SMA' setup has better statistical odds than prior 'below-both-SMA' failures. Time window: 5 trading days (by March 25) for recovery toward 50 SMA. Expected move: Stock recovers toward 612.5 (~+2% stock = ~+30-40% on contract). Invalidation criteria: QQQ breaks below 200 SMA at 592.2 or Fed delivers hawkish surprise (higher-for-longer dot plot). Tags: mean-reversion, geopolitical-recovery, low-iv-entry, between-sma, double-down, 2-week-dte-experiment.",
-      "entry_price": 597.14,
-      "entry_iv": 23.2,
-      "entry_date": "2026-03-18",
-      "ticker": "QQQ",
+      "order_id": "26660502",
+      "reason": "Mean reversion play on technical dip (67.91) following Fed hold. Setup: GLD between 50 SMA (451.3) and 200 SMA (370), distinct from common failures below both SMAs. P/C vol ratio extremely bullish (0.24). News-research confirms bearish macro sentiment (Fed/Oil), but pattern 'bounce-back-fails-when-macro-fear-fades.md' suggests a quick technical bounce is likely before fundamental pressure resumes. High volume and deep range position (16) support a near-term floor. Time window: expect move within 2-3 trading days (by March 24). Expected move: recovery toward recent consolidation zone at 75-477 (+1.5-2.0% stock = ~+15-20% on contract). Invalidation: Breaking below 50 SMA at 51.3 or further hawkish Fed commentary. Pattern: dip-buying, between-sma, bullish-sentiment, macro-bounce. Treat as a short-term trade per experience guidance.",
+      "entry_price": 423.32,
+      "entry_iv": 28.3,
+      "entry_date": "2026-03-19",
+      "ticker": "GLD",
       "type": "call",
-      "strike": 600.0,
-      "expiry": "2026-03-27",
+      "strike": 470.0,
+      "expiry": "2026-07-17",
       "quantity": 1,
-      "cost_basis": 761.0,
+      "cost_basis": 1260.0,
       "reflected": true,
       "market_context": {
-        "price": 597.14,
-        "change_pct": -1.03,
-        "iv": 23.2,
+        "price": 423.32,
+        "change_pct": -4.82,
+        "iv": 28.3,
         "option_greeks": {
-          "delta": 0.511,
-          "gamma": 0.0187,
-          "theta": -0.4658,
-          "vega": 0.3772,
-          "rho": 0.0653
+          "delta": 0.299,
+          "gamma": 0.0051,
+          "theta": -0.1102,
+          "vega": 0.8588,
+          "rho": 0.3768
         },
         "iv_context": {
-          "iv_rank": 3,
-          "iv_percentile": 14,
-          "iv_52w_high": 25.1,
-          "iv_52w_low": 23.1
+          "iv_rank": 100,
+          "iv_percentile": 100,
+          "iv_52w_high": 27.9,
+          "iv_52w_low": 25.4
         },
         "trends": {
-          "price_52w_high": 637.01,
-          "price_52w_low": 402.39,
-          "price_vs_52w_pct": 83,
-          "sma_50": 612.44,
-          "sma_200": 592.22,
+          "price_52w_high": 509.7,
+          "price_52w_low": 272.58,
+          "price_vs_52w_pct": 64,
+          "sma_50": 455.94,
+          "sma_200": 373.6,
           "sma_signal": "mixed",
           "returns": {
-            "1w": -1.7,
-            "1m": -0.7,
-            "3m": -2.2,
-            "6m": 1.0
+            "1w": -9.3,
+            "1m": -7.6,
+            "3m": 6.9,
+            "6m": 25.6
           },
           "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
-          "rsi_14": 41.0,
-          "atr_14": 10.32,
-          "prev_day_high": 603.16,
-          "prev_day_low": 596.89,
-          "avg_volume_50d": 63795227,
+          "rsi_14": 21.4,
+          "atr_14": 11.52,
+          "prev_day_high": 426.96,
+          "prev_day_low": 416.8,
+          "avg_volume_50d": 19555478,
           "bollinger": {
-            "upper": 615.81,
-            "middle": 604.94,
-            "lower": 594.07,
-            "pct_b": 14.0
+            "upper": 496.91,
+            "middle": 468.54,
+            "lower": 440.18,
+            "pct_b": -29.7
           }
         },
         "news": [
           {
-            "title": "Exchange-Traded Funds Fall as US Equities Decline After Midday",
-            "publisher": "MT Newswires",
-            "date": "2026-03-18"
+            "title": "Gold Drops 1.2% to $4,760 as Oil Surge Clouds Fed Rate Path",
+            "publisher": "GuruFocus.com",
+            "date": "2026-03-19"
           },
           {
-            "title": "Is the Thrill Gone in QQQ? Where Investors Should Be Looking Now.",
-            "publisher": "Barchart",
-            "date": "2026-03-18"
-          },
-          {
-            "title": "The Zacks Analyst Blog Highlights SPY, QQQ, DIVG, BBEM, PBW and IWM",
-            "publisher": "Zacks",
-            "date": "2026-03-18"
-          },
-          {
-            "title": "Exchange-Traded Funds, Equity Futures Lower Ahead of Key Economic Data, FOMC Meeting",
-            "publisher": "MT Newswires",
-            "date": "2026-03-18"
-          },
-          {
-            "title": "3 Growth ETFs to Buy in 2026 and Hold Until Your Portfolio Hits 7 Figures",
+            "title": "The 12% Yield Gold Income ETF That Nobody Knows About",
             "publisher": "24/7 Wall St.",
-            "date": "2026-03-18"
+            "date": "2026-03-19"
+          },
+          {
+            "title": "Bybit Offers Interest Payments On Tokenized Gold",
+            "publisher": "CryptoProwl",
+            "date": "2026-03-19"
+          },
+          {
+            "title": "Gold Prices Plunge 7.3% as Hopes for Lower U.S. Interest Rates Fade",
+            "publisher": "MT Newswires",
+            "date": "2026-03-19"
+          },
+          {
+            "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Thursday Amid Rising Oil Prices, Reduced Rate-Cut Expectations",
+            "publisher": "MT Newswires",
+            "date": "2026-03-19"
           }
         ],
         "broader_market": {
-          "spy_price": 663.545,
-          "spy_change_pct": -1.08
+          "spy_price": 656.69,
+          "spy_change_pct": -0.72
+        }
+      }
+    },
+    {
+      "order_id": "26670734",
+      "reason": "Averaging down on GLD mean reversion. Setup: Price 423.32 (down 4.8%) between 50 SMA (455) and 200 SMA (373). Extremely bullish P/C vol ratio (0.24). News-research confirms Fed rate cut doubts but 'geopolitical-fear-trades-fade-quickly.md' suggests macro-noise creates high-conviction technical bounces. Expected move: Recovery toward 450 (+6%) within 3-5 days. Invalidation: Breaks 200 SMA at 373.",
+      "entry_price": 427.395,
+      "entry_iv": 27.6,
+      "entry_date": "2026-03-19",
+      "ticker": "GLD",
+      "type": "call",
+      "strike": 470.0,
+      "expiry": "2026-07-17",
+      "quantity": 1,
+      "cost_basis": 1375.0,
+      "reflected": true,
+      "market_context": {
+        "price": 427.395,
+        "change_pct": -3.9,
+        "iv": 27.6,
+        "option_greeks": {
+          "delta": 0.32,
+          "gamma": 0.0051,
+          "theta": -0.1173,
+          "vega": 0.8601,
+          "rho": 0.3979
+        },
+        "iv_context": {
+          "iv_rank": 88,
+          "iv_percentile": 89,
+          "iv_52w_high": 27.9,
+          "iv_52w_low": 25.4
+        },
+        "trends": {
+          "price_52w_high": 509.7,
+          "price_52w_low": 272.58,
+          "price_vs_52w_pct": 65,
+          "sma_50": 456.02,
+          "sma_200": 373.62,
+          "sma_signal": "mixed",
+          "returns": {
+            "1w": -8.5,
+            "1m": -6.7,
+            "3m": 8.0,
+            "6m": 26.8
+          },
+          "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+          "rsi_14": 22.3,
+          "atr_14": 11.52,
+          "prev_day_high": 428.27,
+          "prev_day_low": 416.8,
+          "avg_volume_50d": 19626431,
+          "bollinger": {
+            "upper": 495.84,
+            "middle": 468.75,
+            "lower": 441.65,
+            "pct_b": -26.3
+          }
+        },
+        "news": [
+          {
+            "title": "Update: Gold Prices Plunge as Hopes for Lower U.S. Interest Rates Fade",
+            "publisher": "MT Newswires",
+            "date": "2026-03-19"
+          },
+          {
+            "title": "Gold Drops 1.2% to $4,760 as Oil Surge Clouds Fed Rate Path",
+            "publisher": "GuruFocus.com",
+            "date": "2026-03-19"
+          },
+          {
+            "title": "The 12% Yield Gold Income ETF That Nobody Knows About",
+            "publisher": "24/7 Wall St.",
+            "date": "2026-03-19"
+          },
+          {
+            "title": "Bybit Offers Interest Payments On Tokenized Gold",
+            "publisher": "CryptoProwl",
+            "date": "2026-03-19"
+          },
+          {
+            "title": "Gold Prices Plunge 7.3% as Hopes for Lower U.S. Interest Rates Fade",
+            "publisher": "MT Newswires",
+            "date": "2026-03-19"
+          }
+        ],
+        "broader_market": {
+          "spy_price": 661.99,
+          "spy_change_pct": 0.09
         }
       }
     }
