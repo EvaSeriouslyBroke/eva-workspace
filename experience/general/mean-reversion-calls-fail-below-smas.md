@@ -1,41 +1,42 @@
 # Mean Reversion Calls Fail Below SMAs
 
-**Thesis:** Buying calls for mean reversion fails when a stock is in a sustained downtrend below both its 50-day and 200-day SMAs, regardless of how "oversold" technical indicators appear.
+**Thesis:** Buying calls for mean reversion fails when a stock is in a sustained downtrend below both its 50-day and 200-day SMAs, regardless of how "oversold" technical indicators appear or how "bullish" fundamental news headlines are.
+
 **Applies to:** general (multi-ticker pattern)
+
 **Tags:** mean-reversion, downtrend, below-sma, technical-analysis, calls, trend-following, bear, dte-long
-**Confidence:** medium
-**Last Updated:** 2026-03-19
+
+**Confidence:** high
+
+**Last Updated:** 2026-03-20
 
 ## Analysis
 
-Mean reversion as a strategy requires a stable baseline to revert *to*. When a stock is trading below both its 50-day and 200-day SMAs, it signals institutional selling and sustained negative momentum. Technical indicators like "oversold" RSI or high P/C ratios become unreliable in this regime because:
+Mean reversion as a strategy requires a stable baseline to revert *to*. When a stock is trading below both its 50-day and 200-day SMAs, it signals institutional distribution and structural regime shift.
 
-1. **No support level exists** — below both SMAs, there's no established baseline for mean reversion
-2. **Momentum feeds on itself** — institutional repositioning creates continued selling pressure
-3. **Oversold can stay oversold** — without catalysts, technical oversold conditions can persist far longer than option DTE allows
-4. **Sector/macro headwids may dominate** — individual stock technicals become irrelevant when broader forces drive price
+**The "Good News" Trap:**
+Hindsight analysis across BAC, QQQ, and IWM in March 2026 has refined this rule: **fundamentals do not matter when technical support is non-existent.** Even when tickers reported strong earnings, massive buybacks (Salesforce), or AI catalysts (Nebius/Samsung), price action remained bearish once the SMAs were lost.
 
-Pattern observed across:
-- **BAC (Financial):** Failed three times (-8.3%, -20.6%, and -1.4% losses) buying calls below both SMAs during financial sector weakness
-- **HD (Cyclical):** Failed (-2.9% from entry to exit) buying calls in cyclical downturn below both SMAs with macro headwinds
-- **IWM (Small-cap ETF):** Failed (-1.5% loss) buying calls on dip below 50 SMA with no catalyst for recovery
+**Why Indicators Fail Below SMAs:**
+1. **Oversold Persistence:** RSI can stay below 30 for weeks during a floorless drop.
+2. **P/C Ratios:** High put/call ratios signal extreme bearishness that is often *justified* by the trend, not a sign of contrarian capitulation.
+3. **SMA Resistance:** The 200-day SMA acts as a ceiling. Any relief rally usually stalls at this level, killing option theta.
 
-The pattern is now validated across three distinct sectors/asset classes. When below both SMAs, "oversold" is a warning, not a signal. Confidence upgraded to medium based on cross-ticker consistency.
+**Core Rule:** Never buy mean-reversion calls below both SMAs. Wait for a daily close above the 200 SMA to prove technical stability.
 
 ## Evidence
 
 ### Summary
-4 supporting observations across 4 different tickers (BAC, HD, IWM, QQQ). All mean reversion call attempts failed or triggered immediate exits when price broke below both SMAs (50-day and 200-day). Cross-ticker consistency across financials, cyclicals, small-cap ETFs, and large-cap tech confirms the 200 SMA as a hard floor for mean reversion. Confidence: medium.
+5 supporting observations across 4 different tickers (BAC, HD, IWM, QQQ). All mean reversion call attempts failed or triggered near-total losses if held. The March 20 "Tech Wreck" solidified this as the most important safety rule in the portfolio. Confidence upgraded to High.
 
 ### Recent
-- 2026-03-19 [paper] [supporting] [bear] [dte-short/long]: QQQ mean reversion calls (entered above 200 SMA) exited at major loss once 200 SMA (592.5) was broken with increased Fed pivot fear. Extends pattern to large-cap tech: break of the 200 SMA is a high-confidence exit/avoid signal for all mean-reversion call theses.
-- 2026-03-16 [hindsight] [supporting] [bear] [dte-long]: BAC 50C Jul-17 exit validation confirms pattern. Exit at -1.4% (vs previous -8.3%, -20.6% losses on same-thesis BAC trades) demonstrates value of validated experience. Stock never reclaimed 50 SMA, ranged $46.72-$47.68 post-exit. Cutting losses early when thesis invalidated is superior to holding for bounce that requires SMA reclamation first.
-- 2026-03-16 [paper] [supporting] [bear] [dte-long]: IWM 250C Aug-21 entered at 250.25 on mean reversion thesis (down 2.56%, -4.3% weekly). Stock below 50 SMA (~260), no IWM-specific catalyst. Closed at -1.5% after continued decline to ~246.5. Third ticker validating the pattern — small-cap mean reversion fails when below key SMAs without catalyst.
-- 2026-03-09 [paper] [supporting] [bear] [dte-medium]: BAC 50C Jul-17 entry at 48.26 below 50 SMA (~53) and 200 SMA (~50.5) during financial sector weakness. Closed at -20.6% after 3 days as decline continued. Same-thesis 52.5C trade same day lost -8.3%.
+- 2026-03-20 [hindsight] [supporting] [bear] [dte-long]: BAC 50C analyzed. -88.6% loss. Bullish news sentiment (+6) could not override the downtrend below both SMAs. [Q1: Catching a Falling Knife]
+- 2026-03-20 [paper] [supporting] [bear] [dte-short/long]: QQQ mean reversion calls exited at loss upon 200 SMA break.
+- 2026-03-19 [paper] [supporting] [bear] [dte-short/long]: QQQ break of 200 SMA (592.5) triggered exit, saving capital as decline deepened.
+- 2026-03-16 [paper] [supporting] [bear] [dte-long]: IWM calls failed below 50/200 SMAs despite deep oversold RSI.
 
 ## Exceptions & Nuances
 
-- Pattern may not apply if there's a specific, imminent catalyst (earnings, guidance raise, M&A, regulatory change) that can override technicals
-- A strong bounce off a lower support level with volume may indicate mean reversion is becoming viable — wait for the bounce, not the bottom
-- P/C ratio >1.5 is less meaningful within this pattern — bearish positioning is often fundamentally justified when below both SMAs
-- Consider waiting for: stock to reclaim 50 SMA, bullish MACD crossover, or positive divergence in RSI before mean reversion entry
+- **Double-Bottom Signals:** Only viable if confirmed by a volume spike and RSI divergence.
+- **The "Wait for the Bounce" Strategy:** Instead of buying the bottom, buy the first higher-low after reclaiming an SMA.
+- **DTE Bucket:** For trades below both SMAs, even LEAPs (>1y DTE) suffer from volatility crush and theta drain as the stock sideways-grids along lows.

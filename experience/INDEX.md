@@ -20,4 +20,5 @@ Lookup table for experience recall. One-line summaries with tags so Eva can quic
 | tickers/QQQ/geopolitical-dips-are-short-lived.md | QQQ | QQQ recovers fast from geopolitical dips IF above its 200-day SMA; breaks below the 200 SMA invalidate the recovery thesis | geopolitical, mean-reversion, tech-resilience, calls, transition, bear, dte-medium |
 | tickers/XLE/momentum-oil-geopolitical.md | XLE | Energy sector momentum continuation on oil volatility with geopolitical catalyst | momentum, oil-volatility, geopolitical, sector-rotation, calls, bull, dte-short |
 | tickers/GLD/bounce-back-fails-when-macro-fear-fades.md | GLD | Bounce-back calls fail when macro fear fades faster than underlying can recover | bounce-back, macro-correlation, inflation-hedge, oil-volatility, calls, bull, dte-long |
+| tickers/IWM/mean-reversion-from-statistical-extremes.md | IWM | IWM (small-caps) mean-reversion calls are high-probability entries when reaching statistical extremes (RSI/Bollinger %B deep oversold). | mean-reversion, oversold, statistical-extreme, dip-buying, bear, dte-long |
 

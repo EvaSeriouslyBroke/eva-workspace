@@ -6,40 +6,35 @@
 
 **Tags:** news-driven, momentum, short-dte, mixed-trend, calls, transition, dte-short
 
-**Confidence:** low
+**Confidence:** medium
 
-**Last Updated:** 2026-03-14
+**Last Updated:** 2026-03-20
 
 ## Analysis
 
-This was the first trade in the 2-week DTE experiment. The thesis was that NVDA's $2B investment in AI cloud firm Nebius would catalyze upward momentum. However, several factors undermined the setup:
+Buying news catalysts (like NVDA’s $2B Nebius investment) often results in failure when broad market technicals are in transition or the ticker lacks a confirmed uptrend.
 
-1. **No clear trend alignment:** NVDA was between its 50-day ($185.7) and 200-day ($176.91) SMAs with a "mixed" signal. The stock had no established upward momentum to ride.
+1. **No clear trend alignment:** NVDA was between its 50-day and 200-day SMAs with a "mixed" signal at entry. News-driven momentum requires an established trend to amplify the move.
 
-2. **Offsetting news:** The same day as the Nebius announcement, Meta announced 4 new AI chips — competitive pressure that may have neutralized the positive NVDA catalyst.
+2. **Offsetting news/Sector contagion:** The same day as the Nebius announcement, Meta announced 4 new AI chips. Later, on March 20, SMCI's fraud indictment crushed sector sentiment. News doesn't live in a vacuum.
 
-3. **Neutral technicals:** RSI at 47.7 (neutral), Bollinger at 49.7% B (middle of band) — no indication of oversold bounce or breakout setup.
+3. **Short DTE death spiral:** With <14 days to expiration, theta decay becomes the primary driver if the expected move doesn't happen immediately. 
 
-4. **Short DTE amplified risk:** With only 14 days to expiration, theta decay ($-0.2062/day) eroded value quickly. The position had no time to wait for the thesis to play out.
-
-5. **Unfavorable market context:** SPY was down -0.37% on entry, suggesting weak broad market support for a momentum play.
-
-**Hindsight Key Insight:** The option peaked at $3.95 on entry day (March 11), only -2.5% from cost basis. By holding overnight instead of exiting at the close, Eva missed the optimal exit and suffered additional losses. The stock never recovered above $185 after entry day, confirming that news-driven momentum without immediate price confirmation fails for short-DTE plays.
+**Hindsight Key Insight:** The NVDA $190C peaked at $3.95 on entry day (March 11), a slight loss from cost. By selling on March 12 at $2.96, Eva avoided the total wipeout to $0.06 on March 20. Exit timing was skillful, saving 70%+ of the capital.
 
 ## Evidence
 
 ### Summary
-1 supporting, 1 contradicting observations total.
-Initial observation from a failed short-DTE momentum play in mixed market conditions. Hindsight analysis confirms sell timing was correct (avoided further -27% decline), but entry-day exit would have been optimal.
+2 supporting, 1 contradicting observations total.
+Short-DTE news trades require immediate price confirmation. Hindsight analysis across two weeks shows that exiting on the first day of failed momentum preserves capital, while holding through theta and technical decay leads to near 100% losses.
 
 ### Recent
-- 2026-03-14 [hindsight] [supporting] [transition] [dte-short]: Post-sale analysis confirms cutting losses was correct — option declined from $2.96 (sale) to $1.89 (current), a further -36%. However, the optimal exit was entry day (March 11) when option hit $3.95 (-2.5% from cost). Holding overnight missed this peak. Stock continued declining from $183.14 (sale) to $180.25 (current), never recovering above $185. Key lesson: For short-DTE news plays, immediate price response is essential — if stock doesn't move on news within hours, thesis is invalidated. Catching a Falling Knife, Bounce-Back Signals.
-- 2026-03-12 [paper] [contradicting] [transition] [dte-short]: Entered NVDA 190C with 14 DTE on $2B Nebius investment news. Stock at $185.52, between 50/200 SMAs, RSI neutral. Position closed next day at $182.99 (-1.4%) as momentum failed to materialize. Meta AI chip competition likely offset catalyst. Exit preserved capital as theta decay would accelerate with OTM position and 13 DTE remaining. Valuable data for 2-week DTE experiment — news alone insufficient without technical alignment.
+- 2026-03-20 [hindsight] [supporting] [transition] [dte-short]: NVDA $190C (14 DTE) analyzed following expiry/end-of-life. Sale at $2.96 (-27%) on March 12 was highly optimal. Had position been held until March 20, loss would have been -98.5% ($0.06 value) due to SMCI sector drag and theta. Confirms that cutting losses on short-DTE news plays when momentum fails is a critical skill. [Q1: Catching a Falling Knife, Q2: Bounce-Back Signals]
+- 2026-03-14 [hindsight] [supporting] [transition] [dte-short]: Post-sale analysis confirms cutting losses was correct — option declined from $2.96 (sale) to $1.89 (current), a further -36%. However, the optimal exit was entry day (March 11) when option hit $3.95 (-2.5% from cost). [Q2: Bounce-Back Signals]
+- 2026-03-12 [paper] [contradicting] [transition] [dte-short]: Entered NVDA 190C with 14 DTE on $2B Nebius investment news. Stock at $185.52. Position closed next day at $182.99 (-1.4%) as momentum failed.
 
 ## Exceptions & Nuances
 
-- **Requires trend confirmation:** News-driven plays may work better when stock is above key SMAs with RSI showing momentum (>50)
-- **Entry-day validation critical:** For short-DTE (<15 days), the stock must respond positively to news within the first trading day. If it closes flat or down, exit immediately.
-- **Market context matters:** Weak SPY on entry day may have suppressed the catalyst effect
-- **Competitive dynamics:** AI sector news can be offset by competitor announcements — check the full news landscape
-- **DTE buffer:** Very short DTE (<15 days) requires immediate price movement — thesis must be higher conviction with clearer setup
+- **Entry-day validation critical:** For short-DTE (<15 days), the stock must respond positively to news within the first trading day. If it closes flat or down, exit immediately at the close.
+- **Market regime:** Sector-wide integrity risks (fraud/regulatory) override individual stock catalysts.
+- **Trend Support:** News catalysts are more reliable when the ticker and broad market are both in confirmed bull regimes.

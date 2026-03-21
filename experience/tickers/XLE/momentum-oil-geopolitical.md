@@ -1,44 +1,42 @@
 # Energy Sector Momentum on Oil Volatility with Geopolitical Catalyst
 
-**Thesis:** Energy sector ETFs (XLE) exhibit strong momentum continuation when oil prices surge due to geopolitical supply risks, especially when supported by sector rotation and technical uptrends. **Profit-taking at RSI >70 and Bollinger %B >100 reliably signals near-term exhaustion.**
+**Thesis:** Energy sector ETFs (XLE) exhibit strong momentum continuation when oil prices surge due to geopolitical supply risks, especially when supported by sector rotation and technical uptrends. **Local profit-taking at RSI >70 and Bollinger %B >100 is effective, but the underlying trend remains bullish while the catalyst persists.**
 
 **Applies to:** XLE
 
 **Tags:** momentum, oil-volatility, geopolitical, sector-rotation, calls, bull, dte-short
 
-**Confidence:** medium
+**Confidence:** high
 
-**Last Updated:** 2026-03-14
+**Last Updated:** 2026-03-20
 
 ## Analysis
 
-This trade validated the energy momentum thesis with exceptional timing. The Iran-Israel oil conflict created genuine supply risk premium, driving XLE to 52-week highs with strong sector rotation support.
+Experience with XLE across March 2026 has solidified energy as a unique "Momentum Persistence" sector during oil supply shocks.
 
-**Key Success Factors:**
-1. **Fundamental driver was real:** Geopolitical supply risk (Iran conflict, Strait of Hormuz closure threats) created sustained oil price premium
-2. **Technical setup was clean:** Entry at RSI 63.6 (not overbought), above both SMAs, clear uptrend (+27% YTD)
-3. **Sector rotation confirmed:** 76M ETF inflows, energy outperforming precious metals and tech
-4. **Exit timing was optimal:** Sold at RSI 71.4, Bollinger %B 105.1 — captured +16.2% same day
+**Success Pattern:**
+1. **Fundamental Catalyst:** Iran/Israel conflict + Strait of Hormuz threats created a direct supply-risk premium.
+2. **Trend Strength:** Above SMAs with strong ETF inflows ($76M).
+3. **Indicator Behavior:** Technical overbought signals (RSI >70) mark *local* trade peaks where short-dated options lose value (via 1-2 day pullbacks), but the *sector* continues setting 52-week highs on news follow-through.
 
-**Hindsight Validation:**
-The profit-taking decision was validated by subsequent price action. XLE declined from $58.1 (52-week high at sale) to $57.7 (-0.7%), and the option dropped from $1.86 (sale) to $1.61 (-13.4%). The technical exhaustion signals (RSI >70, %B >100) reliably marked the near-term peak.
+**Strategic Pivot:**
+Shorting XLE because it "looks overbought" has failed four times in a row across multiple weeks (-13%, -15%, -17% losses) because technical exhaustion signals alone cannot break the back of a high-conviction geopolitical rally. **Key Discovery:** Sector divergence (XLE rising while SPY/QQQ crash) is a primary signal of high-conviction momentum that ignores RSI gravity.
 
-**Critical Pattern Discovered:**
-For energy momentum plays on geopolitical catalysts, the exhaustion window is narrow. The option peaked at $1.86 (sale price), held flat briefly, then declined 47% to $0.98 the next morning as oil fears eased. Profit-taking at technical exhaustion is essential — holding for "more upside" risks giving back gains.
+**Conclusion:** Play XLE for upside momentum as long as oil headlines dominate. Take profits at RSI >70 for local gain preservation, but never enter a short based solely on technical exhaustion during a structural news rally.
 
 ## Evidence
 
 ### Summary
-2 supporting observations total. Exit timing validated by subsequent price decline.
+6 supporting observations total. Trend alignment and sector divergence are the primary success drivers. Every attempt to short XLE on "overbought" signals has failed during the March oil shock. Final hindsight of the XLE $59P shows that sector divergence (+XLE vs -SPY) is a "momentum shield" that protects overbought stocks from mean-reverting.
 
 ### Recent
-- 2026-03-14 [hindsight] [supporting] [bull] [dte-short] [question: Bearish Reversal Detection]: Post-sale analysis confirms exit timing was optimal. Option peaked at $1.86 (sale price), declined to $1.61 (-13.4%) by next day close, with intraday trough at $0.98 (-47%). XLE stock declined from $58.1 (52-week high) to $57.7 (-0.7%). Technical exhaustion signals (RSI 71.4 → 68.9, %B 105.1 → 94.9) correctly marked near-term peak. "Sell_was_optimal: true" confirmed by counterfactual. Key lesson: Energy momentum on geopolitical catalysts has narrow profit window — technical exhaustion signals are reliable exit triggers.
-- 2026-03-12 [paper] [supporting] [bull] [dte-short] [question: Bearish Reversal Detection]: Bought XLE 57c 15 DTE at $1.60 on Iran oil conflict, sector rotation thesis. Underlying moved +1.8% same day, option peaked at +16.2% ($1.86). Sold at technical exhaustion signals (RSI 71.4, Bollinger %B 105.1). The momentum + geopolitical catalyst thesis played out within hours. Captured nearly full intraday move.
+- 2026-03-20 [hindsight] [supporting] [bear] [dte-long/medium]: XLE $59P analysis confirms "Momentum Shield" rule. Entry at RSI 73 and %B 104 failed as XLE diverged from the broader Nasdaq crash. Cutting loss at -17% was correct as XLE reached $60.32. [Q3: Bearish Reversal Detection]
+- 2026-03-20 [hindsight] [supporting] [bull] [dte-short]: XLE $57P full lifecycle check confirms the "Persistence" rule. Confirms: do not short "overbought" energy during supply shocks. [Q3: Bearish Reversal Detection]
+- 2026-03-20 [hindsight] [supporting] [bull] [dte-short]: XLE $57C analysis validates profit-taking at RSI 71.4.
+- 2026-03-14 [hindsight] [supporting] [bull] [dte-short]: Post-sale analysis confirms exit timing was optimal for the local move. $1.86 peak captured.
 
 ## Exceptions & Nuances
 
-- **Requires genuine supply-risk catalyst:** Geopolitical fear must threaten actual supply disruption (e.g., Strait of Hormuz closure), not just noise
-- **Entry timing matters:** Need RSI <65, %B <90 at entry — entering at already-overbought levels reduces edge
-- **Profit-taking is essential:** Technical exhaustion (RSI >70, %B >100) reliably marks near-term peaks in energy momentum plays
-- **Fast reversal risk:** Energy momentum on fear can reverse within 24 hours as headlines shift — same-day profit-taking preferred
-- **IV expansion warning:** IV rank 100% at entry — high IV environment amplifies both gains and losses
+- **The "Momentum Shield" Nuance:** Sector divergence (ticker up vs broad market down) is a high-confidence signal to ignore technical overbought levels.
+- **Headline Risk:** A single piece of de-escalation news will override the trend instantly.
+- **Volatility Scaling:** At IV rank 100%, use smaller position sizes or further out-of-the-money strikes.

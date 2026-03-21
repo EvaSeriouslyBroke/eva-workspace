@@ -135,13 +135,100 @@ remove based on paper trading results.
 - Enter calls on news catalysts with 10-15 DTE
 - Track stock price movement within first 4 hours of entry day
 - If stock closes flat or down on entry day, exit immediately next morning vs holding
-- Compare outcomes: immediate exit (same/next day) vs holding 2-3 days waiting for momentum
-- Note correlation between entry-day price action and ultimate trade outcome
-- Test if "offsetting news" (competitor announcements, market weakness) neutralizes catalysts
+- **Added 2026-03-20:** NVDA hindsight confirms that holding short-DTE news plays without immediate confirmation leads to near 100% loss (-98.5%) due to accelerated theta and technical decay.
 
 **Hypothesis:** Short-DTE news plays require immediate price confirmation. If the stock doesn't respond positively within the first trading day, the thesis is invalidated and early exit minimizes losses.
 
 **Success Criteria:** After 10+ short-DTE news-driven trades, determine if entry-day price action is a reliable signal. If trades that close flat/down on entry day consistently lose money, establish "same-day exit" as a hard rule for this setup.
+
+### News Persistence vs. Technical Exhaustion (2026-03-20)
+**Source:** Hindsight — XLE260327C00057000 | **Status:** Active
+
+**Goal:** Determine if structural fundamental news (e.g., War, Infrastructure Supply Shocks) provides a "Persistence Multiplier" that overrides technical exhaustion signals (RSI > 70).
+
+**What to Test:**
+- Identify trades where a major structural news catalyst is active (Supply-Risk Oil, Fraud, CEO Departure).
+- When the RSI >70 + %B >100 signal triggers, compare outcomes between: (1) Exit immediately vs (2) Hold as long as headline catalyst persists.
+- Track 3-day post-signal performance.
+- Note if "Persistence" is sector-specific (e.g., Energy vs Tech).
+- **Added 2026-03-20:** Energy sector (XLE) hindsight confirms that shorting based on RSI 73 during an active oil war results in an -80% loss. Fundamental persistence completely overrides technical gravity.
+
+**Success Criteria:** If trades with structural catalysts continue to rise for 3+ days after technical exhaustion triggers in 60%+ of cases, create an "Elite News" exception rule for momentum exits.
+
+### Catalyst vs. Trend Persistence (2026-03-20)
+**Source:** Hindsight — QQQ260417P00595000 | **Status:** Active
+
+**Goal:** Determine if trades aligned with an underlying technical trend should be held even after the original news catalyst fades.
+
+**What to Test:**
+- Identify trades where a technical trend (e.g., price below/above 50 SMA) is aligned with a temporary news catalyst (e.g., oil price spike).
+- When the news catalyst fades (e.g., headlines calm down), check if the underlying remains in its technical regime.
+- Compare outcomes: (1) Exit on catalyst fade vs (2) Hold as long as technical trend remains intact.
+- **Evidence 2026-03-20:** QQQ Puts sold because "oil fears calmed" missed a 43% gain because technical weakness (below 50 SMA) persisted.
+
+**Hypothesis:** If a news-driven entry is aligned with a structural technical trend, the trend will continue to drive price action even after the news is priced in or fades.
+
+**Success Criteria:** If holding based on trend after catalyst fade produces 25%+ more P&L than immediate exit in 5+ trials, establish "Trend Alignment Priority" as a core rule.
+
+### Yield Thresholds for Gold Hedges (2026-03-20)
+**Source:** Hindsight — GLD260717C00470000 | **Status:** Active
+
+**Goal:** Establish a hard rule for exiting gold/bullion hedges based on 10Y Treasury Yield movement to avoid capital wipes during macro shifts.
+
+**What to Test:**
+- Note 10Y Yield at time of bullish gold entry.
+- Identify "Yield Resistance": a move of +10bps in 10Y yield over 24 hours.
+- Test outcome if long GLD position is closed immediately upon hitting "Yield Resistance" vs holding for technical targets.
+- **Evidence 2026-03-20:** Gold fell 7% in a week as yields rose toward 4.26%. Cutting on first yield spike would have saved the core of the position.
+
+**Hypothesis:** Gold hedges are invalidated by rapid yield expansions regardless of current inflation headlines. The rate of change in yields is a higher-fidelity exit signal than the gold price itself.
+
+**Success Criteria:** If yield-based exits preserve 20%+ more capital than thesis-based exits in 4+ instances, establish "Yield Cap" as a mandatory exit condition for gold calls.
+
+### Momentum Shield Identification (2026-03-20)
+**Source:** Hindsight — XLE260417P00059000 | **Status:** Active
+
+**Goal:** Test if sector divergence (ticker green while SPY/QQQ is red) acts as a "Momentum Shield" that prevents mean-reversion pullbacks even when technical exhaustion (RSI > 70) is present.
+
+**What to Test:**
+- Identify when a stock reaches RSI > 70 + %B > 100.
+- Check broad market status: (1) SPY Green vs (2) SPY Red.
+- If SPY is Red while Ticker is Green (Divergence), test failure rate of short entries.
+- **Evidence 2026-03-20:** Every XLE put attempt failed because XLE was in a bullish divergence during a tech crash.
+
+**Hypothesis:** Shorting "overbought" stocks is a certain failure if they are exhibiting relative strength against a falling market. Divergence is a higher-conviction signal than RSI.
+
+**Success Criteria:** If divergence-backed overbought stocks continue to rise for 3+ days in 70% of cases, establish "Divergence Trap" as a mandatory filter for avoiding BEARISH mean-reversion trades.
+
+### Catalyst vs. Trend Persistence (2026-03-20)
+**Source:** Hindsight — QQQ260417P00595000 | **Status:** Active
+
+**Goal:** Determine if trades aligned with an underlying technical trend should be held even after the original news catalyst fades.
+
+**What to Test:**
+- Identify trades where a technical trend (e.g., price below/above 50 SMA) is aligned with a temporary news catalyst (e.g., oil price spike).
+- When the news catalyst fades (e.g., headlines calm down), check if the underlying remains in its technical regime.
+- Compare outcomes: (1) Exit on catalyst fade vs (2) Hold as long as technical trend remains intact.
+- **Evidence 2026-03-20:** QQQ Puts sold because "oil fears calmed" missed a 43% gain because technical weakness (below 50 SMA) persisted.
+
+**Hypothesis:** If a news-driven entry is aligned with a structural technical trend, the trend will continue to drive price action even after the news is priced in or fades.
+
+**Success Criteria:** If holding based on trend after catalyst fade produces 25%+ more P&L than immediate exit in 5+ trials, establish "Trend Alignment Priority" as a core rule.
+
+### News/Price Divergence in Downtrends (2026-03-20)
+**Source:** Hindsight — BAC260717C00050000 | **Status:** Active
+
+**Goal:** Test whether "Good News" coupled with "Bearish Price Action" is a high-confidence signal for an upcoming sharp leg down or continued stagnation.
+
+**What to Test:**
+- Identify when a ticker has a Bullish news sentiment score (e.g., >3) but the price is declining and below both 50/200 SMAs.
+- Compare these instances to "Bearish News + Bearish Price."
+- Track 3-day and 7-day price trajectory after the divergence appears.
+- **Evidence 2026-03-20:** BAC had a +6 news score but a -88% options loss as price ignored fundamentals.
+
+**Hypothesis:** Positive fundamentals are ignored in bear regimes. A divergence where "good news" fails to lift price is the ultimate bearish signal for that cycle.
+
+**Success Criteria:** If price continues to decline or stay flat in 80% of divergence cases, establish "Divergence Trap" as a mandatory avoidance rule for mean reversion.
 
 ### RSI >70 + Bollinger %B >100 Profit-Taking Validation (2026-03-14)
 **Source:** Hindsight — XLE260327C00057000 | **Status:** Active
@@ -158,6 +245,23 @@ remove based on paper trading results.
 **Hypothesis:** The combination of RSI >70 (momentum exhaustion) and Bollinger %B >100 (statistical extreme) provides a reliable near-term peak signal for momentum trades. Exiting on this signal captures optimal gains before mean reversion begins.
 
 **Success Criteria:** After 8+ momentum trades across 3+ different tickers, if 75%+ of exits at RSI >70 + %B >100 are followed by price declines within 24-48 hours, promote this signal to a core profit-taking rule. If success rate is <50%, the signal is not reliable enough for systematic use.
+
+**Success Criteria:** If holding based on trend after catalyst fade produces 25%+ more P&L than immediate exit in 5+ trials, establish "Trend Alignment Priority" as a core rule.
+
+### SMA Break Sensitivity (2026-03-20)
+**Source:** Hindsight — QQQ260327C00600000 | **Status:** Active
+
+**Goal:** Determine if immediate exit (within 1 hour) upon a decisive break of the 200-day SMA is a superior risk-management rule compared to waiting for a daily close.
+
+**What to Test:**
+- Identify when a stock in a recovery thesis touches its 200-day SMA from above.
+- Record the price 1 hour after the touch and the end-of-day close.
+- Compare outcomes: (1) Exit immediately vs (2) Exit at next daily close.
+- **Evidence 2026-03-20:** QQQ continued to plummet after the 200 SMA break. Exiting within the breakdown day saved nearly 30% of the contract value on short-dated calls and 11% on LEAPs.
+
+**Hypothesis:** Decisive breaks of the 200-day SMA on high volume characterize regime shifts that offer no immediate re-test opportunity. Immediate exit is safer than waiting for confirmation.
+
+**Success Criteria:** If immediate exits save an average of 10%+ more capital across 5+ trades, promote "Hard SMA Floor" to a mandatory automated sell trigger.
 
 ### Catalyst Fade vs Independent Drivers Test (2026-03-14)
 **Source:** Hindsight — QQQ260417P00595000 | **Status:** Active

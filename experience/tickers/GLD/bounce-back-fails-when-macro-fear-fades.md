@@ -1,48 +1,38 @@
 # GLD: Bounce-Back Calls Fail When Macro Fear Fades Faster Than Underlying Recovers
 
-**Thesis:** Buying calls on GLD for bounce-back after oil-driven/inflation-fear dips fails when the macro fear dissipates faster than gold can reclaim its role as inflation hedge. **Critical addendum: When bounce-back works quickly (+17% in 24 hours), profit-taking is optimal — holding for "more upside" risks giving back gains when the correlation dissolves.**
+**Thesis:** Buying calls on GLD for bounce-back after oil-driven/inflation-fear dips fails when the macro fear dissipates faster than gold can reclaim its role as an inflation hedge. **Hindsight Update:** Yield pressure (rising 10Y) is the primary "regime shift" that overrides the inflation-hedge thesis, and exiting these positions at the first sign of thesis invalidation is critical for capital preservation.
 
 **Applies to:** GLD
 
 **Tags:** bounce-back, macro-correlation, inflation-hedge, oil-volatility, calls, bull, dte-long
 
-**Confidence:** low
+**Confidence:** medium
 
-**Last Updated:** 2026-03-14
+**Last Updated:** 2026-03-20
 
 ## Analysis
 
-GLD's response to oil-driven inflation fears is asymmetrical. When oil spikes create inflation/rate hike fears that drag gold down, the recovery is not guaranteed even if those fears fade. The March 2026 trade reveals a critical pattern about bounce-back timing.
+GLD's response to macro news is heavily influenced by the interest rate environment. Hindsight analysis across March 2026 shows a clear hierarchy of drivers: **Yields > Oil/Panic > Gold Price.**
 
-**The Trade Sequence:**
-- **March 9 (Entry):** Bought $470C at $33.60 after -1.5% oil-driven dip. GLD at $466.53
-- **March 10 (Peak):** GLD bounced to $480.76 (+3%), option peaked at $39.30 (+17%)
-- **March 13 (Exit):** Sold at $29.45 (-12.4%) after oil fears faded, thesis invalidated
+1. **The Bounce Pattern:** Gold tends to bounce within 24-48 hours once an initial "panic" dip (like an oil spike) is absorbed. This bounce is a tactical profit-taking opportunity (+17% captured on March 10).
+2. **The "Yield Trap":** If the Federal Reserve shifts hawkish (the March "Dot Plot" shock) or 10Y Yields rise concurrently with a sell-off, gold's "hedge" role is negated by the increased opportunity cost of holding non-yielding bullion.
+3. **The Preservation Move:** When the macro correlation (oil -> inflation fear) fades, cutting the loss immediately (even at -12%) is essential. 
 
-**Hindsight Key Insight:**
-The optimal exit was March 10 — the bounce-back worked perfectly within 24 hours. By holding for "more upside" as the thesis suggested, Eva gave back all gains and then some. The macro correlation (oil→gold) dissolved before gold could build on its recovery.
-
-**Why The Pattern Failed:**
-1. **Correlation was temporary:** Oil fears faded within 48 hours
-2. **Gold's recovery was incomplete:** Bounced +3% but couldn't hold without sustained fear
-3. **Holding past the bounce was the error:** +17% in 24 hours should have been captured
-
-**Critical Lesson:**
-Bounce-back trades on macro correlations are **one-day plays**. When the bounce happens quickly, take profits immediately. The correlation that created the entry opportunity is by definition temporary — don't hold expecting it to persist.
+**Key Hindsight Insight (March 20, 2026):**
+Exiting on March 13 at $29.45 (-12.4%) saved 58 percentage points of capital. GLD plummeted to $413 by March 20 as 10Y yields hit 4.26% and broad market deleveraging began. Exiting as soon as the "oil fear" faded was the single best decision in the trade's lifecycle.
 
 ## Evidence
 
 ### Summary
-1 supporting, 1 contradicting observation total. Hindsight confirms the exit timing was correct (avoided further decline), but the bigger error was missing the optimal exit at +17%.
+2 supporting, 1 contradicting observations total. Hindsight confirms the exit timing was correct (avoided a catastrophic -70% decline), but emphasizes that taking the 1-2 day profit is even better. Yield-based pressure is the primary threat to the bullion-hedge thesis.
 
 ### Recent
-- 2026-03-14 [hindsight] [supporting] [bull] [dte-long] [Q1: Catching a Falling Knife, Q2: Bounce-Back Signals]: Post-sale analysis confirms exit avoided further losses (option declined from $29.45 to $28.90). However, the critical insight: optimal exit was March 10 at $39.30 (+17%). The bounce-back thesis worked perfectly in 24 hours — GLD rose from $466.53 to $480.76 (+3%). Holding past this peak was the error. When oil fears faded March 11-13, the correlation dissolved and GLD couldn't maintain support. Key lesson: Bounce-back trades on macro correlations are one-day plays. Take profits immediately when the bounce materializes — don't hold for "more upside" from a temporary correlation. `sell_was_optimal: true` for the actual exit, but the March 10 exit would have been vastly superior.
-- 2026-03-13 [paper] [contradicting] [bull] [dte-long] [Q1: Catching a Falling Knife, Q2: Bounce-Back Signals]: Entered GLD 470C at $33.60 after -1.5% oil-driven drop. Thesis: temporary correlation noise, gold resumes hedge role. Stock bounced to $480.75 (+3%) next day (option peaked at $39.30, +17%) but failed to hold. Oil fears faded faster than gold could recover support. Sold at ~$29.45 (-12.4%) after thesis invalidated. Key lesson: bounce-back requires the catalyst correlation to remain valid; fading fears invalidating the correlation undermines the entire thesis.
+- 2026-03-20 [hindsight] [supporting] [bull] [dte-long]: GLD $470C analyzed after end-of-life. Exit on March 13 @ $29.45 (-12.4%) was highly skillful. Had position been held until March 20, loss would have been -70% ($10.15 value) as gold collapsed under 4.26% 10Y yield and margin-call panic. Confirms: when the initial catalyst (oil shock) fades, exit the gold position immediately to avoid secondary yield-driven selling. [Q1: Catching a Falling Knife, Q2: Bounce-Back Signals]
+- 2026-03-14 [hindsight] [supporting] [bull] [dte-long]: Post-sale analysis confirms exit avoided further losses. However, the critical insight: optimal exit was March 10 at $39.30 (+17%) after only 24 hours. Key lesson: Bounce-back trades on macro correlations are one-day plays. [Q2: Bounce-Back Signals]
+- 2026-03-13 [paper] [contradicting] [bull] [dte-long]: Entered GLD 470C. Thesis: temporary correlation noise, gold resumes hedge role. Stock bounced to $480.75 (+3%) next day but failed to hold. Sold at -12.4% after thesis invalidated.
 
 ## Exceptions & Nuances
 
-- **Bounce-back = day trade:** When macro-correlation bounce happens (+15%+ in 24 hours), treat it as a one-day profit-taking opportunity
-- **Don't hold for thesis validation:** The thesis played out in 24 hours — waiting for "more" was greed, not strategy
-- **DTE doesn't help:** 130 DTE provided time, but the correlation dissolved — extra time couldn't fix a broken thesis
-- **Regime dependency:** Trade entered in bull regime (above both SMAs) which typically supports bounce-backs — this failure suggests macro correlation overrode technical support
-- **Catalyst persistence:** Oil-driven fears need to show persistence (multi-day) to create durable gold recovery; single-day spikes may resolve too quickly
+- **Yield-Check Mandatory:** If 10Y yields are rising, gold is unlikely to hold its recovery gains.
+- **Bounce-back = Day Trade:** Capturing the 24-hour "panic snap-back" (typically 15-20% on contract) is the play; holding for fundamental validation is greed.
+- **Margin-Call Risk:** During sharp broad market panics (VIX >25), gold is often sold for liquidity, breaking its standard "safe haven" correlation. Unusual IV expansion in GLD during a crash signal this risk.
