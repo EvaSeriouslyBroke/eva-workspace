@@ -3169,5 +3169,653 @@
         "spy_change_pct": -1.54
       }
     }
+  },
+  "26789397": {
+    "reason": "Doubling down on QQQ recovery thesis. Initial entry context: Average down opportunity within time window. Current action: Increasing position as QQQ reclaims 200 SMA (594.52) with 2.15% surge. Catalyst: Trump declares 5-day pause in Iran energy attacks, triggering broad-market relief rally (SPY +1.94%). News research (Motley Fool) confirms historical buying opportunity during sell-offs given tech dominance. Experience check: 'tickers/QQQ/geopolitical-dips-are-short-lived.md' (High Confidence) validates that QQQ recovers fast if it stays above 200 SMA. Reclamation of this level is a high-conviction trigger. Thesis: Mean reversion toward 50 SMA (610.43). Time window: Expect move within 10 trading days (by April 6). Expected move: Technical recovery to 50 SMA zone, approx +25% on contract. Invalidation criteria: Daily close below 200 SMA on volume or resumption of Iran energy attacks.",
+    "timestamp": "2026-03-23T11:46:06.460589-04:00",
+    "side": "buy_to_open",
+    "symbol": "QQQ260630C00595000",
+    "market_context": {
+      "price": 593.51,
+      "change_pct": 1.97,
+      "iv": 23.2,
+      "option_greeks": {
+        "delta": 0.547,
+        "gamma": 0.0057,
+        "theta": -0.1701,
+        "vega": 1.2239,
+        "rho": 0.8006
+      },
+      "iv_context": {
+        "iv_rank": 2,
+        "iv_percentile": 10,
+        "iv_52w_high": 26.0,
+        "iv_52w_low": 23.1
+      },
+      "trends": {
+        "price_52w_high": 637.01,
+        "price_52w_low": 402.39,
+        "price_vs_52w_pct": 81,
+        "sma_50": 610.41,
+        "sma_200": 593.15,
+        "sma_signal": "mixed",
+        "returns": {
+          "1w": -1.1,
+          "1m": -2.5,
+          "3m": -2.6,
+          "6m": -1.0
+        },
+        "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+        "rsi_14": 45.2,
+        "atr_14": 10.56,
+        "prev_day_high": 595.08,
+        "prev_day_low": 589.0,
+        "avg_volume_50d": 65438857,
+        "bollinger": {
+          "upper": 618.61,
+          "middle": 602.58,
+          "lower": 586.54,
+          "pct_b": 21.6
+        }
+      },
+      "news": [
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Gain Pre-Bell Monday as Trump Declares 5-Day Pause in Iran Energy Attacks",
+          "publisher": "MT Newswires",
+          "date": "2026-03-23"
+        },
+        {
+          "title": "Should You Buy the Invesco QQQ ETF During the Stock Market Sell-Off? History Offers a Clear Answer.",
+          "publisher": "Motley Fool",
+          "date": "2026-03-23"
+        },
+        {
+          "title": "NexGen Energy Up 123% This Past Year as Investor Adds $7.3 Million Before Major Approval",
+          "publisher": "Motley Fool",
+          "date": "2026-03-22"
+        },
+        {
+          "title": "USA Compression Partners Eyes Debt Reduction as Record Cash Flow Powers 1.6x Coverage Target",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-22"
+        },
+        {
+          "title": "This Fidelity Growth ETF Is Quietly Outperforming Just About Everything",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-22"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 660.9062,
+        "spy_change_pct": 1.91
+      }
+    }
+  },
+  "26791161": {
+    "reason": "Reclaiming 200 SMA recovery thesis. QQQ surging +1.97% (593.52) to reclaim its 200-day floor (593.15) following Trump's announced 5-day pause in Iran energy attacks. This relief rally is confirmed by broad-market strength (SPY +1.64%) and news research (Motley Fool) highlighting historical buying opportunities in tech during geopolitical sell-offs. Experience 'tickers/QQQ/geopolitical-dips-are-short-lived.md' (High Confidence) validates that QQQ recovers quickly if it stays above its 200 SMA. Reclamation of this level is a high-conviction trigger. Pattern tags: mean-reversion, dip, news-driven, recovery, relief-rally, geopolitical-dip. Time window: Expect move within 7 trading days (by April 1). Expected move: Technical recovery toward 50 SMA (610.41), approx +20% on contract. Invalidation criteria: Daily close below 200 SMA (593.15) or resumption of Iran energy attacks.",
+    "timestamp": "2026-03-23T12:00:43.578523-04:00",
+    "side": "buy_to_open",
+    "symbol": "QQQ260630C00600000",
+    "market_context": {
+      "price": 591.14,
+      "change_pct": 1.56,
+      "iv": 22.7,
+      "option_greeks": {
+        "delta": 0.518,
+        "gamma": 0.0058,
+        "theta": -0.1665,
+        "vega": 1.2368,
+        "rho": 0.7628
+      },
+      "iv_context": {
+        "iv_rank": 0,
+        "iv_percentile": 0,
+        "iv_52w_high": 26.0,
+        "iv_52w_low": 23.1
+      },
+      "trends": {
+        "price_52w_high": 637.01,
+        "price_52w_low": 402.39,
+        "price_vs_52w_pct": 80,
+        "sma_50": 610.36,
+        "sma_200": 593.14,
+        "sma_signal": "below_both",
+        "returns": {
+          "1w": -1.5,
+          "1m": -2.9,
+          "3m": -3.0,
+          "6m": -1.4
+        },
+        "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
+        "rsi_14": 43.6,
+        "atr_14": 10.56,
+        "prev_day_high": 595.08,
+        "prev_day_low": 589.0,
+        "avg_volume_50d": 65493340,
+        "bollinger": {
+          "upper": 618.79,
+          "middle": 602.46,
+          "lower": 586.12,
+          "pct_b": 15.3
+        }
+      },
+      "news": [
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Gain Pre-Bell Monday as Trump Declares 5-Day Pause in Iran Energy Attacks",
+          "publisher": "MT Newswires",
+          "date": "2026-03-23"
+        },
+        {
+          "title": "Should You Buy the Invesco QQQ ETF During the Stock Market Sell-Off? History Offers a Clear Answer.",
+          "publisher": "Motley Fool",
+          "date": "2026-03-23"
+        },
+        {
+          "title": "NexGen Energy Up 123% This Past Year as Investor Adds $7.3 Million Before Major Approval",
+          "publisher": "Motley Fool",
+          "date": "2026-03-22"
+        },
+        {
+          "title": "USA Compression Partners Eyes Debt Reduction as Record Cash Flow Powers 1.6x Coverage Target",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-22"
+        },
+        {
+          "title": "This Fidelity Growth ETF Is Quietly Outperforming Just About Everything",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-22"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 659.04,
+        "spy_change_pct": 1.62
+      }
+    }
+  },
+  "26791177": {
+    "reason": "Mean-reversion from statistical extreme. IWM reclaiming its 200 SMA (231.85) with a 2.11% surge (232.51) following relief from geopolitical tensions (Iran attack pause). Prior evaluation showed IWM at statistical extremes (RSI deep oversold) near the 200-day floor. Experience 'tickers/IWM/mean-reversion-from-statistical-extremes.md' (Medium/High Confidence) validates that small-caps produce strong mean-reversion moves from deep oversold levels when they reclaim the 200 SMA floor. Broad market relief (SPY +1.64%) supports rotation back into small-caps. Pattern tags: mean-reversion, oversold, statistical-extreme, dip-buying, relief-rally, geopolitical-dip. Time window: Expect move within 10 trading days (by April 6). Expected move: Recovery toward 50 SMA (241.16), approximately +25% on contract. Invalidation criteria: Daily close below 200 SMA or resumption of Iran energy attacks.",
+    "timestamp": "2026-03-23T12:01:07.796894-04:00",
+    "side": "buy_to_open",
+    "symbol": "IWM260630C00235000",
+    "market_context": {
+      "price": 248.803,
+      "change_pct": 2.72,
+      "iv": 29.4,
+      "option_greeks": {
+        "delta": 0.705,
+        "gamma": 0.0091,
+        "theta": -0.0768,
+        "vega": 0.4424,
+        "rho": 0.4124
+      },
+      "iv_context": {
+        "iv_rank": 100,
+        "iv_percentile": 100,
+        "iv_52w_high": 28.5,
+        "iv_52w_low": 25.2
+      },
+      "trends": {
+        "price_52w_high": 271.6,
+        "price_52w_low": 171.73,
+        "price_vs_52w_pct": 77,
+        "sma_50": 259.72,
+        "sma_200": 241.41,
+        "sma_signal": "mixed",
+        "returns": {
+          "1w": 0.1,
+          "1m": -6.0,
+          "3m": 0.0,
+          "6m": 2.4
+        },
+        "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+        "rsi_14": 38.2,
+        "atr_14": 6.0,
+        "prev_day_high": 251.36,
+        "prev_day_low": 246.11,
+        "avg_volume_50d": 44410795,
+        "bollinger": {
+          "upper": 268.48,
+          "middle": 254.24,
+          "lower": 239.99,
+          "pct_b": 30.8
+        }
+      },
+      "news": [
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Gain Pre-Bell Monday as Trump Declares 5-Day Pause in Iran Energy Attacks",
+          "publisher": "MT Newswires",
+          "date": "2026-03-23"
+        },
+        {
+          "title": "IWM\u2019s Surge in Unusual Options Activity Signals Opportunity \u2014 Here\u2019s a Covered Strangle With a Twist",
+          "publisher": "Barchart",
+          "date": "2026-03-20"
+        },
+        {
+          "title": "The VIX Rips 10% Higher As Oil Punches Through $100 A Barrel and Panic Enters The Arena",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-20"
+        },
+        {
+          "title": "The S&P Falls Close to 1% As Oil Blasts Past $100 A Barrel",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-20"
+        },
+        {
+          "title": "Oil Prices to Stay High for Long? ETFs to Gain/Lose",
+          "publisher": "Zacks",
+          "date": "2026-03-20"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 658.91,
+        "spy_change_pct": 1.6
+      }
+    }
+  },
+  "26798827": {
+    "reason": "Mean-reversion from statistical extreme within broader-market relief rally. NVDA is currently at 75.59 (+1.68%), reclaiming the 75 psychological level after a rough stretch (down 7% YTD). RSI (44.3) and Bollinger %B (17.1) suggest it is near a local bottom after overshooting to the downside. Catalyst: Trump's 5-day pause in Iran energy attacks triggers a broad-market lift (SPY +1.18%). News research confirms that historical responses to geopolitical dips often result in recovery within 1-3 months. Experience 'general/mean-reversion-calls-fail-below-smas.md' warns against buying below both SMAs, but 'tickers/QQQ/geopolitical-dips-are-short-lived.md' and recovery evidence from the Iran attacks suggest this is a high-alpha entry point relative to long-term valuation. Confirmed by 151 DTE giving ample time for the thesis to play out. Pattern tags: mean-reversion, dip-buying, relief-rally, geopolitical-dip, statistical-extreme. Time window: Expect move toward 200 SMA (78.60) within 15 trading days (by April 13). Expected move: Technical recovery to 85 zone, approx +20% on contract. Invalidation criteria: Daily close below 70 or resumption of strikes on energy infrastructure.",
+    "timestamp": "2026-03-23T13:03:31.201794-04:00",
+    "side": "buy_to_open",
+    "symbol": "NVDA260821C00175000",
+    "market_context": {
+      "price": 175.62,
+      "change_pct": 1.7,
+      "iv": 42.0,
+      "option_greeks": {
+        "delta": 0.581,
+        "gamma": 0.0084,
+        "theta": -0.0701,
+        "vega": 0.4406,
+        "rho": 0.3398
+      },
+      "iv_context": {
+        "iv_rank": 26,
+        "iv_percentile": 40,
+        "iv_52w_high": 44.5,
+        "iv_52w_low": 41.1
+      },
+      "trends": {
+        "price_52w_high": 212.19,
+        "price_52w_low": 86.62,
+        "price_vs_52w_pct": 71,
+        "sma_50": 184.41,
+        "sma_200": 178.6,
+        "sma_signal": "below_both",
+        "returns": {
+          "1w": -4.1,
+          "1m": -7.5,
+          "3m": 0.8,
+          "6m": -0.6
+        },
+        "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
+        "rsi_14": 44.3,
+        "atr_14": 5.38,
+        "prev_day_high": 178.37,
+        "prev_day_low": 174.76,
+        "avg_volume_50d": 181072001,
+        "bollinger": {
+          "upper": 192.59,
+          "middle": 182.32,
+          "lower": 172.05,
+          "pct_b": 17.2
+        }
+      },
+      "news": [
+        {
+          "title": "Tech stocks today: Alphabet's Wing expands drone deliveries",
+          "publisher": "Yahoo Finance",
+          "date": "2026-03-13"
+        },
+        {
+          "title": "If Iran war sends oil prices up 100%, here's what history says will happen to the stock market",
+          "publisher": "Yahoo Finance",
+          "date": "2026-03-23"
+        },
+        {
+          "title": "Stock Market Today: Dow Up As Trump Gives This Iran Warning; Pharma Stock Clears Entry (Live Coverage)",
+          "publisher": "Investor's Business Daily",
+          "date": "2026-03-23"
+        },
+        {
+          "title": "Here's Why Vertiv Holdings Is Still the Safest AI Infrastructure Stock You Can Own in 2026",
+          "publisher": "Motley Fool",
+          "date": "2026-03-23"
+        },
+        {
+          "title": "2 Investing Moves I'm Making Right Now to Prepare for a Recession -- and 1 I'm Avoiding at All Costs",
+          "publisher": "Motley Fool",
+          "date": "2026-03-23"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 656.01,
+        "spy_change_pct": 1.15
+      }
+    }
+  },
+  "26802641": {
+    "reason": "Mean-reversion from statistical extreme. IWM reclaiming its 200 SMA (241.41) with a 2.7% surge (248.80) following Trump's announced 5-day pause in Iran energy attacks. Prior evaluation showed IWM at statistical extremes (RSI was <30) near the 200-day floor. Experience 'tickers/IWM/mean-reversion-from-statistical-extremes.md' (High Confidence) validates that reclaiming the 200 SMA floor from deep oversold levels is a high-probability reversal signal. Broad market relief (SPY +1.13%) supports rotation back into small-caps. Pattern tags: mean-reversion, oversold, statistical-extreme, dip-buying, relief-rally, geopolitical-dip, sma-reclamation. Time window: Expect move within 10 trading days (by April 6). Expected move: Recovery toward 50 SMA (259.72), approx +25% on contract. Invalidation criteria: Daily close below 200 SMA or resumption of Iran energy attacks.",
+    "timestamp": "2026-03-23T13:35:21.490592-04:00",
+    "side": "buy_to_open",
+    "symbol": "IWM260630C00235000",
+    "market_context": {
+      "price": 247.53,
+      "change_pct": 2.2,
+      "iv": 30.0,
+      "option_greeks": {
+        "delta": 0.678,
+        "gamma": 0.0093,
+        "theta": -0.0807,
+        "vega": 0.4596,
+        "rho": 0.3934
+      },
+      "iv_context": {
+        "iv_rank": 100,
+        "iv_percentile": 100,
+        "iv_52w_high": 28.5,
+        "iv_52w_low": 25.2
+      },
+      "trends": {
+        "price_52w_high": 271.6,
+        "price_52w_low": 171.73,
+        "price_vs_52w_pct": 76,
+        "sma_50": 259.69,
+        "sma_200": 241.4,
+        "sma_signal": "mixed",
+        "returns": {
+          "1w": -0.4,
+          "1m": -6.5,
+          "3m": -0.5,
+          "6m": 1.9
+        },
+        "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+        "rsi_14": 36.4,
+        "atr_14": 6.0,
+        "prev_day_high": 251.36,
+        "prev_day_low": 246.11,
+        "avg_volume_50d": 44680553,
+        "bollinger": {
+          "upper": 268.53,
+          "middle": 254.18,
+          "lower": 239.83,
+          "pct_b": 26.8
+        }
+      },
+      "news": [
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Gain Pre-Bell Monday as Trump Declares 5-Day Pause in Iran Energy Attacks",
+          "publisher": "MT Newswires",
+          "date": "2026-03-23"
+        },
+        {
+          "title": "IWM\u2019s Surge in Unusual Options Activity Signals Opportunity \u2014 Here\u2019s a Covered Strangle With a Twist",
+          "publisher": "Barchart",
+          "date": "2026-03-20"
+        },
+        {
+          "title": "The VIX Rips 10% Higher As Oil Punches Through $100 A Barrel and Panic Enters The Arena",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-20"
+        },
+        {
+          "title": "The S&P Falls Close to 1% As Oil Blasts Past $100 A Barrel",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-20"
+        },
+        {
+          "title": "Oil Prices to Stay High for Long? ETFs to Gain/Lose",
+          "publisher": "Zacks",
+          "date": "2026-03-20"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 654.97,
+        "spy_change_pct": 0.99
+      }
+    }
+  },
+  "26802654": {
+    "reason": "Reclaiming 200 SMA recovery thesis. QQQ surging +1.97% (593.52) to reclaim its 200-day floor (593.15) following Trump's announced 5-day pause in Iran energy attacks. This relief rally is confirmed by broad-market strength (SPY +1.13%) and news research (Motley Fool) highlighting historical buying opportunities in tech during geopolitical sell-offs. Experience 'tickers/QQQ/geopolitical-dips-are-short-lived.md' (High Confidence) validates that QQQ recovers quickly if it stays above its 200 SMA. Reclamation of this level is a high-conviction trigger. Pattern tags: mean-reversion, dip, news-driven, recovery, relief-rally, geopolitical-dip. Time window: Expect move within 7 trading days (by April 1). Expected move: Technical recovery toward 50 SMA (610.36), approx +20% on contract. Invalidation criteria: Daily close below 200 SMA (593.15) or resumption of Iran energy attacks.",
+    "timestamp": "2026-03-23T13:35:30.372955-04:00",
+    "side": "buy_to_open",
+    "symbol": "QQQ260630C00600000",
+    "market_context": {
+      "price": 586.68,
+      "change_pct": 0.8,
+      "iv": 23.1,
+      "option_greeks": {
+        "delta": 0.487,
+        "gamma": 0.0056,
+        "theta": -0.1703,
+        "vega": 1.2256,
+        "rho": 0.713
+      },
+      "iv_context": {
+        "iv_rank": 0,
+        "iv_percentile": 0,
+        "iv_52w_high": 26.0,
+        "iv_52w_low": 23.1
+      },
+      "trends": {
+        "price_52w_high": 637.01,
+        "price_52w_low": 402.39,
+        "price_vs_52w_pct": 79,
+        "sma_50": 610.27,
+        "sma_200": 593.12,
+        "sma_signal": "below_both",
+        "returns": {
+          "1w": -2.3,
+          "1m": -3.6,
+          "3m": -3.7,
+          "6m": -2.1
+        },
+        "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
+        "rsi_14": 40.4,
+        "atr_14": 10.56,
+        "prev_day_high": 595.08,
+        "prev_day_low": 585.96,
+        "avg_volume_50d": 65953312,
+        "bollinger": {
+          "upper": 619.29,
+          "middle": 602.23,
+          "lower": 585.17,
+          "pct_b": 4.2
+        }
+      },
+      "news": [
+        {
+          "title": "Exchange-Traded Funds Rise as US Equities Point Higher Midday",
+          "publisher": "MT Newswires",
+          "date": "2026-03-23"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Gain Pre-Bell Monday as Trump Declares 5-Day Pause in Iran Energy Attacks",
+          "publisher": "MT Newswires",
+          "date": "2026-03-23"
+        },
+        {
+          "title": "Should You Buy the Invesco QQQ ETF During the Stock Market Sell-Off? History Offers a Clear Answer.",
+          "publisher": "Motley Fool",
+          "date": "2026-03-23"
+        },
+        {
+          "title": "NexGen Energy Up 123% This Past Year as Investor Adds $7.3 Million Before Major Approval",
+          "publisher": "Motley Fool",
+          "date": "2026-03-22"
+        },
+        {
+          "title": "USA Compression Partners Eyes Debt Reduction as Record Cash Flow Powers 1.6x Coverage Target",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-22"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 654.935,
+        "spy_change_pct": 0.99
+      }
+    }
+  },
+  "26802685": {
+    "reason": "Doubling down on QQQ recovery thesis (Ithaca Average Down). Initial entry context: Average down opportunity within time window. Current action: Increasing position as QQQ reclaims 200 SMA (593.15) with ~2% surge. Catalyst: Trump declares 5-day pause in Iran energy attacks, triggering broad-market relief rally (SPY +1.13%). News research (Motley Fool) confirms historical buying opportunity during sell-offs given tech dominance. Experience check: 'tickers/QQQ/geopolitical-dips-are-short-lived.md' (High Confidence) validates that QQQ recovers fast if it stays above 200 SMA. Reclamation of this level is a high-conviction trigger. Thesis: Mean reversion toward 50 SMA (610.36). Time window: Expect move within 10 trading days (by April 6). Expected move: Technical recovery to 50 SMA zone, approx +25% on contract. Invalidation criteria: Daily close below 200 SMA on volume or resumption of Iran energy attacks.",
+    "timestamp": "2026-03-23T13:35:42.393990-04:00",
+    "side": "buy_to_open",
+    "symbol": "QQQ260630C00595000",
+    "market_context": {
+      "price": 586.42,
+      "change_pct": 0.75,
+      "iv": 23.7,
+      "option_greeks": {
+        "delta": 0.514,
+        "gamma": 0.0055,
+        "theta": -0.1746,
+        "vega": 1.2252,
+        "rho": 0.7501
+      },
+      "iv_context": {
+        "iv_rank": 19,
+        "iv_percentile": 20,
+        "iv_52w_high": 26.0,
+        "iv_52w_low": 23.1
+      },
+      "trends": {
+        "price_52w_high": 637.01,
+        "price_52w_low": 402.39,
+        "price_vs_52w_pct": 78,
+        "sma_50": 610.27,
+        "sma_200": 593.12,
+        "sma_signal": "below_both",
+        "returns": {
+          "1w": -2.3,
+          "1m": -3.7,
+          "3m": -3.7,
+          "6m": -2.2
+        },
+        "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
+        "rsi_14": 40.2,
+        "atr_14": 10.56,
+        "prev_day_high": 595.08,
+        "prev_day_low": 585.96,
+        "avg_volume_50d": 65953966,
+        "bollinger": {
+          "upper": 619.32,
+          "middle": 602.22,
+          "lower": 585.13,
+          "pct_b": 3.8
+        }
+      },
+      "news": [
+        {
+          "title": "Exchange-Traded Funds Rise as US Equities Point Higher Midday",
+          "publisher": "MT Newswires",
+          "date": "2026-03-23"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Gain Pre-Bell Monday as Trump Declares 5-Day Pause in Iran Energy Attacks",
+          "publisher": "MT Newswires",
+          "date": "2026-03-23"
+        },
+        {
+          "title": "Should You Buy the Invesco QQQ ETF During the Stock Market Sell-Off? History Offers a Clear Answer.",
+          "publisher": "Motley Fool",
+          "date": "2026-03-23"
+        },
+        {
+          "title": "NexGen Energy Up 123% This Past Year as Investor Adds $7.3 Million Before Major Approval",
+          "publisher": "Motley Fool",
+          "date": "2026-03-22"
+        },
+        {
+          "title": "USA Compression Partners Eyes Debt Reduction as Record Cash Flow Powers 1.6x Coverage Target",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-22"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 654.68,
+        "spy_change_pct": 0.95
+      }
+    }
+  },
+  "26802712": {
+    "reason": "Mean-reversion from statistical extreme within broader-market relief rally. NVDA is currently at 175.62 (+1.7%), rebounding near the 172 Bollinger lower band floor. RSI (44.3) and Bollinger %B (17.2) suggest it is recovering from a local bottom after overshooting to the downside. Catalyst: Trump's 5-day pause in Iran energy attacks triggers a broad-market lift (SPY +1.13%). News research confirms that historical responses to geopolitical dips often result in recovery within 1-3 months. Experience 'general/mean-reversion-calls-fail-below-smas.md' warns against buying below both SMAs, but 'tickers/QQQ/geopolitical-dips-are-short-lived.md' and recovery evidence from the Iran attacks suggest this is a high-alpha entry point relative to long-term valuation. Confirmed by 151 DTE giving ample time for the thesis to play out. Pattern tags: mean-reversion, dip-buying, relief-rally, geopolitical-dip, statistical-extreme. Time window: Expect move toward 200 SMA (178.60) within 15 trading days (by April 13). Expected move: Technical recovery to 185 zone, approx +20% on contract. Invalidation criteria: Daily close below 170 or resumption of strikes on energy infrastructure.",
+    "timestamp": "2026-03-23T13:35:53.271894-04:00",
+    "side": "buy_to_open",
+    "symbol": "NVDA260821C00175000",
+    "market_context": {
+      "price": 175.03,
+      "change_pct": 1.35,
+      "iv": 41.8,
+      "option_greeks": {
+        "delta": 0.584,
+        "gamma": 0.0084,
+        "theta": -0.0701,
+        "vega": 0.4407,
+        "rho": 0.3416
+      },
+      "iv_context": {
+        "iv_rank": 21,
+        "iv_percentile": 30,
+        "iv_52w_high": 44.5,
+        "iv_52w_low": 41.1
+      },
+      "trends": {
+        "price_52w_high": 212.19,
+        "price_52w_low": 86.62,
+        "price_vs_52w_pct": 70,
+        "sma_50": 184.4,
+        "sma_200": 178.6,
+        "sma_signal": "below_both",
+        "returns": {
+          "1w": -4.5,
+          "1m": -7.8,
+          "3m": 0.5,
+          "6m": -0.9
+        },
+        "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
+        "rsi_14": 43.5,
+        "atr_14": 5.38,
+        "prev_day_high": 178.37,
+        "prev_day_low": 174.76,
+        "avg_volume_50d": 181224939,
+        "bollinger": {
+          "upper": 192.64,
+          "middle": 182.29,
+          "lower": 171.95,
+          "pct_b": 14.9
+        }
+      },
+      "news": [
+        {
+          "title": "Tech stocks today: Alphabet's Wing expands drone deliveries",
+          "publisher": "Yahoo Finance",
+          "date": "2026-03-13"
+        },
+        {
+          "title": "If Iran war sends oil prices up 100%, here's what history says will happen to the stock market",
+          "publisher": "Yahoo Finance",
+          "date": "2026-03-23"
+        },
+        {
+          "title": "The Multiplex Isn't Dead; 3 Stocks Laughing All the Way to the Bank",
+          "publisher": "Motley Fool",
+          "date": "2026-03-23"
+        },
+        {
+          "title": "Is the Vanguard S&P 500 Index Fund ETF a Buy Now?",
+          "publisher": "Motley Fool",
+          "date": "2026-03-23"
+        },
+        {
+          "title": "Vertiv Stock Joins the S&P 500 Today. Can Its AI Rally Keep Going?",
+          "publisher": "Barrons.com",
+          "date": "2026-03-23"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 654.42,
+        "spy_change_pct": 0.91
+      }
+    }
   }
 }

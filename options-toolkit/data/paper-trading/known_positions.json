@@ -1,1386 +1,432 @@
 {
-  "AMD260717C00200000": [
+  "QQQ260630C00595000": [
     {
-      "order_id": "26200020",
-      "reason": "Momentum breakout play on Meta AI mega-deal catalyst. AMD up 2.11% on news of multi-year partnership with Meta for AI compute infrastructure. Stock beaten down 21% from highs (-13.9% YTD), trading 39% below fair value. Analyst target 89 vs current 96. Momentum score at 90.84 (top 10%). High IV at 57.1% is cost but justified by genuine fundamental catalyst. 200C Jul-17 with 130 DTE gives time for thesis to play out. Delta 0.564 provides good exposure.",
-      "entry_price": 196.6599,
-      "entry_iv": 56.7,
-      "entry_date": "2026-03-09",
-      "ticker": "AMD",
+      "order_id": "26789397",
+      "reason": "Doubling down on QQQ recovery thesis. Initial entry context: Average down opportunity within time window. Current action: Increasing position as QQQ reclaims 200 SMA (594.52) with 2.15% surge. Catalyst: Trump declares 5-day pause in Iran energy attacks, triggering broad-market relief rally (SPY +1.94%). News research (Motley Fool) confirms historical buying opportunity during sell-offs given tech dominance. Experience check: 'tickers/QQQ/geopolitical-dips-are-short-lived.md' (High Confidence) validates that QQQ recovers fast if it stays above 200 SMA. Reclamation of this level is a high-conviction trigger. Thesis: Mean reversion toward 50 SMA (610.43). Time window: Expect move within 10 trading days (by April 6). Expected move: Technical recovery to 50 SMA zone, approx +25% on contract. Invalidation criteria: Daily close below 200 SMA on volume or resumption of Iran energy attacks.",
+      "entry_price": 593.51,
+      "entry_iv": 23.2,
+      "entry_date": "2026-03-23",
+      "ticker": "QQQ",
       "type": "call",
-      "strike": 200.0,
-      "expiry": "2026-07-17",
+      "strike": 595.0,
+      "expiry": "2026-06-30",
       "quantity": 1,
-      "cost_basis": 2640.0,
+      "cost_basis": 3145.0,
       "reflected": true,
       "market_context": {
-        "price": 196.6599,
-        "change_pct": 2.2,
-        "iv": 56.7,
+        "price": 593.51,
+        "change_pct": 1.97,
+        "iv": 23.2,
         "option_greeks": {
-          "delta": 0.564,
-          "gamma": 0.006,
-          "theta": -0.1107,
-          "vega": 0.4625,
-          "rho": 0.3014
-        },
-        "iv_context": {
-          "iv_rank": 50,
-          "iv_percentile": 0,
-          "iv_52w_high": 57.1,
-          "iv_52w_low": 57.1
-        },
-        "trends": {
-          "sma_signal": "mixed",
-          "sma_50": 217.24,
-          "sma_200": 189.03,
-          "price_vs_52w_pct": 63,
-          "price_52w_high": 267.08,
-          "price_52w_low": 76.48,
-          "returns": {
-            "1w": -1.0,
-            "1m": 2.2,
-            "3m": -8.9,
-            "6m": 30.1
-          },
-          "trend_summary": "Mixed \u2014 between 50 and 200 SMA"
-        },
-        "news": [
-          {
-            "title": "AMD AI Partnerships And Valuation Gap Put Growth Story In Focus",
-            "publisher": "Simply Wall St.",
-            "date": "2026-03-09"
-          },
-          {
-            "title": "Nvidia Partner Transforms Into AI Factory \u2013 And Eyes Breakout",
-            "publisher": "Investor's Business Daily",
-            "date": "2026-03-09"
-          },
-          {
-            "title": "How Nvidia Stock Is Threatened by War in Iran",
-            "publisher": "Barrons.com",
-            "date": "2026-03-09"
-          },
-          {
-            "title": "MRVL Surges 18.4% Post Q4 Earnings: Time to Hold or Fold the Stock?",
-            "publisher": "Zacks",
-            "date": "2026-03-09"
-          },
-          {
-            "title": "Trump Admin Weighs New Export Rules That Ties Chip Purchase From Likes Of Nvidia, AMD To Investments In US Data Centers: Report",
-            "publisher": "Benzinga",
-            "date": "2026-03-08"
-          }
-        ]
-      }
-    },
-    {
-      "order_id": "26275283",
-      "reason": "Double down on momentum play. Meta multi-year AI partnership confirmed - 00B+ deal for AI computing infrastructure. AMD up 2.2% on genuine fundamental catalyst. Stock beaten down 21% from highs, 39% below fair value. High IV (56.7%) justified by news flow. Delta 0.564 with elevated gamma (0.006) provides explosive upside exposure. Building into strength with 2-week DTE experiment criteria. Entry context: momentum breakout on verifiable catalyst, not speculation. Expect continued upside as hyperscaler spending on AI infrastructure accelerates.",
-      "entry_price": 205.27,
-      "entry_iv": 55.3,
-      "entry_date": "2026-03-11",
-      "ticker": "AMD",
-      "type": "call",
-      "strike": 200.0,
-      "expiry": "2026-07-17",
-      "quantity": 1,
-      "cost_basis": 3060.0,
-      "reflected": true,
-      "market_context": {
-        "price": 205.27,
-        "change_pct": 1.01,
-        "iv": 55.3,
-        "option_greeks": {
-          "delta": 0.613,
+          "delta": 0.547,
           "gamma": 0.0057,
-          "theta": -0.1122,
-          "vega": 0.4665,
-          "rho": 0.3334
+          "theta": -0.1701,
+          "vega": 1.2239,
+          "rho": 0.8006
         },
         "iv_context": {
-          "iv_rank": 4,
-          "iv_percentile": 33,
-          "iv_52w_high": 56.5,
-          "iv_52w_low": 55.2
+          "iv_rank": 2,
+          "iv_percentile": 10,
+          "iv_52w_high": 26.0,
+          "iv_52w_low": 23.1
         },
         "trends": {
-          "price_52w_high": 267.08,
-          "price_52w_low": 76.48,
-          "price_vs_52w_pct": 68,
-          "sma_50": 216.93,
-          "sma_200": 189.99,
+          "price_52w_high": 637.01,
+          "price_52w_low": 402.39,
+          "price_vs_52w_pct": 81,
+          "sma_50": 610.41,
+          "sma_200": 593.15,
           "sma_signal": "mixed",
           "returns": {
-            "1w": 1.6,
-            "1m": -5.0,
-            "3m": -7.2,
-            "6m": 31.7
-          },
-          "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
-          "rsi_14": 51.2,
-          "atr_14": 9.25,
-          "prev_day_high": 209.21,
-          "prev_day_low": 204.3,
-          "avg_volume_50d": 37997143,
-          "bollinger": {
-            "upper": 214.31,
-            "middle": 202.67,
-            "lower": 191.04,
-            "pct_b": 61.2
-          }
-        },
-        "news": [
-          {
-            "title": "Meta announces 4 new AI chips, raising competitive stakes with Nvidia, AMD",
-            "publisher": "Yahoo Finance",
-            "date": "2026-03-11"
-          },
-          {
-            "title": "Will New Custom AI Chips Propel Meta Platforms to $750?",
-            "publisher": "24/7 Wall St.",
-            "date": "2026-03-11"
-          },
-          {
-            "title": "Synopsys rolls out new software tools for designing AI chips",
-            "publisher": "Reuters",
-            "date": "2026-03-11"
-          },
-          {
-            "title": "Here\u2019s What Bernstein Think About Nvidia (NVDA)",
-            "publisher": "Insider Monkey",
-            "date": "2026-03-11"
-          },
-          {
-            "title": "Advanced Micro Devices (AMD) Enters a Multi-Year Partnership With Adeia",
-            "publisher": "Insider Monkey",
-            "date": "2026-03-11"
-          }
-        ],
-        "broader_market": {
-          "spy_price": 676.22,
-          "spy_change_pct": -0.15
-        }
-      }
-    },
-    {
-      "order_id": "26327642",
-      "reason": "Double down on AMD momentum breakout. Meta multiyear AI chip partnership confirmed - genuine fundamental catalyst beyond speculation. CEO Lisa Su visiting South Korea March 18 to secure HBM memory supply from Samsung and explore Naver partnerships to reduce Nvidia reliance. Stock beaten down 21% from highs, recovering with 38% analyst upside target (82). Position already up 4.2%, building into strength. 127 DTE gives time for supply chain developments to materialize. Pattern: momentum + partnership catalyst + supply chain execution. No prior AMD experiences - this builds new learning dataset.",
-      "entry_price": 204.83,
-      "entry_iv": 55.4,
-      "entry_date": "2026-03-12",
-      "ticker": "AMD",
-      "type": "call",
-      "strike": 200.0,
-      "expiry": "2026-07-17",
-      "quantity": 1,
-      "cost_basis": 3045.0,
-      "reflected": true,
-      "market_context": {
-        "price": 204.83,
-        "change_pct": 0,
-        "iv": 55.4,
-        "option_greeks": {
-          "delta": 0.612,
-          "gamma": 0.0057,
-          "theta": -0.1128,
-          "vega": 0.466,
-          "rho": 0.333
-        },
-        "iv_context": {
-          "iv_rank": 9,
-          "iv_percentile": 50,
-          "iv_52w_high": 56.5,
-          "iv_52w_low": 55.3
-        },
-        "trends": {
-          "price_52w_high": 267.08,
-          "price_52w_low": 76.48,
-          "price_vs_52w_pct": 67,
-          "sma_50": 216.92,
-          "sma_200": 189.99,
-          "sma_signal": "mixed",
-          "returns": {
-            "1w": 1.4,
-            "1m": -5.2,
-            "3m": -7.4,
-            "6m": 31.5
-          },
-          "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
-          "rsi_14": 50.9,
-          "atr_14": 9.25,
-          "prev_day_high": 209.21,
-          "prev_day_low": 203.63,
-          "avg_volume_50d": 38178497,
-          "bollinger": {
-            "upper": 214.27,
-            "middle": 202.65,
-            "lower": 191.03,
-            "pct_b": 59.4
-          }
-        },
-        "news": [
-          {
-            "title": "Meta to develop 4 new AI chips. Can it stack up to the competition?",
-            "publisher": "Yahoo Finance Video",
-            "date": "2026-03-11"
-          },
-          {
-            "title": "Meta announces 4 new AI chips, raising competitive stakes with Nvidia, AMD",
-            "publisher": "Yahoo Finance",
-            "date": "2026-03-11"
-          },
-          {
-            "title": "The AI Supply Chain Just Got Interesting",
-            "publisher": "GuruFocus.com",
-            "date": "2026-03-12"
-          },
-          {
-            "title": "AMD Eyes to Challenge Nvidia with South Korea Deals",
-            "publisher": "GuruFocus.com",
-            "date": "2026-03-12"
-          },
-          {
-            "title": "AMD Patent Truce And AI Push Reframe Long Term Growth Story",
-            "publisher": "Simply Wall St.",
-            "date": "2026-03-11"
-          }
-        ],
-        "broader_market": {
-          "spy_price": 676.33,
-          "spy_change_pct": 0
-        }
-      }
-    },
-    {
-      "order_id": "26532573",
-      "reason": "Expanding AMD position amid Lisa Su's South Korea supply chain tour. Thesis: AMD securing HBM4 supply from Samsung and exploring Naver partnerships creates a medium-term competitive advantage against Nvidia. Price 199.11 is consolidating near the 00 level, perfectly positioned between the 50 SMA (217) and 200 SMA (189). News sentiment is slightly bullish (+3) with 'scale advantage starting to show' and compelling valuation at current levels. No prior AMD experiences exist, so building into this core AI momentum play per the 'unrestricted experimentation' strategy. Time window: 2-3 weeks for supply chain news to fully circulate. Expected move: Recovery toward 50 SMA at 217 (~+8-10% stock = ~+40-50% on contract). Invalidation: Breaking below 200 SMA at 189 or negative supply chain revisions. Tags: momentum, partnership-catalyst, supply-chain, double-down, between-sma.",
-      "entry_price": 199.3218,
-      "entry_iv": 52.9,
-      "entry_date": "2026-03-18",
-      "ticker": "AMD",
-      "type": "call",
-      "strike": 200.0,
-      "expiry": "2026-07-17",
-      "quantity": 1,
-      "cost_basis": 2525.0,
-      "reflected": true,
-      "market_context": {
-        "price": 199.3218,
-        "change_pct": 1.54,
-        "iv": 52.9,
-        "option_greeks": {
-          "delta": 0.572,
-          "gamma": 0.0066,
-          "theta": -0.1075,
-          "vega": 0.4497,
-          "rho": 0.294
-        },
-        "iv_context": {
-          "iv_rank": 4,
-          "iv_percentile": 12,
-          "iv_52w_high": 56.5,
-          "iv_52w_low": 52.8
-        },
-        "trends": {
-          "price_52w_high": 267.08,
-          "price_52w_low": 76.48,
-          "price_vs_52w_pct": 64,
-          "sma_50": 214.8,
-          "sma_200": 192.1,
-          "sma_signal": "mixed",
-          "returns": {
-            "1w": -2.7,
-            "1m": -1.9,
-            "3m": -4.0,
-            "6m": 24.2
-          },
-          "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
-          "rsi_14": 46.6,
-          "atr_14": 8.05,
-          "prev_day_high": 200.75,
-          "prev_day_low": 195.75,
-          "avg_volume_50d": 38148399,
-          "bollinger": {
-            "upper": 211.32,
-            "middle": 200.32,
-            "lower": 189.31,
-            "pct_b": 45.5
-          }
-        },
-        "news": [
-          {
-            "title": "Nvidia May Be Slipping Back Into China",
-            "publisher": "GuruFocus.com",
-            "date": "2026-03-18"
-          },
-          {
-            "title": "A Look At AMD (AMD) Valuation After New Samsung HBM4 And DRAM Supply Agreement",
-            "publisher": "Simply Wall St.",
-            "date": "2026-03-18"
-          },
-          {
-            "title": "Advanced Micro Devices, Inc. (AMD) Eyes Samsung Collaboration on AI Chipsets",
-            "publisher": "Insider Monkey",
-            "date": "2026-03-18"
-          },
-          {
-            "title": "AMD's Latest Deal Raises A Bigger Question",
-            "publisher": "GuruFocus.com",
-            "date": "2026-03-18"
-          },
-          {
-            "title": "Nvidia Restarts H200 Production for China After Securing Multiple Licenses",
-            "publisher": "GuruFocus.com",
-            "date": "2026-03-18"
-          }
-        ],
-        "broader_market": {
-          "spy_price": 667.01,
-          "spy_change_pct": -0.57
-        }
-      }
-    },
-    {
-      "order_id": "26542330",
-      "reason": "Expanding AMD position amid Lisa Su's South Korea supply chain tour. Thesis: AMD securing HBM4 supply from Samsung and exploring Naver partnerships creates a medium-term competitive advantage against Nvidia. Price 199.11 is consolidating near the 200 level, perfectly positioned between the 50 SMA (217) and 200 SMA (189). News sentiment is slightly bullish (+3) with 'scale advantage starting to show' and compelling valuation at current levels. No prior AMD experiences exist, so building into this core AI momentum play per the 'unrestricted experimentation' strategy. Time window: 2-3 weeks for supply chain news to fully circulate. Expected move: Recovery toward 50 SMA at 217 (~+8-10% stock = ~+40-50% on contract). Invalidation: Breaking below 200 SMA at 189 or negative supply chain revisions. Tags: momentum, partnership-catalyst, supply-chain, double-down, between-sma.",
-      "entry_price": 199.62,
-      "entry_iv": 53.1,
-      "entry_date": "2026-03-18",
-      "ticker": "AMD",
-      "type": "call",
-      "strike": 200.0,
-      "expiry": "2026-07-17",
-      "quantity": 1,
-      "cost_basis": 2545.0,
-      "reflected": true,
-      "market_context": {
-        "price": 199.62,
-        "change_pct": 1.69,
-        "iv": 53.1,
-        "option_greeks": {
-          "delta": 0.577,
-          "gamma": 0.0064,
-          "theta": -0.1093,
-          "vega": 0.4507,
-          "rho": 0.299
-        },
-        "iv_context": {
-          "iv_rank": 9,
-          "iv_percentile": 12,
-          "iv_52w_high": 56.5,
-          "iv_52w_low": 52.8
-        },
-        "trends": {
-          "price_52w_high": 267.08,
-          "price_52w_low": 76.48,
-          "price_vs_52w_pct": 65,
-          "sma_50": 214.8,
-          "sma_200": 192.1,
-          "sma_signal": "mixed",
-          "returns": {
-            "1w": -2.5,
-            "1m": -1.7,
-            "3m": -3.8,
-            "6m": 24.4
-          },
-          "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
-          "rsi_14": 46.8,
-          "atr_14": 8.05,
-          "prev_day_high": 200.75,
-          "prev_day_low": 195.75,
-          "avg_volume_50d": 38214114,
-          "bollinger": {
-            "upper": 211.33,
-            "middle": 200.33,
-            "lower": 189.33,
-            "pct_b": 46.6
-          }
-        },
-        "news": [
-          {
-            "title": "Nvidia May Be Slipping Back Into China",
-            "publisher": "GuruFocus.com",
-            "date": "2026-03-18"
-          },
-          {
-            "title": "A Look At AMD (AMD) Valuation After New Samsung HBM4 And DRAM Supply Agreement",
-            "publisher": "Simply Wall St.",
-            "date": "2026-03-18"
-          },
-          {
-            "title": "Advanced Micro Devices, Inc. (AMD) Eyes Samsung Collaboration on AI Chipsets",
-            "publisher": "Insider Monkey",
-            "date": "2026-03-18"
-          },
-          {
-            "title": "AMD's Latest Deal Raises A Bigger Question",
-            "publisher": "GuruFocus.com",
-            "date": "2026-03-18"
-          },
-          {
-            "title": "Nvidia Restarts H200 Production for China After Securing Multiple Licenses",
-            "publisher": "GuruFocus.com",
-            "date": "2026-03-18"
-          }
-        ],
-        "broader_market": {
-          "spy_price": 666.5,
-          "spy_change_pct": -0.64
-        }
-      }
-    },
-    {
-      "order_id": "26550782",
-      "reason": "Expanding AMD position amid Lisa Su's South Korea supply chain tour. Thesis: AMD securing HBM4 supply from Samsung and exploring Naver partnerships creates a medium-term competitive advantage against Nvidia. Price 199.11 is consolidating near the 200 level, perfectly positioned between the 50 SMA (217) and 200 SMA (189). News research (GuruFocus, Zacks) confirms expanded Samsung partnership for HBM4 (MI455X) and DDR5 (6th Gen EPYC), plus Celestica Helios platform tie-up for AI switches. News sentiment is slightly bullish (+3) with 'scale advantage starting to show' and compelling valuation at current levels. No prior AMD experiences exist, so building into this core AI momentum play per the 'unrestricted experimentation' strategy. Expected move: Recovery toward 50 SMA at 217 (~+8-10% stock = ~+40-50% on contract) within 2-3 weeks as supply chain news circulates. Invalidation: Breaking below 200 SMA at 189 or negative supply chain revisions. Tags: momentum, partnership-catalyst, supply-chain, double-down, between-sma.",
-      "entry_price": 202.1701,
-      "entry_iv": 53.0,
-      "entry_date": "2026-03-18",
-      "ticker": "AMD",
-      "type": "call",
-      "strike": 200.0,
-      "expiry": "2026-07-17",
-      "quantity": 2,
-      "cost_basis": 5450.0,
-      "reflected": true,
-      "market_context": {
-        "price": 202.1701,
-        "change_pct": 2.99,
-        "iv": 53.0,
-        "option_greeks": {
-          "delta": 0.591,
-          "gamma": 0.0064,
-          "theta": -0.109,
-          "vega": 0.4518,
-          "rho": 0.3057
-        },
-        "iv_context": {
-          "iv_rank": 7,
-          "iv_percentile": 25,
-          "iv_52w_high": 56.5,
-          "iv_52w_low": 52.8
-        },
-        "trends": {
-          "price_52w_high": 267.08,
-          "price_52w_low": 76.48,
-          "price_vs_52w_pct": 66,
-          "sma_50": 214.85,
-          "sma_200": 192.11,
-          "sma_signal": "mixed",
-          "returns": {
-            "1w": -1.3,
-            "1m": -0.4,
+            "1w": -1.1,
+            "1m": -2.5,
             "3m": -2.6,
-            "6m": 26.0
+            "6m": -1.0
           },
           "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
-          "rsi_14": 48.9,
-          "atr_14": 8.17,
-          "prev_day_high": 202.44,
-          "prev_day_low": 195.75,
-          "avg_volume_50d": 38265480,
+          "rsi_14": 45.2,
+          "atr_14": 10.56,
+          "prev_day_high": 595.08,
+          "prev_day_low": 589.0,
+          "avg_volume_50d": 65438857,
           "bollinger": {
-            "upper": 211.48,
-            "middle": 200.46,
-            "lower": 189.44,
-            "pct_b": 57.7
+            "upper": 618.61,
+            "middle": 602.58,
+            "lower": 586.54,
+            "pct_b": 21.6
           }
         },
         "news": [
           {
-            "title": "Samsung and AMD Expand AI Chip Partnership",
-            "publisher": "GuruFocus.com",
-            "date": "2026-03-18"
+            "title": "Exchange-Traded Funds, Equity Futures Gain Pre-Bell Monday as Trump Declares 5-Day Pause in Iran Energy Attacks",
+            "publisher": "MT Newswires",
+            "date": "2026-03-23"
           },
           {
-            "title": "Nvidia Won AI\u2019s First Battle. The Next Round Won\u2019t Be So Easy.",
-            "publisher": "Barrons.com",
-            "date": "2026-03-18"
+            "title": "Should You Buy the Invesco QQQ ETF During the Stock Market Sell-Off? History Offers a Clear Answer.",
+            "publisher": "Motley Fool",
+            "date": "2026-03-23"
           },
           {
-            "title": "Can Celestica's Tie-Up With AMD for AI Switches Stoke Growth?",
-            "publisher": "Zacks",
-            "date": "2026-03-18"
+            "title": "NexGen Energy Up 123% This Past Year as Investor Adds $7.3 Million Before Major Approval",
+            "publisher": "Motley Fool",
+            "date": "2026-03-22"
           },
           {
-            "title": "Nvidia May Be Slipping Back Into China",
-            "publisher": "GuruFocus.com",
-            "date": "2026-03-18"
+            "title": "USA Compression Partners Eyes Debt Reduction as Record Cash Flow Powers 1.6x Coverage Target",
+            "publisher": "24/7 Wall St.",
+            "date": "2026-03-22"
           },
           {
-            "title": "A Look At AMD (AMD) Valuation After New Samsung HBM4 And DRAM Supply Agreement",
-            "publisher": "Simply Wall St.",
-            "date": "2026-03-18"
+            "title": "This Fidelity Growth ETF Is Quietly Outperforming Just About Everything",
+            "publisher": "24/7 Wall St.",
+            "date": "2026-03-22"
           }
         ],
         "broader_market": {
-          "spy_price": 667.12,
-          "spy_change_pct": -0.55
+          "spy_price": 660.9062,
+          "spy_change_pct": 1.91
         }
       }
     },
     {
-      "order_id": "26559928",
-      "reason": "Expanding AMD position (MI455X/Samsung catalyst). Thesis: AMD securing HBM4 supply from Samsung and exploring Naver partnerships for 6th Gen EPYC creates a medium-term competitive advantage against Nvidia. Price 199.11 is consolidating near the 200 level, perfectly positioned between the 50 SMA (217) and 200 SMA (189). Deep news research (GuruFocus, Zacks) confirms expanded Samsung partnership for HBM4 and DDR5, plus Celestica Helios platform tie-up for AI switches. News sentiment is slightly bullish (+3) with 'scale advantage starting to show' and compelling valuation at current levels. Pattern matches 'geopolitical-fear-trades-fade-quickly.md' as broader market drag on inflation data usually clears, leaving stock-specific catalysts to drive price. Time window: 2-3 weeks for supply chain news to fully circulate. Expected move: Recovery toward 50 SMA at 217 (~+8-10% stock = ~+40-50% on contract). Invalidation: Breaking below 200 SMA at 189 or negative supply chain revisions. Tags: momentum, partnership-catalyst, supply-chain, double-down, between-sma.",
-      "entry_price": 199.97,
-      "entry_iv": 53.4,
-      "entry_date": "2026-03-18",
-      "ticker": "AMD",
+      "order_id": "26802685",
+      "reason": "Doubling down on QQQ recovery thesis (Ithaca Average Down). Initial entry context: Average down opportunity within time window. Current action: Increasing position as QQQ reclaims 200 SMA (593.15) with ~2% surge. Catalyst: Trump declares 5-day pause in Iran energy attacks, triggering broad-market relief rally (SPY +1.13%). News research (Motley Fool) confirms historical buying opportunity during sell-offs given tech dominance. Experience check: 'tickers/QQQ/geopolitical-dips-are-short-lived.md' (High Confidence) validates that QQQ recovers fast if it stays above 200 SMA. Reclamation of this level is a high-conviction trigger. Thesis: Mean reversion toward 50 SMA (610.36). Time window: Expect move within 10 trading days (by April 6). Expected move: Technical recovery to 50 SMA zone, approx +25% on contract. Invalidation criteria: Daily close below 200 SMA on volume or resumption of Iran energy attacks.",
+      "entry_price": 586.42,
+      "entry_iv": 23.7,
+      "entry_date": "2026-03-23",
+      "ticker": "QQQ",
       "type": "call",
-      "strike": 200.0,
-      "expiry": "2026-07-17",
-      "quantity": 2,
-      "cost_basis": 5160.0,
+      "strike": 595.0,
+      "expiry": "2026-06-30",
+      "quantity": 1,
+      "cost_basis": 2754.0,
       "reflected": true,
       "market_context": {
-        "price": 199.97,
-        "change_pct": 1.87,
-        "iv": 53.4,
+        "price": 586.42,
+        "change_pct": 0.75,
+        "iv": 23.7,
         "option_greeks": {
-          "delta": 0.576,
-          "gamma": 0.0065,
-          "theta": -0.1087,
-          "vega": 0.4503,
-          "rho": 0.2987
+          "delta": 0.514,
+          "gamma": 0.0055,
+          "theta": -0.1746,
+          "vega": 1.2252,
+          "rho": 0.7501
         },
         "iv_context": {
-          "iv_rank": 18,
-          "iv_percentile": 12,
-          "iv_52w_high": 56.5,
-          "iv_52w_low": 52.8
+          "iv_rank": 19,
+          "iv_percentile": 20,
+          "iv_52w_high": 26.0,
+          "iv_52w_low": 23.1
         },
         "trends": {
-          "price_52w_high": 267.08,
-          "price_52w_low": 76.48,
-          "price_vs_52w_pct": 65,
-          "sma_50": 214.81,
-          "sma_200": 192.1,
-          "sma_signal": "mixed",
+          "price_52w_high": 637.01,
+          "price_52w_low": 402.39,
+          "price_vs_52w_pct": 78,
+          "sma_50": 610.27,
+          "sma_200": 593.12,
+          "sma_signal": "below_both",
           "returns": {
-            "1w": -2.4,
-            "1m": -1.5,
+            "1w": -2.3,
+            "1m": -3.7,
             "3m": -3.7,
-            "6m": 24.6
+            "6m": -2.2
           },
-          "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
-          "rsi_14": 47.1,
-          "atr_14": 8.2,
-          "prev_day_high": 202.86,
-          "prev_day_low": 195.75,
-          "avg_volume_50d": 38349972,
+          "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
+          "rsi_14": 40.2,
+          "atr_14": 10.56,
+          "prev_day_high": 595.08,
+          "prev_day_low": 585.96,
+          "avg_volume_50d": 65953966,
           "bollinger": {
-            "upper": 211.34,
-            "middle": 200.35,
-            "lower": 189.35,
-            "pct_b": 48.3
+            "upper": 619.32,
+            "middle": 602.22,
+            "lower": 585.13,
+            "pct_b": 3.8
           }
         },
         "news": [
           {
-            "title": "Samsung and AMD Expand AI Chip Partnership",
-            "publisher": "GuruFocus.com",
-            "date": "2026-03-18"
-          },
-          {
-            "title": "Nvidia Won AI\u2019s First Battle. The Next Round Won\u2019t Be So Easy.",
-            "publisher": "Barrons.com",
-            "date": "2026-03-18"
-          },
-          {
-            "title": "Can Celestica's Tie-Up With AMD for AI Switches Stoke Growth?",
-            "publisher": "Zacks",
-            "date": "2026-03-18"
-          },
-          {
-            "title": "Nvidia May Be Slipping Back Into China",
-            "publisher": "GuruFocus.com",
-            "date": "2026-03-18"
-          },
-          {
-            "title": "A Look At AMD (AMD) Valuation After New Samsung HBM4 And DRAM Supply Agreement",
-            "publisher": "Simply Wall St.",
-            "date": "2026-03-18"
-          }
-        ],
-        "broader_market": {
-          "spy_price": 663.5,
-          "spy_change_pct": -1.09
-        }
-      }
-    },
-    {
-      "order_id": "26656576",
-      "reason": "Expanding AMD core momentum position (MI455X/Samsung catalyst). Thesis: AMD securing HBM4 supply from Samsung and exploring Naver partnerships for 6th Gen EPYC creates a medium-term competitive advantage. Technicals: Price 199.11 is consolidating between 50 SMA (217) and 200 SMA (189) \u2014 a zone where mean reversion holds statistically better odds. Pattern: 'geopolitical-fear-trades-fade-quickly' (general/geopolitical-fear-trades-fade-quickly.md) suggests broader market drag on inflation data will clear, leaving stock-specific catalysts to drive price. Deep news research confirms expanded Samsung partnership for HBM4/DDR5 and Celestica AI switch tie-up. Time window: 2-3 weeks for supply chain news to fully circulate. Expected move: Recovery toward 50 SMA at 217 (~+8-10% stock = ~+40-50% on contract). Invalidation: Breaking below 200 SMA at 189 or negative supply chain revisions. Tags: momentum, partnership-catalyst, supply-chain, double-down, between-sma.",
-      "entry_price": 200.27,
-      "entry_iv": 53.9,
-      "entry_date": "2026-03-19",
-      "ticker": "AMD",
-      "type": "call",
-      "strike": 200.0,
-      "expiry": "2026-07-17",
-      "quantity": 2,
-      "cost_basis": 5220.0,
-      "reflected": true,
-      "market_context": {
-        "price": 200.27,
-        "change_pct": 0.41,
-        "iv": 53.9,
-        "option_greeks": {
-          "delta": 0.581,
-          "gamma": 0.0064,
-          "theta": -0.1111,
-          "vega": 0.4492,
-          "rho": 0.2983
-        },
-        "iv_context": {
-          "iv_rank": 31,
-          "iv_percentile": 33,
-          "iv_52w_high": 56.5,
-          "iv_52w_low": 52.8
-        },
-        "trends": {
-          "price_52w_high": 267.08,
-          "price_52w_low": 76.48,
-          "price_vs_52w_pct": 65,
-          "sma_50": 214.52,
-          "sma_200": 192.52,
-          "sma_signal": "mixed",
-          "returns": {
-            "1w": 1.3,
-            "1m": 0.1,
-            "3m": -4.3,
-            "6m": 25.8
-          },
-          "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
-          "rsi_14": 50.0,
-          "atr_14": 8.39,
-          "prev_day_high": 201.44,
-          "prev_day_low": 192.83,
-          "avg_volume_50d": 38036110,
-          "bollinger": {
-            "upper": 211.08,
-            "middle": 200.17,
-            "lower": 189.26,
-            "pct_b": 50.5
-          }
-        },
-        "news": [
-          {
-            "title": "Micron Slips 4%: NVIDIA\u2019s HBM Supplier Just Posted Record Results, So Why Is It Falling?",
-            "publisher": "24/7 Wall St.",
-            "date": "2026-03-19"
-          },
-          {
-            "title": "RBC Capital Maintains a Sector Perform Rating on Advanced Micro Devices (AMD) Stock",
-            "publisher": "Insider Monkey",
-            "date": "2026-03-19"
-          },
-          {
-            "title": "Not Even Elon Musk Can Get Nvidia Stock Moving",
-            "publisher": "Barrons.com",
-            "date": "2026-03-19"
-          },
-          {
-            "title": "Earnings Growth & Price Strength Make Advanced Micro Devices (AMD) a Stock to Watch",
-            "publisher": "Zacks",
-            "date": "2026-03-19"
-          },
-          {
-            "title": "Will AI-Driven Chip Demand Help TSM Meet 2026 Revenue Growth Goal?",
-            "publisher": "Zacks",
-            "date": "2026-03-19"
-          }
-        ],
-        "broader_market": {
-          "spy_price": 657.11,
-          "spy_change_pct": -0.66
-        }
-      }
-    },
-    {
-      "order_id": "26670741",
-      "reason": "Averaging down on AMD momentum breakout. Price 185.20 dropped below 200 SMA (189.03), entering 'Falling Knife' territory. Thesis: Samsung HBM4/MI455X catalyst is fundamental, not market-noise driven. Broad market tech rotation creating extreme value. Expected move: Reclaim 200 SMA and recover toward 50 SMA (217) within 2 weeks. Invalidation: Negative revision of Samsung/Meta partnerships.",
-      "entry_price": 205.245,
-      "entry_iv": 53.5,
-      "entry_date": "2026-03-19",
-      "ticker": "AMD",
-      "type": "call",
-      "strike": 200.0,
-      "expiry": "2026-07-17",
-      "quantity": 2,
-      "cost_basis": 5800.0,
-      "reflected": true,
-      "market_context": {
-        "price": 205.245,
-        "change_pct": 2.9,
-        "iv": 53.5,
-        "option_greeks": {
-          "delta": 0.598,
-          "gamma": 0.0063,
-          "theta": -0.1107,
-          "vega": 0.4502,
-          "rho": 0.3062
-        },
-        "iv_context": {
-          "iv_rank": 20,
-          "iv_percentile": 22,
-          "iv_52w_high": 56.5,
-          "iv_52w_low": 52.8
-        },
-        "trends": {
-          "price_52w_high": 267.08,
-          "price_52w_low": 76.48,
-          "price_vs_52w_pct": 68,
-          "sma_50": 214.62,
-          "sma_200": 192.55,
-          "sma_signal": "mixed",
-          "returns": {
-            "1w": 3.8,
-            "1m": 2.6,
-            "3m": -1.9,
-            "6m": 29.0
-          },
-          "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
-          "rsi_14": 53.8,
-          "atr_14": 8.69,
-          "prev_day_high": 205.62,
-          "prev_day_low": 192.83,
-          "avg_volume_50d": 38175302,
-          "bollinger": {
-            "upper": 211.55,
-            "middle": 200.42,
-            "lower": 189.28,
-            "pct_b": 71.7
-          }
-        },
-        "news": [
-          {
-            "title": "Samsung to Invest $73B in AI Chip Push",
-            "publisher": "GuruFocus.com",
-            "date": "2026-03-19"
-          },
-          {
-            "title": "AMD vs. Broadcom: Which Semiconductor Stock is a Buy Right Now?",
-            "publisher": "Zacks",
-            "date": "2026-03-19"
-          },
-          {
-            "title": "Micron Slips 4%: NVIDIA\u2019s HBM Supplier Just Posted Record Results, So Why Is It Falling?",
-            "publisher": "24/7 Wall St.",
-            "date": "2026-03-19"
-          },
-          {
-            "title": "Broadcom's AI Push Boosts Semiconductor Sales: More Upside Ahead?",
-            "publisher": "Zacks",
-            "date": "2026-03-19"
-          },
-          {
-            "title": "RBC Capital Maintains a Sector Perform Rating on Advanced Micro Devices (AMD) Stock",
-            "publisher": "Insider Monkey",
-            "date": "2026-03-19"
-          }
-        ],
-        "broader_market": {
-          "spy_price": 662.07,
-          "spy_change_pct": 0.1
-        }
-      }
-    },
-    {
-      "order_id": "26717180",
-      "reason": "Thesis: Double down on AMD (MI455X/Samsung catalyst) as price holds 200 SMA (189.03) after FOMC-driven dip. Deep news research (Simply Wall St, Reuters) confirms the 3B Samsung AI bet and Celestica Helios partnership are primary fundamental drivers that distinguish AMD from broader market tech rotation. Technicals: Price 193.30 is consolidating above the 200 SMA 'hard floor' identified in experience 'general/mean-reversion-calls-fail-below-smas.md'. RSI 47.7 and %B 12.1 show the stock has reset from overbought levels, offering a lower-risk entry for this core momentum play. Sentiment is Slightly Bullish (+2) despite macro fear. Pattern: 'geopolitical-fear-trades-fade-quickly.md' \u2014 macro-noise (inflation/Fed) provides entry points for strong stock-specific stories. Time window: 2 weeks for supply chain tour news to fully circulate. Expected move: Recovery toward 50 SMA (212.38) for ~10% stock move (~+40-50% on contract). Invalidation: Decisive break below 200 SMA at 189.00 or negative revision of Samsung/Meta catalysts. Tags: momentum, partnership-catalyst, supply-chain, double-down, above-200-sma, dip-buying.",
-      "entry_price": 201.9,
-      "entry_iv": 54.0,
-      "entry_date": "2026-03-20",
-      "ticker": "AMD",
-      "type": "call",
-      "strike": 200.0,
-      "expiry": "2026-07-17",
-      "quantity": 2,
-      "cost_basis": 5400.0,
-      "reflected": true,
-      "market_context": {
-        "price": 201.9,
-        "change_pct": -1.65,
-        "iv": 54.0,
-        "option_greeks": {
-          "delta": 0.593,
-          "gamma": 0.0063,
-          "theta": -0.1112,
-          "vega": 0.4494,
-          "rho": 0.3074
-        },
-        "iv_context": {
-          "iv_rank": 34,
-          "iv_percentile": 30,
-          "iv_52w_high": 56.5,
-          "iv_52w_low": 52.8
-        },
-        "trends": {
-          "price_52w_high": 267.08,
-          "price_52w_low": 76.48,
-          "price_vs_52w_pct": 66,
-          "sma_50": 214.46,
-          "sma_200": 192.97,
-          "sma_signal": "mixed",
-          "returns": {
-            "1w": 4.4,
-            "1m": -0.7,
-            "3m": 1.9,
-            "6m": 27.8
-          },
-          "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
-          "rsi_14": 52.5,
-          "atr_14": 8.3,
-          "prev_day_high": 206.3,
-          "prev_day_low": 201.76,
-          "avg_volume_50d": 37835384,
-          "bollinger": {
-            "upper": 211.66,
-            "middle": 200.51,
-            "lower": 189.35,
-            "pct_b": 56.6
-          }
-        },
-        "news": [
-          {
-            "title": "The Only 3 Growth ETFs I Would Buy and Hold Through Any Market",
-            "publisher": "24/7 Wall St.",
-            "date": "2026-03-20"
-          },
-          {
-            "title": "Ecolab to buy CoolIT for $4.75 billion to tap into\u00a0AI data center boom",
-            "publisher": "Reuters",
-            "date": "2026-03-20"
-          },
-          {
-            "title": "Why Celestica (TSX:CLS) Is Up 8.2% After Teaming With AMD On Helios AI Networking Switches",
-            "publisher": "Simply Wall St.",
-            "date": "2026-03-20"
-          },
-          {
-            "title": "Samsung\u2019s $73b AI Bet With AMD And What It Means For Valuation",
-            "publisher": "Simply Wall St.",
-            "date": "2026-03-19"
-          },
-          {
-            "title": "How The AI Accelerator Narrative Is Reframing The Advanced Micro Devices (AMD) Investment Story",
-            "publisher": "Simply Wall St.",
-            "date": "2026-03-19"
-          }
-        ],
-        "broader_market": {
-          "spy_price": 653.07,
-          "spy_change_pct": -0.75
-        }
-      }
-    },
-    {
-      "order_id": "26754895",
-      "reason": "Double down on AMD (MI455X/Samsung catalyst) as price holds 200 SMA (189.03) after FOMC-driven dip. Deep news research (Simply Wall St, Reuters) confirms the 3B Samsung AI bet and Celestica Helios partnership are primary fundamental drivers that distinguish AMD from broader market tech rotation. Technicals: Price 193.30 is consolidating above the 200 SMA 'hard floor' identified in experience 'general/mean-reversion-calls-fail-below-smas.md'. RSI 47.7 and %B 12.1 show the stock has reset from overbought levels, offering a lower-risk entry for this core momentum play. Sentiment is Slightly Bullish (+2) despite macro fear. Pattern: 'geopolitical-fear-trades-fade-quickly.md' \u2014 macro-noise (inflation/Fed) provides entry points for strong stock-specific stories. Time window: 2 weeks for supply chain tour news to fully circulate. Expected move: Recovery toward 50 SMA (212.38) for ~10% stock move (~+40-50% on contract). Invalidation: Decisive break below 200 SMA at 189.00 or negative revision of Samsung/Meta catalysts. Tags: momentum, partnership-catalyst, supply-chain, double-down, above-200-sma, dip-buying.",
-      "entry_price": 199.09,
-      "entry_iv": 54.0,
-      "entry_date": "2026-03-20",
-      "ticker": "AMD",
-      "type": "call",
-      "strike": 200.0,
-      "expiry": "2026-07-17",
-      "quantity": 1,
-      "cost_basis": 2560.0,
-      "reflected": true,
-      "market_context": {
-        "price": 199.09,
-        "change_pct": -3.02,
-        "iv": 54.0,
-        "option_greeks": {
-          "delta": 0.571,
-          "gamma": 0.0066,
-          "theta": -0.1104,
-          "vega": 0.4455,
-          "rho": 0.2884
-        },
-        "iv_context": {
-          "iv_rank": 34,
-          "iv_percentile": 30,
-          "iv_52w_high": 56.5,
-          "iv_52w_low": 52.8
-        },
-        "trends": {
-          "price_52w_high": 267.08,
-          "price_52w_low": 76.48,
-          "price_vs_52w_pct": 64,
-          "sma_50": 214.4,
-          "sma_200": 192.96,
-          "sma_signal": "mixed",
-          "returns": {
-            "1w": 2.9,
-            "1m": -2.1,
-            "3m": 0.5,
-            "6m": 26.1
-          },
-          "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
-          "rsi_14": 50.3,
-          "atr_14": 8.55,
-          "prev_day_high": 206.3,
-          "prev_day_low": 198.26,
-          "avg_volume_50d": 38182044,
-          "bollinger": {
-            "upper": 211.51,
-            "middle": 200.36,
-            "lower": 189.21,
-            "pct_b": 44.3
-          }
-        },
-        "news": [
-          {
-            "title": "Intel Dips 5%, AMD Down 3%: Rising Competition and Sector Pressure Test Two of Wall Street\u2019s Favorite Chip Stocks",
-            "publisher": "24/7 Wall St.",
-            "date": "2026-03-20"
-          },
-          {
-            "title": "MARA Holdings Drops 6%, Riot Platforms Falls 5%: Two Bitcoin Miners Caught Between Energy Costs and an AI Pivot",
-            "publisher": "24/7 Wall St.",
-            "date": "2026-03-20"
-          },
-          {
-            "title": "2 Semiconductor Stocks to Consider Right Now and 1 That Underwhelm",
-            "publisher": "StockStory",
-            "date": "2026-03-20"
-          },
-          {
-            "title": "The Nasdaq Sinks As Super Micro AI Chip Smuggling to China Takes Center Stage | SMCI IXIC",
-            "publisher": "24/7 Wall St.",
-            "date": "2026-03-20"
-          },
-          {
-            "title": "Ecolab Buying CoolIT Systems in $4.75 Billion Deal as Data Center Liquid Cooling Demand Surges",
+            "title": "Exchange-Traded Funds Rise as US Equities Point Higher Midday",
             "publisher": "MT Newswires",
-            "date": "2026-03-20"
+            "date": "2026-03-23"
+          },
+          {
+            "title": "Exchange-Traded Funds, Equity Futures Gain Pre-Bell Monday as Trump Declares 5-Day Pause in Iran Energy Attacks",
+            "publisher": "MT Newswires",
+            "date": "2026-03-23"
+          },
+          {
+            "title": "Should You Buy the Invesco QQQ ETF During the Stock Market Sell-Off? History Offers a Clear Answer.",
+            "publisher": "Motley Fool",
+            "date": "2026-03-23"
+          },
+          {
+            "title": "NexGen Energy Up 123% This Past Year as Investor Adds $7.3 Million Before Major Approval",
+            "publisher": "Motley Fool",
+            "date": "2026-03-22"
+          },
+          {
+            "title": "USA Compression Partners Eyes Debt Reduction as Record Cash Flow Powers 1.6x Coverage Target",
+            "publisher": "24/7 Wall St.",
+            "date": "2026-03-22"
           }
         ],
         "broader_market": {
-          "spy_price": 647.875,
-          "spy_change_pct": -1.54
+          "spy_price": 654.68,
+          "spy_change_pct": 0.95
         }
       }
     }
   ],
-  "GLD260717C00470000": [
+  "QQQ260630C00600000": [
     {
-      "order_id": "26660502",
-      "reason": "Mean reversion play on technical dip (67.91) following Fed hold. Setup: GLD between 50 SMA (451.3) and 200 SMA (370), distinct from common failures below both SMAs. P/C vol ratio extremely bullish (0.24). News-research confirms bearish macro sentiment (Fed/Oil), but pattern 'bounce-back-fails-when-macro-fear-fades.md' suggests a quick technical bounce is likely before fundamental pressure resumes. High volume and deep range position (16) support a near-term floor. Time window: expect move within 2-3 trading days (by March 24). Expected move: recovery toward recent consolidation zone at 75-477 (+1.5-2.0% stock = ~+15-20% on contract). Invalidation: Breaking below 50 SMA at 51.3 or further hawkish Fed commentary. Pattern: dip-buying, between-sma, bullish-sentiment, macro-bounce. Treat as a short-term trade per experience guidance.",
-      "entry_price": 423.32,
-      "entry_iv": 28.3,
-      "entry_date": "2026-03-19",
-      "ticker": "GLD",
+      "order_id": "26791161",
+      "reason": "Reclaiming 200 SMA recovery thesis. QQQ surging +1.97% (593.52) to reclaim its 200-day floor (593.15) following Trump's announced 5-day pause in Iran energy attacks. This relief rally is confirmed by broad-market strength (SPY +1.64%) and news research (Motley Fool) highlighting historical buying opportunities in tech during geopolitical sell-offs. Experience 'tickers/QQQ/geopolitical-dips-are-short-lived.md' (High Confidence) validates that QQQ recovers quickly if it stays above its 200 SMA. Reclamation of this level is a high-conviction trigger. Pattern tags: mean-reversion, dip, news-driven, recovery, relief-rally, geopolitical-dip. Time window: Expect move within 7 trading days (by April 1). Expected move: Technical recovery toward 50 SMA (610.41), approx +20% on contract. Invalidation criteria: Daily close below 200 SMA (593.15) or resumption of Iran energy attacks.",
+      "entry_price": 591.14,
+      "entry_iv": 22.7,
+      "entry_date": "2026-03-23",
+      "ticker": "QQQ",
       "type": "call",
-      "strike": 470.0,
-      "expiry": "2026-07-17",
+      "strike": 600.0,
+      "expiry": "2026-06-30",
       "quantity": 1,
-      "cost_basis": 1260.0,
+      "cost_basis": 2702.0,
       "reflected": true,
       "market_context": {
-        "price": 423.32,
-        "change_pct": -4.82,
-        "iv": 28.3,
+        "price": 591.14,
+        "change_pct": 1.56,
+        "iv": 22.7,
         "option_greeks": {
-          "delta": 0.299,
-          "gamma": 0.0051,
-          "theta": -0.1102,
-          "vega": 0.8588,
-          "rho": 0.3768
+          "delta": 0.518,
+          "gamma": 0.0058,
+          "theta": -0.1665,
+          "vega": 1.2368,
+          "rho": 0.7628
         },
         "iv_context": {
-          "iv_rank": 100,
-          "iv_percentile": 100,
-          "iv_52w_high": 27.9,
-          "iv_52w_low": 25.4
+          "iv_rank": 0,
+          "iv_percentile": 0,
+          "iv_52w_high": 26.0,
+          "iv_52w_low": 23.1
         },
         "trends": {
-          "price_52w_high": 509.7,
-          "price_52w_low": 272.58,
-          "price_vs_52w_pct": 64,
-          "sma_50": 455.94,
-          "sma_200": 373.6,
-          "sma_signal": "mixed",
+          "price_52w_high": 637.01,
+          "price_52w_low": 402.39,
+          "price_vs_52w_pct": 80,
+          "sma_50": 610.36,
+          "sma_200": 593.14,
+          "sma_signal": "below_both",
           "returns": {
-            "1w": -9.3,
-            "1m": -7.6,
-            "3m": 6.9,
-            "6m": 25.6
+            "1w": -1.5,
+            "1m": -2.9,
+            "3m": -3.0,
+            "6m": -1.4
           },
-          "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
-          "rsi_14": 21.4,
-          "atr_14": 11.52,
-          "prev_day_high": 426.96,
-          "prev_day_low": 416.8,
-          "avg_volume_50d": 19555478,
+          "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
+          "rsi_14": 43.6,
+          "atr_14": 10.56,
+          "prev_day_high": 595.08,
+          "prev_day_low": 589.0,
+          "avg_volume_50d": 65493340,
           "bollinger": {
-            "upper": 496.91,
-            "middle": 468.54,
-            "lower": 440.18,
-            "pct_b": -29.7
+            "upper": 618.79,
+            "middle": 602.46,
+            "lower": 586.12,
+            "pct_b": 15.3
           }
         },
         "news": [
           {
-            "title": "Gold Drops 1.2% to $4,760 as Oil Surge Clouds Fed Rate Path",
-            "publisher": "GuruFocus.com",
-            "date": "2026-03-19"
+            "title": "Exchange-Traded Funds, Equity Futures Gain Pre-Bell Monday as Trump Declares 5-Day Pause in Iran Energy Attacks",
+            "publisher": "MT Newswires",
+            "date": "2026-03-23"
           },
           {
-            "title": "The 12% Yield Gold Income ETF That Nobody Knows About",
+            "title": "Should You Buy the Invesco QQQ ETF During the Stock Market Sell-Off? History Offers a Clear Answer.",
+            "publisher": "Motley Fool",
+            "date": "2026-03-23"
+          },
+          {
+            "title": "NexGen Energy Up 123% This Past Year as Investor Adds $7.3 Million Before Major Approval",
+            "publisher": "Motley Fool",
+            "date": "2026-03-22"
+          },
+          {
+            "title": "USA Compression Partners Eyes Debt Reduction as Record Cash Flow Powers 1.6x Coverage Target",
             "publisher": "24/7 Wall St.",
-            "date": "2026-03-19"
+            "date": "2026-03-22"
           },
           {
-            "title": "Bybit Offers Interest Payments On Tokenized Gold",
-            "publisher": "CryptoProwl",
-            "date": "2026-03-19"
-          },
-          {
-            "title": "Gold Prices Plunge 7.3% as Hopes for Lower U.S. Interest Rates Fade",
-            "publisher": "MT Newswires",
-            "date": "2026-03-19"
-          },
-          {
-            "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Thursday Amid Rising Oil Prices, Reduced Rate-Cut Expectations",
-            "publisher": "MT Newswires",
-            "date": "2026-03-19"
+            "title": "This Fidelity Growth ETF Is Quietly Outperforming Just About Everything",
+            "publisher": "24/7 Wall St.",
+            "date": "2026-03-22"
           }
         ],
         "broader_market": {
-          "spy_price": 656.69,
-          "spy_change_pct": -0.72
+          "spy_price": 659.04,
+          "spy_change_pct": 1.62
         }
       }
     },
     {
-      "order_id": "26670734",
-      "reason": "Averaging down on GLD mean reversion. Setup: Price 423.32 (down 4.8%) between 50 SMA (455) and 200 SMA (373). Extremely bullish P/C vol ratio (0.24). News-research confirms Fed rate cut doubts but 'geopolitical-fear-trades-fade-quickly.md' suggests macro-noise creates high-conviction technical bounces. Expected move: Recovery toward 450 (+6%) within 3-5 days. Invalidation: Breaks 200 SMA at 373.",
-      "entry_price": 427.395,
-      "entry_iv": 27.6,
-      "entry_date": "2026-03-19",
-      "ticker": "GLD",
+      "order_id": "26802654",
+      "reason": "Reclaiming 200 SMA recovery thesis. QQQ surging +1.97% (593.52) to reclaim its 200-day floor (593.15) following Trump's announced 5-day pause in Iran energy attacks. This relief rally is confirmed by broad-market strength (SPY +1.13%) and news research (Motley Fool) highlighting historical buying opportunities in tech during geopolitical sell-offs. Experience 'tickers/QQQ/geopolitical-dips-are-short-lived.md' (High Confidence) validates that QQQ recovers quickly if it stays above its 200 SMA. Reclamation of this level is a high-conviction trigger. Pattern tags: mean-reversion, dip, news-driven, recovery, relief-rally, geopolitical-dip. Time window: Expect move within 7 trading days (by April 1). Expected move: Technical recovery toward 50 SMA (610.36), approx +20% on contract. Invalidation criteria: Daily close below 200 SMA (593.15) or resumption of Iran energy attacks.",
+      "entry_price": 586.68,
+      "entry_iv": 23.1,
+      "entry_date": "2026-03-23",
+      "ticker": "QQQ",
       "type": "call",
-      "strike": 470.0,
-      "expiry": "2026-07-17",
+      "strike": 600.0,
+      "expiry": "2026-06-30",
       "quantity": 1,
-      "cost_basis": 1375.0,
+      "cost_basis": 2495.0,
       "reflected": true,
       "market_context": {
-        "price": 427.395,
-        "change_pct": -3.9,
-        "iv": 27.6,
+        "price": 586.68,
+        "change_pct": 0.8,
+        "iv": 23.1,
         "option_greeks": {
-          "delta": 0.32,
-          "gamma": 0.0051,
-          "theta": -0.1173,
-          "vega": 0.8601,
-          "rho": 0.3979
+          "delta": 0.487,
+          "gamma": 0.0056,
+          "theta": -0.1703,
+          "vega": 1.2256,
+          "rho": 0.713
         },
         "iv_context": {
-          "iv_rank": 88,
-          "iv_percentile": 89,
-          "iv_52w_high": 27.9,
-          "iv_52w_low": 25.4
+          "iv_rank": 0,
+          "iv_percentile": 0,
+          "iv_52w_high": 26.0,
+          "iv_52w_low": 23.1
         },
         "trends": {
-          "price_52w_high": 509.7,
-          "price_52w_low": 272.58,
-          "price_vs_52w_pct": 65,
-          "sma_50": 456.02,
-          "sma_200": 373.62,
-          "sma_signal": "mixed",
+          "price_52w_high": 637.01,
+          "price_52w_low": 402.39,
+          "price_vs_52w_pct": 79,
+          "sma_50": 610.27,
+          "sma_200": 593.12,
+          "sma_signal": "below_both",
           "returns": {
-            "1w": -8.5,
-            "1m": -6.7,
-            "3m": 8.0,
-            "6m": 26.8
+            "1w": -2.3,
+            "1m": -3.6,
+            "3m": -3.7,
+            "6m": -2.1
           },
-          "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
-          "rsi_14": 22.3,
-          "atr_14": 11.52,
-          "prev_day_high": 428.27,
-          "prev_day_low": 416.8,
-          "avg_volume_50d": 19626431,
+          "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
+          "rsi_14": 40.4,
+          "atr_14": 10.56,
+          "prev_day_high": 595.08,
+          "prev_day_low": 585.96,
+          "avg_volume_50d": 65953312,
           "bollinger": {
-            "upper": 495.84,
-            "middle": 468.75,
-            "lower": 441.65,
-            "pct_b": -26.3
+            "upper": 619.29,
+            "middle": 602.23,
+            "lower": 585.17,
+            "pct_b": 4.2
           }
         },
         "news": [
           {
-            "title": "Update: Gold Prices Plunge as Hopes for Lower U.S. Interest Rates Fade",
+            "title": "Exchange-Traded Funds Rise as US Equities Point Higher Midday",
             "publisher": "MT Newswires",
-            "date": "2026-03-19"
+            "date": "2026-03-23"
           },
           {
-            "title": "Gold Drops 1.2% to $4,760 as Oil Surge Clouds Fed Rate Path",
-            "publisher": "GuruFocus.com",
-            "date": "2026-03-19"
+            "title": "Exchange-Traded Funds, Equity Futures Gain Pre-Bell Monday as Trump Declares 5-Day Pause in Iran Energy Attacks",
+            "publisher": "MT Newswires",
+            "date": "2026-03-23"
           },
           {
-            "title": "The 12% Yield Gold Income ETF That Nobody Knows About",
+            "title": "Should You Buy the Invesco QQQ ETF During the Stock Market Sell-Off? History Offers a Clear Answer.",
+            "publisher": "Motley Fool",
+            "date": "2026-03-23"
+          },
+          {
+            "title": "NexGen Energy Up 123% This Past Year as Investor Adds $7.3 Million Before Major Approval",
+            "publisher": "Motley Fool",
+            "date": "2026-03-22"
+          },
+          {
+            "title": "USA Compression Partners Eyes Debt Reduction as Record Cash Flow Powers 1.6x Coverage Target",
             "publisher": "24/7 Wall St.",
-            "date": "2026-03-19"
-          },
-          {
-            "title": "Bybit Offers Interest Payments On Tokenized Gold",
-            "publisher": "CryptoProwl",
-            "date": "2026-03-19"
-          },
-          {
-            "title": "Gold Prices Plunge 7.3% as Hopes for Lower U.S. Interest Rates Fade",
-            "publisher": "MT Newswires",
-            "date": "2026-03-19"
+            "date": "2026-03-22"
           }
         ],
         "broader_market": {
-          "spy_price": 661.99,
-          "spy_change_pct": 0.09
-        }
-      }
-    },
-    {
-      "order_id": "26754843",
-      "reason": "Triple down on GLD mean-reversion at a deep statistical extreme (RSI 21.4, %B -29.7). Price 414.07 is significantly below the 50 SMA (455.94) but remains north of the 200 SMA 'hard floor' (373.6). Extremely bullish P/C vol ratio (0.24) suggests professional positioning is preparing for a reversal. News research (GuruFocus, MT Newswires) highlights that gold is under pressure from fading rate-cut expectations and oil-driven inflation fears, but experience 'tickers/GLD/bounce-back-fails-when-macro-fear-fades.md' confirms that macro-noise often creates technical 'one-day' bounce plays. Expected move: Technical recovery toward 50 SMA zone (450+) for ~8-10% stock move (~+40-50% on contract). Time window: 3-5 trading days. Invalidation: Break below 200 SMA (373.6). Tags: mean-reversion, statistical-extreme, oversold, double-down, dip-buying, bullish-sentiment, macro-bounce.",
-      "entry_price": 413.85,
-      "entry_iv": 28.7,
-      "entry_date": "2026-03-20",
-      "ticker": "GLD",
-      "type": "call",
-      "strike": 470.0,
-      "expiry": "2026-07-17",
-      "quantity": 1,
-      "cost_basis": 1080.0,
-      "reflected": true,
-      "market_context": {
-        "price": 413.85,
-        "change_pct": -2.95,
-        "iv": 28.7,
-        "option_greeks": {
-          "delta": 0.274,
-          "gamma": 0.0048,
-          "theta": -0.1102,
-          "vega": 0.8012,
-          "rho": 0.333
-        },
-        "iv_context": {
-          "iv_rank": 100,
-          "iv_percentile": 100,
-          "iv_52w_high": 27.9,
-          "iv_52w_low": 25.4
-        },
-        "trends": {
-          "price_52w_high": 509.7,
-          "price_52w_low": 272.58,
-          "price_vs_52w_pct": 60,
-          "sma_50": 456.1,
-          "sma_200": 374.14,
-          "sma_signal": "mixed",
-          "returns": {
-            "1w": -10.2,
-            "1m": -9.9,
-            "3m": 3.6,
-            "6m": 23.3
-          },
-          "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
-          "rsi_14": 15.0,
-          "atr_14": 10.91,
-          "prev_day_high": 428.59,
-          "prev_day_low": 411.23,
-          "avg_volume_50d": 19929161,
-          "bollinger": {
-            "upper": 502.33,
-            "middle": 465.96,
-            "lower": 429.58,
-            "pct_b": -21.7
-          }
-        },
-        "news": [
-          {
-            "title": "Update: Gold Drops to a Two-Month Low as the Dollar and Yields Rise",
-            "publisher": "MT Newswires",
-            "date": "2026-03-20"
-          },
-          {
-            "title": "Gold Back Under $5,000 \u2013 Is This the Best ETF to Buy for Its Next Run Higher?",
-            "publisher": "24/7 Wall St.",
-            "date": "2026-03-20"
-          },
-          {
-            "title": "Gold Heads for Biggest Weekly Loss in Six Years as Prices Drop Over 7%",
-            "publisher": "GuruFocus.com",
-            "date": "2026-03-20"
-          },
-          {
-            "title": "Gold Rises Off a Two-Month Low Even as the Dollar and Yields Rise",
-            "publisher": "MT Newswires",
-            "date": "2026-03-20"
-          },
-          {
-            "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell as Energy Market Disruptions Weigh on Investor Sentiment",
-            "publisher": "MT Newswires",
-            "date": "2026-03-20"
-          }
-        ],
-        "broader_market": {
-          "spy_price": 647.86,
-          "spy_change_pct": -1.55
+          "spy_price": 654.935,
+          "spy_change_pct": 0.99
         }
       }
     }
   ],
-  "IWM260821C00255000": [
+  "IWM260630C00235000": [
     {
-      "order_id": "26745613",
-      "reason": "Mean reversion from statistical extreme (RSI 26.2, Bollinger %B -4.2). Broader market selloff (Oil >00, SMCI fraud) has pushed IWM into deep oversold territory. Experience 'tickers/IWM/mean-reversion-from-statistical-extremes.md' marks these levels as high-probability entry points. Technicals: IWM is the worst performer today (-1.37%) but has been historically resilient to geopolitical shocks due to domestic focus. Thesis: Expect a 1-2 week technical bounce as panic cools and yields stabilize. Support found near 250 level. Invalidation: Breaks below 250 or further geopolitical escalation leading to sustained Oil >20.",
-      "entry_price": 243.705,
-      "entry_iv": 25.9,
-      "entry_date": "2026-03-20",
+      "order_id": "26791177",
+      "reason": "Mean-reversion from statistical extreme. IWM reclaiming its 200 SMA (231.85) with a 2.11% surge (232.51) following relief from geopolitical tensions (Iran attack pause). Prior evaluation showed IWM at statistical extremes (RSI deep oversold) near the 200-day floor. Experience 'tickers/IWM/mean-reversion-from-statistical-extremes.md' (Medium/High Confidence) validates that small-caps produce strong mean-reversion moves from deep oversold levels when they reclaim the 200 SMA floor. Broad market relief (SPY +1.64%) supports rotation back into small-caps. Pattern tags: mean-reversion, oversold, statistical-extreme, dip-buying, relief-rally, geopolitical-dip. Time window: Expect move within 10 trading days (by April 6). Expected move: Recovery toward 50 SMA (241.16), approximately +25% on contract. Invalidation criteria: Daily close below 200 SMA or resumption of Iran energy attacks.",
+      "entry_price": 248.803,
+      "entry_iv": 29.4,
+      "entry_date": "2026-03-23",
       "ticker": "IWM",
       "type": "call",
-      "strike": 255.0,
-      "expiry": "2026-08-21",
+      "strike": 235.0,
+      "expiry": "2026-06-30",
       "quantity": 1,
-      "cost_basis": 1294.0,
+      "cost_basis": 2400.0,
       "reflected": true,
       "market_context": {
-        "price": 243.705,
-        "change_pct": -1.59,
-        "iv": 25.9,
+        "price": 248.803,
+        "change_pct": 2.72,
+        "iv": 29.4,
         "option_greeks": {
-          "delta": 0.463,
-          "gamma": 0.0095,
-          "theta": -0.0611,
-          "vega": 0.6293,
-          "rho": 0.4209
+          "delta": 0.705,
+          "gamma": 0.0091,
+          "theta": -0.0768,
+          "vega": 0.4424,
+          "rho": 0.4124
         },
         "iv_context": {
-          "iv_rank": 35,
-          "iv_percentile": 25,
-          "iv_52w_high": 27.2,
-          "iv_52w_low": 25.2
-        },
-        "trends": {
-          "price_52w_high": 271.6,
-          "price_52w_low": 171.73,
-          "price_vs_52w_pct": 72,
-          "sma_50": 259.94,
-          "sma_200": 241.21,
-          "sma_signal": "mixed",
-          "returns": {
-            "1w": -1.2,
-            "1m": -7.9,
-            "3m": -1.4,
-            "6m": -0.5
-          },
-          "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
-          "rsi_14": 25.3,
-          "atr_14": 5.91,
-          "prev_day_high": 247.5,
-          "prev_day_low": 242.85,
-          "avg_volume_50d": 43717206,
-          "bollinger": {
-            "upper": 268.91,
-            "middle": 254.9,
-            "lower": 240.89,
-            "pct_b": 10.1
-          }
-        },
-        "news": [
-          {
-            "title": "The VIX Rips 10% Higher As Oil Punches Through $100 A Barrel and Panic Enters The Arena",
-            "publisher": "24/7 Wall St.",
-            "date": "2026-03-20"
-          },
-          {
-            "title": "The S&P Falls Close to 1% As Oil Blasts Past $100 A Barrel",
-            "publisher": "24/7 Wall St.",
-            "date": "2026-03-20"
-          },
-          {
-            "title": "Oil Prices to Stay High for Long? ETFs to Gain/Lose",
-            "publisher": "Zacks",
-            "date": "2026-03-20"
-          },
-          {
-            "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell as Energy Market Disruptions Weigh on Investor Sentiment",
-            "publisher": "MT Newswires",
-            "date": "2026-03-20"
-          },
-          {
-            "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Thursday Amid Rising Oil Prices, Reduced Rate-Cut Expectations",
-            "publisher": "MT Newswires",
-            "date": "2026-03-19"
-          }
-        ],
-        "broader_market": {
-          "spy_price": 651.66,
-          "spy_change_pct": -0.97
-        }
-      }
-    },
-    {
-      "order_id": "26754753",
-      "reason": "Double down on IWM mean-reversion at a statistical extreme. Price 241.25 is hitting the 200-day SMA (241.21) directly, a level noted in 'tickers/IWM/mean-reversion-from-statistical-extremes.md' as a critical pivot. Indicators (RSI 25.3, %B 10.1) are in deep oversold territory. News research (Zacks, 24/7 Wall St) highlights that small-caps are more domestically focused and historically resilient to geopolitical supply shocks compared to large-cap multi-nationals. While broader market panic (Oil >00, SMCI fraud) is severe, IWM's valuation gap and technical oversold state favor a recovery. Time window: 2 weeks for panic to cool. Expected move: Recovery toward 50 SMA (259.94) for ~7% stock move (~+35% on contract). Invalidation: Decisive break below 240 level or further sharp escalations in energy costs. Tags: mean-reversion, statistical-extreme, oversold, at-200-sma, double-down, domestic-resilience.",
-      "entry_price": 241.52,
-      "entry_iv": 26.5,
-      "entry_date": "2026-03-20",
-      "ticker": "IWM",
-      "type": "call",
-      "strike": 255.0,
-      "expiry": "2026-08-21",
-      "quantity": 1,
-      "cost_basis": 1222.0,
-      "reflected": true,
-      "market_context": {
-        "price": 241.52,
-        "change_pct": -2.47,
-        "iv": 26.5,
-        "option_greeks": {
-          "delta": 0.433,
-          "gamma": 0.0095,
-          "theta": -0.0598,
-          "vega": 0.6099,
-          "rho": 0.3924
-        },
-        "iv_context": {
-          "iv_rank": 39,
-          "iv_percentile": 75,
+          "iv_rank": 100,
+          "iv_percentile": 100,
           "iv_52w_high": 28.5,
           "iv_52w_low": 25.2
         },
         "trends": {
           "price_52w_high": 271.6,
           "price_52w_low": 171.73,
-          "price_vs_52w_pct": 70,
-          "sma_50": 259.89,
-          "sma_200": 241.2,
+          "price_vs_52w_pct": 77,
+          "sma_50": 259.72,
+          "sma_200": 241.41,
           "sma_signal": "mixed",
           "returns": {
-            "1w": -2.1,
-            "1m": -8.7,
-            "3m": -2.3,
-            "6m": -1.4
+            "1w": 0.1,
+            "1m": -6.0,
+            "3m": 0.0,
+            "6m": 2.4
           },
           "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
-          "rsi_14": 24.0,
-          "atr_14": 6.04,
-          "prev_day_high": 247.5,
-          "prev_day_low": 241.06,
-          "avg_volume_50d": 43955505,
+          "rsi_14": 38.2,
+          "atr_14": 6.0,
+          "prev_day_high": 251.36,
+          "prev_day_low": 246.11,
+          "avg_volume_50d": 44410795,
           "bollinger": {
-            "upper": 269.18,
-            "middle": 254.79,
-            "lower": 240.4,
-            "pct_b": 3.9
+            "upper": 268.48,
+            "middle": 254.24,
+            "lower": 239.99,
+            "pct_b": 30.8
           }
         },
         "news": [
+          {
+            "title": "Exchange-Traded Funds, Equity Futures Gain Pre-Bell Monday as Trump Declares 5-Day Pause in Iran Energy Attacks",
+            "publisher": "MT Newswires",
+            "date": "2026-03-23"
+          },
+          {
+            "title": "IWM\u2019s Surge in Unusual Options Activity Signals Opportunity \u2014 Here\u2019s a Covered Strangle With a Twist",
+            "publisher": "Barchart",
+            "date": "2026-03-20"
+          },
           {
             "title": "The VIX Rips 10% Higher As Oil Punches Through $100 A Barrel and Panic Enters The Arena",
             "publisher": "24/7 Wall St.",
@@ -1395,21 +441,280 @@
             "title": "Oil Prices to Stay High for Long? ETFs to Gain/Lose",
             "publisher": "Zacks",
             "date": "2026-03-20"
-          },
-          {
-            "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell as Energy Market Disruptions Weigh on Investor Sentiment",
-            "publisher": "MT Newswires",
-            "date": "2026-03-20"
-          },
-          {
-            "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Thursday Amid Rising Oil Prices, Reduced Rate-Cut Expectations",
-            "publisher": "MT Newswires",
-            "date": "2026-03-19"
           }
         ],
         "broader_market": {
-          "spy_price": 647.93,
-          "spy_change_pct": -1.54
+          "spy_price": 658.91,
+          "spy_change_pct": 1.6
+        }
+      }
+    },
+    {
+      "order_id": "26802641",
+      "reason": "Mean-reversion from statistical extreme. IWM reclaiming its 200 SMA (241.41) with a 2.7% surge (248.80) following Trump's announced 5-day pause in Iran energy attacks. Prior evaluation showed IWM at statistical extremes (RSI was <30) near the 200-day floor. Experience 'tickers/IWM/mean-reversion-from-statistical-extremes.md' (High Confidence) validates that reclaiming the 200 SMA floor from deep oversold levels is a high-probability reversal signal. Broad market relief (SPY +1.13%) supports rotation back into small-caps. Pattern tags: mean-reversion, oversold, statistical-extreme, dip-buying, relief-rally, geopolitical-dip, sma-reclamation. Time window: Expect move within 10 trading days (by April 6). Expected move: Recovery toward 50 SMA (259.72), approx +25% on contract. Invalidation criteria: Daily close below 200 SMA or resumption of Iran energy attacks.",
+      "entry_price": 247.53,
+      "entry_iv": 30.0,
+      "entry_date": "2026-03-23",
+      "ticker": "IWM",
+      "type": "call",
+      "strike": 235.0,
+      "expiry": "2026-06-30",
+      "quantity": 2,
+      "cost_basis": 4666.0,
+      "reflected": true,
+      "market_context": {
+        "price": 247.53,
+        "change_pct": 2.2,
+        "iv": 30.0,
+        "option_greeks": {
+          "delta": 0.678,
+          "gamma": 0.0093,
+          "theta": -0.0807,
+          "vega": 0.4596,
+          "rho": 0.3934
+        },
+        "iv_context": {
+          "iv_rank": 100,
+          "iv_percentile": 100,
+          "iv_52w_high": 28.5,
+          "iv_52w_low": 25.2
+        },
+        "trends": {
+          "price_52w_high": 271.6,
+          "price_52w_low": 171.73,
+          "price_vs_52w_pct": 76,
+          "sma_50": 259.69,
+          "sma_200": 241.4,
+          "sma_signal": "mixed",
+          "returns": {
+            "1w": -0.4,
+            "1m": -6.5,
+            "3m": -0.5,
+            "6m": 1.9
+          },
+          "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+          "rsi_14": 36.4,
+          "atr_14": 6.0,
+          "prev_day_high": 251.36,
+          "prev_day_low": 246.11,
+          "avg_volume_50d": 44680553,
+          "bollinger": {
+            "upper": 268.53,
+            "middle": 254.18,
+            "lower": 239.83,
+            "pct_b": 26.8
+          }
+        },
+        "news": [
+          {
+            "title": "Exchange-Traded Funds, Equity Futures Gain Pre-Bell Monday as Trump Declares 5-Day Pause in Iran Energy Attacks",
+            "publisher": "MT Newswires",
+            "date": "2026-03-23"
+          },
+          {
+            "title": "IWM\u2019s Surge in Unusual Options Activity Signals Opportunity \u2014 Here\u2019s a Covered Strangle With a Twist",
+            "publisher": "Barchart",
+            "date": "2026-03-20"
+          },
+          {
+            "title": "The VIX Rips 10% Higher As Oil Punches Through $100 A Barrel and Panic Enters The Arena",
+            "publisher": "24/7 Wall St.",
+            "date": "2026-03-20"
+          },
+          {
+            "title": "The S&P Falls Close to 1% As Oil Blasts Past $100 A Barrel",
+            "publisher": "24/7 Wall St.",
+            "date": "2026-03-20"
+          },
+          {
+            "title": "Oil Prices to Stay High for Long? ETFs to Gain/Lose",
+            "publisher": "Zacks",
+            "date": "2026-03-20"
+          }
+        ],
+        "broader_market": {
+          "spy_price": 654.97,
+          "spy_change_pct": 0.99
+        }
+      }
+    }
+  ],
+  "NVDA260821C00175000": [
+    {
+      "order_id": "26798827",
+      "reason": "Mean-reversion from statistical extreme within broader-market relief rally. NVDA is currently at 75.59 (+1.68%), reclaiming the 75 psychological level after a rough stretch (down 7% YTD). RSI (44.3) and Bollinger %B (17.1) suggest it is near a local bottom after overshooting to the downside. Catalyst: Trump's 5-day pause in Iran energy attacks triggers a broad-market lift (SPY +1.18%). News research confirms that historical responses to geopolitical dips often result in recovery within 1-3 months. Experience 'general/mean-reversion-calls-fail-below-smas.md' warns against buying below both SMAs, but 'tickers/QQQ/geopolitical-dips-are-short-lived.md' and recovery evidence from the Iran attacks suggest this is a high-alpha entry point relative to long-term valuation. Confirmed by 151 DTE giving ample time for the thesis to play out. Pattern tags: mean-reversion, dip-buying, relief-rally, geopolitical-dip, statistical-extreme. Time window: Expect move toward 200 SMA (78.60) within 15 trading days (by April 13). Expected move: Technical recovery to 85 zone, approx +20% on contract. Invalidation criteria: Daily close below 70 or resumption of strikes on energy infrastructure.",
+      "entry_price": 175.62,
+      "entry_iv": 42.0,
+      "entry_date": "2026-03-23",
+      "ticker": "NVDA",
+      "type": "call",
+      "strike": 175.0,
+      "expiry": "2026-08-21",
+      "quantity": 2,
+      "cost_basis": 4110.0,
+      "reflected": true,
+      "market_context": {
+        "price": 175.62,
+        "change_pct": 1.7,
+        "iv": 42.0,
+        "option_greeks": {
+          "delta": 0.581,
+          "gamma": 0.0084,
+          "theta": -0.0701,
+          "vega": 0.4406,
+          "rho": 0.3398
+        },
+        "iv_context": {
+          "iv_rank": 26,
+          "iv_percentile": 40,
+          "iv_52w_high": 44.5,
+          "iv_52w_low": 41.1
+        },
+        "trends": {
+          "price_52w_high": 212.19,
+          "price_52w_low": 86.62,
+          "price_vs_52w_pct": 71,
+          "sma_50": 184.41,
+          "sma_200": 178.6,
+          "sma_signal": "below_both",
+          "returns": {
+            "1w": -4.1,
+            "1m": -7.5,
+            "3m": 0.8,
+            "6m": -0.6
+          },
+          "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
+          "rsi_14": 44.3,
+          "atr_14": 5.38,
+          "prev_day_high": 178.37,
+          "prev_day_low": 174.76,
+          "avg_volume_50d": 181072001,
+          "bollinger": {
+            "upper": 192.59,
+            "middle": 182.32,
+            "lower": 172.05,
+            "pct_b": 17.2
+          }
+        },
+        "news": [
+          {
+            "title": "Tech stocks today: Alphabet's Wing expands drone deliveries",
+            "publisher": "Yahoo Finance",
+            "date": "2026-03-13"
+          },
+          {
+            "title": "If Iran war sends oil prices up 100%, here's what history says will happen to the stock market",
+            "publisher": "Yahoo Finance",
+            "date": "2026-03-23"
+          },
+          {
+            "title": "Stock Market Today: Dow Up As Trump Gives This Iran Warning; Pharma Stock Clears Entry (Live Coverage)",
+            "publisher": "Investor's Business Daily",
+            "date": "2026-03-23"
+          },
+          {
+            "title": "Here's Why Vertiv Holdings Is Still the Safest AI Infrastructure Stock You Can Own in 2026",
+            "publisher": "Motley Fool",
+            "date": "2026-03-23"
+          },
+          {
+            "title": "2 Investing Moves I'm Making Right Now to Prepare for a Recession -- and 1 I'm Avoiding at All Costs",
+            "publisher": "Motley Fool",
+            "date": "2026-03-23"
+          }
+        ],
+        "broader_market": {
+          "spy_price": 656.01,
+          "spy_change_pct": 1.15
+        }
+      }
+    },
+    {
+      "order_id": "26802712",
+      "reason": "Mean-reversion from statistical extreme within broader-market relief rally. NVDA is currently at 175.62 (+1.7%), rebounding near the 172 Bollinger lower band floor. RSI (44.3) and Bollinger %B (17.2) suggest it is recovering from a local bottom after overshooting to the downside. Catalyst: Trump's 5-day pause in Iran energy attacks triggers a broad-market lift (SPY +1.13%). News research confirms that historical responses to geopolitical dips often result in recovery within 1-3 months. Experience 'general/mean-reversion-calls-fail-below-smas.md' warns against buying below both SMAs, but 'tickers/QQQ/geopolitical-dips-are-short-lived.md' and recovery evidence from the Iran attacks suggest this is a high-alpha entry point relative to long-term valuation. Confirmed by 151 DTE giving ample time for the thesis to play out. Pattern tags: mean-reversion, dip-buying, relief-rally, geopolitical-dip, statistical-extreme. Time window: Expect move toward 200 SMA (178.60) within 15 trading days (by April 13). Expected move: Technical recovery to 185 zone, approx +20% on contract. Invalidation criteria: Daily close below 170 or resumption of strikes on energy infrastructure.",
+      "entry_price": 175.03,
+      "entry_iv": 41.8,
+      "entry_date": "2026-03-23",
+      "ticker": "NVDA",
+      "type": "call",
+      "strike": 175.0,
+      "expiry": "2026-08-21",
+      "quantity": 2,
+      "cost_basis": 4050.0,
+      "reflected": true,
+      "market_context": {
+        "price": 175.03,
+        "change_pct": 1.35,
+        "iv": 41.8,
+        "option_greeks": {
+          "delta": 0.584,
+          "gamma": 0.0084,
+          "theta": -0.0701,
+          "vega": 0.4407,
+          "rho": 0.3416
+        },
+        "iv_context": {
+          "iv_rank": 21,
+          "iv_percentile": 30,
+          "iv_52w_high": 44.5,
+          "iv_52w_low": 41.1
+        },
+        "trends": {
+          "price_52w_high": 212.19,
+          "price_52w_low": 86.62,
+          "price_vs_52w_pct": 70,
+          "sma_50": 184.4,
+          "sma_200": 178.6,
+          "sma_signal": "below_both",
+          "returns": {
+            "1w": -4.5,
+            "1m": -7.8,
+            "3m": 0.5,
+            "6m": -0.9
+          },
+          "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
+          "rsi_14": 43.5,
+          "atr_14": 5.38,
+          "prev_day_high": 178.37,
+          "prev_day_low": 174.76,
+          "avg_volume_50d": 181224939,
+          "bollinger": {
+            "upper": 192.64,
+            "middle": 182.29,
+            "lower": 171.95,
+            "pct_b": 14.9
+          }
+        },
+        "news": [
+          {
+            "title": "Tech stocks today: Alphabet's Wing expands drone deliveries",
+            "publisher": "Yahoo Finance",
+            "date": "2026-03-13"
+          },
+          {
+            "title": "If Iran war sends oil prices up 100%, here's what history says will happen to the stock market",
+            "publisher": "Yahoo Finance",
+            "date": "2026-03-23"
+          },
+          {
+            "title": "The Multiplex Isn't Dead; 3 Stocks Laughing All the Way to the Bank",
+            "publisher": "Motley Fool",
+            "date": "2026-03-23"
+          },
+          {
+            "title": "Is the Vanguard S&P 500 Index Fund ETF a Buy Now?",
+            "publisher": "Motley Fool",
+            "date": "2026-03-23"
+          },
+          {
+            "title": "Vertiv Stock Joins the S&P 500 Today. Can Its AI Rally Keep Going?",
+            "publisher": "Barrons.com",
+            "date": "2026-03-23"
+          }
+        ],
+        "broader_market": {
+          "spy_price": 654.42,
+          "spy_change_pct": 0.91
         }
       }
     }
