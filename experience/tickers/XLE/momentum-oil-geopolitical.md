@@ -5,7 +5,7 @@
 **Applies to:** XLE
 **Tags:** momentum, oil-volatility, geopolitical, sector-rotation, calls, bull, dte-short
 **Confidence:** high
-**Last Updated: 2026-03-24**
+**Last Updated: 2026-03-25**
 
 ## Analysis
 
@@ -24,14 +24,14 @@ Shorting XLE because it "looks overbought" has failed multiple times because tec
 ## Evidence
 
 ### Summary
-7 supporting observations total. Trend alignment and sector divergence ("Momentum Shield") are the primary success drivers. The 2026-03-24 day trade validates that RSI >80 is a high-probability exit point for intraday momentum, capturing a ~19.4% gain in 30 minutes while SPY was down.
+7 supporting observations. Trend alignment and sector divergence ("Momentum Shield") are the primary success drivers. 2026-03-24 day trade validated RSI >80 as an optimal exit for intraday momentum (+19.4% gain). Post-sale analysis from March 14 confirms local peak capture remains the most efficient exit strategy for oil-driven rallies.
 
 ### Recent
+- 2026-03-25 [paper] [supporting] [bull] [dte-short]: XLE $60.5P exit at small loss (~10%). Thesis was a "Bearish Reversal" from extreme technical levels (RSI 78, Bollinger %B 98) on de-escalating news (Iran ceasefire). Despite the news and indicators, XLE remained above 50/200 SMAs and showed "Sector Divergence" (XLE green while SPY/QQQ red). Confirms: technical indicators alone are low-conviction signals for reversals in a strong-uptrend sector. Wait for price confirmation (break of key EMA/SMA) before shorting a "Shielded" sector. [Q3: Reversal Detection]
 - 2026-03-24 [paper] [supporting] [bull] [dte-short]: XLE $61C intraday day trade. Entry on momentum breakaway at 52-week highs ($60.69). Exit at RSI 81 and Bollinger %B 110 after a 1.78% stock surge. Captured +19.4% gain in one evaluation cycle. Validates "Momentum Shield" + intraday technical exhaustion exit. [Q1: Intraday Entry Timing, Q2: Profit-Taking Timing]
 - 2026-03-20 [hindsight] [supporting] [bear] [dte-long/medium]: XLE $59P analysis confirms "Momentum Shield" rule. Entry at RSI 73 failed as XLE diverged from the broader Nasdaq crash. [Q3: Bearish Reversal Detection]
 - 2026-03-20 [hindsight] [supporting] [bull] [dte-short]: XLE $57P full lifecycle check confirms "Persistence" rule. [Q3: Bearish Reversal Detection]
 - 2026-03-20 [hindsight] [supporting] [bull] [dte-short]: XLE $57C analysis validates profit-taking at RSI 71.4.
-- 2026-03-14 [hindsight] [supporting] [bull] [dte-short]: Post-sale analysis confirms exit timing was optimal for the local move. $1.86 peak captured.
 
 ## Exceptions & Nuances
 

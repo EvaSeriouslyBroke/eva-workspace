@@ -8,7 +8,7 @@
 
 **Confidence:** high
 
-**Last Updated:** 2026-03-24
+**Last Updated:** 2026-03-25
 
 ## Analysis
 
@@ -27,14 +27,14 @@ Hindsight analysis across BAC, QQQ, NVDA, and IWM in March 2026 has refined this
 ## Evidence
 
 ### Summary
-6 supporting observations across 4 different tickers (BAC, IWM, NVDA, QQQ). All mean reversion call attempts failed or triggered near-total losses if held. The March 20 "Tech Wreck" and March 24 "Reclamation Failure" solidified this as the most important safety rule in the portfolio. Confidence upgraded to High.
+6 supporting observations across 4 tickers (BAC, IWM, NVDA, QQQ). All mean-reversion call attempts failed or triggered losses if held below dual SMAs (50/200). Early data from March 16 (IWM) confirmed that deep RSI oversold levels (<30) were traps without technical floor support. The March 20 "Tech Wreck" and March 24 "Reclamation Failure" sessions solidified this as the most critical safety filter. Confidence: High.
 
 ### Recent
+- 2026-03-25 [paper] [supporting] [bear] [dte-short]: IWM $225C and QQQ $590C (peace plan catalyst) exited at loss as intraday "reclamation rallies" above both 50/200 SMAs failed on high-volume downside momentum. QQQ failed a news-driven V-bottom attempt while IWM broke through $252 to $222 (-12% from high to low). Confirms: even structural regime-shifting fundamental catalysts (peace plan) cannot override the lack of long-term technical support. [Q3: Reversal Detection]
 - 2026-03-24 [paper] [supporting] [bear] [dte-long]: IWM $235C and NVDA $175C exited at loss as reclamation of 200 SMA (IWM) and psychological floor (NVDA 175) failed after just 24 hours. Confirms: reclamation of key levels below both SMAs is high-risk and needs immediate confirmation or exit. [Q1: Catching a Falling Knife]
 - 2026-03-20 [hindsight] [supporting] [bear] [dte-long]: BAC 50C analyzed. -88.6% loss. Bullish news sentiment (+6) could not override the downtrend below both SMAs.
 - 2026-03-20 [paper] [supporting] [bear] [dte-short/long]: QQQ mean reversion calls exited at loss upon 200 SMA break.
 - 2026-03-19 [paper] [supporting] [bear] [dte-short/long]: QQQ break of 200 SMA triggered exit, saving capital.
-- 2026-03-16 [paper] [supporting] [bear] [dte-long]: IWM calls failed below 50/200 SMAs despite deep oversold RSI.
 
 ## Exceptions & Nuances
 

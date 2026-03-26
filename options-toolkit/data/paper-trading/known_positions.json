@@ -1,1 +1,364 @@
-{}
+{
+  "XLE260327P00061000": [
+    {
+      "order_id": "26973213",
+      "reason": "Thesis: Bearish Mean Reversion on News Catalyst. XLE is entering a 'Technical Exhaustion' phase (RSI 80.5, Bollinger %B 106.8) following an extreme geopolitical rally (1.47 52-week highs). The 'Trump Peace Plan' for an Iran ceasefire has caused oil prices to 'dive' (WTI 5 -> 3 -> pullback). Setup: Geopolitical Reversal from Overbought. Expected Move: Pullback to 60.5-60.0 support as oil-driven premium drains. Invalidation: Price holds above 1.50 or Iran denies peace talks. Exit: By 3:30 PM ET per PAPER.md day trade rule. Tracking 'tickers/XLE/momentum-oil-geopolitical.md' exhaustion signal for reversal timing.",
+      "entry_price": 60.84,
+      "entry_iv": 33.0,
+      "entry_date": "2026-03-25",
+      "ticker": "XLE",
+      "type": "put",
+      "strike": 61.0,
+      "expiry": "2026-03-27",
+      "quantity": 1,
+      "cost_basis": 88.0,
+      "reflected": false,
+      "market_context": {
+        "price": 60.84,
+        "change_pct": 0,
+        "iv": 33.0,
+        "option_greeks": {
+          "delta": -0.531,
+          "gamma": 0.2238,
+          "theta": -0.1241,
+          "vega": 0.0219,
+          "rho": 0.0023
+        },
+        "iv_context": {
+          "iv_rank": 79,
+          "iv_percentile": 83,
+          "iv_52w_high": 34.7,
+          "iv_52w_low": 26.8
+        },
+        "trends": {
+          "price_52w_high": 61.47,
+          "price_52w_low": 37.24,
+          "price_vs_52w_pct": 97,
+          "sma_50": 53.75,
+          "sma_200": 46.52,
+          "sma_signal": "above_both",
+          "returns": {
+            "1w": 4.0,
+            "1m": 10.3,
+            "3m": 39.0,
+            "6m": 38.8
+          },
+          "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+          "rsi_14": 80.5,
+          "atr_14": 1.21,
+          "prev_day_high": 61.47,
+          "prev_day_low": 59.77,
+          "avg_volume_50d": 59615136,
+          "bollinger": {
+            "upper": 60.42,
+            "middle": 57.32,
+            "lower": 54.22,
+            "pct_b": 106.8
+          }
+        },
+        "news": [
+          {
+            "title": "US needs 'more flexibility' in its gas infrastructure: Lazard vice chair",
+            "publisher": "Yahoo Finance Video",
+            "date": "2026-03-24"
+          },
+          {
+            "title": "GE Vernova is in a 'chess match' to scale up, meet AI demands: CEO",
+            "publisher": "Yahoo Finance Video",
+            "date": "2026-03-24"
+          },
+          {
+            "title": "Exchange-Traded Funds, Equity Futures Higher Pre-Bell Wednesday Amid Hopes of Iran, US Truce",
+            "publisher": "MT Newswires",
+            "date": "2026-03-25"
+          },
+          {
+            "title": "3 Energy ETFs Riding Oil\u2019s Surge to 34%, 57%, and 113% Gains in 2026",
+            "publisher": "24/7 Wall St.",
+            "date": "2026-03-25"
+          },
+          {
+            "title": "Market Winners and Losers in the Iran War",
+            "publisher": "Zacks",
+            "date": "2026-03-24"
+          }
+        ],
+        "broader_market": {
+          "spy_price": 653.18,
+          "spy_change_pct": 0
+        }
+      }
+    }
+  ],
+  "QQQ260327P00590000": [
+    {
+      "order_id": "26983721",
+      "reason": "BEAR THESIS: QQQ (590.37) is in a confirmed structural downtrend, trading below its 50 SMA (608.71) and 200 SMA (593.72). Pattern matches 'general/reclamation-failures-as-short-entries.md' and IWM's 'momentum-shield-trap' \u2014 technical gravity is overriding the morning's slight bullish sentiment. While SPY (+0.54%) is showing relative strength, QQQ is lagging with neutral RSI (38.2) and high IV (100% rank), suggesting premium is priced for a move. SETUP: Rejection of the 200 SMA 'floor' now acting as a ceiling. EXPECTED MOVE: Continued slide toward 52-week lows (580.47) as tech weakness persists and broader market relief fades. INVALIDATION: QQQ reclaims and holds 595.0. EXIT PLAN: Primary target near 582 (previous low), time-stop exit by 3:30-3:45 PM ET per PAPER.md hard constraint.",
+      "entry_price": 588.04,
+      "entry_iv": 25.9,
+      "entry_date": "2026-03-25",
+      "ticker": "QQQ",
+      "type": "put",
+      "strike": 590.0,
+      "expiry": "2026-03-27",
+      "quantity": 1,
+      "cost_basis": 566.0,
+      "reflected": true,
+      "market_context": {
+        "price": 588.04,
+        "change_pct": 0.7,
+        "iv": 25.9,
+        "option_greeks": {
+          "delta": -0.466,
+          "gamma": 0.0331,
+          "theta": -1.1343,
+          "vega": 0.1831,
+          "rho": 0.019
+        },
+        "iv_context": {
+          "iv_rank": 24,
+          "iv_percentile": 75,
+          "iv_52w_high": 34.8,
+          "iv_52w_low": 23.1
+        },
+        "trends": {
+          "price_52w_high": 637.01,
+          "price_52w_low": 402.39,
+          "price_vs_52w_pct": 79,
+          "sma_50": 608.66,
+          "sma_200": 593.71,
+          "sma_signal": "below_both",
+          "returns": {
+            "1w": -1.2,
+            "1m": -3.3,
+            "3m": -5.0,
+            "6m": -1.7
+          },
+          "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
+          "rsi_14": 36.3,
+          "atr_14": 9.97,
+          "prev_day_high": 591.37,
+          "prev_day_low": 586.68,
+          "avg_volume_50d": 66418233,
+          "bollinger": {
+            "upper": 617.44,
+            "middle": 599.67,
+            "lower": 581.91,
+            "pct_b": 17.2
+          }
+        },
+        "news": [
+          {
+            "title": "The Nasdaq Could Pop 2% On Today\u2019s News",
+            "publisher": "24/7 Wall St.",
+            "date": "2026-03-25"
+          },
+          {
+            "title": "Exchange-Traded Funds, Equity Futures Higher Pre-Bell Wednesday Amid Hopes of Iran, US Truce",
+            "publisher": "MT Newswires",
+            "date": "2026-03-25"
+          },
+          {
+            "title": "Trump Signals Progress in Iran Talks: 5 Beaten-Down ETFs to Rally",
+            "publisher": "Zacks",
+            "date": "2026-03-25"
+          },
+          {
+            "title": "Witkoff and Kushner working on ceasefire mechanism, says report; stocks jump",
+            "publisher": "Investing.com",
+            "date": "2026-03-24"
+          },
+          {
+            "title": "Market Winners and Losers in the Iran War",
+            "publisher": "Zacks",
+            "date": "2026-03-24"
+          }
+        ],
+        "broader_market": {
+          "spy_price": 656.64,
+          "spy_change_pct": 0.53
+        }
+      }
+    },
+    {
+      "order_id": "26993306",
+      "reason": "BEAR THESIS: QQQ (589.76) is in a confirmed structural downtrend, trading below its 50 SMA (608.7) and 200 SMA (593.72). Pattern matches 'general/reclamation-failures-as-short-entries.md' and IWM's 'momentum-shield-trap' \u2014 technical gravity is overriding the morning's slight bullish relief sentiment. Rejection of the 200 SMA floor now acted as a ceiling. While SPY (+0.73%) is showing relative strength, QQQ is lagging with neutral RSI (37.7) and high IV (100% rank), suggesting premium is priced for a move. SETUP: Rejection of the 200 SMA 'floor' now acting as a ceiling. EXPECTED MOVE: Continued slide toward 52-week lows (580.47). INVALIDATION: QQQ reclaims and holds 595.0. EXIT PLAN: Primary target near 582, time-stop exit by 3:30-3:45 PM ET per PAPER.md hard constraint.",
+      "entry_price": 588.86,
+      "entry_iv": 25.5,
+      "entry_date": "2026-03-25",
+      "ticker": "QQQ",
+      "type": "put",
+      "strike": 590.0,
+      "expiry": "2026-03-27",
+      "quantity": 1,
+      "cost_basis": 494.0,
+      "reflected": true,
+      "market_context": {
+        "price": 588.86,
+        "change_pct": 0.84,
+        "iv": 25.5,
+        "option_greeks": {
+          "delta": -0.531,
+          "gamma": 0.0343,
+          "theta": -1.1414,
+          "vega": 0.1783,
+          "rho": 0.0156
+        },
+        "iv_context": {
+          "iv_rank": 10,
+          "iv_percentile": 75,
+          "iv_52w_high": 47.3,
+          "iv_52w_low": 23.1
+        },
+        "trends": {
+          "price_52w_high": 637.01,
+          "price_52w_low": 402.39,
+          "price_vs_52w_pct": 79,
+          "sma_50": 608.68,
+          "sma_200": 593.72,
+          "sma_signal": "below_both",
+          "returns": {
+            "1w": -1.0,
+            "1m": -3.1,
+            "3m": -4.9,
+            "6m": -1.6
+          },
+          "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
+          "rsi_14": 37.0,
+          "atr_14": 9.97,
+          "prev_day_high": 591.37,
+          "prev_day_low": 585.69,
+          "avg_volume_50d": 66858905,
+          "bollinger": {
+            "upper": 617.37,
+            "middle": 599.72,
+            "lower": 582.06,
+            "pct_b": 19.3
+          }
+        },
+        "news": [
+          {
+            "title": "Exchange-Traded Funds Rise as US Equities Advance After Midday",
+            "publisher": "MT Newswires",
+            "date": "2026-03-25"
+          },
+          {
+            "title": "Pre-Markets, Imports/Exports, Up in Early Trading",
+            "publisher": "Zacks",
+            "date": "2026-03-25"
+          },
+          {
+            "title": "The Nasdaq Could Pop 2% On Today\u2019s News",
+            "publisher": "24/7 Wall St.",
+            "date": "2026-03-25"
+          },
+          {
+            "title": "Exchange-Traded Funds, Equity Futures Higher Pre-Bell Wednesday Amid Hopes of Iran, US Truce",
+            "publisher": "MT Newswires",
+            "date": "2026-03-25"
+          },
+          {
+            "title": "Trump Signals Progress in Iran Talks: 5 Beaten-Down ETFs to Rally",
+            "publisher": "Zacks",
+            "date": "2026-03-25"
+          }
+        ],
+        "broader_market": {
+          "spy_price": 657.81,
+          "spy_change_pct": 0.71
+        }
+      }
+    }
+  ],
+  "XLE260327C00061000": [
+    {
+      "order_id": "26993320",
+      "reason": "BULL THESIS: XLE (60.70) is the strongest sector, trading above its 50 SMA (54.03) and 200 SMA (46.61) at 52-week highs. Driven by 'Momentum Shield' pattern (geopolitical oil supply risks). Thesis validated by 'tickers/XLE/momentum-oil-geopolitical.md' \u2014 relative strength vs a red broad market suggests momentum will ignore overbought RSI (78.3). SETUP: Momentum trend continuation with 'Shield' protection. EXPECTED MOVE: Continued push toward 62.0. INVALIDATION: Loss of 60.0 psychological support or sharp SPY reversal that breaks the Shield. EXIT PLAN: Target RSI 80-81 for profit-taking per 2026-03-24 evidence; time-stop exit by 3:30-3:45 PM ET per PAPER.md hard constraint.",
+      "entry_price": 60.8,
+      "entry_iv": 28.0,
+      "entry_date": "2026-03-25",
+      "ticker": "XLE",
+      "type": "call",
+      "strike": 61.0,
+      "expiry": "2026-03-27",
+      "quantity": 1,
+      "cost_basis": 44.0,
+      "reflected": true,
+      "market_context": {
+        "price": 60.8,
+        "change_pct": -0.07,
+        "iv": 28.0,
+        "option_greeks": {
+          "delta": 0.441,
+          "gamma": 0.2962,
+          "theta": -0.1314,
+          "vega": 0.0181,
+          "rho": 0.0015
+        },
+        "iv_context": {
+          "iv_rank": 13,
+          "iv_percentile": 58,
+          "iv_52w_high": 36.5,
+          "iv_52w_low": 26.8
+        },
+        "trends": {
+          "price_52w_high": 61.47,
+          "price_52w_low": 37.24,
+          "price_vs_52w_pct": 97,
+          "sma_50": 54.04,
+          "sma_200": 46.61,
+          "sma_signal": "above_both",
+          "returns": {
+            "1w": 4.1,
+            "1m": 10.3,
+            "3m": 37.5,
+            "6m": 36.4
+          },
+          "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+          "rsi_14": 79.3,
+          "atr_14": 1.19,
+          "prev_day_high": 61.0,
+          "prev_day_low": 60.26,
+          "avg_volume_50d": 59679863,
+          "bollinger": {
+            "upper": 60.85,
+            "middle": 57.61,
+            "lower": 54.37,
+            "pct_b": 99.2
+          }
+        },
+        "news": [
+          {
+            "title": "US needs 'more flexibility' in its gas infrastructure: Lazard vice chair",
+            "publisher": "Yahoo Finance Video",
+            "date": "2026-03-24"
+          },
+          {
+            "title": "GE Vernova is in a 'chess match' to scale up, meet AI demands: CEO",
+            "publisher": "Yahoo Finance Video",
+            "date": "2026-03-24"
+          },
+          {
+            "title": "Sector Update: Energy Stocks Mixed Wednesday Afternoon",
+            "publisher": "MT Newswires",
+            "date": "2026-03-25"
+          },
+          {
+            "title": "Sector Update: Energy",
+            "publisher": "MT Newswires",
+            "date": "2026-03-25"
+          },
+          {
+            "title": "Exchange-Traded Funds Rise as US Equities Advance After Midday",
+            "publisher": "MT Newswires",
+            "date": "2026-03-25"
+          }
+        ],
+        "broader_market": {
+          "spy_price": 657.78,
+          "spy_change_pct": 0.71
+        }
+      }
+    }
+  ]
+}
