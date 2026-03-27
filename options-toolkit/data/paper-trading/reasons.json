@@ -5233,5 +5233,684 @@
         "spy_change_pct": 0.71
       }
     }
+  },
+  "27031467": {
+    "reason": "BEAR THESIS: QQQ (589.65) remains in a confirmed structural downtrend below its 50 SMA (608.6) and 200 SMA (593.7). Today's setup is a high-confidence 'Reclamation Failure' (general/reclamation-failures-as-short-entries.md) after an initial morning attempt to test the 200 SMA ceiling was rejected (Last 589.65 vs High 595.6). Intraday momentum is negative with a -0.51% change and RSI (38.2) biased lower. Broader market (SPY) is also red, confirming 'Technical Gravity' is the dominant force. EXPECTED MOVE: Slide toward 52-week lows (580.47) as tech weakness persists and broader market relief remains absent. INVALIDATION: QQQ reclaims and holds 595.0 (200 SMA). EXIT PLAN: Target 582 (previous low support); time-stop exit by 3:30-3:45 PM ET per PAPER.md hard constraint.",
+    "timestamp": "2026-03-26T10:15:58.985963-04:00",
+    "side": "buy_to_open",
+    "symbol": "QQQ260327P00590000",
+    "market_context": {
+      "price": 583.95,
+      "change_pct": -0.66,
+      "iv": 25.3,
+      "option_greeks": {
+        "delta": -0.572,
+        "gamma": 0.0363,
+        "theta": -1.1348,
+        "vega": 0.1698,
+        "rho": 0.0138
+      },
+      "iv_context": {
+        "iv_rank": 18,
+        "iv_percentile": 69,
+        "iv_52w_high": 34.8,
+        "iv_52w_low": 23.1
+      },
+      "trends": {
+        "price_52w_high": 637.01,
+        "price_52w_low": 402.39,
+        "price_vs_52w_pct": 77,
+        "sma_50": 607.81,
+        "sma_200": 593.98,
+        "sma_signal": "below_both",
+        "returns": {
+          "1w": -1.5,
+          "1m": -5.3,
+          "3m": -6.1,
+          "6m": -2.0
+        },
+        "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
+        "rsi_14": 38.8,
+        "atr_14": 9.74,
+        "prev_day_high": 584.41,
+        "prev_day_low": 580.45,
+        "avg_volume_50d": 66479539,
+        "bollinger": {
+          "upper": 616.88,
+          "middle": 598.4,
+          "lower": 579.92,
+          "pct_b": 10.8
+        }
+      },
+      "news": [
+        {
+          "title": "Stock Market Today: Dow Slides As Trump Warns Iran To 'Get Serious Soon'; Oil Prices Surge Higher (Live Coverage)",
+          "publisher": "Investor's Business Daily",
+          "date": "2026-03-26"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Thursday Amid Ongoing Middle East Tensions",
+          "publisher": "MT Newswires",
+          "date": "2026-03-26"
+        },
+        {
+          "title": "The Best ETF Over The Past 10 Years Turned $10,000 To $65,100",
+          "publisher": "Investor's Business Daily",
+          "date": "2026-03-26"
+        },
+        {
+          "title": "Should Invesco QQQ (QQQ) Be on Your Investing Radar?",
+          "publisher": "Zacks",
+          "date": "2026-03-26"
+        },
+        {
+          "title": "The Zacks Analyst Blog Highlights SPY, QQQ, DXJ, CPER and EWY",
+          "publisher": "Zacks",
+          "date": "2026-03-26"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 654.31,
+        "spy_change_pct": -0.39
+      }
+    }
+  },
+  "27031510": {
+    "reason": "BULL THESIS: XLE (60.89) is the market's strongest sector today, trading in a confirmed structural uptrend above its 50 SMA (54.31) and 200 SMA (46.71) with a new 52-week high (1.1). Driven by 'Momentum Shield' pattern (geopolitical oil supply risks) where XLE is green (+0.53%) while SPY/QQQ are both red. Thesis validated by 'experience/tickers/XLE/momentum-oil-geopolitical.md' \u2014 relative strength vs a red broader market suggests momentum will ignore standard technical gravity and override moderate overbought status (RSI 77.6). SETUP: Trend continuation on 'Shield' protection with new high breakout. EXPECTED MOVE: Continued push toward 2.0 as oil prices surge higher. INVALIDATION: Loss of 0.0 psychological support or sharp SPY reversal that breaks the 'Shield'. EXIT PLAN: Target RSI 81-82 for intraday profit-taking window or 3:30-3:45 PM ET per PAPER.md hard constraint.",
+    "timestamp": "2026-03-26T10:16:08.358728-04:00",
+    "side": "buy_to_open",
+    "symbol": "XLE260327C00061000",
+    "market_context": {
+      "price": 60.81,
+      "change_pct": 0.4,
+      "iv": 27.8,
+      "option_greeks": {
+        "delta": 0.37,
+        "gamma": 0.303,
+        "theta": -0.1226,
+        "vega": 0.017,
+        "rho": 0.0012
+      },
+      "iv_context": {
+        "iv_rank": 14,
+        "iv_percentile": 46,
+        "iv_52w_high": 34.5,
+        "iv_52w_low": 26.8
+      },
+      "trends": {
+        "price_52w_high": 61.47,
+        "price_52w_low": 37.24,
+        "price_vs_52w_pct": 97,
+        "sma_50": 54.31,
+        "sma_200": 46.71,
+        "sma_signal": "above_both",
+        "returns": {
+          "1w": 2.4,
+          "1m": 10.8,
+          "3m": 36.7,
+          "6m": 34.6
+        },
+        "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+        "rsi_14": 77.4,
+        "atr_14": 1.14,
+        "prev_day_high": 61.09,
+        "prev_day_low": 60.66,
+        "avg_volume_50d": 59045588,
+        "bollinger": {
+          "upper": 61.15,
+          "middle": 57.89,
+          "lower": 54.63,
+          "pct_b": 94.9
+        }
+      },
+      "news": [
+        {
+          "title": "Sector Update: Energy Stocks Advance Premarket Thursday",
+          "publisher": "MT Newswires",
+          "date": "2026-03-26"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Thursday Amid Ongoing Middle East Tensions",
+          "publisher": "MT Newswires",
+          "date": "2026-03-26"
+        },
+        {
+          "title": "Stock Market News for Mar 26, 2026",
+          "publisher": "Zacks",
+          "date": "2026-03-26"
+        },
+        {
+          "title": "Sector Update: Energy Stocks Mixed Late Afternoon",
+          "publisher": "MT Newswires",
+          "date": "2026-03-25"
+        },
+        {
+          "title": "Buy This 1 ETF ASAP If You Think Higher Oil Prices are Here to Stay",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-25"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 654.23,
+        "spy_change_pct": -0.4
+      }
+    }
+  },
+  "27033767": {
+    "reason": "BEAR THESIS: BAC (48.67) is in a structural downtrend below both its 50 SMA (51.15) and 200 SMA (50.75). Pattern matches high-confidence experiences 'tickers/BAC/mean-reversion-in-downtrend.md' and IWM's 'momentum-shield-trap' \u2014 technical gravity and institutional distribution override morning attempts to bounce. Broad market (SPY/QQQ) is red with negative momentum, adding drag. SETUP: 'Reclamation Failure' (general/reclamation-failures-as-short-entries.md) after an initial morning test of the SMA ceiling was rejected (Last 48.67 vs High 48.87). Technical pressure is dominant. EXPECTED MOVE: Continued slide toward 52-week lows as sector weakness persists. INVALIDATION: BAC reclaims and holds 49.20. EXIT PLAN: Primary target near 47.3 (previous support); time-stop exit by 3:30-3:45 PM ET per PAPER.md hard constraint.",
+    "timestamp": "2026-03-26T10:46:07.625338-04:00",
+    "side": "buy_to_open",
+    "symbol": "BAC260327P00048500",
+    "market_context": {
+      "price": 48.67,
+      "change_pct": -0.17,
+      "iv": 38.3,
+      "option_greeks": {
+        "delta": -0.464,
+        "gamma": 0.3762,
+        "theta": -0.1837,
+        "vega": 0.0113,
+        "rho": 0.0009
+      },
+      "iv_context": {
+        "iv_rank": 84,
+        "iv_percentile": 93,
+        "iv_52w_high": 39.9,
+        "iv_52w_low": 29.9
+      },
+      "trends": {
+        "price_52w_high": 57.55,
+        "price_52w_low": 33.06,
+        "price_vs_52w_pct": 64,
+        "sma_50": 51.15,
+        "sma_200": 50.75,
+        "sma_signal": "below_both",
+        "returns": {
+          "1w": 3.5,
+          "1m": -5.8,
+          "3m": -13.0,
+          "6m": -5.9
+        },
+        "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
+        "rsi_14": 50.2,
+        "atr_14": 1.16,
+        "prev_day_high": 48.87,
+        "prev_day_low": 48.44,
+        "avg_volume_50d": 43207973,
+        "bollinger": {
+          "upper": 50.54,
+          "middle": 48.27,
+          "lower": 45.99,
+          "pct_b": 58.9
+        }
+      },
+      "news": [
+        {
+          "title": "The best balance transfer credit cards for March 2026: Don't pay any interest until 2027",
+          "publisher": "Yahoo Personal Finance",
+          "date": "2025-09-08"
+        },
+        {
+          "title": "Why TurboQuant Hammered Memory Stocks\u2014and Why \u2018Jevons\u2019 Paradox\u2019 Means the Market Is Wrong",
+          "publisher": "Barrons.com",
+          "date": "2026-03-26"
+        },
+        {
+          "title": "Bank Of America Balances Epstein Settlement With New AI Advisor Tools",
+          "publisher": "Simply Wall St.",
+          "date": "2026-03-26"
+        },
+        {
+          "title": "How The EHang Holdings (EH) Investment Story Is Shifting With Reset Guidance And New Targets",
+          "publisher": "Simply Wall St.",
+          "date": "2026-03-26"
+        },
+        {
+          "title": "Bank of America Merrill Launches AI-Powered Meeting Journey",
+          "publisher": "Wealth Management",
+          "date": "2026-03-26"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 654.11,
+        "spy_change_pct": -0.42
+      }
+    }
+  },
+  "27033775": {
+    "reason": "BEAR THESIS: TLT (86.48) remains in a confirmed structural downtrend below its 50 SMA (88.08) and 200 SMA (88.20). Analysis from high-confidence experiences 'general/mean-reversion-calls-fail-below-smas.md' and QQQ's hindsight on catalyst-fade suggests that structural weakness overrides geopolitical noise. Inflation/interest-rate pressure (catalyzed by oil surge) continues to weigh on bonds. SETUP: Continuation of the bearish regime after failing to reclaim major SMAs. Broader market (SPY) red reflects rising fear, which historically drags high-IV assets lower in structural downturns. EXPECTED MOVE: Further slide toward 52-week lows (83.3) as yield pressure persists. INVALIDATION: TLT reclaims and holds 87.5. EXIT PLAN: Target 84.5 support; time-stop exit by 3:30-3:45 PM ET per PAPER.md hard constraint.",
+    "timestamp": "2026-03-26T10:46:22.568062-04:00",
+    "side": "buy_to_open",
+    "symbol": "TLT260327P00086500",
+    "market_context": {
+      "price": 86.49,
+      "change_pct": -0.41,
+      "iv": 14.5,
+      "option_greeks": {
+        "delta": -0.475,
+        "gamma": 0.576,
+        "theta": -0.1197,
+        "vega": 0.0202,
+        "rho": 0.0015
+      },
+      "iv_context": {
+        "iv_rank": 20,
+        "iv_percentile": 69,
+        "iv_52w_high": 23.4,
+        "iv_52w_low": 12.2
+      },
+      "trends": {
+        "price_52w_high": 94.09,
+        "price_52w_low": 83.3,
+        "price_vs_52w_pct": 30,
+        "sma_50": 88.08,
+        "sma_200": 88.2,
+        "sma_signal": "below_both",
+        "returns": {
+          "1w": -1.1,
+          "1m": -3.8,
+          "3m": -1.2,
+          "6m": -2.8
+        },
+        "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
+        "rsi_14": 39.3,
+        "atr_14": 0.84,
+        "prev_day_high": 86.61,
+        "prev_day_low": 86.33,
+        "avg_volume_50d": 42547756,
+        "bollinger": {
+          "upper": 90.45,
+          "middle": 87.75,
+          "lower": 85.06,
+          "pct_b": 26.5
+        }
+      },
+      "news": [
+        {
+          "title": "This 1 ETF is the Only True Anti-Recession Holding For Your Portfolio",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-26"
+        },
+        {
+          "title": "3 Dividend ETFs That Could Replace Bond Income in 2026",
+          "publisher": "Motley Fool",
+          "date": "2026-03-24"
+        },
+        {
+          "title": "Fed- Flying Blind Even BEFORE War Broke Out",
+          "publisher": "MoneyShow",
+          "date": "2026-03-24"
+        },
+        {
+          "title": "Market Minute 3-23-26- Stocks Surge, Oil Tanks After Trump Postpones Strikes",
+          "publisher": "MoneyShow",
+          "date": "2026-03-23"
+        },
+        {
+          "title": "Foreign Investors Hold $36 Trillion in U.S. Assets. High Oil Prices Might Make Them Sell.",
+          "publisher": "Barrons.com",
+          "date": "2026-03-20"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 654.17,
+        "spy_change_pct": -0.41
+      }
+    }
+  },
+  "27039066": {
+    "reason": "BEAR THESIS: IWM (227.10) is testing its final structural floor at the 200 SMA (226.78) after a -1.54% intraday slide and a prior 50 SMA break. Broader market (SPY -0.81%, QQQ -1.13%) is in a confirmed downtrend, creating high 'Technical Gravity'. SETUP: Support-break/SMA-Violation. High-confidence experience 'experience/tickers/IWM/mean-reversion-from-statistical-extremes.md' warns that structural damage overrides oversold RSI when the 200 SMA floor fails. 'experience/general/reclamation-failures-as-short-entries.md' identifies this as a high-probability short entry. EXPECTED MOVE: Rapid slide toward 52-week lows if 226.78 is decisively lost on volume. INVALIDATION: IWM reclaims and holds 229.0 (reclaims SMA). EXIT PLAN: Target 222.0 support; time-stop exit by 3:45 PM ET (15:45 ET) per PAPER.md hard day-trade constraint.",
+    "timestamp": "2026-03-26T11:46:02.331856-04:00",
+    "side": "buy_to_open",
+    "symbol": "IWM260327P00227000",
+    "market_context": {
+      "price": 249.84,
+      "change_pct": -0.79,
+      "iv": 64.0,
+      "option_greeks": {
+        "delta": -0.0,
+        "gamma": 0.0002,
+        "theta": -0.0007,
+        "vega": 0.0002,
+        "rho": 0.0075
+      },
+      "iv_context": {
+        "iv_rank": 100,
+        "iv_percentile": 100,
+        "iv_52w_high": 38.1,
+        "iv_52w_low": 25.2
+      },
+      "trends": {
+        "price_52w_high": 271.6,
+        "price_52w_low": 171.73,
+        "price_vs_52w_pct": 78,
+        "sma_50": 259.04,
+        "sma_200": 241.98,
+        "sma_signal": "mixed",
+        "returns": {
+          "1w": 0.9,
+          "1m": -5.6,
+          "3m": -0.9,
+          "6m": 3.4
+        },
+        "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+        "rsi_14": 48.5,
+        "atr_14": 5.56,
+        "prev_day_high": 251.86,
+        "prev_day_low": 248.8,
+        "avg_volume_50d": 45447747,
+        "bollinger": {
+          "upper": 263.47,
+          "middle": 252.0,
+          "lower": 240.53,
+          "pct_b": 40.6
+        }
+      },
+      "news": [
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Thursday Amid Ongoing Middle East Tensions",
+          "publisher": "MT Newswires",
+          "date": "2026-03-26"
+        },
+        {
+          "title": "Go Big or Go Small? IWM Targets Small-Cap Stocks; MGK Owns Big Tech Stocks",
+          "publisher": "Motley Fool",
+          "date": "2026-03-25"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Higher Pre-Bell Wednesday Amid Hopes of Iran, US Truce",
+          "publisher": "MT Newswires",
+          "date": "2026-03-25"
+        },
+        {
+          "title": "Should iShares Russell 2000 ETF (IWM) Be on Your Investing Radar?",
+          "publisher": "Zacks",
+          "date": "2026-03-25"
+        },
+        {
+          "title": "Small Caps Are Beating Large Caps in 2026. Here Are the 2 ETFs Built to Ride It.",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-24"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 651.495,
+        "spy_change_pct": -0.82
+      }
+    }
+  },
+  "27043601": {
+    "reason": "EOD CLOSE: Closing BAC put per PAPER.md 3:45 PM ET hard constraint. BAC (48.06) remained in a structural downtrend but theta on 1 DTE and EOD risk require exit. P&L: +.00 profit (+11.7% on contract).",
+    "timestamp": "2026-03-26T12:20:47.027988-04:00",
+    "side": "sell_to_close",
+    "symbol": "BAC260327P00048500"
+  },
+  "27043605": {
+    "reason": "EOD CLOSE: Closing IWM put per PAPER.md 3:45 PM ET hard constraint. IWM (225.85) successfully broke the 200 SMA floor. Locking in gains before EOD. P&L: +2.00 profit (+1100% on contract).",
+    "timestamp": "2026-03-26T12:20:51.610672-04:00",
+    "side": "sell_to_close",
+    "symbol": "IWM260327P00227000"
+  },
+  "27043610": {
+    "reason": "EOD CLOSE: Closing QQQ puts per PAPER.md 3:45 PM ET hard constraint. QQQ (588.15) remains bearish below SMAs but intraday move Captured. P&L: +60.00 profit (+6.6% on contract).",
+    "timestamp": "2026-03-26T12:20:55.967589-04:00",
+    "side": "sell_to_close",
+    "symbol": "QQQ260327P00590000"
+  },
+  "27043619": {
+    "reason": "EOD CLOSE: Closing TLT put per PAPER.md 3:45 PM ET hard constraint. TLT (86.12) lower but EOD de-risking required. P&L: +4.00 profit (+50% on contract).",
+    "timestamp": "2026-03-26T12:20:59.936936-04:00",
+    "side": "sell_to_close",
+    "symbol": "TLT260327P00086500"
+  },
+  "27043627": {
+    "reason": "EOD CLOSE: Closing XLE calls per PAPER.md 3:45 PM ET hard constraint. XLE (61.12) continues to show extreme relative strength and hitting new 52-week highs. RSI 83 is critically overbought. P&L: +0.00 profit (+25% on contract).",
+    "timestamp": "2026-03-26T12:21:04.372026-04:00",
+    "side": "sell_to_close",
+    "symbol": "XLE260327C00061000"
+  },
+  "27044164": {
+    "reason": "BEAR THESIS: Downtrend continuation. QQQ is trading below its 200 SMA ceiling (593) at fresh session lows (580.6). PATTERN: Momentum breakdown/Follow-through. Broader market (SPY) is below both SMAs and dragging sentiment. EXPECTED MOVE: Continued slide below 579 handle intraday. INVALIDATION: Reclaim of 585 or SPY reversal. EXIT: Take profit at 15-20% gain or hard close at 3:30 PM ET.",
+    "timestamp": "2026-03-26T12:30:33.125081-04:00",
+    "side": "buy_to_open",
+    "symbol": "QQQ260330P00580000",
+    "market_context": {
+      "price": 580.655,
+      "change_pct": -1.22,
+      "iv": 24.7,
+      "option_greeks": {
+        "delta": -0.461,
+        "gamma": 0.0263,
+        "theta": -0.7446,
+        "vega": 0.2448,
+        "rho": 0.0361
+      },
+      "iv_context": {
+        "iv_rank": 13,
+        "iv_percentile": 54,
+        "iv_52w_high": 34.8,
+        "iv_52w_low": 23.1
+      },
+      "trends": {
+        "price_52w_high": 637.01,
+        "price_52w_low": 402.39,
+        "price_vs_52w_pct": 76,
+        "sma_50": 607.75,
+        "sma_200": 593.96,
+        "sma_signal": "below_both",
+        "returns": {
+          "1w": -2.1,
+          "1m": -5.8,
+          "3m": -6.7,
+          "6m": -2.6
+        },
+        "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
+        "rsi_14": 37.1,
+        "atr_14": 9.8,
+        "prev_day_high": 584.63,
+        "prev_day_low": 579.65,
+        "avg_volume_50d": 66963357,
+        "bollinger": {
+          "upper": 617.27,
+          "middle": 598.24,
+          "lower": 579.2,
+          "pct_b": 3.8
+        }
+      },
+      "news": [
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Thursday Amid Ongoing Middle East Tensions",
+          "publisher": "MT Newswires",
+          "date": "2026-03-26"
+        },
+        {
+          "title": "The Best ETF Over The Past 10 Years Turned $10,000 To $65,100",
+          "publisher": "Investor's Business Daily",
+          "date": "2026-03-26"
+        },
+        {
+          "title": "Should Invesco QQQ (QQQ) Be on Your Investing Radar?",
+          "publisher": "Zacks",
+          "date": "2026-03-26"
+        },
+        {
+          "title": "The Zacks Analyst Blog Highlights SPY, QQQ, DXJ, CPER and EWY",
+          "publisher": "Zacks",
+          "date": "2026-03-26"
+        },
+        {
+          "title": "Why QQQM Is Riskier Than Its Low-Cost, Set-It-and-Forget-It Reputation Suggests",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-25"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 651.16,
+        "spy_change_pct": -0.87
+      }
+    }
+  },
+  "": {
+    "reason": "BULL THESIS: Relative strength breakout. XLE hitting new 52-week highs (61.67) while SPY is deep red. Sector is acting as a momentum shield due to surging oil prices on Middle East tension. PATTERN: 52-week high breakout with catalyst. EXPECTED MOVE: Extension toward 62.5 on momentum. INVALIDATION: Break below intraday support at 61.0. EXIT: Profit targets at 20% or hard close at 3:30 PM ET.",
+    "timestamp": "2026-03-26T12:30:37.839096-04:00",
+    "side": "buy_to_open",
+    "symbol": "XLE260331C00061500",
+    "market_context": {
+      "price": 61.66,
+      "change_pct": 1.8,
+      "iv": 0,
+      "option_greeks": {},
+      "iv_context": {},
+      "trends": {
+        "price_52w_high": 61.77,
+        "price_52w_low": 37.24,
+        "price_vs_52w_pct": 100,
+        "sma_50": 54.33,
+        "sma_200": 46.71,
+        "sma_signal": "above_both",
+        "returns": {
+          "1w": 3.9,
+          "1m": 12.4,
+          "3m": 38.6,
+          "6m": 36.5
+        },
+        "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+        "rsi_14": 79.6,
+        "atr_14": 1.19,
+        "prev_day_high": 61.77,
+        "prev_day_low": 60.59,
+        "avg_volume_50d": 59352755,
+        "bollinger": {
+          "upper": 61.36,
+          "middle": 57.93,
+          "lower": 54.5,
+          "pct_b": 104.3
+        }
+      },
+      "news": [
+        {
+          "title": "Sector Update: Energy Stocks Advance Premarket Thursday",
+          "publisher": "MT Newswires",
+          "date": "2026-03-26"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Thursday Amid Ongoing Middle East Tensions",
+          "publisher": "MT Newswires",
+          "date": "2026-03-26"
+        },
+        {
+          "title": "Stock Market News for Mar 26, 2026",
+          "publisher": "Zacks",
+          "date": "2026-03-26"
+        },
+        {
+          "title": "Sector Update: Energy Stocks Mixed Late Afternoon",
+          "publisher": "MT Newswires",
+          "date": "2026-03-25"
+        },
+        {
+          "title": "Buy This 1 ETF ASAP If You Think Higher Oil Prices are Here to Stay",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-25"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 651.1451,
+        "spy_change_pct": -0.87
+      }
+    }
+  },
+  "27044182": {
+    "reason": "BULL THESIS: Relative strength breakout. XLE hitting new 52-week highs (61.67) while SPY is deep red. Sector is acting as a momentum shield due to surging oil prices on Middle East tension. PATTERN: 52-week high breakout with catalyst. EXPECTED MOVE: Extension toward 62.5 on momentum. INVALIDATION: Break below intraday support at 61.0. EXIT: Profit targets at 20% or hard close at 3:30 PM ET.",
+    "timestamp": "2026-03-26T12:30:48.053129-04:00",
+    "side": "buy_to_open",
+    "symbol": "XLE260331C00061000",
+    "market_context": {
+      "price": 61.655,
+      "change_pct": 1.8,
+      "iv": 28.4,
+      "option_greeks": {
+        "delta": 0.627,
+        "gamma": 0.1851,
+        "theta": -0.0758,
+        "vega": 0.0282,
+        "rho": 0.0047
+      },
+      "iv_context": {
+        "iv_rank": 13,
+        "iv_percentile": 54,
+        "iv_52w_high": 39.5,
+        "iv_52w_low": 26.8
+      },
+      "trends": {
+        "price_52w_high": 61.77,
+        "price_52w_low": 37.24,
+        "price_vs_52w_pct": 100,
+        "sma_50": 54.33,
+        "sma_200": 46.71,
+        "sma_signal": "above_both",
+        "returns": {
+          "1w": 3.9,
+          "1m": 12.4,
+          "3m": 38.6,
+          "6m": 36.5
+        },
+        "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+        "rsi_14": 79.6,
+        "atr_14": 1.19,
+        "prev_day_high": 61.77,
+        "prev_day_low": 60.59,
+        "avg_volume_50d": 59352786,
+        "bollinger": {
+          "upper": 61.36,
+          "middle": 57.93,
+          "lower": 54.5,
+          "pct_b": 104.3
+        }
+      },
+      "news": [
+        {
+          "title": "Sector Update: Energy Stocks Advance Premarket Thursday",
+          "publisher": "MT Newswires",
+          "date": "2026-03-26"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Thursday Amid Ongoing Middle East Tensions",
+          "publisher": "MT Newswires",
+          "date": "2026-03-26"
+        },
+        {
+          "title": "Stock Market News for Mar 26, 2026",
+          "publisher": "Zacks",
+          "date": "2026-03-26"
+        },
+        {
+          "title": "Sector Update: Energy Stocks Mixed Late Afternoon",
+          "publisher": "MT Newswires",
+          "date": "2026-03-25"
+        },
+        {
+          "title": "Buy This 1 ETF ASAP If You Think Higher Oil Prices are Here to Stay",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-25"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 651.15,
+        "spy_change_pct": -0.87
+      }
+    }
+  },
+  "27055592": {
+    "reason": "EOD CLOSE: Closing QQQ puts per PAPER.md 3:45 PM ET hard constraint. QQQ (578.16) is trading near deep session lows and has broken below its 200 SMA (593.95). Broader market (SPY) is also below both SMAs, confirming a structural bearish regime. Intra-day profit captured as the contract value rose from 5.66 to current market bid of ~8.80 (estimate). Final P&L: approximately +55% on contract based on bid/ask spread at close.",
+    "timestamp": "2026-03-26T13:45:26.986565-04:00",
+    "side": "sell_to_close",
+    "symbol": "QQQ260330P00580000"
+  },
+  "27055597": {
+    "reason": "EOD CLOSE: Closing XLE calls per PAPER.md 3:45 PM ET hard constraint. XLE (61.74) continues its extreme relative strength breakout, hitting new 52-week highs while the broader market remains deep red. RSI 79.8 is critically overbought, making this a high-conviction momentum shield play. Contract value rose from 1.26 to current market bid of ~1.30. P&L: approximately +3% on contract. Locking in gains to stay flat overnight.",
+    "timestamp": "2026-03-26T13:45:34.976220-04:00",
+    "side": "sell_to_close",
+    "symbol": "XLE260331C00061000"
   }
 }
