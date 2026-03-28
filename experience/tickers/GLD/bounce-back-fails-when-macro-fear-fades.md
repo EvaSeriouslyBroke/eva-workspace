@@ -24,9 +24,10 @@ Exiting on March 13 at $29.45 (-12.4%) saved 58 percentage points of capital. GL
 ## Evidence
 
 ### Summary
-2 supporting, 1 contradicting observations total. Hindsight confirms the exit timing was correct (avoided a catastrophic -70% decline), but emphasizes that taking the 1-2 day profit is even better. Yield-based pressure is the primary threat to the bullion-hedge thesis.
+3 supporting, 1 contradicting observations total. Hindsight and recent day trades confirm the "Bounce-Back" after macro/panic dips is a high-probability tactical play, but requires immediate exit (same-day or <24h). Yield-based pressure (rising 10Y) remains the primary threat that can truncate these rebounds.
 
 ### Recent
+- 2026-03-27 [paper] [supporting] [transition] [dte-short]: GLD $407C intraday reversal play. Entry at 3-month lows ($410.32) and extreme oversold RSI (23.3) after central bank selling news. Stock successfully rebounded +1.5% intraday to $416.44. Position peaked at +48.1% ($14.00 bid) within 2 hours. Exit at 3:45 PM hard close (per PAPER.md). Validates: "Tactical Bounce-Back" from statistical extremes (RSI <25) is a high-confidence intraday reversal setup. [Q3: Reversal Detection]
 - 2026-03-20 [hindsight] [supporting] [bull] [dte-long]: GLD $470C analyzed after end-of-life. Exit on March 13 @ $29.45 (-12.4%) was highly skillful. Had position been held until March 20, loss would have been -70% ($10.15 value) as gold collapsed under 4.26% 10Y yield and margin-call panic. Confirms: when the initial catalyst (oil shock) fades, exit the gold position immediately to avoid secondary yield-driven selling. [Q1: Catching a Falling Knife, Q2: Bounce-Back Signals]
 - 2026-03-14 [hindsight] [supporting] [bull] [dte-long]: Post-sale analysis confirms exit avoided further losses. However, the critical insight: optimal exit was March 10 at $39.30 (+17%) after only 24 hours. Key lesson: Bounce-back trades on macro correlations are one-day plays. [Q2: Bounce-Back Signals]
 - 2026-03-13 [paper] [contradicting] [bull] [dte-long]: Entered GLD 470C. Thesis: temporary correlation noise, gold resumes hedge role. Stock bounced to $480.75 (+3%) next day but failed to hold. Sold at -12.4% after thesis invalidated.

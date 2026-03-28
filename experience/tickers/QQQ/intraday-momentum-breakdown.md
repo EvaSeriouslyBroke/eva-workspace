@@ -22,9 +22,10 @@ Intraday price action during structural bear markets is defined by "Value Traps"
 ## Evidence
 
 ### Summary
-2 supporting observations. Structural downtrends provide the highest-probability environment for short-biased day trades. 2026-03-26 QQQ trade demonstrated the power of a 200 SMA breakdown combined with negative SPY context, resulting in a 55% theoretical gain on weekly puts.
+3 supporting observations total. Structural downtrends provide the highest-probability environment for short-biased day trades. Recent intraday trades (2026-03-26 and 2026-03-27) demonstrate the "Negative Momentum Vortex" created when QQQ remains below its 200 SMA while hitting new 52-week/session lows.
 
 ### Recent
+- 2026-03-27 [paper] [supporting] [bear] [dte-short]: QQQ $570P intraday momentum breakdown. Entry on bear regime (below 50/200 SMAs) and Middle East tension news as QQQ hit fresh 52-week lows ($570.74). Position peaked at +29.9% ($8.34 bid) within 30 minutes of entry as stock flushed to $566.15. Exit at 3:45 PM hard close (per PAPER.md). Reinforces: "Momentum Breakdown" at session/52-week lows in a structural bear regime remains a high-confidence intraday play. [Q1: Intraday Entry Timing, Q2: Profit-Taking Timing]
 - 2026-03-26 [paper] [supporting] [bear] [dte-short]: QQQ $580P intraday day trade. Entry at session lows ($580.6) after breaking below the 200 SMA ($593.9). Broad market (SPY) also in a downtrend. Exit at 3:45 PM hard close (per PAPER.md rule) near session lows (~$578.1). Final theoretical gain: +55%. Validates: "Momentum Breakdown" in a structural bear regime with SPY alignment. [Q1: Intraday Entry Timing, Q2: Profit-Taking Timing]
 - 2026-03-26 [observed] [supporting] [bear] [dte-short]: General observation of QQQ breaking below the 200 SMA ceiling ($593) on Middle East tension catalysts, leading to a sustained intraday slide. [Q1: Intraday Entry Timing]
 

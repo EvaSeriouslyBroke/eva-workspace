@@ -169,5 +169,358 @@
         }
       }
     }
+  ],
+  "QQQ260331P00575000": [
+    {
+      "order_id": "27071312",
+      "reason": "BEAR REGIME BREAKDOWN: QQQ trading below 50/200 SMAs (structural bear) with Iran war escalation as primary catalyst. Experience recall (QQQ/intraday-momentum-breakdown) validates short entries when structural floors are lost. Expected move: momentum cascade to test deep session lows. Invalidation: reclaim of 200 SMA (93.4) or news-driven reversal. Exit: +30% target or 3:30 PM ET hard stop.",
+      "entry_price": 573.79,
+      "entry_iv": 28.2,
+      "entry_date": "2026-03-27",
+      "ticker": "QQQ",
+      "type": "put",
+      "strike": 575.0,
+      "expiry": "2026-03-31",
+      "quantity": 1,
+      "cost_basis": 697.0,
+      "reflected": false,
+      "market_context": {
+        "price": 573.79,
+        "change_pct": 0,
+        "iv": 28.2,
+        "option_greeks": {
+          "delta": -0.509,
+          "gamma": 0.0219,
+          "theta": -0.7684,
+          "vega": 0.2685,
+          "rho": 0.0374
+        },
+        "iv_context": {
+          "iv_rank": 43,
+          "iv_percentile": 79,
+          "iv_52w_high": 34.8,
+          "iv_52w_low": 23.1
+        },
+        "trends": {
+          "price_52w_high": 637.01,
+          "price_52w_low": 402.39,
+          "price_vs_52w_pct": 73,
+          "sma_50": 607.61,
+          "sma_200": 593.93,
+          "sma_signal": "below_both",
+          "returns": {
+            "1w": -3.2,
+            "1m": -7.0,
+            "3m": -7.8,
+            "6m": -3.7
+          },
+          "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
+          "rsi_14": 33.9,
+          "atr_14": 10.24,
+          "prev_day_high": 584.63,
+          "prev_day_low": 573.43,
+          "avg_volume_50d": 67882881,
+          "bollinger": {
+            "upper": 618.37,
+            "middle": 597.89,
+            "lower": 577.41,
+            "pct_b": -8.8
+          }
+        },
+        "news": [
+          {
+            "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Friday as Investor Concerns Linger Amid Middle East Conflict",
+            "publisher": "MT Newswires",
+            "date": "2026-03-27"
+          },
+          {
+            "title": "Stock Market Today: Dow Falls On U.S.-Iran War News; Oil Prices Continue To Rally (Live Coverage)",
+            "publisher": "Investor's Business Daily",
+            "date": "2026-03-27"
+          },
+          {
+            "title": "Wall Street Pay Surges, Hiring Tells a Different Story",
+            "publisher": "GuruFocus.com",
+            "date": "2026-03-26"
+          },
+          {
+            "title": "Exchange-Traded Funds Fall as US Equities Decline After Midday",
+            "publisher": "MT Newswires",
+            "date": "2026-03-26"
+          },
+          {
+            "title": "MoneyMasters Podcast 3-26-26- Yardeni on Navigating the \"Fog of War\"",
+            "publisher": "MoneyShow",
+            "date": "2026-03-26"
+          }
+        ],
+        "broader_market": {
+          "spy_price": 645.09,
+          "spy_change_pct": 0
+        }
+      }
+    }
+  ],
+  "XLE260331C00061000": [
+    {
+      "order_id": "27071313",
+      "reason": "MOMENTUM SHIELD BREAKOUT: Energy sector leading market (above 50/200 SMAs) with oil rally catalyst. Experience recall (XLE/momentum-oil-geopolitical) confirms RSI 79 is a sign of strength, not exhaustion, in this regime. Expected move: continuation of breakout to new 52-week highs. Invalidation: ceasefire news or oil price reversal. Exit: RSI >82 or 3:30 PM ET hard stop.",
+      "entry_price": 61.52,
+      "entry_iv": 28.7,
+      "entry_date": "2026-03-27",
+      "ticker": "XLE",
+      "type": "call",
+      "strike": 61.0,
+      "expiry": "2026-03-31",
+      "quantity": 1,
+      "cost_basis": 130.0,
+      "reflected": false,
+      "market_context": {
+        "price": 61.52,
+        "change_pct": 0,
+        "iv": 28.7,
+        "option_greeks": {
+          "delta": 0.619,
+          "gamma": 0.1851,
+          "theta": -0.0844,
+          "vega": 0.0276,
+          "rho": 0.005
+        },
+        "iv_context": {
+          "iv_rank": 13,
+          "iv_percentile": 64,
+          "iv_52w_high": 41.4,
+          "iv_52w_low": 26.8
+        },
+        "trends": {
+          "price_52w_high": 61.86,
+          "price_52w_low": 37.24,
+          "price_vs_52w_pct": 99,
+          "sma_50": 54.32,
+          "sma_200": 46.71,
+          "sma_signal": "above_both",
+          "returns": {
+            "1w": 3.6,
+            "1m": 12.1,
+            "3m": 38.2,
+            "6m": 36.2
+          },
+          "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+          "rsi_14": 79.3,
+          "atr_14": 1.2,
+          "prev_day_high": 61.86,
+          "prev_day_low": 60.59,
+          "avg_volume_50d": 59993430,
+          "bollinger": {
+            "upper": 61.33,
+            "middle": 57.93,
+            "lower": 54.53,
+            "pct_b": 102.9
+          }
+        },
+        "news": [
+          {
+            "title": "Occidental CEO\u2019s Tenure May Be Ending. It Hasn\u2019t Been Good for the Stock.",
+            "publisher": "Barrons.com",
+            "date": "2026-03-27"
+          },
+          {
+            "title": "Energy ETFs Pull In Billions as Oil Rally Fuels Sector Gains",
+            "publisher": "etf.com",
+            "date": "2026-03-27"
+          },
+          {
+            "title": "Sector Update: Energy Stocks Gain Late Afternoon",
+            "publisher": "MT Newswires",
+            "date": "2026-03-26"
+          },
+          {
+            "title": "Sector Update: Energy Stocks Rise Thursday Afternoon",
+            "publisher": "MT Newswires",
+            "date": "2026-03-26"
+          },
+          {
+            "title": "Exchange-Traded Funds Fall as US Equities Decline After Midday",
+            "publisher": "MT Newswires",
+            "date": "2026-03-26"
+          }
+        ],
+        "broader_market": {
+          "spy_price": 645.09,
+          "spy_change_pct": 0
+        }
+      }
+    }
+  ],
+  "BAC260331P00048000": [
+    {
+      "order_id": "",
+      "reason": "THESIS: Structural bearish continuation in financial sector. Signals: Price below 50/200 SMA, sector-wide weakness (net interest margin pressure), and negative fundamental sentiment (StockStory '3 reasons to sell'). Setup: SMA gravity/breakdown. Expected move: Continuation toward 7.00 support. Invalidation: Daily close above 9.00 or SPY recovery. Exit plan: PT 7.10 or trailing stop; close by 3:30 PM ET.",
+      "entry_price": 48.24,
+      "entry_iv": 0,
+      "entry_date": "2026-03-27",
+      "ticker": "BAC",
+      "type": "put",
+      "strike": 48.0,
+      "expiry": "2026-03-31",
+      "quantity": 1,
+      "cost_basis": 0,
+      "reflected": false,
+      "market_context": {
+        "price": 48.24,
+        "change_pct": 0,
+        "iv": 0,
+        "option_greeks": {},
+        "iv_context": {},
+        "trends": {
+          "price_52w_high": 57.55,
+          "price_52w_low": 33.06,
+          "price_vs_52w_pct": 62,
+          "sma_50": 51.05,
+          "sma_200": 50.76,
+          "sma_signal": "below_both",
+          "returns": {
+            "1w": 2.3,
+            "1m": -7.8,
+            "3m": -14.2,
+            "6m": -7.0
+          },
+          "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
+          "rsi_14": 50.8,
+          "atr_14": 1.08,
+          "prev_day_high": 48.25,
+          "prev_day_low": 47.96,
+          "avg_volume_50d": 42058393,
+          "bollinger": {
+            "upper": 50.3,
+            "middle": 48.15,
+            "lower": 46.01,
+            "pct_b": 46.4
+          }
+        },
+        "news": [
+          {
+            "title": "3 Reasons to Sell BAC and 1 Stock to Buy Instead",
+            "publisher": "StockStory",
+            "date": "2026-03-27"
+          },
+          {
+            "title": "BofA\u2019s Hartnett Says Consumer Stocks Best Play for War Aftermath",
+            "publisher": "Bloomberg",
+            "date": "2026-03-27"
+          },
+          {
+            "title": "Bank of America Names 2 Top Neocloud Stocks to Buy in 2026",
+            "publisher": "TipRanks",
+            "date": "2026-03-27"
+          },
+          {
+            "title": "Microsoft Set for Worst Quarter Since 2008 as AI Takes Two Bites",
+            "publisher": "Bloomberg",
+            "date": "2026-03-27"
+          },
+          {
+            "title": "How The Keysight Technologies (KEYS) Story Is Evolving With New Growth Drivers And Valuation Views",
+            "publisher": "Simply Wall St.",
+            "date": "2026-03-27"
+          }
+        ],
+        "broader_market": {
+          "spy_price": 645.09,
+          "spy_change_pct": 0
+        }
+      }
+    }
+  ],
+  "TLT260331P00086000": [
+    {
+      "order_id": "27072270",
+      "reason": "THESIS: Macro-driven bond sell-off continuation. Signals: Price below 50/200 SMA, rising yield pressure from geopolitical oil spike (Yardeni 'fog of war'), and structural sell rating on long-duration (Seeking Alpha 'STRONG SELL'). Setup: Macro-yield breakdown. Expected move: Test of 52-week lows (3.30). Invalidation: Middle Bollinger Band reclaim (7.73). Exit plan: PT 5.00 or EOD; close by 3:30 PM ET.",
+      "entry_price": 86.11,
+      "entry_iv": 15.5,
+      "entry_date": "2026-03-27",
+      "ticker": "TLT",
+      "type": "put",
+      "strike": 86.0,
+      "expiry": "2026-03-31",
+      "quantity": 1,
+      "cost_basis": 46.0,
+      "reflected": false,
+      "market_context": {
+        "price": 86.11,
+        "change_pct": 0,
+        "iv": 15.5,
+        "option_greeks": {
+          "delta": -0.443,
+          "gamma": 0.2622,
+          "theta": -0.0659,
+          "vega": 0.0401,
+          "rho": 0.0064
+        },
+        "iv_context": {
+          "iv_rank": 29,
+          "iv_percentile": 71,
+          "iv_52w_high": 23.4,
+          "iv_52w_low": 12.2
+        },
+        "trends": {
+          "price_52w_high": 94.09,
+          "price_52w_low": 83.3,
+          "price_vs_52w_pct": 26,
+          "sma_50": 88.01,
+          "sma_200": 88.2,
+          "sma_signal": "below_both",
+          "returns": {
+            "1w": 0.3,
+            "1m": -4.6,
+            "3m": -2.2,
+            "6m": -3.2
+          },
+          "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
+          "rsi_14": 30.1,
+          "atr_14": 0.83,
+          "prev_day_high": 85.5,
+          "prev_day_low": 85.47,
+          "avg_volume_50d": 42470174,
+          "bollinger": {
+            "upper": 89.98,
+            "middle": 87.47,
+            "lower": 84.96,
+            "pct_b": 10.6
+          }
+        },
+        "news": [
+          {
+            "title": "Why the Dollar Could Be an Iran War Winner\u2014and What Happens If It Isn\u2019t",
+            "publisher": "Barrons.com",
+            "date": "2026-03-26"
+          },
+          {
+            "title": "MoneyMasters Podcast 3-26-26- Yardeni on Navigating the \"Fog of War\"",
+            "publisher": "MoneyShow",
+            "date": "2026-03-26"
+          },
+          {
+            "title": "This 1 ETF is the Only True Anti-Recession Holding For Your Portfolio",
+            "publisher": "24/7 Wall St.",
+            "date": "2026-03-26"
+          },
+          {
+            "title": "3 Dividend ETFs That Could Replace Bond Income in 2026",
+            "publisher": "Motley Fool",
+            "date": "2026-03-24"
+          },
+          {
+            "title": "Fed- Flying Blind Even BEFORE War Broke Out",
+            "publisher": "MoneyShow",
+            "date": "2026-03-24"
+          }
+        ],
+        "broader_market": {
+          "spy_price": 645.09,
+          "spy_change_pct": 0
+        }
+      }
+    }
   ]
 }
