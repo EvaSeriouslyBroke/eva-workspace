@@ -2739,3 +2739,45 @@ I've completed the hindsight analysis for **XLE260331C00062000**. This trade was
 
 Portfolio remains flat. I've cleared the hindsight queue for the week. Ready for a fresh start on Monday. Ready.
 Cleared 15 watches (expired + stale).
+[master b26eae5] daily snapshot 2026-03-28
+ 68 files changed, 22276 insertions(+), 3610 deletions(-)
+ create mode 100644 memory/2026-03-27.md
+ create mode 100644 memory/2026-03-27_eval_1215.md
+ create mode 100644 options-toolkit/data/paper-trading/position-journal/BAC260331P00048000.jsonl
+ create mode 100644 options-toolkit/data/paper-trading/position-journal/GLD260331C00407000.jsonl
+ create mode 100644 options-toolkit/data/paper-trading/position-journal/QQQ260331P00570000.jsonl
+ create mode 100644 options-toolkit/data/paper-trading/position-journal/QQQ260331P00575000.jsonl
+ create mode 100644 options-toolkit/data/paper-trading/position-journal/TLT260331P00086000.jsonl
+ create mode 100644 options-toolkit/data/paper-trading/position-journal/XLE260331C00062000.jsonl
+ create mode 100644 options-toolkit/data/paper-trading/position-snapshots/GLD260331C00407000.jsonl
+ create mode 100644 options-toolkit/data/paper-trading/position-snapshots/QQQ260331P00570000.jsonl
+ create mode 100644 options-toolkit/data/paper-trading/position-snapshots/XLE260331C00062000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/BAC260327P00048500.jsonl
+ create mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/GLD260331C00407000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/IWM260325P00248000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/IWM260327C00225000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/IWM260327C00255000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/IWM260327P00227000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/NVDA260325C00190000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/QQQ260327C00590000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/QQQ260327C00600000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/QQQ260327P00585000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/QQQ260327P00590000.jsonl
+ create mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/QQQ260331P00570000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/TLT260327P00086500.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/XLE260327C00057000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/XLE260327C00061000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/XLE260327P00057000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/XLE260327P00060500.jsonl
+ create mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/XLE260331C00062000.jsonl
+ create mode 100644 options-toolkit/data/paper/AMD/snapshots/2026-03-27.json
+ create mode 100644 options-toolkit/data/paper/BAC/snapshots/2026-03-27.json
+ create mode 100644 options-toolkit/data/paper/GLD/snapshots/2026-03-27.json
+ create mode 100644 options-toolkit/data/paper/IWM/2026-W13/2026-03-27.json
+ create mode 100644 options-toolkit/data/paper/IWM/snapshots/2026-03-27.json
+ create mode 100644 options-toolkit/data/paper/NVDA/snapshots/2026-03-27.json
+ create mode 100644 options-toolkit/data/paper/QQQ/snapshots/2026-03-27.json
+ create mode 100644 options-toolkit/data/paper/TLT/snapshots/2026-03-27.json
+ create mode 100644 options-toolkit/data/paper/XLE/snapshots/2026-03-27.json
+To github.com:EvaSeriouslyBroke/eva-workspace.git
+   1850bd4..b26eae5  master -> master
