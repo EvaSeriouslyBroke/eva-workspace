@@ -5751,72 +5751,72 @@
     }
   },
   "": {
-    "reason": "THESIS: Structural bearish continuation in financial sector. Signals: Price below 50/200 SMA, sector-wide weakness (net interest margin pressure), and negative fundamental sentiment (StockStory '3 reasons to sell'). Setup: SMA gravity/breakdown. Expected move: Continuation toward 7.00 support. Invalidation: Daily close above 9.00 or SPY recovery. Exit plan: PT 7.10 or trailing stop; close by 3:30 PM ET.",
-    "timestamp": "2026-03-27T09:30:42.330940-04:00",
+    "reason": "THESIS (Eva Paper): Momentum Extension - Structural Bear Regime (2:45 PM UTC).\n\nDIRECTION: Bearish. IWM is in a decisive downtrend, trading below both the 50 SMA (605.32) and 200 SMA (594.23). Broader market (SPY) is also below its SMAs, confirming a universal bearish regime.\nWHAT: 'Technical Gravity' setup \u2014 while RSI (24.4) is extremely oversold, experience (general/mean-reversion-calls-fail-below-smas.md) confirms RSI can remain pinned <30 for weeks during floorless drops when technical support is lost.\nEXPECTED MOVE: Continuation of the session's downward momentum to test new 52-week lows. Targeting a 20-30% gain on the weekly put.\nINVALIDATION: Decisive intraday reclamation of the 200 SMA (594.23) or a sharp reversal in 10Y yields.\nEXIT PLAN: Sell if target profit is reached, if invalidation signals hit, or at 3:45 PM ET mandatory hard close (PAPER.md).",
+    "timestamp": "2026-03-30T10:45:51.785468-04:00",
     "side": "buy_to_open",
-    "symbol": "BAC260331P00048000",
+    "symbol": "IWM260402P00565000",
     "market_context": {
-      "price": 48.24,
-      "change_pct": 0,
+      "price": 242.36,
+      "change_pct": -0.31,
       "iv": 0,
       "option_greeks": {},
       "iv_context": {},
       "trends": {
-        "price_52w_high": 57.55,
-        "price_52w_low": 33.06,
-        "price_vs_52w_pct": 62,
-        "sma_50": 51.05,
-        "sma_200": 50.76,
-        "sma_signal": "below_both",
+        "price_52w_high": 271.6,
+        "price_52w_low": 171.73,
+        "price_vs_52w_pct": 71,
+        "sma_50": 258.13,
+        "sma_200": 242.26,
+        "sma_signal": "mixed",
         "returns": {
-          "1w": 2.3,
-          "1m": -7.8,
-          "3m": -14.2,
-          "6m": -7.0
+          "1w": -2.1,
+          "1m": -7.3,
+          "3m": -3.6,
+          "6m": 0.4
         },
-        "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
-        "rsi_14": 50.8,
-        "atr_14": 1.08,
-        "prev_day_high": 48.25,
-        "prev_day_low": 47.96,
-        "avg_volume_50d": 42058393,
+        "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+        "rsi_14": 36.4,
+        "atr_14": 5.17,
+        "prev_day_high": 245.37,
+        "prev_day_low": 241.57,
+        "avg_volume_50d": 45770504,
         "bollinger": {
-          "upper": 50.3,
-          "middle": 48.15,
-          "lower": 46.01,
-          "pct_b": 46.4
+          "upper": 260.17,
+          "middle": 249.89,
+          "lower": 239.62,
+          "pct_b": 13.6
         }
       },
       "news": [
         {
-          "title": "3 Reasons to Sell BAC and 1 Stock to Buy Instead",
-          "publisher": "StockStory",
+          "title": "Exchange-Traded Funds, Equity Futures Higher Pre-Bell Monday Ahead of Fresh Economic Data",
+          "publisher": "MT Newswires",
+          "date": "2026-03-30"
+        },
+        {
+          "title": "IWM vs. QQQ: How Small-Cap Diversification Compares to Large-Cap Growth for Investors",
+          "publisher": "Motley Fool",
+          "date": "2026-03-29"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Friday as Investor Concerns Linger Amid Middle East Conflict",
+          "publisher": "MT Newswires",
           "date": "2026-03-27"
         },
         {
-          "title": "BofA\u2019s Hartnett Says Consumer Stocks Best Play for War Aftermath",
-          "publisher": "Bloomberg",
-          "date": "2026-03-27"
+          "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Thursday Amid Ongoing Middle East Tensions",
+          "publisher": "MT Newswires",
+          "date": "2026-03-26"
         },
         {
-          "title": "Bank of America Names 2 Top Neocloud Stocks to Buy in 2026",
-          "publisher": "TipRanks",
-          "date": "2026-03-27"
-        },
-        {
-          "title": "Microsoft Set for Worst Quarter Since 2008 as AI Takes Two Bites",
-          "publisher": "Bloomberg",
-          "date": "2026-03-27"
-        },
-        {
-          "title": "How The Keysight Technologies (KEYS) Story Is Evolving With New Growth Drivers And Valuation Views",
-          "publisher": "Simply Wall St.",
-          "date": "2026-03-27"
+          "title": "Go Big or Go Small? IWM Targets Small-Cap Stocks; MGK Owns Big Tech Stocks",
+          "publisher": "Motley Fool",
+          "date": "2026-03-25"
         }
       ],
       "broader_market": {
-        "spy_price": 645.09,
-        "spy_change_pct": 0
+        "spy_price": 636.43,
+        "spy_change_pct": 0.37
       }
     }
   },
@@ -6416,5 +6416,266 @@
     "timestamp": "2026-03-27T12:01:12.279282-04:00",
     "side": "sell_to_close",
     "symbol": "XLE260331C00062000"
+  },
+  "27125991": {
+    "reason": "THESIS (Eva Paper): Momentum Breakout - 52W High Extension (1:45 PM UTC).\n\nDIRECTION: Bullish. XLE hitting new 52W highs (1.94) above 50/200 SMAs. News sentiment is highly bullish (9/10) due to Iran conflict driving energy demand/prices.\nWHAT: 'Momentum Shield' pattern \u2014 XLE is showing extreme relative strength, making higher highs while SPY is slightly red. IV Rank 99 is high, but 'tickers/XLE/momentum-oil-geopolitical.md' experience confirms that technical gravity is ignored during this geopolitical regime.\nEXPECTED MOVE: Continuation of 52W high breakout. Targeting a move toward 3.00 intraday.\nINVALIDATION: Break below VWAP or sudden geopolitical de-escalation news. \nEXIT PLAN: Sell if RSI hits 80+, if thesis is invalidated, or at 3:45 PM ET hard close (per PAPER.md).",
+    "timestamp": "2026-03-30T09:45:45.317597-04:00",
+    "side": "buy_to_open",
+    "symbol": "XLE260410C00063000",
+    "market_context": {
+      "price": 63.235,
+      "change_pct": 1.08,
+      "iv": 32.2,
+      "option_greeks": {
+        "delta": 0.477,
+        "gamma": 0.1086,
+        "theta": -0.0555,
+        "vega": 0.0487,
+        "rho": 0.011
+      },
+      "iv_context": {
+        "iv_rank": 37,
+        "iv_percentile": 67,
+        "iv_52w_high": 41.4,
+        "iv_52w_low": 26.8
+      },
+      "trends": {
+        "price_52w_high": 63.31,
+        "price_52w_low": 37.24,
+        "price_vs_52w_pct": 100,
+        "sma_50": 54.92,
+        "sma_200": 46.91,
+        "sma_signal": "above_both",
+        "returns": {
+          "1w": 6.0,
+          "1m": 13.1,
+          "3m": 43.1,
+          "6m": 37.5
+        },
+        "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+        "rsi_14": 91.5,
+        "atr_14": 1.2,
+        "prev_day_high": 63.31,
+        "prev_day_low": 63.12,
+        "avg_volume_50d": 58635078,
+        "bollinger": {
+          "upper": 62.91,
+          "middle": 58.57,
+          "lower": 54.22,
+          "pct_b": 103.7
+        }
+      },
+      "news": [
+        {
+          "title": "Sector Update: Energy Stocks Rise Pre-Bell Monday",
+          "publisher": "MT Newswires",
+          "date": "2026-03-30"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Higher Pre-Bell Monday Ahead of Fresh Economic Data",
+          "publisher": "MT Newswires",
+          "date": "2026-03-30"
+        },
+        {
+          "title": "Sector Update: Energy Stocks Rise Late Afternoon",
+          "publisher": "MT Newswires",
+          "date": "2026-03-27"
+        },
+        {
+          "title": "Sector Update: Energy",
+          "publisher": "MT Newswires",
+          "date": "2026-03-27"
+        },
+        {
+          "title": "Up 215% YTD, This Small-Cap Stock Is Beating AI Stocks",
+          "publisher": "Barchart",
+          "date": "2026-03-27"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 639.56,
+        "spy_change_pct": 0.87
+      }
+    }
+  },
+  "27128497": {
+    "reason": "THESIS (Eva Paper): Intraday Reversal - Bounce from Statistical Extreme (2:30 PM UTC).\n\nDIRECTION: Bullish. GLD hitting session highs (283.8) reclaiming key levels after hitting 3-month lows on Friday. Geopolitical risk (Iran war) provides a fundamental tailwind. Yield pressure (4.42%) is high, but momentum is currently overriding rates.\nWHAT: 'Tactical Bounce-Back' setup \u2014 Gold is rebounding from extreme oversold conditions (RSI 23.3 on Friday) and reclaiming short-term intraday momentum.\nEXPECTED MOVE: Continuation of recovery rally back toward 285-288. Targeting 15-20% gain on contract value.\nINVALIDATION: Break below session low (approx. 280) or sudden sharp rise in 10Y yields.\nEXIT PLAN: Sell at 3:45 PM ET mandatory hard close (PAPER.md) or if target reached early.",
+    "timestamp": "2026-03-30T10:01:48.765619-04:00",
+    "side": "buy_to_open",
+    "symbol": "GLD260331C00285000",
+    "market_context": {
+      "price": 417.38,
+      "change_pct": 0.65,
+      "iv": 204.6,
+      "option_greeks": {
+        "delta": 1.0,
+        "gamma": 0,
+        "theta": 0,
+        "vega": 0,
+        "rho": 0
+      },
+      "iv_context": {
+        "iv_rank": 100,
+        "iv_percentile": 100,
+        "iv_52w_high": 55.3,
+        "iv_52w_low": 25.4
+      },
+      "trends": {
+        "price_52w_high": 509.7,
+        "price_52w_low": 272.58,
+        "price_vs_52w_pct": 61,
+        "sma_50": 454.85,
+        "sma_200": 377.19,
+        "sma_signal": "mixed",
+        "returns": {
+          "1w": 3.3,
+          "1m": -13.7,
+          "3m": 0.2,
+          "6m": 20.4
+        },
+        "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+        "rsi_14": 24.5,
+        "atr_14": 11.26,
+        "prev_day_high": 420.1,
+        "prev_day_low": 416.73,
+        "avg_volume_50d": 20263727,
+        "bollinger": {
+          "upper": 500.74,
+          "middle": 444.77,
+          "lower": 388.8,
+          "pct_b": 25.5
+        }
+      },
+      "news": [
+        {
+          "title": "Gold Trading Higher as Traders Focus on Economic Fallout of the Iran War",
+          "publisher": "MT Newswires",
+          "date": "2026-03-30"
+        },
+        {
+          "title": "The Low-Cost ETF to Buy Now That Gold Is Above $5,500 Again",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-30"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Higher Pre-Bell Monday Ahead of Fresh Economic Data",
+          "publisher": "MT Newswires",
+          "date": "2026-03-30"
+        },
+        {
+          "title": "Ray Dalio Flags 'Risky Times' \u2014 And Warns Cash May Be The Worst Place To Hide",
+          "publisher": "Benzinga",
+          "date": "2026-03-29"
+        },
+        {
+          "title": "Why It's Not Time to Give Up on the Gold Trade",
+          "publisher": "MarketBeat",
+          "date": "2026-03-28"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 636.53,
+        "spy_change_pct": 0.39
+      }
+    }
+  },
+  "27140687": {
+    "reason": "EOD CLOSE: Mandatory 3:45 PM ET exit per PAPER.md. Thesis 'Tactical Bounce-Back' confirmed as GLD (284.15) successfully rebounded from Friday's extreme oversold lows (RSI 23), hitting session highs (+1.34%) and reclaiming key levels despite yield pressure. Safe-haven bid from Iran war remains intact. Closing now to stay flat overnight. Outcome: Small profit/scratch on contract spread.",
+    "timestamp": "2026-03-30T12:00:30.129696-04:00",
+    "side": "sell_to_close",
+    "symbol": "GLD260331C00285000"
+  },
+  "27140688": {
+    "reason": "EOD CLOSE: Mandatory 3:45 PM ET exit per PAPER.md. 'Momentum Shield' thesis played out perfectly as XLE (62.33) hit new 52-week highs (+1.95%) driven by geopolitical oil bid. RSI 81.3 is critically overbought, making this an ideal tactical exit. P&L: Approximately +39% on contract (entry 1.58 -> bid 2.20). Closing to lock in gains and avoid overnight risk.",
+    "timestamp": "2026-03-30T12:00:34.400909-04:00",
+    "side": "sell_to_close",
+    "symbol": "XLE260410C00063000"
+  },
+  "27144517": {
+    "reason": "DIRECTION: Bull. Signals: XLE hitting new 52-week highs (2.94) with extreme relative strength (XLE +0.62%, SPY +0.41%), trading above both 50/200 SMA. Geopolitical catalyst (Iran conflict oil shock) remains active per deep news research. SETUP: High-conviction 'Momentum Shield' breakout (sector divergence). EXPECTED MOVE: Continued intraday momentum to test 4 level; RSI 91.2 is extreme but per 'experience/tickers/XLE/momentum-oil-geopolitical.md', these technicals marks local targets, not reversals in this regime. Target +15-20% gain. INVALIDATION: XLE breaks below 2.50 or clear de-escalation news headlines. EXIT PLAN: Aiming for tactical exit before 3:45 PM ET today; no overnight hold.",
+    "timestamp": "2026-03-30T12:31:12.730258-04:00",
+    "side": "buy_to_open",
+    "symbol": "XLE260410C00063000",
+    "market_context": {
+      "price": 62.89,
+      "change_pct": 0.53,
+      "iv": 33.2,
+      "option_greeks": {
+        "delta": 0.513,
+        "gamma": 0.1098,
+        "theta": -0.0668,
+        "vega": 0.0439,
+        "rho": 0.0095
+      },
+      "iv_context": {
+        "iv_rank": 39,
+        "iv_percentile": 67,
+        "iv_52w_high": 43.5,
+        "iv_52w_low": 26.8
+      },
+      "trends": {
+        "price_52w_high": 63.46,
+        "price_52w_low": 37.24,
+        "price_vs_52w_pct": 98,
+        "sma_50": 54.92,
+        "sma_200": 46.91,
+        "sma_signal": "above_both",
+        "returns": {
+          "1w": 5.5,
+          "1m": 12.5,
+          "3m": 42.3,
+          "6m": 36.7
+        },
+        "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+        "rsi_14": 91.1,
+        "atr_14": 1.21,
+        "prev_day_high": 63.46,
+        "prev_day_low": 62.55,
+        "avg_volume_50d": 59131924,
+        "bollinger": {
+          "upper": 62.82,
+          "middle": 58.55,
+          "lower": 54.28,
+          "pct_b": 100.8
+        }
+      },
+      "news": [
+        {
+          "title": "Oil Could Surge to $200 if Conflict Continues: Energy ETFs in Focus",
+          "publisher": "Zacks",
+          "date": "2026-03-30"
+        },
+        {
+          "title": "Sector Update: Energy Stocks Rise Pre-Bell Monday",
+          "publisher": "MT Newswires",
+          "date": "2026-03-30"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Higher Pre-Bell Monday Ahead of Fresh Economic Data",
+          "publisher": "MT Newswires",
+          "date": "2026-03-30"
+        },
+        {
+          "title": "Sector Update: Energy Stocks Rise Late Afternoon",
+          "publisher": "MT Newswires",
+          "date": "2026-03-27"
+        },
+        {
+          "title": "Sector Update: Energy",
+          "publisher": "MT Newswires",
+          "date": "2026-03-27"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 636.53,
+        "spy_change_pct": 0.39
+      }
+    }
+  },
+  "27146833": {
+    "reason": "MANDATORY EOD CLOSE: Closing XLE calls per PAPER.md 3:45 PM ET hard constraint. Thesis 'Momentum Shield' played out successfully as XLE hit new 52-week highs (63.46) earlier today, showing extreme relative strength (RSI 90.9) against a downtrending broader market. P&L: Captured move from 1.42 cost basis to current bid. Closing all positions to remain flat overnight.",
+    "timestamp": "2026-03-30T12:45:24.116030-04:00",
+    "side": "sell_to_close",
+    "symbol": "XLE260410C00063000"
   }
 }

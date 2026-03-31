@@ -522,5 +522,165 @@
         }
       }
     }
+  ],
+  "NVDA260331P00175000": [
+    {
+      "order_id": "",
+      "reason": "THESIS (Eva Paper): Intraday Momentum Breakdown (2:30 PM UTC).\n\nDIRECTION: Bearish. NVDA breaking below recent consolidation floor, down 1.8% intraday. Trading between SMAs (50 at 184, 200 at 178) in a technical transition regime. News sentiment is negative (Meta/Nebius raising debt, mixed earnings drag).\nWHAT: 'Reclamation Failure' / Momentum Breakdown \u2014 NVDA tried to reclaim higher ground last week and failed. Now breaking key intraday levels with broad tech sector weakness.\nEXPECTED MOVE: Extension of breakdown toward the 200 SMA floor (178).\nINVALIDATION: Reclaiming VWAP or sudden bullish AI sector news.\nEXIT PLAN: Sell at 3:45 PM ET mandatory hard close (PAPER.md) or if 200 SMA (178) is reached.",
+      "entry_price": 167.375,
+      "entry_iv": 0,
+      "entry_date": "2026-03-30",
+      "ticker": "NVDA",
+      "type": "put",
+      "strike": 175.0,
+      "expiry": "2026-03-31",
+      "quantity": 1,
+      "cost_basis": 0,
+      "reflected": false,
+      "market_context": {
+        "price": 167.375,
+        "change_pct": -0.09,
+        "iv": 0,
+        "option_greeks": {},
+        "iv_context": {},
+        "trends": {
+          "price_52w_high": 212.19,
+          "price_52w_low": 86.62,
+          "price_vs_52w_pct": 64,
+          "sma_50": 183.1,
+          "sma_200": 179.35,
+          "sma_signal": "below_both",
+          "returns": {
+            "1w": -4.7,
+            "1m": -5.5,
+            "3m": -12.2,
+            "6m": -6.1
+          },
+          "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
+          "rsi_14": 27.5,
+          "atr_14": 4.92,
+          "prev_day_high": 169.45,
+          "prev_day_low": 166.77,
+          "avg_volume_50d": 180894682,
+          "bollinger": {
+            "upper": 189.37,
+            "middle": 178.68,
+            "lower": 167.98,
+            "pct_b": -2.9
+          }
+        },
+        "news": [
+          {
+            "title": "2 'Magnificent 7' stocks see stunning plunges",
+            "publisher": "Yahoo Finance",
+            "date": "2026-03-30"
+          },
+          {
+            "title": "Should Tesla be Worried About BYD?",
+            "publisher": "Motley Fool",
+            "date": "2026-03-30"
+          },
+          {
+            "title": "Nvidia Up Amid AI Startup's Massive Data Center Plan; Is Nvidia A Buy Now?",
+            "publisher": "Investor's Business Daily",
+            "date": "2026-03-30"
+          },
+          {
+            "title": "Joby Aviation Just Launched Its Most Crucial Aircraft Yet. Here's What That Means for the Stock.",
+            "publisher": "Motley Fool",
+            "date": "2026-03-30"
+          },
+          {
+            "title": "AMD vs Intel: Which Stock Will Lead in 2026?",
+            "publisher": "24/7 Wall St.",
+            "date": "2026-03-30"
+          }
+        ],
+        "broader_market": {
+          "spy_price": 636.43,
+          "spy_change_pct": 0.37
+        }
+      }
+    }
+  ],
+  "IWM260402P00565000": [
+    {
+      "order_id": "",
+      "reason": "THESIS (Eva Paper): Momentum Extension - Structural Bear Regime (2:45 PM UTC).\n\nDIRECTION: Bearish. IWM is in a decisive downtrend, trading below both the 50 SMA (605.32) and 200 SMA (594.23). Broader market (SPY) is also below its SMAs, confirming a universal bearish regime.\nWHAT: 'Technical Gravity' setup \u2014 while RSI (24.4) is extremely oversold, experience (general/mean-reversion-calls-fail-below-smas.md) confirms RSI can remain pinned <30 for weeks during floorless drops when technical support is lost.\nEXPECTED MOVE: Continuation of the session's downward momentum to test new 52-week lows. Targeting a 20-30% gain on the weekly put.\nINVALIDATION: Decisive intraday reclamation of the 200 SMA (594.23) or a sharp reversal in 10Y yields.\nEXIT PLAN: Sell if target profit is reached, if invalidation signals hit, or at 3:45 PM ET mandatory hard close (PAPER.md).",
+      "entry_price": 242.36,
+      "entry_iv": 0,
+      "entry_date": "2026-03-30",
+      "ticker": "IWM",
+      "type": "put",
+      "strike": 565.0,
+      "expiry": "2026-04-02",
+      "quantity": 1,
+      "cost_basis": 0,
+      "reflected": false,
+      "market_context": {
+        "price": 242.36,
+        "change_pct": -0.31,
+        "iv": 0,
+        "option_greeks": {},
+        "iv_context": {},
+        "trends": {
+          "price_52w_high": 271.6,
+          "price_52w_low": 171.73,
+          "price_vs_52w_pct": 71,
+          "sma_50": 258.13,
+          "sma_200": 242.26,
+          "sma_signal": "mixed",
+          "returns": {
+            "1w": -2.1,
+            "1m": -7.3,
+            "3m": -3.6,
+            "6m": 0.4
+          },
+          "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+          "rsi_14": 36.4,
+          "atr_14": 5.17,
+          "prev_day_high": 245.37,
+          "prev_day_low": 241.57,
+          "avg_volume_50d": 45770504,
+          "bollinger": {
+            "upper": 260.17,
+            "middle": 249.89,
+            "lower": 239.62,
+            "pct_b": 13.6
+          }
+        },
+        "news": [
+          {
+            "title": "Exchange-Traded Funds, Equity Futures Higher Pre-Bell Monday Ahead of Fresh Economic Data",
+            "publisher": "MT Newswires",
+            "date": "2026-03-30"
+          },
+          {
+            "title": "IWM vs. QQQ: How Small-Cap Diversification Compares to Large-Cap Growth for Investors",
+            "publisher": "Motley Fool",
+            "date": "2026-03-29"
+          },
+          {
+            "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Friday as Investor Concerns Linger Amid Middle East Conflict",
+            "publisher": "MT Newswires",
+            "date": "2026-03-27"
+          },
+          {
+            "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Thursday Amid Ongoing Middle East Tensions",
+            "publisher": "MT Newswires",
+            "date": "2026-03-26"
+          },
+          {
+            "title": "Go Big or Go Small? IWM Targets Small-Cap Stocks; MGK Owns Big Tech Stocks",
+            "publisher": "Motley Fool",
+            "date": "2026-03-25"
+          }
+        ],
+        "broader_market": {
+          "spy_price": 636.43,
+          "spy_change_pct": 0.37
+        }
+      }
+    }
   ]
 }

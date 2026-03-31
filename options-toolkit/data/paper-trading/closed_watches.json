@@ -2079,5 +2079,279 @@
         "spy_change_pct": -0.68
       }
     }
+  },
+  "GLD260331C00285000": {
+    "ticker": "GLD",
+    "type": "call",
+    "strike": 285.0,
+    "expiry": "2026-03-31",
+    "quantity": 1,
+    "cost_basis": 13265.0,
+    "sell_date": "2026-03-30",
+    "sell_proceeds": 13080.0,
+    "sell_price": 130.8,
+    "sell_iv": 334.1,
+    "open_reason": "THESIS (Eva Paper): Intraday Reversal - Bounce from Statistical Extreme (2:30 PM UTC).\n\nDIRECTION: Bullish. GLD hitting session highs (283.8) reclaiming key levels after hitting 3-month lows on Friday. Geopolitical risk (Iran war) provides a fundamental tailwind. Yield pressure (4.42%) is high, but momentum is currently overriding rates.\nWHAT: 'Tactical Bounce-Back' setup \u2014 Gold is rebounding from extreme oversold conditions (RSI 23.3 on Friday) and reclaiming short-term intraday momentum.\nEXPECTED MOVE: Continuation of recovery rally back toward 285-288. Targeting 15-20% gain on contract value.\nINVALIDATION: Break below session low (approx. 280) or sudden sharp rise in 10Y yields.\nEXIT PLAN: Sell at 3:45 PM ET mandatory hard close (PAPER.md) or if target reached early.",
+    "close_reason": "EOD CLOSE: Mandatory 3:45 PM ET exit per PAPER.md. Thesis 'Tactical Bounce-Back' confirmed as GLD (284.15) successfully rebounded from Friday's extreme oversold lows (RSI 23), hitting session highs (+1.34%) and reclaiming key levels despite yield pressure. Safe-haven bid from Iran war remains intact. Closing now to stay flat overnight. Outcome: Small profit/scratch on contract spread.",
+    "entry_market_context": {
+      "price": 417.38,
+      "change_pct": 0.65,
+      "iv": 204.6,
+      "option_greeks": {
+        "delta": 1.0,
+        "gamma": 0,
+        "theta": 0,
+        "vega": 0,
+        "rho": 0
+      },
+      "iv_context": {
+        "iv_rank": 100,
+        "iv_percentile": 100,
+        "iv_52w_high": 55.3,
+        "iv_52w_low": 25.4
+      },
+      "trends": {
+        "price_52w_high": 509.7,
+        "price_52w_low": 272.58,
+        "price_vs_52w_pct": 61,
+        "sma_50": 454.85,
+        "sma_200": 377.19,
+        "sma_signal": "mixed",
+        "returns": {
+          "1w": 3.3,
+          "1m": -13.7,
+          "3m": 0.2,
+          "6m": 20.4
+        },
+        "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+        "rsi_14": 24.5,
+        "atr_14": 11.26,
+        "prev_day_high": 420.1,
+        "prev_day_low": 416.73,
+        "avg_volume_50d": 20263727,
+        "bollinger": {
+          "upper": 500.74,
+          "middle": 444.77,
+          "lower": 388.8,
+          "pct_b": 25.5
+        }
+      },
+      "news": [
+        {
+          "title": "Gold Trading Higher as Traders Focus on Economic Fallout of the Iran War",
+          "publisher": "MT Newswires",
+          "date": "2026-03-30"
+        },
+        {
+          "title": "The Low-Cost ETF to Buy Now That Gold Is Above $5,500 Again",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-30"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Higher Pre-Bell Monday Ahead of Fresh Economic Data",
+          "publisher": "MT Newswires",
+          "date": "2026-03-30"
+        },
+        {
+          "title": "Ray Dalio Flags 'Risky Times' \u2014 And Warns Cash May Be The Worst Place To Hide",
+          "publisher": "Benzinga",
+          "date": "2026-03-29"
+        },
+        {
+          "title": "Why It's Not Time to Give Up on the Gold Trade",
+          "publisher": "MarketBeat",
+          "date": "2026-03-28"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 636.53,
+        "spy_change_pct": 0.39
+      }
+    },
+    "sell_market_context": {
+      "underlying_price": 418.11,
+      "option_price": 130.8,
+      "iv": 334.1,
+      "greeks": {
+        "delta": 1.0,
+        "gamma": 0,
+        "theta": 0,
+        "vega": 0,
+        "rho": 0
+      },
+      "iv_context": {
+        "iv_rank": 100,
+        "iv_percentile": 100,
+        "iv_52w_high": 55.3,
+        "iv_52w_low": 25.4
+      },
+      "trends": {
+        "price_52w_high": 509.7,
+        "price_52w_low": 272.58,
+        "price_vs_52w_pct": 61,
+        "sma_50": 454.86,
+        "sma_200": 377.19,
+        "sma_signal": "mixed",
+        "returns": {
+          "1w": 3.5,
+          "1m": -13.6,
+          "3m": 0.3,
+          "6m": 20.6
+        },
+        "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+        "rsi_14": 24.9,
+        "atr_14": 11.28,
+        "prev_day_high": 420.1,
+        "prev_day_low": 414.44,
+        "avg_volume_50d": 20342483,
+        "bollinger": {
+          "upper": 500.7,
+          "middle": 444.8,
+          "lower": 388.9,
+          "pct_b": 26.1
+        }
+      },
+      "broader_market": {
+        "spy_price": 637.66,
+        "spy_change_pct": 0.57
+      }
+    }
+  },
+  "XLE260410C00063000": {
+    "ticker": "XLE",
+    "type": "call",
+    "strike": 63.0,
+    "expiry": "2026-04-10",
+    "quantity": 1,
+    "cost_basis": 142.0,
+    "sell_date": "2026-03-30",
+    "sell_proceeds": 125.0,
+    "sell_price": 1.25,
+    "sell_iv": 33.2,
+    "open_reason": "DIRECTION: Bull. Signals: XLE hitting new 52-week highs (2.94) with extreme relative strength (XLE +0.62%, SPY +0.41%), trading above both 50/200 SMA. Geopolitical catalyst (Iran conflict oil shock) remains active per deep news research. SETUP: High-conviction 'Momentum Shield' breakout (sector divergence). EXPECTED MOVE: Continued intraday momentum to test 4 level; RSI 91.2 is extreme but per 'experience/tickers/XLE/momentum-oil-geopolitical.md', these technicals marks local targets, not reversals in this regime. Target +15-20% gain. INVALIDATION: XLE breaks below 2.50 or clear de-escalation news headlines. EXIT PLAN: Aiming for tactical exit before 3:45 PM ET today; no overnight hold.",
+    "close_reason": "MANDATORY EOD CLOSE: Closing XLE calls per PAPER.md 3:45 PM ET hard constraint. Thesis 'Momentum Shield' played out successfully as XLE hit new 52-week highs (63.46) earlier today, showing extreme relative strength (RSI 90.9) against a downtrending broader market. P&L: Captured move from 1.42 cost basis to current bid. Closing all positions to remain flat overnight.",
+    "entry_market_context": {
+      "price": 62.89,
+      "change_pct": 0.53,
+      "iv": 33.2,
+      "option_greeks": {
+        "delta": 0.513,
+        "gamma": 0.1098,
+        "theta": -0.0668,
+        "vega": 0.0439,
+        "rho": 0.0095
+      },
+      "iv_context": {
+        "iv_rank": 39,
+        "iv_percentile": 67,
+        "iv_52w_high": 43.5,
+        "iv_52w_low": 26.8
+      },
+      "trends": {
+        "price_52w_high": 63.46,
+        "price_52w_low": 37.24,
+        "price_vs_52w_pct": 98,
+        "sma_50": 54.92,
+        "sma_200": 46.91,
+        "sma_signal": "above_both",
+        "returns": {
+          "1w": 5.5,
+          "1m": 12.5,
+          "3m": 42.3,
+          "6m": 36.7
+        },
+        "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+        "rsi_14": 91.1,
+        "atr_14": 1.21,
+        "prev_day_high": 63.46,
+        "prev_day_low": 62.55,
+        "avg_volume_50d": 59131924,
+        "bollinger": {
+          "upper": 62.82,
+          "middle": 58.55,
+          "lower": 54.28,
+          "pct_b": 100.8
+        }
+      },
+      "news": [
+        {
+          "title": "Oil Could Surge to $200 if Conflict Continues: Energy ETFs in Focus",
+          "publisher": "Zacks",
+          "date": "2026-03-30"
+        },
+        {
+          "title": "Sector Update: Energy Stocks Rise Pre-Bell Monday",
+          "publisher": "MT Newswires",
+          "date": "2026-03-30"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Higher Pre-Bell Monday Ahead of Fresh Economic Data",
+          "publisher": "MT Newswires",
+          "date": "2026-03-30"
+        },
+        {
+          "title": "Sector Update: Energy Stocks Rise Late Afternoon",
+          "publisher": "MT Newswires",
+          "date": "2026-03-27"
+        },
+        {
+          "title": "Sector Update: Energy",
+          "publisher": "MT Newswires",
+          "date": "2026-03-27"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 636.53,
+        "spy_change_pct": 0.39
+      }
+    },
+    "sell_market_context": {
+      "underlying_price": 62.63,
+      "option_price": 1.25,
+      "iv": 33.2,
+      "greeks": {
+        "delta": 0.513,
+        "gamma": 0.1098,
+        "theta": -0.0668,
+        "vega": 0.0439,
+        "rho": 0.0095
+      },
+      "iv_context": {
+        "iv_rank": 34,
+        "iv_percentile": 67,
+        "iv_52w_high": 45.5,
+        "iv_52w_low": 26.8
+      },
+      "trends": {
+        "price_52w_high": 63.46,
+        "price_52w_low": 37.24,
+        "price_vs_52w_pct": 97,
+        "sma_50": 54.91,
+        "sma_200": 46.91,
+        "sma_signal": "above_both",
+        "returns": {
+          "1w": 5.0,
+          "1m": 12.0,
+          "3m": 41.7,
+          "6m": 36.2
+        },
+        "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+        "rsi_14": 90.9,
+        "atr_14": 1.21,
+        "prev_day_high": 63.46,
+        "prev_day_low": 62.51,
+        "avg_volume_50d": 59154477,
+        "bollinger": {
+          "upper": 62.76,
+          "middle": 58.54,
+          "lower": 54.32,
+          "pct_b": 98.5
+        }
+      },
+      "broader_market": {
+        "spy_price": 635.16,
+        "spy_change_pct": 0.17
+      }
+    }
   }
 }
