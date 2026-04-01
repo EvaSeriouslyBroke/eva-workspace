@@ -682,5 +682,369 @@
         }
       }
     }
+  ],
+  "QQQ260402P00560000": [
+    {
+      "order_id": "27193158",
+      "reason": "DIRECTION: Bear. QQQ is in a structural downtrend below both 50 and 200-day SMAs (558.28 price vs 605.2/594.2 SMAs). Broad market (SPY) is also below both major SMAs, creating a Negative Momentum Vortex. SETUP: Intraday Momentum Breakdown. QQQ is trading near session lows in a broken technical environment. EXPECTED MOVE: Continued flush toward psychological 50 handle or support at lower Bollinger Band (63 already breached). Target 20% gain. INVALIDATION: Recovery above the morning high or a sudden broader market trend reversal (SPY reclaim of SMAs). EXIT PLAN: Sell at 20% profit target hit, or at 3:30 PM ET per PAPER.md day trade rule. Experience 'tickers/QQQ/intraday-momentum-breakdown.md' confirms this setup as high-confidence in this regime.",
+      "entry_price": 558.28,
+      "entry_iv": 30.8,
+      "entry_date": "2026-03-31",
+      "ticker": "QQQ",
+      "type": "put",
+      "strike": 560.0,
+      "expiry": "2026-04-02",
+      "quantity": 1,
+      "cost_basis": 750.0,
+      "reflected": false,
+      "market_context": {
+        "price": 558.28,
+        "change_pct": 0,
+        "iv": 30.8,
+        "option_greeks": {
+          "delta": -0.525,
+          "gamma": 0.0259,
+          "theta": -1.0737,
+          "vega": 0.2008,
+          "rho": 0.0206
+        },
+        "iv_context": {
+          "iv_rank": 52,
+          "iv_percentile": 69,
+          "iv_52w_high": 37.8,
+          "iv_52w_low": 23.1
+        },
+        "trends": {
+          "price_52w_high": 637.01,
+          "price_52w_low": 402.39,
+          "price_vs_52w_pct": 66,
+          "sma_50": 604.07,
+          "sma_200": 594.35,
+          "sma_signal": "below_both",
+          "returns": {
+            "1w": -4.4,
+            "1m": -8.2,
+            "3m": -10.1,
+            "6m": -6.8
+          },
+          "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
+          "rsi_14": 27.4,
+          "atr_14": 10.13,
+          "prev_day_high": 565.35,
+          "prev_day_low": 564.23,
+          "avg_volume_50d": 67268698,
+          "bollinger": {
+            "upper": 622.75,
+            "middle": 591.33,
+            "lower": 559.92,
+            "pct_b": 8.0
+          }
+        },
+        "news": [
+          {
+            "title": "Exchange-Traded Funds, Equity Futures Higher Pre-Bell Tuesday as De-Escalation Hopes Lift Risk Sentiment",
+            "publisher": "MT Newswires",
+            "date": "2026-03-31"
+          },
+          {
+            "title": "Stock Market Today: Dow Jumps On Trump's Olive Branch; Oil Prices Mixed (Live Coverage)",
+            "publisher": "Investor's Business Daily",
+            "date": "2026-03-31"
+          },
+          {
+            "title": "Fidelity Blue Chip Growth Is Down 11.67% in 2026. What Comes Next Depends on This.",
+            "publisher": "24/7 Wall St.",
+            "date": "2026-03-31"
+          },
+          {
+            "title": "Is QQQ Still Worth Buying After the Market's Recent Slide?",
+            "publisher": "Motley Fool",
+            "date": "2026-03-31"
+          },
+          {
+            "title": "Exchange-Traded Funds, US Equities Mixed After Midday",
+            "publisher": "MT Newswires",
+            "date": "2026-03-30"
+          }
+        ],
+        "broader_market": {
+          "spy_price": 631.97,
+          "spy_change_pct": 0
+        }
+      }
+    }
+  ],
+  "XLE260402C00062000": [
+    {
+      "order_id": "27193200",
+      "reason": "DIRECTION: Bull. XLE is in a historic 14-week winning streak, trading at 52-week highs (61.96) and significantly above 50/200 SMAs (61.96 price vs 55.19/47.0 SMAs). SETUP: Momentum Shield / Breakout. XLE shows extreme relative strength and sector divergence (green while SPY/QQQ are deep red) driven by geopolitical oil bid and risk sentiment recovery news. EXPECTED MOVE: Extended momentum move to new highs (2.5+). Target 15-20% gain. INVALIDATION: Sharp reversal in oil prices or de-escalation news that breaks the momentum. EXIT PLAN: Sell immediately if RSI peaks >80 (currently 82.4-84.8 indicating extreme momentum) or at 3:30 PM ET. Experience 'tickers/XLE/momentum-oil-geopolitical.md' confirms that 'technical exhaustion' signals are profit targets, not reversal signals, in this specific 'Shielded' regime.",
+      "entry_price": 61.96,
+      "entry_iv": 37.7,
+      "entry_date": "2026-03-31",
+      "ticker": "XLE",
+      "type": "call",
+      "strike": 62.0,
+      "expiry": "2026-04-02",
+      "quantity": 1,
+      "cost_basis": 95.0,
+      "reflected": false,
+      "market_context": {
+        "price": 61.96,
+        "change_pct": 0,
+        "iv": 37.7,
+        "option_greeks": {
+          "delta": 0.508,
+          "gamma": 0.2033,
+          "theta": -0.141,
+          "vega": 0.0224,
+          "rho": 0.0025
+        },
+        "iv_context": {
+          "iv_rank": 56,
+          "iv_percentile": 75,
+          "iv_52w_high": 46.5,
+          "iv_52w_low": 26.8
+        },
+        "trends": {
+          "price_52w_high": 63.46,
+          "price_52w_low": 37.24,
+          "price_vs_52w_pct": 94,
+          "sma_50": 55.19,
+          "sma_200": 47.0,
+          "sma_signal": "above_both",
+          "returns": {
+            "1w": 1.8,
+            "1m": 8.6,
+            "3m": 38.9,
+            "6m": 37.2
+          },
+          "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+          "rsi_14": 82.2,
+          "atr_14": 1.17,
+          "prev_day_high": 62.18,
+          "prev_day_low": 61.99,
+          "avg_volume_50d": 58993964,
+          "bollinger": {
+            "upper": 63.04,
+            "middle": 58.78,
+            "lower": 54.52,
+            "pct_b": 87.7
+          }
+        },
+        "news": [
+          {
+            "title": "Exchange-Traded Funds, Equity Futures Higher Pre-Bell Tuesday as De-Escalation Hopes Lift Risk Sentiment",
+            "publisher": "MT Newswires",
+            "date": "2026-03-31"
+          },
+          {
+            "title": "Energy Stocks Stun Wall Street With Historic 14-Week Winning Streak",
+            "publisher": "GuruFocus.com",
+            "date": "2026-03-31"
+          },
+          {
+            "title": "Sector Update: Energy Stocks Decline Late Afternoon",
+            "publisher": "MT Newswires",
+            "date": "2026-03-30"
+          },
+          {
+            "title": "Sector Update: Energy Stocks Mixed Monday Afternoon",
+            "publisher": "MT Newswires",
+            "date": "2026-03-30"
+          },
+          {
+            "title": "Exchange-Traded Funds, US Equities Mixed After Midday",
+            "publisher": "MT Newswires",
+            "date": "2026-03-30"
+          }
+        ],
+        "broader_market": {
+          "spy_price": 631.97,
+          "spy_change_pct": 0
+        }
+      }
+    }
+  ],
+  "QQQ260402C00575000": [
+    {
+      "order_id": "27227632",
+      "reason": "DIRECTION: Bull (Tactical Reversal). QQQ +2.9%, SPY +2.3% on de-escalation news. SETUP: Oversold Bounce / Range Breakout. RSI 34 recovery from deep oversold. THESIS: Headline-driven fear is evaporating, triggering a technical relief rally. EXPECTED MOVE: Continuation toward the 200-day SMA (594) pivot. INVALIDATION: Break below session low (564) or SPY reversal. EXIT PLAN: Target 590-594 (200 SMA resistance) or 3:30 PM ET close per PAPER.md.",
+      "entry_price": 574.01,
+      "entry_iv": 27.7,
+      "entry_date": "2026-03-31",
+      "ticker": "QQQ",
+      "type": "call",
+      "strike": 575.0,
+      "expiry": "2026-04-02",
+      "quantity": 1,
+      "cost_basis": 444.0,
+      "reflected": true,
+      "market_context": {
+        "price": 574.01,
+        "change_pct": 2.82,
+        "iv": 27.7,
+        "option_greeks": {
+          "delta": 0.467,
+          "gamma": 0.0334,
+          "theta": -1.1687,
+          "vega": 0.1736,
+          "rho": 0.0153
+        },
+        "iv_context": {
+          "iv_rank": 31,
+          "iv_percentile": 62,
+          "iv_52w_high": 37.8,
+          "iv_52w_low": 23.1
+        },
+        "trends": {
+          "price_52w_high": 637.01,
+          "price_52w_low": 402.39,
+          "price_vs_52w_pct": 73,
+          "sma_50": 604.25,
+          "sma_200": 594.4,
+          "sma_signal": "below_both",
+          "returns": {
+            "1w": -1.7,
+            "1m": -5.6,
+            "3m": -7.5,
+            "6m": -4.1
+          },
+          "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
+          "rsi_14": 33.8,
+          "atr_14": 10.91,
+          "prev_day_high": 576.21,
+          "prev_day_low": 564.21,
+          "avg_volume_50d": 68373229,
+          "bollinger": {
+            "upper": 621.9,
+            "middle": 591.79,
+            "lower": 561.67,
+            "pct_b": 20.4
+          }
+        },
+        "news": [
+          {
+            "title": "Exchange-Traded Funds Rise as US Equities Advance After Midday",
+            "publisher": "MT Newswires",
+            "date": "2026-03-31"
+          },
+          {
+            "title": "MAGS ETF: Two Signals Will Determine If the 16% Slide Gets Worse in 2026",
+            "publisher": "24/7 Wall St.",
+            "date": "2026-03-31"
+          },
+          {
+            "title": "What Correction? 4 Nasdaq Stocks on a Roll That Still Have More Upside",
+            "publisher": "24/7 Wall St.",
+            "date": "2026-03-31"
+          },
+          {
+            "title": "ONEQ Is Down 10% in 2026 and Nvidia Holds the Key to What Comes Next",
+            "publisher": "24/7 Wall St.",
+            "date": "2026-03-31"
+          },
+          {
+            "title": "Nvidia's Stock Is Struggling, and That's Bad News for This High-Powered Nasdaq ETF",
+            "publisher": "Motley Fool",
+            "date": "2026-03-31"
+          }
+        ],
+        "broader_market": {
+          "spy_price": 646.67,
+          "spy_change_pct": 2.33
+        }
+      }
+    }
+  ],
+  "XLE260402P00061000": [
+    {
+      "order_id": "27227638",
+      "reason": "DIRECTION: Bear (Tactical Reversal). XLE -2.0% as geopolitical risk premium fades. SETUP: Overbought Fade / 14-week Streak Rejection. RSI 71 reversing from extreme highs. THESIS: De-escalation news (Iran/Trump olive branch) is deflating the energy 'momentum shield' as tech recovers. EXPECTED MOVE: Mean reversion toward 20-day EMA (58.7) support. INVALIDATION: XLE reclaim of 62.5 or new geopolitical escalations. EXIT PLAN: Target 59.0 (Bollinger middle) or 3:30 PM ET close per PAPER.md.",
+      "entry_price": 60.71,
+      "entry_iv": 41.3,
+      "entry_date": "2026-03-31",
+      "ticker": "XLE",
+      "type": "put",
+      "strike": 61.0,
+      "expiry": "2026-04-02",
+      "quantity": 1,
+      "cost_basis": 96.0,
+      "reflected": true,
+      "market_context": {
+        "price": 60.71,
+        "change_pct": -2.02,
+        "iv": 41.3,
+        "option_greeks": {
+          "delta": -0.334,
+          "gamma": 0.2,
+          "theta": -0.1769,
+          "vega": 0.0174,
+          "rho": 0.0023
+        },
+        "iv_context": {
+          "iv_rank": 74,
+          "iv_percentile": 81,
+          "iv_52w_high": 46.5,
+          "iv_52w_low": 26.8
+        },
+        "trends": {
+          "price_52w_high": 63.46,
+          "price_52w_low": 37.24,
+          "price_vs_52w_pct": 90,
+          "sma_50": 55.16,
+          "sma_200": 46.99,
+          "sma_signal": "above_both",
+          "returns": {
+            "1w": -0.2,
+            "1m": 6.4,
+            "3m": 36.1,
+            "6m": 34.5
+          },
+          "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+          "rsi_14": 70.7,
+          "atr_14": 1.36,
+          "prev_day_high": 62.83,
+          "prev_day_low": 60.03,
+          "avg_volume_50d": 60246180,
+          "bollinger": {
+            "upper": 62.81,
+            "middle": 58.71,
+            "lower": 54.61,
+            "pct_b": 74.3
+          }
+        },
+        "news": [
+          {
+            "title": "Exchange-Traded Funds Rise as US Equities Advance After Midday",
+            "publisher": "MT Newswires",
+            "date": "2026-03-31"
+          },
+          {
+            "title": "Sector Update: Energy Stocks Edge Higher Pre-Bell Tuesday",
+            "publisher": "MT Newswires",
+            "date": "2026-03-31"
+          },
+          {
+            "title": "Stock Market News for Mar 31, 2026",
+            "publisher": "Zacks",
+            "date": "2026-03-31"
+          },
+          {
+            "title": "Exchange-Traded Funds, Equity Futures Higher Pre-Bell Tuesday as De-Escalation Hopes Lift Risk Sentiment",
+            "publisher": "MT Newswires",
+            "date": "2026-03-31"
+          },
+          {
+            "title": "Energy Stocks Stun Wall Street With Historic 14-Week Winning Streak",
+            "publisher": "GuruFocus.com",
+            "date": "2026-03-31"
+          }
+        ],
+        "broader_market": {
+          "spy_price": 646.68,
+          "spy_change_pct": 2.33
+        }
+      }
+    }
   ]
 }

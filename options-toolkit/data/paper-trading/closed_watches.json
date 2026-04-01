@@ -2353,5 +2353,416 @@
         "spy_change_pct": 0.17
       }
     }
+  },
+  "GLD260402C00425000": {
+    "ticker": "GLD",
+    "type": "call",
+    "strike": 425.0,
+    "expiry": "2026-04-02",
+    "quantity": 1,
+    "cost_basis": 510.0,
+    "sell_date": "2026-03-31",
+    "sell_proceeds": 430.0,
+    "sell_price": 4.3,
+    "sell_iv": 40.5,
+    "open_reason": "DIRECTION: Bull (Reversal). GLD is rebounding (+2.4% today) after a 13% monthly flush. Catalysts: Fed patience (unlikely hike) and de-escalation rumors lowering the opportunity cost for bullion. SETUP: Deep Overbought Mean Reversion. RSI 30.2 is climbing from oversold levels. EXPECTED MOVE: Continuation of relief rally toward previous consolidation zone (~440). Target 25-30% gain. INVALIDATION: Decisive break below morning low (15) or a sudden spike in 10Y yields that negates the Fed pause narrative. EXIT PLAN: Take profits at +30% or at 3:30 PM ET per PAPER.md day trade rule. Experience 'tickers/GLD/bounce-back-fails-when-macro-fear-fades.md' warns to keep this intraday only.",
+    "close_reason": "PROFIT TARGET HIT: Tactical Bounce-Back played out exactly as modeled. GLD reclaimed 23 (+2.25%) as hawks retreated and geopolitical de-escalation rumors lowered bullion opportunity costs. Per 'bounce-back-fails-when-macro-fear-fades.md', we exit at the first sign of target achievement to avoid 10Y yield volatility. Captured move from 412 entry levels.",
+    "entry_market_context": {
+      "price": 423.91,
+      "change_pct": 2.25,
+      "iv": 40.5,
+      "option_greeks": {
+        "delta": 0.442,
+        "gamma": 0.0298,
+        "theta": -1.185,
+        "vega": 0.1317,
+        "rho": 0.0117
+      },
+      "iv_context": {
+        "iv_rank": 50,
+        "iv_percentile": 65,
+        "iv_52w_high": 55.3,
+        "iv_52w_low": 25.4
+      },
+      "trends": {
+        "price_52w_high": 509.7,
+        "price_52w_low": 272.58,
+        "price_vs_52w_pct": 64,
+        "sma_50": 454.85,
+        "sma_200": 377.73,
+        "sma_signal": "mixed",
+        "returns": {
+          "1w": 4.9,
+          "1m": -13.5,
+          "3m": 6.3,
+          "6m": 20.3
+        },
+        "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+        "rsi_14": 28.8,
+        "atr_14": 11.79,
+        "prev_day_high": 424.1,
+        "prev_day_low": 419.59,
+        "avg_volume_50d": 20106368,
+        "bollinger": {
+          "upper": 498.28,
+          "middle": 442.42,
+          "lower": 386.55,
+          "pct_b": 33.4
+        }
+      },
+      "news": [
+        {
+          "title": "Gold Climbs as Powell Says Interest-Rate Hikes are Unlikely While Reports Say the U.S. May End the Iran War",
+          "publisher": "MT Newswires",
+          "date": "2026-03-31"
+        },
+        {
+          "title": "Gold Jumps 2.4% as Fed Signals Patience, Trump Weighs Iran War End",
+          "publisher": "GuruFocus.com",
+          "date": "2026-03-31"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Higher Pre-Bell Tuesday as De-Escalation Hopes Lift Risk Sentiment",
+          "publisher": "MT Newswires",
+          "date": "2026-03-31"
+        },
+        {
+          "title": "There Are Only 2 Main Ways To Protect Money From Trump's Iran War",
+          "publisher": "Investor's Business Daily",
+          "date": "2026-03-31"
+        },
+        {
+          "title": "Update: Gold Trading Higher as Traders Focus on Economic Fallout of the Iran War",
+          "publisher": "MT Newswires",
+          "date": "2026-03-30"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 642.545,
+        "spy_change_pct": 1.68
+      }
+    },
+    "sell_market_context": {
+      "underlying_price": 423.3,
+      "option_price": 4.3,
+      "iv": 40.5,
+      "greeks": {
+        "delta": 0.442,
+        "gamma": 0.0298,
+        "theta": -1.185,
+        "vega": 0.1317,
+        "rho": 0.0117
+      },
+      "iv_context": {
+        "iv_rank": 50,
+        "iv_percentile": 65,
+        "iv_52w_high": 55.3,
+        "iv_52w_low": 25.4
+      },
+      "trends": {
+        "price_52w_high": 509.7,
+        "price_52w_low": 272.58,
+        "price_vs_52w_pct": 64,
+        "sma_50": 454.83,
+        "sma_200": 377.73,
+        "sma_signal": "mixed",
+        "returns": {
+          "1w": 4.7,
+          "1m": -13.6,
+          "3m": 6.2,
+          "6m": 20.1
+        },
+        "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+        "rsi_14": 28.5,
+        "atr_14": 11.89,
+        "prev_day_high": 425.37,
+        "prev_day_low": 419.59,
+        "avg_volume_50d": 20146973,
+        "bollinger": {
+          "upper": 498.29,
+          "middle": 442.39,
+          "lower": 386.49,
+          "pct_b": 33.0
+        }
+      },
+      "broader_market": {
+        "spy_price": 640.0812,
+        "spy_change_pct": 1.29
+      }
+    }
+  },
+  "QQQ260402P00565000": {
+    "ticker": "QQQ",
+    "type": "put",
+    "strike": 565.0,
+    "expiry": "2026-04-02",
+    "quantity": 1,
+    "cost_basis": 451.0,
+    "sell_date": "2026-03-31",
+    "sell_proceeds": 356.0,
+    "sell_price": 3.56,
+    "sell_iv": 27.9,
+    "open_reason": "DIRECTION: Bear. QQQ remains in a structural downtrend (below 50/200 SMA) despite today's +1.1% tactical bounce on Iran de-escalation news. Broader market (SPY) is also below its SMAs. SETUP: Mean Reversion Trap / Reclamation Failure. Today's rally is a tactical bounce into heavy resistance. Experience 'general/mean-reversion-calls-fail-below-smas.md' confirms that 'Good News' catalysts (olive branch) often fail to override structural technical damage. EXPECTED MOVE: I expect the de-escalation rally to fade as QQQ hits intraday resistance (VWAP/SMA) and reverts to the primary bearish trend. INVALIDATION: QQQ decisively reclaims and holds the 200 SMA (594). EXIT PLAN: Sell if QQQ drops to previous low (555) or by 3:30 PM ET. No-overnight hold per PAPER.md.",
+    "close_reason": "EOD CLOSE: Closing QQQ put position per PAPER.md 3:45 PM ET hard constraint. QQQ (565.68) remains in a structural downtrend (below 50/200 SMA) and is currently seeing a tactical de-escalation bounce (+1.33%) that is hitting resistance. RSI 28.0 confirms a deeply oversold recovery. Contract bid is 0.0, suggesting lack of liquidity or wide spread at this strike relative to spot. Exiting to remain flat overnight. P&L: Final result is a loss (~ -100%) based on current mark vs 4.52 entry.",
+    "entry_market_context": {
+      "price": 566.12,
+      "change_pct": 1.41,
+      "iv": 30.1,
+      "option_greeks": {
+        "delta": -0.652,
+        "gamma": 0.024,
+        "theta": -0.9621,
+        "vega": 0.1859,
+        "rho": 0.015
+      },
+      "iv_context": {
+        "iv_rank": 48,
+        "iv_percentile": 69,
+        "iv_52w_high": 37.8,
+        "iv_52w_low": 23.1
+      },
+      "trends": {
+        "price_52w_high": 637.01,
+        "price_52w_low": 402.39,
+        "price_vs_52w_pct": 70,
+        "sma_50": 604.1,
+        "sma_200": 594.36,
+        "sma_signal": "below_both",
+        "returns": {
+          "1w": -3.1,
+          "1m": -6.9,
+          "3m": -8.8,
+          "6m": -5.4
+        },
+        "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
+        "rsi_14": 28.4,
+        "atr_14": 10.21,
+        "prev_day_high": 566.35,
+        "prev_day_low": 564.23,
+        "avg_volume_50d": 67373374,
+        "bollinger": {
+          "upper": 622.61,
+          "middle": 591.39,
+          "lower": 560.18,
+          "pct_b": 9.5
+        }
+      },
+      "news": [
+        {
+          "title": "Stock Market Today: Dow Surges Over Trump's Olive Branch; Oil Prices Higher (Live Coverage)",
+          "publisher": "Investor's Business Daily",
+          "date": "2026-03-31"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Higher Pre-Bell Tuesday as De-Escalation Hopes Lift Risk Sentiment",
+          "publisher": "MT Newswires",
+          "date": "2026-03-31"
+        },
+        {
+          "title": "Fidelity Blue Chip Growth Is Down 11.67% in 2026. What Comes Next Depends on This.",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-31"
+        },
+        {
+          "title": "Is QQQ Still Worth Buying After the Market's Recent Slide?",
+          "publisher": "Motley Fool",
+          "date": "2026-03-31"
+        },
+        {
+          "title": "Exchange-Traded Funds, US Equities Mixed After Midday",
+          "publisher": "MT Newswires",
+          "date": "2026-03-30"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 640.23,
+        "spy_change_pct": 1.31
+      }
+    },
+    "sell_market_context": {
+      "underlying_price": 567.71,
+      "option_price": 3.56,
+      "iv": 27.9,
+      "greeks": {
+        "delta": -0.451,
+        "gamma": 0.0318,
+        "theta": -1.1965,
+        "vega": 0.1717,
+        "rho": 0.019
+      },
+      "iv_context": {
+        "iv_rank": 33,
+        "iv_percentile": 69,
+        "iv_52w_high": 37.8,
+        "iv_52w_low": 23.1
+      },
+      "trends": {
+        "price_52w_high": 637.01,
+        "price_52w_low": 402.39,
+        "price_vs_52w_pct": 70,
+        "sma_50": 604.13,
+        "sma_200": 594.37,
+        "sma_signal": "below_both",
+        "returns": {
+          "1w": -2.8,
+          "1m": -6.6,
+          "3m": -8.6,
+          "6m": -5.2
+        },
+        "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
+        "rsi_14": 29.6,
+        "atr_14": 10.41,
+        "prev_day_high": 569.21,
+        "prev_day_low": 564.21,
+        "avg_volume_50d": 67911150,
+        "bollinger": {
+          "upper": 622.43,
+          "middle": 591.48,
+          "lower": 560.52,
+          "pct_b": 11.7
+        }
+      },
+      "broader_market": {
+        "spy_price": 641.5,
+        "spy_change_pct": 1.51
+      }
+    }
+  },
+  "QQQ260402P00570000": {
+    "ticker": "QQQ",
+    "type": "put",
+    "strike": 570.0,
+    "expiry": "2026-04-02",
+    "quantity": 1,
+    "cost_basis": 356.0,
+    "sell_date": "2026-03-31",
+    "sell_proceeds": 328.0,
+    "sell_price": 3.28,
+    "sell_iv": 26.4,
+    "open_reason": "DIRECTION: Bear. QQQ is in a structural downtrend below the 50/200 SMAs. While the current 2.8% tactical bounce (+1.33% intraday change) is driven by de-escalation hopes, SPY remains in a downtrend and QQQ is significantly below the 200 SMA (594.4). SETUP: Reclamation failure. Per 'general/reclamation-failures-as-short-entries.md', intraday relief rallies that fail to reclaim lost SMAs in a bearish regime are high-confidence short signals. EXPECTED MOVE: I expect the current oversold bounce to exhaust as it hits intraday resistance, followed by a trend continuation toward the daily low (564.21). TARGET: 20-30% P&L. INVALIDATION: QQQ reclaiming and holding above the 200 SMA (594.4) or broad market (SPY) flipping bullish. EXIT PLAN: Sell if target hit, if trend reverses to the upside, or at 3:45 PM ET mandatory close.",
+    "close_reason": "MANDATORY EOD CLOSE: Closing QQQ 70 puts per PAPER.md 3:45 PM ET hard constraint. No overnight holds. Position is currently at .22 (cost basis 3.56). DIRECTION: Bear. QQQ remains in a structural downtrend below 50/200 SMA (605/594) despite today's volatile +1.0% tactical bounce. SETUP: Tactical Bounce-Back Trap / Afternoon Fade. Re-entered at 3:01 PM ET to catch the fade of the morning 'de-escalation' green candle. P&L: Captured move from 569.8 to current levels, resulting in a -9.5% loss on contract (-4). The de-escalation news provided more support than anticipated, keeping the bounce sticky in the final hour. Closing now to remain flat overnight and reassess tomorrow's open.",
+    "entry_market_context": {
+      "price": 574.3,
+      "change_pct": 2.87,
+      "iv": 26.4,
+      "option_greeks": {
+        "delta": -0.616,
+        "gamma": 0.0328,
+        "theta": -1.1213,
+        "vega": 0.1707,
+        "rho": 0.0136
+      },
+      "iv_context": {
+        "iv_rank": 22,
+        "iv_percentile": 62,
+        "iv_52w_high": 37.8,
+        "iv_52w_low": 23.1
+      },
+      "trends": {
+        "price_52w_high": 637.01,
+        "price_52w_low": 402.39,
+        "price_vs_52w_pct": 73,
+        "sma_50": 604.26,
+        "sma_200": 594.4,
+        "sma_signal": "below_both",
+        "returns": {
+          "1w": -1.7,
+          "1m": -5.6,
+          "3m": -7.5,
+          "6m": -4.1
+        },
+        "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
+        "rsi_14": 33.9,
+        "atr_14": 10.87,
+        "prev_day_high": 575.71,
+        "prev_day_low": 564.21,
+        "avg_volume_50d": 68076437,
+        "bollinger": {
+          "upper": 621.88,
+          "middle": 591.8,
+          "lower": 561.72,
+          "pct_b": 20.8
+        }
+      },
+      "news": [
+        {
+          "title": "MAGS ETF: Two Signals Will Determine If the 16% Slide Gets Worse in 2026",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-31"
+        },
+        {
+          "title": "What Correction? 4 Nasdaq Stocks on a Roll That Still Have More Upside",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-31"
+        },
+        {
+          "title": "ONEQ Is Down 10% in 2026 and Nvidia Holds the Key to What Comes Next",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-31"
+        },
+        {
+          "title": "Nvidia's Stock Is Struggling, and That's Bad News for This High-Powered Nasdaq ETF",
+          "publisher": "Motley Fool",
+          "date": "2026-03-31"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Higher Pre-Bell Tuesday as De-Escalation Hopes Lift Risk Sentiment",
+          "publisher": "MT Newswires",
+          "date": "2026-03-31"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 647.39,
+        "spy_change_pct": 2.44
+      }
+    },
+    "sell_market_context": {
+      "underlying_price": 574.02,
+      "option_price": 3.28,
+      "iv": 26.4,
+      "greeks": {
+        "delta": -0.616,
+        "gamma": 0.0328,
+        "theta": -1.1213,
+        "vega": 0.1707,
+        "rho": 0.0136
+      },
+      "iv_context": {
+        "iv_rank": 22,
+        "iv_percentile": 62,
+        "iv_52w_high": 37.8,
+        "iv_52w_low": 23.1
+      },
+      "trends": {
+        "price_52w_high": 637.01,
+        "price_52w_low": 402.39,
+        "price_vs_52w_pct": 73,
+        "sma_50": 604.25,
+        "sma_200": 594.4,
+        "sma_signal": "below_both",
+        "returns": {
+          "1w": -1.7,
+          "1m": -5.6,
+          "3m": -7.5,
+          "6m": -4.1
+        },
+        "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
+        "rsi_14": 33.8,
+        "atr_14": 10.87,
+        "prev_day_high": 575.71,
+        "prev_day_low": 564.21,
+        "avg_volume_50d": 68162373,
+        "bollinger": {
+          "upper": 621.9,
+          "middle": 591.79,
+          "lower": 561.68,
+          "pct_b": 20.5
+        }
+      },
+      "broader_market": {
+        "spy_price": 646.93,
+        "spy_change_pct": 2.37
+      }
+    }
   }
 }
