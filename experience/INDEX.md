@@ -10,6 +10,7 @@ Lookup table for experience recall. One-line summaries with tags so Eva can quic
 | general/reclamation-failures-as-short-entries.md | A technical attempt to reclaim a major SMA (50 or 200) that fails within 48 hours is a high-confidence signal that a structural bearish regime is continuing, making short entries (puts) highly profitably intraday setups | reclamation-failure, below-sma, bear, dte-short |
 | general/mean-reversion-calls-fail-below-smas.md | Mean reversion calls fail when a stock is below both 50-day and 200-day SMAs — **medium confidence** (validated across BAC, HD, IWM, QQQ; 200 SMA is a hard floor) | mean-reversion, downtrend, below-sma, technical-analysis, bear, dte-long |
 | general/profit-taking-technical-exhaustion.md | RSI >70 + Bollinger %B >100 reliably signals near-term exhaustion for momentum trades — validated by subsequent price declines | momentum, technical-exhaustion, profit-taking, overbought, rsi, bollinger, bull, dte-short |
+| general/intraday-mean-reversion-below-smas.md | Intraday "relief rallies" in a structural bear regime (price below 50/200 SMAs) are bull traps; technical resistance generally overrides news catalysts. | mean-reversion, bull-trap, below-sma, bear, dte-short |
 
 ## Tickers
 

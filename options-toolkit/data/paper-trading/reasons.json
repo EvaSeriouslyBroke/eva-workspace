@@ -7262,5 +7262,446 @@
         "spy_change_pct": 2.33
       }
     }
+  },
+  "27263177": {
+    "reason": "THESIS INVALIDATED: QQQ (582.32) is failing to reclaim the critical 200-day SMA floor (594.7) despite the Iran de-escalation relief rally. Experience recall (experience/tickers/QQQ/geopolitical-dips-are-short-lived.md and experience/general/mean-reversion-calls-fail-below-smas.md) confirms that holding calls below both major SMAs is a 'Good News Trap' and a structural bear regime signal. Intraday momentum (+0.9%) is being treated as a bull trap against 'Technical Gravity' from overhead resistance. Closing now to preserve capital as the technical breakdown dominates the news catalyst. Result: Small profit/scratch on the tactical bounce (+1.4% since entry).",
+    "timestamp": "2026-04-01T10:15:42.229455-04:00",
+    "side": "sell_to_close",
+    "symbol": "QQQ260402C00575000"
+  },
+  "27263193": {
+    "reason": "THESIS INVALIDATED / PROFIT TARGET HIT: XLE (-3.08%) has faded into its Middle Bollinger support (58.9) as geopolitical energy premium (RSI peaked at 91) deflates on de-escalation news. Experience recall (experience/tickers/XLE/momentum-oil-geopolitical.md and experience/general/profit-taking-technical-exhaustion.md) confirms that 20-day EMA support and middle Bollinger are high-confidence exit signals for shorts. Fading at support while the 'Momentum Shield' is potentially active is historically a low-conviction trade. Closing now at profit target to avoid bounce at technical support cluster. P&L: Captured ~3% move on underlying to Bollinger mid-target.",
+    "timestamp": "2026-04-01T10:15:49.494220-04:00",
+    "side": "sell_to_close",
+    "symbol": "XLE260402P00061000"
+  },
+  "27265913": {
+    "reason": "DIRECTION: Bear. QQQ (582.01) is in a structural downtrend below both 50/200 SMAs (603/594). SETUP: Bull Trap / Reclamation Failure. Today's 0.84% bounce on Iran de-escalation news is a classic 'Good News Trap' (per experience/general/mean-reversion-calls-fail-below-smas.md) as it fails to reclaim the 200 SMA floor. Intraday momentum is fading at Technical Gravity resistance. EXPECTED MOVE: Continued slide toward 52-week lows (564) as technicals override the fading catalyst. INVALIDATION: Daily close above 200 SMA (594). EXIT PLAN: Target 570 or 3:30 PM ET close.",
+    "timestamp": "2026-04-01T10:30:42.169711-04:00",
+    "side": "buy_to_open",
+    "symbol": "QQQ260406P00580000",
+    "market_context": {
+      "price": 583.48,
+      "change_pct": 1.1,
+      "iv": 22.7,
+      "option_greeks": {
+        "delta": -0.431,
+        "gamma": 0.0254,
+        "theta": -0.622,
+        "vega": 0.2743,
+        "rho": 0.0467
+      },
+      "iv_context": {
+        "iv_rank": 0,
+        "iv_percentile": 0,
+        "iv_52w_high": 37.8,
+        "iv_52w_low": 23.1
+      },
+      "trends": {
+        "price_52w_high": 637.01,
+        "price_52w_low": 402.39,
+        "price_vs_52w_pct": 77,
+        "sma_50": 603.83,
+        "sma_200": 594.7,
+        "sma_signal": "below_both",
+        "returns": {
+          "1w": -0.7,
+          "1m": -3.0,
+          "3m": -5.8,
+          "6m": -2.8
+        },
+        "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
+        "rsi_14": 43.3,
+        "atr_14": 10.81,
+        "prev_day_high": 584.03,
+        "prev_day_low": 580.42,
+        "avg_volume_50d": 67780831,
+        "bollinger": {
+          "upper": 619.25,
+          "middle": 590.58,
+          "lower": 561.91,
+          "pct_b": 37.6
+        }
+      },
+      "news": [
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Gain Pre-Bell Wednesday as Iran War De-Escalation Hopes Drive Sentiment",
+          "publisher": "MT Newswires",
+          "date": "2026-04-01"
+        },
+        {
+          "title": "Best-Performing Leveraged ETFs of March",
+          "publisher": "Zacks",
+          "date": "2026-04-01"
+        },
+        {
+          "title": "Buy This Nasdaq Index Fund. History Says It Could Soar More Than 100% in 5 Years.",
+          "publisher": "Motley Fool",
+          "date": "2026-04-01"
+        },
+        {
+          "title": "Exchange-Traded Funds Rise as US Equities Advance After Midday",
+          "publisher": "MT Newswires",
+          "date": "2026-03-31"
+        },
+        {
+          "title": "MAGS ETF: Two Signals Will Determine If the 16% Slide Gets Worse in 2026",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-31"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 654.7,
+        "spy_change_pct": 0.67
+      }
+    }
+  },
+  "27265925": {
+    "reason": "DIRECTION: Bear (Tactical). XLE (-3.84%) is in a structural uptrend but currently experiencing a 'Momentum Fade' as the geopolitical energy premium deflates. SETUP: Mean Reversion to Support. RSI (56.8) is cooling from extreme overbought levels. EXPECTED MOVE: Test of 50-day SMA support (55.4) as the 'Momentum Shield' weakens on de-escalation news. INVALIDATION: Reclaiming 61.0. EXIT PLAN: Target 56.5 (50 SMA cluster) or 3:30 PM ET close.",
+    "timestamp": "2026-04-01T10:30:47.245122-04:00",
+    "side": "buy_to_open",
+    "symbol": "XLE260410P00059000",
+    "market_context": {
+      "price": 58.845,
+      "change_pct": -3.95,
+      "iv": 32.5,
+      "option_greeks": {
+        "delta": -0.423,
+        "gamma": 0.1337,
+        "theta": -0.0725,
+        "vega": 0.0373,
+        "rho": 0.0082
+      },
+      "iv_context": {
+        "iv_rank": 22,
+        "iv_percentile": 59,
+        "iv_52w_high": 53.2,
+        "iv_52w_low": 26.8
+      },
+      "trends": {
+        "price_52w_high": 63.46,
+        "price_52w_low": 37.24,
+        "price_vs_52w_pct": 82,
+        "sma_50": 55.4,
+        "sma_200": 47.07,
+        "sma_signal": "above_both",
+        "returns": {
+          "1w": -2.8,
+          "1m": 4.1,
+          "3m": 30.9,
+          "6m": 31.7
+        },
+        "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+        "rsi_14": 56.4,
+        "atr_14": 1.44,
+        "prev_day_high": 60.62,
+        "prev_day_low": 58.81,
+        "avg_volume_50d": 60428719,
+        "bollinger": {
+          "upper": 62.87,
+          "middle": 58.87,
+          "lower": 54.88,
+          "pct_b": 49.6
+        }
+      },
+      "news": [
+        {
+          "title": "Sector Update: Energy Stocks Decline Pre-Bell Wednesday",
+          "publisher": "MT Newswires",
+          "date": "2026-04-01"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Gain Pre-Bell Wednesday as Iran War De-Escalation Hopes Drive Sentiment",
+          "publisher": "MT Newswires",
+          "date": "2026-04-01"
+        },
+        {
+          "title": "S&P 500 Index Investors Burned In Nightmare-Scenario Market",
+          "publisher": "Investor's Business Daily",
+          "date": "2026-04-01"
+        },
+        {
+          "title": "Sector Update: Energy Stocks Fall Late Afternoon",
+          "publisher": "MT Newswires",
+          "date": "2026-03-31"
+        },
+        {
+          "title": "Sector Update: Energy Stocks Fall Tuesday Afternoon",
+          "publisher": "MT Newswires",
+          "date": "2026-03-31"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 654.75,
+        "spy_change_pct": 0.68
+      }
+    }
+  },
+  "27270401": {
+    "reason": "DIRECTION: Bear. QQQ (584.15) is in a structural downtrend below 50/200 SMAs (603/594). SETUP: Bull Trap / Resistance Rejection. Today's 1.2% relief rally on Iran de-escalation news is a classic 'Good News Trap' as it failed to reclaim the 200 SMA floor (594.7), stalling at technical gravity resistance. EXPECTED MOVE: Slide back toward 52-week lows (564) as structural technicals override the fading news catalyst. INVALIDATION: Daily close above 200 SMA (594.7). EXIT PLAN: Target 570 or 3:30 PM ET mandatory close.",
+    "timestamp": "2026-04-01T11:00:47.815362-04:00",
+    "side": "buy_to_open",
+    "symbol": "QQQ260406P00580000",
+    "market_context": {
+      "price": 584.165,
+      "change_pct": 1.21,
+      "iv": 22.7,
+      "option_greeks": {
+        "delta": -0.431,
+        "gamma": 0.0254,
+        "theta": -0.622,
+        "vega": 0.2743,
+        "rho": 0.0467
+      },
+      "iv_context": {
+        "iv_rank": 0,
+        "iv_percentile": 0,
+        "iv_52w_high": 37.8,
+        "iv_52w_low": 23.1
+      },
+      "trends": {
+        "price_52w_high": 637.01,
+        "price_52w_low": 402.39,
+        "price_vs_52w_pct": 77,
+        "sma_50": 603.84,
+        "sma_200": 594.7,
+        "sma_signal": "below_both",
+        "returns": {
+          "1w": -0.6,
+          "1m": -2.9,
+          "3m": -5.7,
+          "6m": -2.7
+        },
+        "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
+        "rsi_14": 43.7,
+        "atr_14": 10.89,
+        "prev_day_high": 585.13,
+        "prev_day_low": 580.42,
+        "avg_volume_50d": 67900587,
+        "bollinger": {
+          "upper": 619.26,
+          "middle": 590.61,
+          "lower": 561.97,
+          "pct_b": 38.6
+        }
+      },
+      "news": [
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Gain Pre-Bell Wednesday as Iran War De-Escalation Hopes Drive Sentiment",
+          "publisher": "MT Newswires",
+          "date": "2026-04-01"
+        },
+        {
+          "title": "Best-Performing Leveraged ETFs of March",
+          "publisher": "Zacks",
+          "date": "2026-04-01"
+        },
+        {
+          "title": "Buy This Nasdaq Index Fund. History Says It Could Soar More Than 100% in 5 Years.",
+          "publisher": "Motley Fool",
+          "date": "2026-04-01"
+        },
+        {
+          "title": "Exchange-Traded Funds Rise as US Equities Advance After Midday",
+          "publisher": "MT Newswires",
+          "date": "2026-03-31"
+        },
+        {
+          "title": "MAGS ETF: Two Signals Will Determine If the 16% Slide Gets Worse in 2026",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-03-31"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 655.48,
+        "spy_change_pct": 0.79
+      }
+    }
+  },
+  "27272801": {
+    "reason": "MANDATORY EOD CLOSE: Closing QQQ puts per PAPER.md 3:45 PM ET hard constraint. Thesis 'Intraday Momentum Breakdown' (QQQ below 50/200 SMAs) played out as QQQ dropped -1.5% intraday. Locked in profit on the contract move from 4.43/4.04 cost basis towards 9.14 (implied from today's order log relative pricing). Staying flat overnight.",
+    "timestamp": "2026-04-01T11:15:28.735445-04:00",
+    "side": "sell_to_close",
+    "symbol": "QQQ260406P00580000"
+  },
+  "27272820": {
+    "reason": "MANDATORY EOD CLOSE: Closing XLE put per PAPER.md 3:45 PM ET hard constraint. Thesis 'Intraday Mean Reversion Below-SMAs' (XLE fading into Middle Bollinger support at 58.9) played out as oil-driven geopolitical premium deflated on de-escalation news. P&L: Captured move from 1.29 to current market bid (~1.70 estimated). Closing all positions to remain flat overnight.",
+    "timestamp": "2026-04-01T11:15:35.804898-04:00",
+    "side": "sell_to_close",
+    "symbol": "XLE260410P00059000"
+  },
+  "27297140": {
+    "reason": "DIRECTION: Bear. QQQ remains in a structural downtrend below 50/200 SMAs (603/594). BROADER MARKET: SPY (+1.2%) relief rally is failing at technical resistance (SMA 662/677) while QQQ trades at 587. SETUP: Intraday Momentum Breakdown / Bull Trap. Catching the fade of the morning 'Iran de-escalation' green candle as QQQ hits overhead resistance floors. THESIS: Macro de-escalation optimism is being overridden by structural technical gravity. QQQ has rejected its 200 SMA reclamation yesterday and today. EXPECTED MOVE: Continued slide toward 580 low as relief rally exhaustion sets in. INVALIDATION: QQQ reclaiming 595 (200 SMA). EXIT PLAN: Target 580, time stop by 3:30 PM ET.",
+    "timestamp": "2026-04-01T14:00:35.978821-04:00",
+    "side": "buy_to_open",
+    "symbol": "QQQ260406P00585000",
+    "market_context": {
+      "price": 586.87,
+      "change_pct": 1.68,
+      "iv": 20.5,
+      "option_greeks": {
+        "delta": -0.427,
+        "gamma": 0.0277,
+        "theta": -0.5737,
+        "vega": 0.2736,
+        "rho": 0.0463
+      },
+      "iv_context": {
+        "iv_rank": 0,
+        "iv_percentile": 0,
+        "iv_52w_high": 37.8,
+        "iv_52w_low": 23.1
+      },
+      "trends": {
+        "price_52w_high": 637.01,
+        "price_52w_low": 402.39,
+        "price_vs_52w_pct": 79,
+        "sma_50": 603.89,
+        "sma_200": 594.71,
+        "sma_signal": "below_both",
+        "returns": {
+          "1w": -0.2,
+          "1m": -2.4,
+          "3m": -5.3,
+          "6m": -2.2
+        },
+        "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
+        "rsi_14": 45.1,
+        "atr_14": 11.08,
+        "prev_day_high": 587.74,
+        "prev_day_low": 580.42,
+        "avg_volume_50d": 68367097,
+        "bollinger": {
+          "upper": 619.29,
+          "middle": 590.75,
+          "lower": 562.21,
+          "pct_b": 43.1
+        }
+      },
+      "news": [
+        {
+          "title": "Exchange-Traded Funds Higher as US Equities Rise After Midday",
+          "publisher": "MT Newswires",
+          "date": "2026-04-01"
+        },
+        {
+          "title": "The Vanguard ETF Up About 28% in the Past Year That Almost Nobody Outside of Income Investors Knows",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-04-01"
+        },
+        {
+          "title": "No Foolin': ADP Jobs Led by Small Companies",
+          "publisher": "Zacks",
+          "date": "2026-04-01"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Gain Pre-Bell Wednesday as Iran War De-Escalation Hopes Drive Sentiment",
+          "publisher": "MT Newswires",
+          "date": "2026-04-01"
+        },
+        {
+          "title": "Best-Performing Leveraged ETFs of March",
+          "publisher": "Zacks",
+          "date": "2026-04-01"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 657.95,
+        "spy_change_pct": 1.17
+      }
+    }
+  },
+  "27297154": {
+    "reason": "DIRECTION: Bear. XLE has reached extreme statistical exhaustion (RSI peaked at 91) and is currently trading below its Middle Bollinger Band (58.9) for the first time since the oil surge began. BROADER MARKET: SPY de-escalation optimism is directly deflating the geopolitical energy premium. SETUP: Intraday Mean Reversion Below-SMAs / Profit Taking Exhaustion. Catching the 'De-escalation Flush' as the energy-shield momentum breaks down. THESIS: Geopolitical-driven sector rotation is reversing as Iran fears subside faster than technical support can form. XLE is entering a mean-reversion phase toward its 50-day SMA (55.4). EXPECTED MOVE: Slide within today's range toward session lows (58.3). INVALIDATION: XLE reclaiming high-of-day (60.6). EXIT PLAN: Target 58.3 session low, time stop by 3:30 PM ET.",
+    "timestamp": "2026-04-01T14:00:43.818904-04:00",
+    "side": "buy_to_open",
+    "symbol": "XLE260410P00059000",
+    "market_context": {
+      "price": 58.49,
+      "change_pct": -4.53,
+      "iv": 29.6,
+      "option_greeks": {
+        "delta": -0.513,
+        "gamma": 0.144,
+        "theta": -0.0642,
+        "vega": 0.0372,
+        "rho": 0.007
+      },
+      "iv_context": {
+        "iv_rank": 14,
+        "iv_percentile": 59,
+        "iv_52w_high": 46.9,
+        "iv_52w_low": 26.8
+      },
+      "trends": {
+        "price_52w_high": 63.46,
+        "price_52w_low": 37.24,
+        "price_vs_52w_pct": 81,
+        "sma_50": 55.39,
+        "sma_200": 47.07,
+        "sma_signal": "above_both",
+        "returns": {
+          "1w": -3.4,
+          "1m": 3.5,
+          "3m": 30.1,
+          "6m": 30.9
+        },
+        "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+        "rsi_14": 54.6,
+        "atr_14": 1.47,
+        "prev_day_high": 60.62,
+        "prev_day_low": 58.35,
+        "avg_volume_50d": 61201600,
+        "bollinger": {
+          "upper": 62.85,
+          "middle": 58.86,
+          "lower": 54.86,
+          "pct_b": 45.5
+        }
+      },
+      "news": [
+        {
+          "title": "Exchange-Traded Funds Higher as US Equities Rise After Midday",
+          "publisher": "MT Newswires",
+          "date": "2026-04-01"
+        },
+        {
+          "title": "'Big Short' Legend Steve Eisman Says Iran War Is Running The Entire Stock Market Right Now",
+          "publisher": "Benzinga",
+          "date": "2026-04-01"
+        },
+        {
+          "title": "Sector Update: Energy Stocks Decline Pre-Bell Wednesday",
+          "publisher": "MT Newswires",
+          "date": "2026-04-01"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Gain Pre-Bell Wednesday as Iran War De-Escalation Hopes Drive Sentiment",
+          "publisher": "MT Newswires",
+          "date": "2026-04-01"
+        },
+        {
+          "title": "S&P 500 Index Investors Burned In Nightmare-Scenario Market",
+          "publisher": "Investor's Business Daily",
+          "date": "2026-04-01"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 657.92,
+        "spy_change_pct": 1.17
+      }
+    }
+  },
+  "27305266": {
+    "reason": "THESIS INVALIDATED / PROFIT TARGET HIT: QQQ (583.02) failed to reclaim the 200-day SMA floor (594.7) despite the morning de-escalation rally, confirming a 'Good News Trap'. Intraday momentum breakdown thesis from 'experience/tickers/QQQ/intraday-momentum-breakdown.md' played out as tech gravity overrode the fading headline catalyst. Position reached profit target as QQQ hit fresh session lows (80.4). Closing now to capture the directional flush before potential EOD short-covering or consolidation. Result: Captured ~1.0% intraday move in underlying.",
+    "timestamp": "2026-04-01T15:00:44.071375-04:00",
+    "side": "sell_to_close",
+    "symbol": "QQQ260406P00585000"
+  },
+  "27305275": {
+    "reason": "THESIS INVALIDATED / PROFIT TARGET HIT: XLE (-3.6%) faded through its Middle Bollinger support (58.88) and reached session lows (58.35) as the geopolitical energy premium deflated on Iran de-escalation news. Experience 'tickers/XLE/momentum-oil-geopolitical.md' confirms that even in a structural uptrend, headline-driven reversals to technical support are high-probability exit points for tactical shorts. RSI cooled from extreme 91 to 57.7, signaling exhaustion of the 'Momentum Shield'. Closing now to lock in gains at support cluster before potential bounce. Result: Captured ~1.0% move since entry.",
+    "timestamp": "2026-04-01T15:00:48.050353-04:00",
+    "side": "sell_to_close",
+    "symbol": "XLE260410P00059000"
   }
 }
