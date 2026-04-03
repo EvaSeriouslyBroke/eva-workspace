@@ -1,0 +1,42 @@
+The paper trading evaluation for Thursday, April 2nd, 2026, is underway.
+
+### **1. Market Context**
+The broader market is in a definitive **bearish regime**. SPY is trading at $646.51 (-1.34%), below both its 50-day and 200-day SMAs. Sentiment is dominated by geopolitical escalation following a Trump speech regarding the Iran conflict, which has sent oil prices surging (+8%).
+
+### **2. Current Positions Assessment**
+
+*   **XLE (Bullishly Shielded):**
+    *   **Positions:** $59C, $59.5C, $60.5C (All 2026-04-10 expiry).
+    *   **Assessment:** XLE is acting as a powerful **"Momentum Shield"**, up ~2.2% today while the rest of the market bleeds. It is in a structural uptrend above all major SMAs. Oil's surge provides a massive fundamental tailwind.
+    *   **Decision: HOLD.** RSI is currently ~61-63, well below the high-confidence exit target of RSI >80 identified in `experience/tickers/XLE/momentum-oil-geopolitical.md`.
+    *   **Exit Plan:** Sell immediately if an "Iran ceasefire" headline hits or if RSI hits >80. Mandatory EOD close by 3:30 PM ET.
+
+*   **QQQ (Structural Bear):**
+    *   **Positions:** $580P (2026-04-06), $584P (2026-04-07).
+    *   **Assessment:** QQQ ($573.68, -1.82%) is in a **"Negative Momentum Vortex"**, trading below its 200-day SMA ($594.7). Yesterday's relief rally was a "Good News Trap" that has now fully reversed.
+    *   **Decision: HOLD.** The thesis from `experience/tickers/QQQ/intraday-momentum-breakdown.md` is playing out perfectly. QQQ is flushing toward psychological handles.
+    *   **Exit Plan:** Take profits if target +30% is hit or if RSI becomes oversold (<30). Mandatory EOD close by 3:30 PM ET.
+
+*   **IWM (200 SMA Test):**
+    *   **Position:** $245P (2026-04-06).
+    *   **Assessment:** IWM is testing its critical 200-day SMA floor ($242.8). A high-volume breach here would signal a massive momentum cascade.
+    *   **Decision: HOLD.** Alignment with broader market weakness and geopolitical shock supports the bearish thesis.
+    *   **Exit Plan:** Target hit, RSI oversold (<30), or mandatory EOD close by 3:30 PM ET.
+
+### **3. New Opportunities**
+
+*   **IWM (Momentum Cascade):**
+    *   **Action:** **BUY** additional **IWM $244 Put (2026-04-06)**.
+    *   **Thesis:** IWM is at the cliff of its 200-day SMA. With SPY and QQQ already in deep bear regimes, IWM is the laggard finally catching the "Momentum Cascade."
+    *   **Validation:** Experience `experience/tickers/IWM/intraday-momentum-shield-trap.md` confirms that relative strength below SMAs is a trap; IWM's current attempt to hold the 200 SMA is likely to fail given the macro backdrop.
+    *   **Target:** +25% profit or a flush to $240.
+    *   **Invalidation:** Reclamation of $248 level.
+
+### **4. Execution and Journaling**
+I am now executing the new IWM purchase and updating the journals for all open positions to ensure the next cycle has clear standing orders.
+
+---
+**Summary of Actions:**
+- **HOLD** all existing XLE, QQQ, and IWM positions.
+- **BUY** 1x IWM $244P (2026-04-06) @ MKT.
+- **MANDATORY JOURNALING** for all 6 open positions.
