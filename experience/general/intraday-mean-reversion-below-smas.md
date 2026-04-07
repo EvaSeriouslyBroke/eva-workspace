@@ -16,9 +16,10 @@ The 200-day SMA acts as a definitive "ceiling" in this regime. Any intraday long
 ## Evidence
 
 ### Summary
-1 supporting, 0 contradicting observations. Derived from a high-conviction exit on QQQ where a news-driven rally failed exactly at the 200-day SMA resistance, validating the "Technical Gravity" of a bear regime.
+2 supporting, 0 contradicting observations. Derived from high-conviction exits on QQQ where news-driven rallies failed exactly at or below the 200-day SMA resistance, validating the "Technical Gravity" of a bear regime.
 
 ### Recent
+- 2026-04-06 [paper] [supporting] [bear] [dte-short]: QQQ $585C exit (take profit) as it stalled at $590.61, below the 200-day SMA "Hard Ceiling" ($594.95). Despite "S&P Bottom" news, the structural bear regime (below 50/200 SMAs) dominated. Peak P&L was reached at $589.36 (+23.8%) before RSI/momentum stalled. Exit timing validated as resistance held. [Q2: Profit-Taking Timing, Q3: Reversal Detection]
 - 2026-04-01 [paper] [supporting] [bear] [dte-short]: QQQ $575C exit at $582.32 (peak pnl +95%) as it failed to reclaim the 200-day SMA floor ($594.7). Despite Iran de-escalation news and a strong +2.9% morning bounce, the structural downtrend dominated. Immediate exit preserved capital before the "Bull Trap" fully reversed. [Q1: Intraday Entry Timing, Q2: Profit-Taking Timing, Q3: Reversal Detection]
 
 ## Exceptions & Nuances
