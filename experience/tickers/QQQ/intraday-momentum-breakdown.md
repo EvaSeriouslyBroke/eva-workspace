@@ -5,7 +5,7 @@
 **Applies to:** QQQ, general
 **Tags:** momentum-breakdown, downtrend, below-sma, bear, dte-short
 **Confidence:** medium
-**Last Updated: 2026-03-26**
+**Last Updated: 2026-04-07**
 
 ## Analysis
 
@@ -22,16 +22,15 @@ Intraday price action during structural bear markets is defined by "Value Traps"
 ## Evidence
 
 ### Summary
-6 supporting observations total. Structural downtrends provide the highest-probability environment for short-biased day trades. Recent intraday trades (2026-03-26 through 2026-04-02) demonstrate the "Negative Momentum Vortex" created when QQQ remains below its 50/200 SMAs while hitting new session lows.
+7 supporting observations total. Structural downtrends provide the highest-probability environment for short-biased day trades. Recent intraday trades (2026-03-26 through 2026-04-07) demonstrate the "Negative Momentum Vortex" created when QQQ remains below its 50/200 SMAs while hitting new session lows.
 
 ### Recent
+- 2026-04-07 [paper] [supporting] [bear] [dte-short]: QQQ $580P intraday momentum breakdown. Entered in a structural bear regime below 50/200 SMAs on fresh breakdown below previous day's low ($579.69). QQQ remained pinned near session lows on binary risk (Hormuz deadline). Secured 15.6% peak gain ($7.47 bid) during the flush toward $578.4 before EOD mandatory close. [Q1: Intraday Entry Timing, Q2: Profit-Taking Timing]
 - 2026-04-06 [paper] [supporting] [bear] [dte-short]: [QQQ260406P00585000] [QQQ260407P00585000] [QQQ260410P00585000] Entered multiple-expiry puts on structural downtrend (below 50/200 SMAs) and failed relief rally ("Good News Trap"). QQQ hit peak-P&L early (QQQ $583.02, up 57.7% on the 04-06 puts) before rolling over. Mandatory EOD close resulted in lower gains or small losses as the geopolitical premium stabilized. Validates: Failed reclamation of the 200-day SMA ($595.2) in a bear regime remains a high-confidence intraday short setup. [Q1: Intraday Entry Timing, Q2: Profit-Taking Timing]
 - 2026-04-02 [paper] [supporting] [bear] [dte-short]: QQQ $580P intraday momentum breakdown. Entered on vertical breakdown below the previous day's low ($571.9) with QQQ striking fresh 52-week lows ($571.9) during the session. Broader market (SPY) were also below major SMAs. Position peaked early (peak_bid 7.44) but mandatory 3:15 PM ET close (per PAPER.md) resulted in a -8% loss ($6.94 bid) as QQQ recovered slightly from lows to $583.1. Validates: Entry timing at breakdown is high-conviction, but Profit-Taking Timing (Q2) remains the critical friction point for day trades — failure to take 10-15% gains leads to theta/delta bleed on EOD recovery. [Q1: Intraday Entry Timing, Q2: Profit-Taking Timing]
 - 2026-04-01 [paper] [supporting] [bear] [dte-short]: QQQ $585P intraday momentum breakdown. Entered after a morning relief rally failed to reclaim the 200-day SMA ($594.7), creating a "Good News Trap" on de-escalation headlines. Position reached peak profit (+46.8%) as QQQ hit fresh session lows ($580.4). Exit at 3:45 PM hard close (per PAPER.md). Validates: Technical resistance at major SMAs in a bear regime provides high-conviction intraday short entries where technical gravity overrides fading news sentiment. [Q1: Intraday Entry Timing, Q3: Reversal Detection]
 - 2026-04-01 [paper] [supporting] [bear] [dte-short]: QQQ $580P intraday momentum breakdown. Entered after a morning relief rally failed to reclaim the 200 SMA ($594.7), creating a "Good News Trap" on de-escalation headlines. Position gained as technical gravity overrode the fading news catalyst. Exit at 3:45 PM hard close (per PAPER.md). Validates: Technical resistance at major SMAs provides high-conviction intraday short entries even against positive news sentiment. [Q1: Intraday Entry Timing, Q3: Reversal Detection]
 - 2026-03-27 [paper] [supporting] [bear] [dte-short]: QQQ $570P intraday momentum breakdown. Entry on bear regime (below 50/200 SMAs) and Middle East tension news as QQQ hit fresh 52-week lows ($570.74). Position peaked at +29.9% ($8.34 bid) within 30 minutes of entry as stock flushed to $566.15. Exit at 3:45 PM hard close (per PAPER.md). Reinforces: "Momentum Breakdown" at session/52-week lows in a structural bear regime remains a high-confidence intraday play. [Q1: Intraday Entry Timing, Q2: Profit-Taking Timing]
-- 2026-03-26 [paper] [supporting] [bear] [dte-short]: QQQ $580P intraday day trade. Entry at session lows ($580.6) after breaking below the 200 SMA ($593.9). Broad market (SPY) also in a downtrend. Exit at 3:45 PM hard close (per PAPER.md rule) near session lows (~$578.1). Final theoretical gain: +55%. Validates: "Momentum Breakdown" in a structural bear regime with SPY alignment. [Q1: Intraday Entry Timing, Q2: Profit-Taking Timing]
-- 2026-03-26 [observed] [supporting] [bear] [dte-short]: General observation of QQQ breaking below the 200 SMA ceiling ($593) on Middle East tension catalysts, leading to a sustained intraday slide. [Q1: Intraday Entry Timing]
 
 ## Exceptions & Nuances
 

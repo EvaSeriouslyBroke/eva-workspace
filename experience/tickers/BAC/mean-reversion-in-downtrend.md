@@ -26,9 +26,10 @@ In the most recent case (3/9 entry), news sentiment was "Bullish" (+6 score) wit
 ## Evidence
 
 ### Summary
-4 supporting, 0 contradicting observations total. Cross-temporal validation over 2 weeks shows a 100% failure rate for mean reversion calls when BAC is below both the 50 and 200 SMA. The pattern held even during periods of positive fundamental news.
+5 supporting, 0 contradicting observations total. Cross-temporal validation over 3 weeks shows a 100% failure rate for mean reversion or tactical momentum calls when BAC is below both the 50 and 200 SMA. The pattern holds even during periods of positive fundamental news or intraday relative strength.
 
 ### Recent
+- 2026-04-07 [paper] [supporting] [bear] [dte-short]: BAC 48C Apr-10 weekly. Targeted a recovery based on intraday relative strength (+1.4% vs SPY +0.3%). Trade stalled at resistance despite leading the market. Confirmed that structural bear technicals override tactical momentum.
 - 2026-03-20 [hindsight] [supporting] [bear] [dte-long]: Analyzed full lifecycle of BAC 50C Jul-17. Entry at RSI 25.6 resulted in a final loss of -88.6%. Hindsight confirms that while RSI was "oversold," the stock remained trapped in a range $46.5-$48 below both SMAs. Good news about revenue was ignored by the market. [Q1: Catching a Falling Knife]
 - 2026-03-16 [hindsight] [supporting] [bear] [dte-long]: BAC 50C Jul-17 exit validation. Sold at -1.4% when stock at $47.13. Correct move to preserve capital as SMA recovery never materialized.
 - 2026-03-09 [paper] [supporting] [bear] [dte-medium]: BAC 50C Jul-17 closed at -20.6% loss. Decline from 48.26 to 46.91 confirmed the downtrend strength.

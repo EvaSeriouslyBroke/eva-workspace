@@ -3,8 +3,8 @@
 **Thesis:** When IWM (small-caps) breaks both 50 and 200-day SMAs and confirms with an intraday gap-down below the Middle Bollinger band, short positions (puts) are high-confidence setups for capturing a "Small-Cap Flush" toward the Lower Bollinger band.
 **Applies to:** IWM
 **Tags:** small-cap-flush, below-sma, momentum-continuation, bear, dte-short
-**Confidence:** low
-**Last Updated:** 2026-04-02
+**Confidence:** medium
+**Last Updated:** 2026-04-07
 
 ## Analysis
 
@@ -13,10 +13,11 @@ IWM exhibits high sensitivity to structural breakdowns. A gap-down that invalida
 ## Evidence
 
 ### Summary
-1 supporting, 0 contradicting observations total.
-Initial observation of a successful "Small-Cap Flush" capture during a macro breakdown and geopolitical escalation.
+2 supporting, 0 contradicting observations total.
+Thesis was confirmed by a second high-confidence "Small-Cap Flush" capture on 2026-04-07, where geopolitical deadlines (Hormuz) acted as a catalyst to pin IWM below both 50/200 SMAs and Middle Bollinger support.
 
 ### Recent
+- 2026-04-07 [paper] [supporting] [bear] [dte-short]: IWM lead the market lower under geopolitical gravity, pinned at session lows below both 50/200 SMAs and Middle Bollinger. Captured the intraday flush toward EOD target. Confirmed that structural bear regime + geopolitical headwind = high confidence put entry. [Q1: Intraday Entry Timing] [Q2: Profit-Taking Timing]
 - 2026-04-02 [paper] [supporting] [bear] [dte-short]: Successful 80%+ capture on IWM 220P weekly. Entry triggered by break below 50/200 SMAs and Middle Bollinger. Exit at session lows near Lower Bollinger target (220.15) at 12:45 PM ET. Captured the meat of the intraday flush before EOD risks. [Q2: Profit-Taking Timing]
 
 ## Exceptions & Nuances

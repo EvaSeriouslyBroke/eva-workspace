@@ -945,93 +945,275 @@
       }
     }
   ],
-  "BAC260410C00048000": [
+  "IWM260410P00265000": [
     {
-      "order_id": "27623396",
-      "reason": "Thesis: Intraday Relative Strength (IRS) Recovery. BAC is up 1.34% vs SPY +0.36%, making a series of higher intraday lows (7.66 -> 7.88) and reclaiming the morning VWAP. While in a long-term 'below-both' SMA regime (2.17/0.59), today shows a clear intraday trend-divergence where BAC is leading the market. News is slightly bearish due to qu\u00edmico downgrades but mentions BAC as a 'Top Stock for the Long-Term' (Zacks) and poising for an earnings beat. Expected move: re-test of today's high (8.33) and potentially 8.50. Invalidation: Breaks below today's VWAP (7.92) or loses relative strength vs SPY. Exit Plan: Sell at 8.30 target or by 3:30 PM ET. Note: This deviates from the 'mean-reversion-in-downtrend' experience because it is a momentum play on a specific intraday relative strength signal, not a bottom-fishing 'oversold' call.",
-      "entry_price": 50.075,
-      "entry_iv": 39.7,
-      "entry_date": "2026-04-06",
-      "ticker": "BAC",
-      "type": "call",
-      "strike": 48.0,
+      "order_id": "27690652",
+      "reason": "Thesis: Bearish Flush. IWM is leading the market lower under the weight of geopolitical supply-risk (Iran deadline) and a structural breakdown below both 50 and 200 SMAs. Intraday setup: Afternoon technical derivation and trend acceleration. Expected move: Continuation of the session low flush toward 263. Invalidation: Reclamation of 267 (50 SMA/VWAP). Exit plan: 3:30-3:45 PM ET mandatory close.",
+      "entry_price": 251.22,
+      "entry_iv": 36.5,
+      "entry_date": "2026-04-07",
+      "ticker": "IWM",
+      "type": "put",
+      "strike": 265.0,
       "expiry": "2026-04-10",
       "quantity": 1,
-      "cost_basis": 227.0,
-      "reflected": false,
+      "cost_basis": 1385.0,
+      "reflected": true,
       "market_context": {
-        "price": 50.075,
-        "change_pct": 1.41,
-        "iv": 39.7,
+        "price": 251.22,
+        "change_pct": -0.46,
+        "iv": 36.5,
         "option_greeks": {
-          "delta": 0.851,
-          "gamma": 0.1122,
-          "theta": -0.0663,
-          "vega": 0.0117,
-          "rho": 0.0045
+          "delta": -0.925,
+          "gamma": 0.0171,
+          "theta": -0.2,
+          "vega": 0.034,
+          "rho": 0.0016
         },
         "iv_context": {
-          "iv_rank": 86,
-          "iv_percentile": 95,
-          "iv_52w_high": 41.4,
-          "iv_52w_low": 29.5
+          "iv_rank": 55,
+          "iv_percentile": 79,
+          "iv_52w_high": 46.7,
+          "iv_52w_low": 24.0
         },
         "trends": {
-          "price_52w_high": 57.55,
-          "price_52w_low": 33.06,
-          "price_vs_52w_pct": 69,
-          "sma_50": 50.68,
-          "sma_200": 50.87,
-          "sma_signal": "below_both",
+          "price_52w_high": 271.6,
+          "price_52w_low": 171.73,
+          "price_vs_52w_pct": 80,
+          "sma_50": 256.5,
+          "sma_200": 243.26,
+          "sma_signal": "mixed",
           "returns": {
-            "1w": 6.6,
-            "1m": 1.1,
-            "3m": -10.5,
-            "6m": -0.8
+            "1w": 4.8,
+            "1m": 0.1,
+            "3m": -0.6,
+            "6m": 2.2
           },
-          "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
-          "rsi_14": 70.2,
-          "atr_14": 1.14,
-          "prev_day_high": 50.09,
-          "prev_day_low": 49.25,
-          "avg_volume_50d": 41753083,
+          "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+          "rsi_14": 51.3,
+          "atr_14": 5.76,
+          "prev_day_high": 253.48,
+          "prev_day_low": 249.52,
+          "avg_volume_50d": 45851021,
           "bollinger": {
-            "upper": 49.83,
-            "middle": 47.92,
-            "lower": 46.01,
-            "pct_b": 106.3
+            "upper": 255.3,
+            "middle": 248.26,
+            "lower": 241.22,
+            "pct_b": 71.0
           }
         },
         "news": [
           {
-            "title": "Best mortgage lenders for low or no down payments of April 2026",
-            "publisher": "Yahoo Personal Finance",
-            "date": "2024-12-30"
+            "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Tuesday Ahead of Trump's Hormuz Reopening Deadline",
+            "publisher": "MT Newswires",
+            "date": "2026-04-07"
           },
           {
-            "title": "Dow downgraded by Bank of America due to \"unsustainable tailwinds\"",
-            "publisher": "Proactive",
-            "date": "2026-04-06"
-          },
-          {
-            "title": "Carvana rating shifted to Neutral but BofA sees long-term potential",
-            "publisher": "Proactive",
-            "date": "2026-04-06"
-          },
-          {
-            "title": "Why Bank of America (BAC) is a Top Stock for the Long-Term",
+            "title": "Best-Performing Leveraged ETFs of March",
             "publisher": "Zacks",
             "date": "2026-04-06"
           },
           {
-            "title": "How Royal Caribbean\u2019s New Tri\u2011Branded Credit Cards With Bank of America Could Shape RCL\u2019s Investor Story",
-            "publisher": "Simply Wall St.",
+            "title": "Exchange-Traded Funds Higher, Equity Futures Mixed Pre-Bell Monday Amid Ongoing Iran Conflict",
+            "publisher": "MT Newswires",
             "date": "2026-04-06"
+          },
+          {
+            "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Thursday as Escalation Signals in Iran Conflict Lift Oil Prices",
+            "publisher": "MT Newswires",
+            "date": "2026-04-02"
+          },
+          {
+            "title": "Daily ETF Flows: IWM On Top",
+            "publisher": "etf.com",
+            "date": "2026-04-01"
           }
         ],
         "broader_market": {
-          "spy_price": 658.18,
-          "spy_change_pct": 0.36
+          "spy_price": 655.23,
+          "spy_change_pct": -0.57
+        }
+      }
+    }
+  ],
+  "QQQ260410P00580000": [
+    {
+      "order_id": "27690662",
+      "reason": "Thesis: Negative Momentum Vortex. QQQ is pinned at session lows under binary risk (Iran deadline). Structural bear regime (below 50/200 SMAs) with SPY down 0.5% confirming technical breakdown. Intraday setup: Low-velocity afternoon flush. Expected move: Slow grind lower toward 578. Invalidation: Breakout above VWAP (583). Exit plan: 3:30-3:45 PM ET mandatory close.",
+      "entry_price": 583.5794,
+      "entry_iv": 36.0,
+      "entry_date": "2026-04-07",
+      "ticker": "QQQ",
+      "type": "put",
+      "strike": 580.0,
+      "expiry": "2026-04-10",
+      "quantity": 1,
+      "cost_basis": 608.0,
+      "reflected": true,
+      "market_context": {
+        "price": 583.5794,
+        "change_pct": -0.84,
+        "iv": 36.0,
+        "option_greeks": {
+          "delta": -0.378,
+          "gamma": 0.0201,
+          "theta": -1.2067,
+          "vega": 0.2007,
+          "rho": 0.0303
+        },
+        "iv_context": {
+          "iv_rank": 73,
+          "iv_percentile": 90,
+          "iv_52w_high": 41.1,
+          "iv_52w_low": 22.0
+        },
+        "trends": {
+          "price_52w_high": 637.01,
+          "price_52w_low": 402.39,
+          "price_vs_52w_pct": 77,
+          "sma_50": 601.79,
+          "sma_200": 595.52,
+          "sma_signal": "below_both",
+          "returns": {
+            "1w": 4.5,
+            "1m": -2.7,
+            "3m": -5.6,
+            "6m": -3.2
+          },
+          "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
+          "rsi_14": 40.1,
+          "atr_14": 11.33,
+          "prev_day_high": 587.06,
+          "prev_day_low": 578.4,
+          "avg_volume_50d": 68082195,
+          "bollinger": {
+            "upper": 613.34,
+            "middle": 587.66,
+            "lower": 561.97,
+            "pct_b": 42.1
+          }
+        },
+        "news": [
+          {
+            "title": "The next hot trade is starting to challenge stocks: Chart of the Day",
+            "publisher": "Yahoo Finance",
+            "date": "2026-04-07"
+          },
+          {
+            "title": "April Seasonality Signals 1.5% S&P 500 Gain As $20 Billion Flows Build",
+            "publisher": "GuruFocus.com",
+            "date": "2026-04-07"
+          },
+          {
+            "title": "Broadcom Surges 6% as AI Deals With Google and Anthropic Supercharge Revenue Visibility",
+            "publisher": "24/7 Wall St.",
+            "date": "2026-04-07"
+          },
+          {
+            "title": "Exchange-Traded Funds Lower as US Equities Fall After Midday",
+            "publisher": "MT Newswires",
+            "date": "2026-04-07"
+          },
+          {
+            "title": "BlackRock, State Street File for First ETFs to Challenge Invesco\u2019s QQQ",
+            "publisher": "The Wall Street Journal",
+            "date": "2026-04-07"
+          }
+        ],
+        "broader_market": {
+          "spy_price": 655.28,
+          "spy_change_pct": -0.56
+        }
+      }
+    }
+  ],
+  "XLE260410C00060500": [
+    {
+      "order_id": "27690683",
+      "reason": "Thesis: Momentum Shield. XLE is the primary geopolitical hedge and lone green shoot, hitting session highs (60.62) while benchmarks bleed. Structural uptrend (above 50/200 SMAs) with bullish relative strength. Intraday setup: Afternoon relative strength breakout. Expected move: Reach 52-week highs (63.46) or hold near current levels. Invalidation: Headline de-escalation news or break below 59.80. Exit plan: 3:30-3:45 PM ET mandatory close.",
+      "entry_price": 59.96,
+      "entry_iv": 37.1,
+      "entry_date": "2026-04-07",
+      "ticker": "XLE",
+      "type": "call",
+      "strike": 60.5,
+      "expiry": "2026-04-10",
+      "quantity": 1,
+      "cost_basis": 70.0,
+      "reflected": true,
+      "market_context": {
+        "price": 59.96,
+        "change_pct": 0.47,
+        "iv": 37.1,
+        "option_greeks": {
+          "delta": 0.406,
+          "gamma": 0.1916,
+          "theta": -0.1317,
+          "vega": 0.0215,
+          "rho": 0.002
+        },
+        "iv_context": {
+          "iv_rank": 53,
+          "iv_percentile": 76,
+          "iv_52w_high": 46.5,
+          "iv_52w_low": 26.8
+        },
+        "trends": {
+          "price_52w_high": 63.46,
+          "price_52w_low": 37.24,
+          "price_vs_52w_pct": 87,
+          "sma_50": 56.04,
+          "sma_200": 47.3,
+          "sma_signal": "above_both",
+          "returns": {
+            "1w": -3.2,
+            "1m": 6.0,
+            "3m": 27.9,
+            "6m": 34.9
+          },
+          "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+          "rsi_14": 57.1,
+          "atr_14": 1.55,
+          "prev_day_high": 60.77,
+          "prev_day_low": 59.79,
+          "avg_volume_50d": 60743355,
+          "bollinger": {
+            "upper": 62.81,
+            "middle": 59.36,
+            "lower": 55.91,
+            "pct_b": 58.8
+          }
+        },
+        "news": [
+          {
+            "title": "Sector Update: Energy Stocks Rise Tuesday Afternoon",
+            "publisher": "MT Newswires",
+            "date": "2026-04-07"
+          },
+          {
+            "title": "Sector Update: Energy",
+            "publisher": "MT Newswires",
+            "date": "2026-04-07"
+          },
+          {
+            "title": "Exchange-Traded Funds Lower as US Equities Fall After Midday",
+            "publisher": "MT Newswires",
+            "date": "2026-04-07"
+          },
+          {
+            "title": "Sector Update: Energy Stocks Edge Higher Premarket Tuesday",
+            "publisher": "MT Newswires",
+            "date": "2026-04-07"
+          },
+          {
+            "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Tuesday Ahead of Trump's Hormuz Reopening Deadline",
+            "publisher": "MT Newswires",
+            "date": "2026-04-07"
+          }
+        ],
+        "broader_market": {
+          "spy_price": 654.99,
+          "spy_change_pct": -0.6
         }
       }
     }
