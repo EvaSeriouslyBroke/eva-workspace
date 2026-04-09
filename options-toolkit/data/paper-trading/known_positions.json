@@ -945,64 +945,165 @@
       }
     }
   ],
-  "IWM260410P00265000": [
+  "QQQ260410C00608000": [
     {
-      "order_id": "27690652",
-      "reason": "Thesis: Bearish Flush. IWM is leading the market lower under the weight of geopolitical supply-risk (Iran deadline) and a structural breakdown below both 50 and 200 SMAs. Intraday setup: Afternoon technical derivation and trend acceleration. Expected move: Continuation of the session low flush toward 263. Invalidation: Reclamation of 267 (50 SMA/VWAP). Exit plan: 3:30-3:45 PM ET mandatory close.",
-      "entry_price": 251.22,
-      "entry_iv": 36.5,
-      "entry_date": "2026-04-07",
+      "order_id": "27736781",
+      "reason": "DIRECTION: Bull - News-driven relief rally on ceasefire. QQQ reclaimed 50/200 SMA cluster (~601-602). SETUP: Gap-and-go from structural extremes (RSI reclaimed 50). Broad benchmark strength (SPY +2.5%). EXPECTED MOVE: Continued short-squeeze momentum toward Upper Bollinger (613). Target 15-20% contract gain. INVALIDATION: Drop back below 200 SMA pivot (602). EXIT PLAN: Sell if 613 underlying hit, or by 3:30 PM ET close. [Thesis: tickers/QQQ/intraday-short-squeeze-extremes.md]",
+      "entry_price": 607.03,
+      "entry_iv": 20.4,
+      "entry_date": "2026-04-08",
+      "ticker": "QQQ",
+      "type": "call",
+      "strike": 608.0,
+      "expiry": "2026-04-10",
+      "quantity": 1,
+      "cost_basis": 345.0,
+      "reflected": true,
+      "market_context": {
+        "price": 607.03,
+        "change_pct": 3.14,
+        "iv": 20.4,
+        "option_greeks": {
+          "delta": 0.488,
+          "gamma": 0.044,
+          "theta": -0.8887,
+          "vega": 0.1854,
+          "rho": 0.0169
+        },
+        "iv_context": {
+          "iv_rank": 0,
+          "iv_percentile": 0,
+          "iv_52w_high": 42.5,
+          "iv_52w_low": 22.0
+        },
+        "trends": {
+          "price_52w_high": 637.01,
+          "price_52w_low": 409.79,
+          "price_vs_52w_pct": 87,
+          "sma_50": 601.52,
+          "sma_200": 595.95,
+          "sma_signal": "above_both",
+          "returns": {
+            "1w": 5.2,
+            "1m": -0.1,
+            "3m": -2.6,
+            "6m": -0.1
+          },
+          "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+          "rsi_14": 55.8,
+          "atr_14": 12.26,
+          "prev_day_high": 609.9,
+          "prev_day_low": 602.12,
+          "avg_volume_50d": 68499087,
+          "bollinger": {
+            "upper": 613.37,
+            "middle": 587.87,
+            "lower": 562.37,
+            "pct_b": 87.6
+          }
+        },
+        "news": [
+          {
+            "title": "What BlackRock, State Street's rival QQQ ETFs mean for investors",
+            "publisher": "Yahoo Finance Video",
+            "date": "2026-04-08"
+          },
+          {
+            "title": "Exchange-Traded Funds Rise as US Equities Edge Higher After Midday",
+            "publisher": "MT Newswires",
+            "date": "2026-04-08"
+          },
+          {
+            "title": "Oil Is Falling. This Options Strategy Is Risky\u2014But Could Pay Off Big.",
+            "publisher": "Barrons.com",
+            "date": "2026-04-08"
+          },
+          {
+            "title": "Pre-Markets Feast on Latest 2-Week Ceasefire",
+            "publisher": "Zacks",
+            "date": "2026-04-08"
+          },
+          {
+            "title": "Exchange-Traded Funds, Equity Futures Higher Pre-Bell Wednesday Amid Two-Week US-Iran Ceasefire",
+            "publisher": "MT Newswires",
+            "date": "2026-04-08"
+          }
+        ],
+        "broader_market": {
+          "spy_price": 676.06,
+          "spy_change_pct": 2.56
+        }
+      }
+    }
+  ],
+  "IWM260410C00265000": [
+    {
+      "order_id": "27736830",
+      "reason": "DIRECTION: Bull - Sector rotation into risk-on assets (small-caps) follows removal of binary geopolitical risk (ceasefire). SETUP: Statistical mean-reversion from extreme low position (RSI reclaimed 50, Price vs 52w low pivot). Small-caps tend to front-run risk-on shifts. EXPECTED MOVE: Breakout through psychological resistance (~265-270) as liquidity returns to small-caps. Targeting 15% move. INVALIDATION: SPY loses momentum or IWM fails to hold today's gap. EXIT PLAN: Capture move to 270 or sell by 3:30 PM ET. [Thesis: tickers/IWM/news-driven-mean-reversion.md]",
+      "entry_price": 260.58,
+      "entry_iv": 25.2,
+      "entry_date": "2026-04-08",
       "ticker": "IWM",
-      "type": "put",
+      "type": "call",
       "strike": 265.0,
       "expiry": "2026-04-10",
       "quantity": 1,
-      "cost_basis": 1385.0,
+      "cost_basis": 55.0,
       "reflected": true,
       "market_context": {
-        "price": 251.22,
-        "change_pct": -0.46,
-        "iv": 36.5,
+        "price": 260.58,
+        "change_pct": 3.04,
+        "iv": 25.2,
         "option_greeks": {
-          "delta": -0.925,
-          "gamma": 0.0171,
-          "theta": -0.2,
-          "vega": 0.034,
-          "rho": 0.0016
+          "delta": 0.216,
+          "gamma": 0.0565,
+          "theta": -0.368,
+          "vega": 0.0568,
+          "rho": 0.0032
         },
         "iv_context": {
-          "iv_rank": 55,
-          "iv_percentile": 79,
-          "iv_52w_high": 46.7,
+          "iv_rank": 5,
+          "iv_percentile": 4,
+          "iv_52w_high": 47.3,
           "iv_52w_low": 24.0
         },
         "trends": {
           "price_52w_high": 271.6,
-          "price_52w_low": 171.73,
-          "price_vs_52w_pct": 80,
-          "sma_50": 256.5,
-          "sma_200": 243.26,
-          "sma_signal": "mixed",
+          "price_52w_low": 171.74,
+          "price_vs_52w_pct": 89,
+          "sma_50": 256.47,
+          "sma_200": 243.52,
+          "sma_signal": "above_both",
           "returns": {
-            "1w": 4.8,
-            "1m": 0.1,
-            "3m": -0.6,
-            "6m": 2.2
+            "1w": 5.1,
+            "1m": 2.7,
+            "3m": 1.8,
+            "6m": 5.6
           },
-          "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
-          "rsi_14": 51.3,
-          "atr_14": 5.76,
-          "prev_day_high": 253.48,
-          "prev_day_low": 249.52,
-          "avg_volume_50d": 45851021,
+          "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+          "rsi_14": 64.6,
+          "atr_14": 6.16,
+          "prev_day_high": 262.27,
+          "prev_day_low": 258.41,
+          "avg_volume_50d": 46025533,
           "bollinger": {
-            "upper": 255.3,
-            "middle": 248.26,
-            "lower": 241.22,
-            "pct_b": 71.0
+            "upper": 257.45,
+            "middle": 248.71,
+            "lower": 239.97,
+            "pct_b": 117.8
           }
         },
         "news": [
+          {
+            "title": "Exchange-Traded Funds, Equity Futures Higher Pre-Bell Wednesday Amid Two-Week US-Iran Ceasefire",
+            "publisher": "MT Newswires",
+            "date": "2026-04-08"
+          },
+          {
+            "title": "Best-Performing ETF Areas of March",
+            "publisher": "Zacks",
+            "date": "2026-04-08"
+          },
           {
             "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Tuesday Ahead of Trump's Hormuz Reopening Deadline",
             "publisher": "MT Newswires",
@@ -1017,203 +1118,193 @@
             "title": "Exchange-Traded Funds Higher, Equity Futures Mixed Pre-Bell Monday Amid Ongoing Iran Conflict",
             "publisher": "MT Newswires",
             "date": "2026-04-06"
-          },
-          {
-            "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Thursday as Escalation Signals in Iran Conflict Lift Oil Prices",
-            "publisher": "MT Newswires",
-            "date": "2026-04-02"
-          },
-          {
-            "title": "Daily ETF Flows: IWM On Top",
-            "publisher": "etf.com",
-            "date": "2026-04-01"
           }
         ],
         "broader_market": {
-          "spy_price": 655.23,
-          "spy_change_pct": -0.57
+          "spy_price": 675.89,
+          "spy_change_pct": 2.53
         }
       }
     }
   ],
-  "QQQ260410P00580000": [
+  "XLE260410P00057000": [
     {
-      "order_id": "27690662",
-      "reason": "Thesis: Negative Momentum Vortex. QQQ is pinned at session lows under binary risk (Iran deadline). Structural bear regime (below 50/200 SMAs) with SPY down 0.5% confirming technical breakdown. Intraday setup: Low-velocity afternoon flush. Expected move: Slow grind lower toward 578. Invalidation: Breakout above VWAP (583). Exit plan: 3:30-3:45 PM ET mandatory close.",
-      "entry_price": 583.5794,
-      "entry_iv": 36.0,
-      "entry_date": "2026-04-07",
-      "ticker": "QQQ",
-      "type": "put",
-      "strike": 580.0,
-      "expiry": "2026-04-10",
-      "quantity": 1,
-      "cost_basis": 608.0,
-      "reflected": true,
-      "market_context": {
-        "price": 583.5794,
-        "change_pct": -0.84,
-        "iv": 36.0,
-        "option_greeks": {
-          "delta": -0.378,
-          "gamma": 0.0201,
-          "theta": -1.2067,
-          "vega": 0.2007,
-          "rho": 0.0303
-        },
-        "iv_context": {
-          "iv_rank": 73,
-          "iv_percentile": 90,
-          "iv_52w_high": 41.1,
-          "iv_52w_low": 22.0
-        },
-        "trends": {
-          "price_52w_high": 637.01,
-          "price_52w_low": 402.39,
-          "price_vs_52w_pct": 77,
-          "sma_50": 601.79,
-          "sma_200": 595.52,
-          "sma_signal": "below_both",
-          "returns": {
-            "1w": 4.5,
-            "1m": -2.7,
-            "3m": -5.6,
-            "6m": -3.2
-          },
-          "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
-          "rsi_14": 40.1,
-          "atr_14": 11.33,
-          "prev_day_high": 587.06,
-          "prev_day_low": 578.4,
-          "avg_volume_50d": 68082195,
-          "bollinger": {
-            "upper": 613.34,
-            "middle": 587.66,
-            "lower": 561.97,
-            "pct_b": 42.1
-          }
-        },
-        "news": [
-          {
-            "title": "The next hot trade is starting to challenge stocks: Chart of the Day",
-            "publisher": "Yahoo Finance",
-            "date": "2026-04-07"
-          },
-          {
-            "title": "April Seasonality Signals 1.5% S&P 500 Gain As $20 Billion Flows Build",
-            "publisher": "GuruFocus.com",
-            "date": "2026-04-07"
-          },
-          {
-            "title": "Broadcom Surges 6% as AI Deals With Google and Anthropic Supercharge Revenue Visibility",
-            "publisher": "24/7 Wall St.",
-            "date": "2026-04-07"
-          },
-          {
-            "title": "Exchange-Traded Funds Lower as US Equities Fall After Midday",
-            "publisher": "MT Newswires",
-            "date": "2026-04-07"
-          },
-          {
-            "title": "BlackRock, State Street File for First ETFs to Challenge Invesco\u2019s QQQ",
-            "publisher": "The Wall Street Journal",
-            "date": "2026-04-07"
-          }
-        ],
-        "broader_market": {
-          "spy_price": 655.28,
-          "spy_change_pct": -0.56
-        }
-      }
-    }
-  ],
-  "XLE260410C00060500": [
-    {
-      "order_id": "27690683",
-      "reason": "Thesis: Momentum Shield. XLE is the primary geopolitical hedge and lone green shoot, hitting session highs (60.62) while benchmarks bleed. Structural uptrend (above 50/200 SMAs) with bullish relative strength. Intraday setup: Afternoon relative strength breakout. Expected move: Reach 52-week highs (63.46) or hold near current levels. Invalidation: Headline de-escalation news or break below 59.80. Exit plan: 3:30-3:45 PM ET mandatory close.",
-      "entry_price": 59.96,
-      "entry_iv": 37.1,
-      "entry_date": "2026-04-07",
+      "order_id": "27736942",
+      "reason": "DIRECTION: Bear - Reversal of 'geopolitical premium' in energy. Oil crashing on ceasefire news. SETUP: Collapse of the 'Momentum Shield'. Energy sector was the primary beneficiary of binary geopolitical risk; its removal triggers massive sector rotation out of XLE and into Tech/IWM. EXPECTED MOVE: Mean-reversion toward 50 SMA support (56.20). IV remains high, but delta move should dominate. INVALIDATION: Crude oil finds sudden support or geopolitical news reverses. EXIT PLAN: Take profits at 56.20 target or by 3:30 PM ET close. [Thesis: tickers/XLE/momentum-shield-collapse.md]",
+      "entry_price": 57.395,
+      "entry_iv": 33.2,
+      "entry_date": "2026-04-08",
       "ticker": "XLE",
-      "type": "call",
-      "strike": 60.5,
+      "type": "put",
+      "strike": 57.0,
       "expiry": "2026-04-10",
       "quantity": 1,
-      "cost_basis": 70.0,
+      "cost_basis": 45.0,
       "reflected": true,
       "market_context": {
-        "price": 59.96,
-        "change_pct": 0.47,
-        "iv": 37.1,
+        "price": 57.395,
+        "change_pct": -4.6,
+        "iv": 33.2,
         "option_greeks": {
-          "delta": 0.406,
-          "gamma": 0.1916,
-          "theta": -0.1317,
-          "vega": 0.0215,
-          "rho": 0.002
+          "delta": -0.391,
+          "gamma": 0.2698,
+          "theta": -0.1453,
+          "vega": 0.0171,
+          "rho": 0.0019
         },
         "iv_context": {
-          "iv_rank": 53,
-          "iv_percentile": 76,
+          "iv_rank": 33,
+          "iv_percentile": 55,
           "iv_52w_high": 46.5,
           "iv_52w_low": 26.8
         },
         "trends": {
           "price_52w_high": 63.46,
           "price_52w_low": 37.24,
-          "price_vs_52w_pct": 87,
-          "sma_50": 56.04,
-          "sma_200": 47.3,
+          "price_vs_52w_pct": 77,
+          "sma_50": 56.21,
+          "sma_200": 47.37,
           "sma_signal": "above_both",
           "returns": {
-            "1w": -3.2,
-            "1m": 6.0,
-            "3m": 27.9,
-            "6m": 34.9
+            "1w": -6.3,
+            "1m": 1.9,
+            "3m": 25.8,
+            "6m": 28.5
           },
           "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
-          "rsi_14": 57.1,
-          "atr_14": 1.55,
-          "prev_day_high": 60.77,
-          "prev_day_low": 59.79,
-          "avg_volume_50d": 60743355,
+          "rsi_14": 46.1,
+          "atr_14": 1.8,
+          "prev_day_high": 57.71,
+          "prev_day_low": 56.18,
+          "avg_volume_50d": 61388342,
           "bollinger": {
-            "upper": 62.81,
-            "middle": 59.36,
-            "lower": 55.91,
-            "pct_b": 58.8
+            "upper": 62.6,
+            "middle": 59.46,
+            "lower": 56.32,
+            "pct_b": 17.3
           }
         },
         "news": [
           {
-            "title": "Sector Update: Energy Stocks Rise Tuesday Afternoon",
+            "title": "Exchange-Traded Funds Rise as US Equities Edge Higher After Midday",
             "publisher": "MT Newswires",
-            "date": "2026-04-07"
+            "date": "2026-04-08"
           },
           {
             "title": "Sector Update: Energy",
             "publisher": "MT Newswires",
-            "date": "2026-04-07"
+            "date": "2026-04-08"
           },
           {
-            "title": "Exchange-Traded Funds Lower as US Equities Fall After Midday",
-            "publisher": "MT Newswires",
-            "date": "2026-04-07"
+            "title": "Iran\u2019s Ceasefire Sends Energy Lower. Why Oil Services Stocks Are Holding Up.",
+            "publisher": "Barrons.com",
+            "date": "2026-04-08"
           },
           {
-            "title": "Sector Update: Energy Stocks Edge Higher Premarket Tuesday",
-            "publisher": "MT Newswires",
-            "date": "2026-04-07"
+            "title": "Is the Drop in Energy Stocks a Buying Opportunity? What Chevron\u2019s Chart Says.",
+            "publisher": "Barrons.com",
+            "date": "2026-04-08"
           },
           {
-            "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Tuesday Ahead of Trump's Hormuz Reopening Deadline",
+            "title": "Sector Update: Energy Stocks Fall Premarket Wednesday",
             "publisher": "MT Newswires",
-            "date": "2026-04-07"
+            "date": "2026-04-08"
           }
         ],
         "broader_market": {
-          "spy_price": 654.99,
-          "spy_change_pct": -0.6
+          "spy_price": 675.79,
+          "spy_change_pct": 2.52
+        }
+      }
+    }
+  ],
+  "BAC260410C00052000": [
+    {
+      "order_id": "27746625",
+      "reason": "DIRECTION: Bull - News-driven relief rally on US-Iran ceasefire. BAC has reclaimed its 50/200 SMA cluster (~50.60-50.90) on high relative volume. SETUP: Statistical mean-reversion with SMA reclaim. RSI (78.9) is overbought but expanding with the trend. High PC volume ratio (0.33) confirms call dominance. Recent experience [tickers/QQQ/intraday-short-squeeze-extremes.md] supports news-driven reclaims overriding technical gravity. EXPECTED MOVE: Continued push toward Upper Bollinger resistance (50.90+) as the financial sector participates in the risk-on shift. INVALIDATION: Close back below 200 SMA (50.92). EXIT PLAN: Take profits if price exceeds Upper Bollinger (50.90+) or by 3:30 PM ET close. [Thesis: tickers/BAC/relief-reclaim-momentum.md]",
+      "entry_price": 51.715,
+      "entry_iv": 30.3,
+      "entry_date": "2026-04-08",
+      "ticker": "BAC",
+      "type": "call",
+      "strike": 52.0,
+      "expiry": "2026-04-10",
+      "quantity": 1,
+      "cost_basis": 37.0,
+      "reflected": true,
+      "market_context": {
+        "price": 51.715,
+        "change_pct": 2.86,
+        "iv": 30.3,
+        "option_greeks": {
+          "delta": 0.431,
+          "gamma": 0.3246,
+          "theta": -0.1275,
+          "vega": 0.0152,
+          "rho": 0.0012
+        },
+        "iv_context": {
+          "iv_rank": 6,
+          "iv_percentile": 9,
+          "iv_52w_high": 41.9,
+          "iv_52w_low": 29.5
+        },
+        "trends": {
+          "price_52w_high": 57.55,
+          "price_52w_low": 33.06,
+          "price_vs_52w_pct": 76,
+          "sma_50": 50.65,
+          "sma_200": 50.92,
+          "sma_signal": "above_both",
+          "returns": {
+            "1w": 6.1,
+            "1m": 8.0,
+            "3m": -9.7,
+            "6m": 2.6
+          },
+          "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+          "rsi_14": 78.9,
+          "atr_14": 1.19,
+          "prev_day_high": 52.26,
+          "prev_day_low": 51.37,
+          "avg_volume_50d": 41800124,
+          "bollinger": {
+            "upper": 50.89,
+            "middle": 48.2,
+            "lower": 45.51,
+            "pct_b": 115.3
+          }
+        },
+        "news": [
+          {
+            "title": "Moderna eyes international markets as growth driver, says Bank of America",
+            "publisher": "Proactive",
+            "date": "2026-04-08"
+          },
+          {
+            "title": "Hims & Hers price target slashed amid GLP-1 transition",
+            "publisher": "Proactive",
+            "date": "2026-04-08"
+          },
+          {
+            "title": "JPMorgan vs. Bank of America: Wall Street Has a Clear Favorite Stock Right Now",
+            "publisher": "24/7 Wall St.",
+            "date": "2026-04-08"
+          },
+          {
+            "title": "Oracle Draws Pimco Into Potential $14 Billion Michigan Data Center Financing",
+            "publisher": "GuruFocus.com",
+            "date": "2026-04-08"
+          },
+          {
+            "title": "Why Bank of America (BAC) is a Top Dividend Stock for Your Portfolio",
+            "publisher": "Zacks",
+            "date": "2026-04-08"
+          }
+        ],
+        "broader_market": {
+          "spy_price": 672.84,
+          "spy_change_pct": 2.07
         }
       }
     }

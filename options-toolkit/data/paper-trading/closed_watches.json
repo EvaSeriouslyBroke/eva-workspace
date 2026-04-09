@@ -2634,57 +2634,72 @@
     "strike": 60.5,
     "expiry": "2026-04-10",
     "quantity": 1,
-    "cost_basis": 98.0,
-    "sell_date": "2026-04-07",
-    "sell_proceeds": 55.0,
-    "sell_price": 0.55,
-    "sell_iv": 36.5,
-    "open_reason": "THESIS: MOMENTUM SHIELD. XLE (0.62) is in a structural bull regime (above 50/200 SMAs) and hitting new session highs (0.77). It is showing extreme relative strength as the primary market hedge for looming geopolitical oil-supply disruptions (Hormuz deadline). Per 'tickers/XLE/momentum-oil-geopolitical.md', this is a high-confidence momentum continuation play. Expected move: Test of 52-week highs (3.46). Invalidation: Breaks below session low (9.79). Exit plan: Sell at new highs or by 3:45 PM ET close. [Q1: Intraday Entry Timing]",
-    "close_reason": "MANDATORY EOD CLOSE: Closing XLE call at 3:45 PM ET (11:45 PM UTC) to flatten for the evening. The 'Momentum Shield' thesis held firmly as XLE hit new highs (60.62) even as benchmarks bled. Technical strength is at 52-week highs. Closing for the mandatory EOD close. [Q2: Profit-Taking Timing]",
+    "cost_basis": 70.0,
+    "sell_date": "2026-04-08",
+    "sell_proceeds": 67.0,
+    "sell_price": 0.67,
+    "sell_iv": 43.1,
+    "open_reason": "Thesis: Momentum Shield. XLE is the primary geopolitical hedge and lone green shoot, hitting session highs (60.62) while benchmarks bleed. Structural uptrend (above 50/200 SMAs) with bullish relative strength. Intraday setup: Afternoon relative strength breakout. Expected move: Reach 52-week highs (63.46) or hold near current levels. Invalidation: Headline de-escalation news or break below 59.80. Exit plan: 3:30-3:45 PM ET mandatory close.",
+    "close_reason": "THESIS INVALIDATED: Geopolitical energy premium collapsing on ceasefire and reopened Strait of Hormuz. Oil prices falling; 'Momentum Shield' is now a liability. [Q3: Reversal Detection]",
     "entry_market_context": {
-      "price": 60.58,
-      "change_pct": 1.51,
-      "iv": 38.4,
+      "price": 59.96,
+      "change_pct": 0.47,
+      "iv": 37.1,
       "option_greeks": {
-        "delta": 0.492,
-        "gamma": 0.1843,
-        "theta": -0.1346,
-        "vega": 0.0228,
-        "rho": 0.0025
+        "delta": 0.406,
+        "gamma": 0.1916,
+        "theta": -0.1317,
+        "vega": 0.0215,
+        "rho": 0.002
       },
       "iv_context": {
-        "iv_rank": 59,
-        "iv_percentile": 81,
+        "iv_rank": 53,
+        "iv_percentile": 76,
         "iv_52w_high": 46.5,
         "iv_52w_low": 26.8
       },
       "trends": {
         "price_52w_high": 63.46,
         "price_52w_low": 37.24,
-        "price_vs_52w_pct": 89,
-        "sma_50": 56.05,
-        "sma_200": 47.31,
+        "price_vs_52w_pct": 87,
+        "sma_50": 56.04,
+        "sma_200": 47.3,
         "sma_signal": "above_both",
         "returns": {
-          "1w": -2.2,
-          "1m": 7.1,
-          "3m": 29.2,
-          "6m": 36.3
+          "1w": -3.2,
+          "1m": 6.0,
+          "3m": 27.9,
+          "6m": 34.9
         },
         "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
-        "rsi_14": 59.5,
+        "rsi_14": 57.1,
         "atr_14": 1.55,
         "prev_day_high": 60.77,
         "prev_day_low": 59.79,
-        "avg_volume_50d": 60470239,
+        "avg_volume_50d": 60743355,
         "bollinger": {
-          "upper": 62.87,
-          "middle": 59.39,
-          "lower": 55.9,
-          "pct_b": 67.1
+          "upper": 62.81,
+          "middle": 59.36,
+          "lower": 55.91,
+          "pct_b": 58.8
         }
       },
       "news": [
+        {
+          "title": "Sector Update: Energy Stocks Rise Tuesday Afternoon",
+          "publisher": "MT Newswires",
+          "date": "2026-04-07"
+        },
+        {
+          "title": "Sector Update: Energy",
+          "publisher": "MT Newswires",
+          "date": "2026-04-07"
+        },
+        {
+          "title": "Exchange-Traded Funds Lower as US Equities Fall After Midday",
+          "publisher": "MT Newswires",
+          "date": "2026-04-07"
+        },
         {
           "title": "Sector Update: Energy Stocks Edge Higher Premarket Tuesday",
           "publisher": "MT Newswires",
@@ -2694,74 +2709,59 @@
           "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Tuesday Ahead of Trump's Hormuz Reopening Deadline",
           "publisher": "MT Newswires",
           "date": "2026-04-07"
-        },
-        {
-          "title": "Are Energy Stocks and ETFs Still a Buy After the Rally?",
-          "publisher": "Zacks",
-          "date": "2026-04-06"
-        },
-        {
-          "title": "Sector Update: Energy Stocks Rise Late Afternoon",
-          "publisher": "MT Newswires",
-          "date": "2026-04-06"
-        },
-        {
-          "title": "Sector Update: Energy Stocks Rise Monday Afternoon",
-          "publisher": "MT Newswires",
-          "date": "2026-04-06"
         }
       ],
       "broader_market": {
-        "spy_price": 654.2,
-        "spy_change_pct": -0.72
+        "spy_price": 654.99,
+        "spy_change_pct": -0.6
       }
     },
     "sell_market_context": {
-      "underlying_price": 59.9,
-      "option_price": 0.55,
-      "iv": 36.5,
+      "underlying_price": 60.16,
+      "option_price": 0.67,
+      "iv": 43.1,
       "greeks": {
-        "delta": 0.394,
-        "gamma": 0.1998,
-        "theta": -0.1265,
-        "vega": 0.0211,
-        "rho": 0.002
+        "delta": 0.438,
+        "gamma": 0.1823,
+        "theta": -0.1446,
+        "vega": 0.0216,
+        "rho": 0.0021
       },
       "iv_context": {
-        "iv_rank": 49,
-        "iv_percentile": 71,
+        "iv_rank": 83,
+        "iv_percentile": 91,
         "iv_52w_high": 46.5,
         "iv_52w_low": 26.8
       },
       "trends": {
         "price_52w_high": 63.46,
         "price_52w_low": 37.24,
-        "price_vs_52w_pct": 86,
+        "price_vs_52w_pct": 87,
         "sma_50": 56.04,
         "sma_200": 47.3,
         "sma_signal": "above_both",
         "returns": {
-          "1w": -3.3,
-          "1m": 5.9,
-          "3m": 27.7,
-          "6m": 34.7
+          "1w": -2.9,
+          "1m": 6.3,
+          "3m": 28.3,
+          "6m": 35.3
         },
         "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
-        "rsi_14": 56.9,
+        "rsi_14": 57.9,
         "atr_14": 1.55,
         "prev_day_high": 60.77,
         "prev_day_low": 59.79,
-        "avg_volume_50d": 60681080,
+        "avg_volume_50d": 61054608,
         "bollinger": {
-          "upper": 62.8,
-          "middle": 59.35,
-          "lower": 55.9,
-          "pct_b": 57.9
+          "upper": 62.82,
+          "middle": 59.37,
+          "lower": 55.91,
+          "pct_b": 61.5
         }
       },
       "broader_market": {
-        "spy_price": 656.5988,
-        "spy_change_pct": -0.36
+        "spy_price": 659.22,
+        "spy_change_pct": 0
       }
     }
   },
@@ -2908,134 +2908,134 @@
     "strike": 580.0,
     "expiry": "2026-04-10",
     "quantity": 1,
-    "cost_basis": 646.0,
-    "sell_date": "2026-04-07",
-    "sell_proceeds": 521.0,
-    "sell_price": 5.21,
-    "sell_iv": 34.2,
-    "open_reason": "THESIS: INTRADAY MOMENTUM BREAKDOWN. QQQ (81.65) is in a structural bear regime below its 50 and 200 SMAs and has broken its previous day's low (84.69) with SPY alignment. Broader market is in a 'Negative Momentum Vortex' ahead of the 8 PM ET Hormuz deadline. Per 'tickers/QQQ/intraday-momentum-breakdown.md', this setup provides high-confidence short entries for intraday flushes toward psychological handles (80). Expected move: Flush toward 78. Invalidation: QQQ reclaims session VWAP (83). Exit plan: Sell at target or by 3:45 PM ET close. [Q1: Intraday Entry Timing]",
-    "close_reason": "MANDATORY EOD CLOSE: Closing QQQ put at 3:45 PM ET (11:45 PM UTC) to flatten for the evening. The 'Negative Momentum Vortex' thesis held as QQQ remained pinned near session lows on binary risk ahead of the 8 PM ET Hormuz deadline. P&L: Secured gains at EOD lows. [Q2: Profit-Taking Timing]",
+    "cost_basis": 608.0,
+    "sell_date": "2026-04-08",
+    "sell_proceeds": 394.0,
+    "sell_price": 3.94,
+    "sell_iv": 36.4,
+    "open_reason": "Thesis: Negative Momentum Vortex. QQQ is pinned at session lows under binary risk (Iran deadline). Structural bear regime (below 50/200 SMAs) with SPY down 0.5% confirming technical breakdown. Intraday setup: Low-velocity afternoon flush. Expected move: Slow grind lower toward 578. Invalidation: Breakout above VWAP (583). Exit plan: 3:30-3:45 PM ET mandatory close.",
+    "close_reason": "REVERSAL: Ceasefire news triggered violent short-squeeze/relief rally. QQQ gapping up; 'Negative Momentum Vortex' thesis broken by clearing of binary risk. [Q3: Reversal Detection]",
     "entry_market_context": {
-      "price": 581.6501,
-      "change_pct": -1.17,
-      "iv": 33.8,
+      "price": 583.5794,
+      "change_pct": -0.84,
+      "iv": 36.0,
       "option_greeks": {
-        "delta": -0.409,
-        "gamma": 0.0217,
-        "theta": -1.097,
-        "vega": 0.212,
-        "rho": 0.031
+        "delta": -0.378,
+        "gamma": 0.0201,
+        "theta": -1.2067,
+        "vega": 0.2007,
+        "rho": 0.0303
       },
       "iv_context": {
-        "iv_rank": 67,
-        "iv_percentile": 71,
-        "iv_52w_high": 39.5,
+        "iv_rank": 73,
+        "iv_percentile": 90,
+        "iv_52w_high": 41.1,
         "iv_52w_low": 22.0
       },
       "trends": {
         "price_52w_high": 637.01,
         "price_52w_low": 402.39,
-        "price_vs_52w_pct": 76,
-        "sma_50": 601.75,
-        "sma_200": 595.51,
+        "price_vs_52w_pct": 77,
+        "sma_50": 601.79,
+        "sma_200": 595.52,
         "sma_signal": "below_both",
         "returns": {
-          "1w": 4.2,
-          "1m": -3.0,
-          "3m": -5.9,
-          "6m": -3.6
+          "1w": 4.5,
+          "1m": -2.7,
+          "3m": -5.6,
+          "6m": -3.2
         },
         "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
-        "rsi_14": 39.3,
-        "atr_14": 11.23,
+        "rsi_14": 40.1,
+        "atr_14": 11.33,
         "prev_day_high": 587.06,
-        "prev_day_low": 579.69,
-        "avg_volume_50d": 67733344,
+        "prev_day_low": 578.4,
+        "avg_volume_50d": 68082195,
         "bollinger": {
-          "upper": 613.31,
-          "middle": 587.56,
-          "lower": 561.8,
-          "pct_b": 38.4
+          "upper": 613.34,
+          "middle": 587.66,
+          "lower": 561.97,
+          "pct_b": 42.1
         }
       },
       "news": [
         {
-          "title": "Barclays analysts see \"contained\" volatility as Iran ceasefire deadline approaches",
-          "publisher": "Investing.com",
+          "title": "The next hot trade is starting to challenge stocks: Chart of the Day",
+          "publisher": "Yahoo Finance",
           "date": "2026-04-07"
         },
         {
-          "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Tuesday Ahead of Trump's Hormuz Reopening Deadline",
-          "publisher": "MT Newswires",
+          "title": "April Seasonality Signals 1.5% S&P 500 Gain As $20 Billion Flows Build",
+          "publisher": "GuruFocus.com",
           "date": "2026-04-07"
         },
         {
-          "title": "Wealth Manager: \u201cHard to See a World Where You\u2019re Not Investing in AI\u201d Buy These Dips Now",
+          "title": "Broadcom Surges 6% as AI Deals With Google and Anthropic Supercharge Revenue Visibility",
           "publisher": "24/7 Wall St.",
           "date": "2026-04-07"
         },
         {
-          "title": "Exchange-Traded Funds Edge Higher as US Equities Rise After Midday",
+          "title": "Exchange-Traded Funds Lower as US Equities Fall After Midday",
           "publisher": "MT Newswires",
-          "date": "2026-04-06"
+          "date": "2026-04-07"
         },
         {
-          "title": "BlackRock Files to Challenge Invesco\u2019s Nasdaq 100 ETF Monopoly",
-          "publisher": "Wealth Management",
-          "date": "2026-04-06"
+          "title": "BlackRock, State Street File for First ETFs to Challenge Invesco\u2019s QQQ",
+          "publisher": "The Wall Street Journal",
+          "date": "2026-04-07"
         }
       ],
       "broader_market": {
-        "spy_price": 654.04,
-        "spy_change_pct": -0.75
+        "spy_price": 655.28,
+        "spy_change_pct": -0.56
       }
     },
     "sell_market_context": {
-      "underlying_price": 585.09,
-      "option_price": 5.21,
-      "iv": 34.2,
+      "underlying_price": 588.59,
+      "option_price": 3.94,
+      "iv": 36.4,
       "greeks": {
-        "delta": -0.385,
-        "gamma": 0.0205,
-        "theta": -1.1787,
-        "vega": 0.2081,
-        "rho": 0.0304
+        "delta": -0.32,
+        "gamma": 0.0186,
+        "theta": -1.2337,
+        "vega": 0.1904,
+        "rho": 0.0313
       },
       "iv_context": {
-        "iv_rank": 69,
-        "iv_percentile": 76,
-        "iv_52w_high": 39.8,
+        "iv_rank": 70,
+        "iv_percentile": 86,
+        "iv_52w_high": 42.5,
         "iv_52w_low": 22.0
       },
       "trends": {
         "price_52w_high": 637.01,
-        "price_52w_low": 402.39,
-        "price_vs_52w_pct": 78,
-        "sma_50": 601.82,
-        "sma_200": 595.53,
+        "price_52w_low": 409.79,
+        "price_vs_52w_pct": 79,
+        "sma_50": 601.89,
+        "sma_200": 595.55,
         "sma_signal": "below_both",
         "returns": {
-          "1w": 4.8,
-          "1m": -2.4,
-          "3m": -5.3,
-          "6m": -3.0
+          "1w": 5.4,
+          "1m": -1.9,
+          "3m": -4.8,
+          "6m": -2.4
         },
         "trend_summary": "Downtrend \u2014 below 50 and 200 SMA",
-        "rsi_14": 40.7,
-        "atr_14": 11.33,
-        "prev_day_high": 587.06,
+        "rsi_14": 42.2,
+        "atr_14": 11.36,
+        "prev_day_high": 588.98,
         "prev_day_low": 578.4,
-        "avg_volume_50d": 68024701,
+        "avg_volume_50d": 68468828,
         "bollinger": {
-          "upper": 613.37,
-          "middle": 587.73,
-          "lower": 562.09,
-          "pct_b": 44.8
+          "upper": 613.52,
+          "middle": 587.91,
+          "lower": 562.29,
+          "pct_b": 51.3
         }
       },
       "broader_market": {
-        "spy_price": 656.41,
-        "spy_change_pct": -0.39
+        "spy_price": 659.22,
+        "spy_change_pct": 0
       }
     }
   },
@@ -4409,54 +4409,54 @@
     "strike": 265.0,
     "expiry": "2026-04-10",
     "quantity": 1,
-    "cost_basis": 1469.0,
-    "sell_date": "2026-04-07",
-    "sell_proceeds": 1268.0,
-    "sell_price": 12.68,
-    "sell_iv": 35.7,
-    "open_reason": "THESIS: SMALL-CAP FLUSH (IWM). IWM (264.44) is in a structural bear regime below both 50 SMA (269.8) and 200 SMA (268.0). It has confirmed a bearish breakdown with a gap-down below the Middle Bollinger band (268.96) and is making new intraday lows with SPY alignment (-0.98%). Geopolitical catalysts (Hormuz deadline) are driving a 'risk-off' environment that disproportionately affects small-caps. Per 'tickers/IWM/intraday-downtrend-continuation.md', this setup signals a flush toward the Lower Bollinger target (262.11). Expected move: Testing 262.00 today. Invalidation: IWM reclaims session VWAP (approx 267) or the 200 SMA. Exit plan: Sell at 262.50 target or by 3:30-3:45 PM ET mandatory close. [Q1: Intraday Entry Timing]",
-    "close_reason": "MANDATORY EOD CLOSE: Closing IWM put at 3:45 PM ET (11:45 PM UTC) to flatten for the evening. The 'Small-Cap Flush' thesis held firmly as IWM led the market lower under geopolitical gravity, pinned at session lows below both 50/200 SMAs. P&L: Secured gains as trade reached target proximity/EOD. [Q2: Profit-Taking Timing]",
+    "cost_basis": 1385.0,
+    "sell_date": "2026-04-08",
+    "sell_proceeds": 1117.0,
+    "sell_price": 11.17,
+    "sell_iv": 36.2,
+    "open_reason": "Thesis: Bearish Flush. IWM is leading the market lower under the weight of geopolitical supply-risk (Iran deadline) and a structural breakdown below both 50 and 200 SMAs. Intraday setup: Afternoon technical derivation and trend acceleration. Expected move: Continuation of the session low flush toward 263. Invalidation: Reclamation of 267 (50 SMA/VWAP). Exit plan: 3:30-3:45 PM ET mandatory close.",
+    "close_reason": "REVERSAL: Geopolitical risk invalidated by US-Iran ceasefire news. Benchmarks gapping up; small-caps likely to lead mean-reversion recovery. Cutting the bear thesis immediately. [Q3: Reversal Detection]",
     "entry_market_context": {
-      "price": 250.4,
-      "change_pct": -0.78,
-      "iv": 34.9,
+      "price": 251.22,
+      "change_pct": -0.46,
+      "iv": 36.5,
       "option_greeks": {
-        "delta": -0.954,
-        "gamma": 0.0124,
-        "theta": -0.1308,
-        "vega": 0.0254,
-        "rho": 0.0011
+        "delta": -0.925,
+        "gamma": 0.0171,
+        "theta": -0.2,
+        "vega": 0.034,
+        "rho": 0.0016
       },
       "iv_context": {
-        "iv_rank": 54,
-        "iv_percentile": 75,
-        "iv_52w_high": 44.2,
+        "iv_rank": 55,
+        "iv_percentile": 79,
+        "iv_52w_high": 46.7,
         "iv_52w_low": 24.0
       },
       "trends": {
         "price_52w_high": 271.6,
         "price_52w_low": 171.73,
-        "price_vs_52w_pct": 79,
-        "sma_50": 256.49,
-        "sma_200": 243.25,
+        "price_vs_52w_pct": 80,
+        "sma_50": 256.5,
+        "sma_200": 243.26,
         "sma_signal": "mixed",
         "returns": {
-          "1w": 4.5,
-          "1m": -0.2,
-          "3m": -0.9,
-          "6m": 1.9
+          "1w": 4.8,
+          "1m": 0.1,
+          "3m": -0.6,
+          "6m": 2.2
         },
         "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
-        "rsi_14": 50.4,
-        "atr_14": 5.67,
-        "prev_day_high": 251.75,
-        "prev_day_low": 249.6,
-        "avg_volume_50d": 45619946,
+        "rsi_14": 51.3,
+        "atr_14": 5.76,
+        "prev_day_high": 253.48,
+        "prev_day_low": 249.52,
+        "avg_volume_50d": 45851021,
         "bollinger": {
-          "upper": 255.2,
-          "middle": 248.22,
-          "lower": 241.24,
-          "pct_b": 65.6
+          "upper": 255.3,
+          "middle": 248.26,
+          "lower": 241.22,
+          "pct_b": 71.0
         }
       },
       "news": [
@@ -4487,56 +4487,56 @@
         }
       ],
       "broader_market": {
-        "spy_price": 652.39,
-        "spy_change_pct": -1.0
+        "spy_price": 655.23,
+        "spy_change_pct": -0.57
       }
     },
     "sell_market_context": {
-      "underlying_price": 252.33,
-      "option_price": 12.68,
-      "iv": 35.7,
+      "underlying_price": 252.91,
+      "option_price": 11.17,
+      "iv": 36.2,
       "greeks": {
-        "delta": -0.936,
-        "gamma": 0.0149,
-        "theta": -0.1655,
-        "vega": 0.0295,
-        "rho": 0.0013
+        "delta": -0.92,
+        "gamma": 0.0178,
+        "theta": -0.2094,
+        "vega": 0.0335,
+        "rho": 0.0016
       },
       "iv_context": {
-        "iv_rank": 59,
-        "iv_percentile": 75,
-        "iv_52w_high": 43.9,
+        "iv_rank": 52,
+        "iv_percentile": 72,
+        "iv_52w_high": 47.3,
         "iv_52w_low": 24.0
       },
       "trends": {
         "price_52w_high": 271.6,
-        "price_52w_low": 171.73,
+        "price_52w_low": 171.74,
         "price_vs_52w_pct": 81,
-        "sma_50": 256.53,
+        "sma_50": 256.54,
         "sma_200": 243.26,
         "sma_signal": "mixed",
         "returns": {
-          "1w": 5.3,
-          "1m": 0.6,
-          "3m": -0.2,
-          "6m": 2.6
+          "1w": 5.6,
+          "1m": 0.8,
+          "3m": 0.1,
+          "6m": 2.9
         },
         "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
-        "rsi_14": 52.5,
+        "rsi_14": 53.1,
         "atr_14": 5.76,
         "prev_day_high": 253.48,
         "prev_day_low": 249.52,
-        "avg_volume_50d": 45797830,
+        "avg_volume_50d": 46105079,
         "bollinger": {
-          "upper": 255.47,
-          "middle": 248.32,
-          "lower": 241.17,
-          "pct_b": 78.1
+          "upper": 255.57,
+          "middle": 248.35,
+          "lower": 241.13,
+          "pct_b": 81.6
         }
       },
       "broader_market": {
-        "spy_price": 656.46,
-        "spy_change_pct": -0.38
+        "spy_price": 659.22,
+        "spy_change_pct": 0
       }
     }
   }
