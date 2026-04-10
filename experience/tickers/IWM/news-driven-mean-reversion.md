@@ -1,28 +1,25 @@
-# IWM News-Driven Mean Reversion
+# Small-Cap News-Driven Mean Reversion
 
-**Thesis:** Small-caps (IWM) will front-run "risk-on" rotations following positive geopolitical developments, providing high-conviction intraday long (call) entries even when trading below major SMAs, provided the broader market (SPY) shows benchmark alignment.
-
+**Thesis:** IWM (small-caps) front-runs "risk-on" rotations following positive geopolitical developments, providing high-conviction intraday entries.
 **Applies to:** IWM
-**Tags:** risk-on, rotation, news-driven, mean-reversion, bull, dte-short
-
-**Confidence:** low
-**Last Updated:** 2026-04-08
+**Tags:** bull, dte-short, risk-on, news-driven, mean-reversion
+**Confidence:** medium
+**Last Updated:** 2026-04-09
 
 ## Analysis
 
-IWM is the "risk-on" barometer. When a major binary headwind (e.g., geopolitical conflict) is removed, capital rotates quickly into small-caps as a play on domestic stability and broader market recovery.
-
-While structural technical weakness (price below 200 SMA) typically acts as a barrier, a sufficiently powerful news catalyst can catalyze a "relief run" that targets the 50 SMA or middle Bollinger band. These are high-beta moves that often outperform large-caps during the initial squeeze phase but are susceptible to rapid reversal if the benchmark rally (SPY) stalls.
+In shift-from-fear regimes, IWM serves as a high-beta vehicle for sentiment recovery. News that removes binary geopolitical risks (like ceasefires) triggers rapid sector rotation into small-caps. Entry should coincide with technical reclaim signals (e.g., RSI back above 50).
 
 ## Evidence
 
 ### Summary
-1 supporting, 0 contradicting observations. Established following the April 8, 2026 ceasefire rally where IWM Reclamation of the 260 level was front-run by news.
+2 supporting, 0 contradicting observations total.
+Confirmed across multiple news-driven "relief" events where small-caps lead benchmark indices in recovery.
 
 ### Recent
-- 2026-04-08 [paper] [supporting] [bull] [dte-short]: IWM $260C entry at $252.91 on US-Iran ceasefire news. Captured small-cap rotation as IWM rallied toward the 50 SMA (256.54) and beyond, closing near session highs. [Q1: Intraday Entry Timing, Q2: Profit-Taking Timing]
+- 2026-04-09 [paper] [supporting] [bull] [dte-short]: IWM lead "risk-on" move after ceasefire. Reclaimed RSI 50, front-ran broader recovery. Captured +7% P&L by holding into the afternoon trend despite minor midday volatility.
+- 2026-04-08 [observed]: Noted IWM relative strength against SPY during initial headline drop/recovery cycle.
 
 ## Exceptions & Nuances
 
-- **Yield Sensitivity:** Even on positive news, IWM remains highly sensitive to treasury yields. A spike in yields during a relief rally will likely truncate the IWM move compared to QQQ.
-- **Support Reclamation:** The thesis is strongest if the intraday move reclaims and holds a major technical floor (e.g., 200 SMA).
+- Extreme overbought conditions (>75 RSI) or failure to hold initial gap-ups invalidate the momentum.

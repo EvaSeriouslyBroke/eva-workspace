@@ -5751,72 +5751,72 @@
     }
   },
   "": {
-    "reason": "DIRECTION: Bull (Reversal setup). Ticker has reclaimed its 200 SMA (242.83) floor and is trending up (+0.7%) on geopolitical de-escalation rumors (Iran/US truce hopes). SETUP: SMA Reclamation + Pivot Breakout. IWM (251.29) is at session highs (Range 86). EXPECTED MOVE: Continued relief rally toward 255 reclamation target; looking for +30% on contract intraday. INVALIDATION: Break back below 200 SMA (242.83) or rumors proven false (geopolitical escalation). EXIT PLAN: Take profit at 255 price level (~2.50 contract target) or if momentum stalls (RSI > 70); hard close by 3:30 PM ET. [TEST: Discovery - Reclamation momentum follow-through]",
-    "timestamp": "2026-04-03T09:01:28.294740-04:00",
+    "reason": "Thesis: Relief-driven mean reversion following cease-fire headline. IWM is front-running 'risk-on' rotation. \n\nSetup: Range recovery (92nd percentile) + RSI 56 (neutral-to-bullish) + recovery above previous day low. P/C vol remains bullish (0.64).\n\nExpected Move: Continuation toward intraday high (440.57) and potentially testing upper Bollinger (470). Using 1 DTE Apr10 weeklies for high gamma sensitivity to the move.\n\nInvalidation: Break below VWAP or RSI drop below 50.\n\nExit Plan: Target 10-15% P&L or 3:30 PM ET close (Day trade constraint).",
+    "timestamp": "2026-04-09T12:30:40.257215-04:00",
     "side": "buy_to_open",
-    "symbol": "IWM260406C00252500",
+    "symbol": "IWM260410C00441000",
     "market_context": {
-      "price": 251.29,
-      "change_pct": 0.7,
+      "price": 261.81,
+      "change_pct": 0.52,
       "iv": 0,
       "option_greeks": {},
       "iv_context": {},
       "trends": {
         "price_52w_high": 271.6,
-        "price_52w_low": 171.73,
-        "price_vs_52w_pct": 80,
-        "sma_50": 257.12,
-        "sma_200": 242.83,
-        "sma_signal": "mixed",
+        "price_52w_low": 171.74,
+        "price_vs_52w_pct": 90,
+        "sma_50": 256.41,
+        "sma_200": 243.77,
+        "sma_signal": "above_both",
         "returns": {
-          "1w": 1.6,
-          "1m": -4.0,
-          "3m": 2.1,
-          "6m": 3.6
+          "1w": 4.9,
+          "1m": 3.3,
+          "3m": 2.5,
+          "6m": 7.2
         },
-        "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
-        "rsi_14": 54.9,
-        "atr_14": 5.86,
-        "prev_day_high": 252.37,
-        "prev_day_low": 244.87,
-        "avg_volume_50d": 46519361,
+        "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+        "rsi_14": 64.3,
+        "atr_14": 5.98,
+        "prev_day_high": 262.38,
+        "prev_day_low": 258.78,
+        "avg_volume_50d": 46128125,
         "bollinger": {
-          "upper": 255.49,
-          "middle": 248.31,
-          "lower": 241.13,
-          "pct_b": 70.8
+          "upper": 259.45,
+          "middle": 249.15,
+          "lower": 238.85,
+          "pct_b": 111.4
         }
       },
       "news": [
         {
-          "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Thursday as Escalation Signals in Iran Conflict Lift Oil Prices",
+          "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Thursday as Fragile Middle East Ceasefire Lifts Oil Prices",
           "publisher": "MT Newswires",
-          "date": "2026-04-02"
+          "date": "2026-04-09"
         },
         {
-          "title": "Daily ETF Flows: IWM On Top",
-          "publisher": "etf.com",
-          "date": "2026-04-01"
-        },
-        {
-          "title": "Exchange-Traded Funds, Equity Futures Gain Pre-Bell Wednesday as Iran War De-Escalation Hopes Drive Sentiment",
-          "publisher": "MT Newswires",
-          "date": "2026-04-01"
-        },
-        {
-          "title": "Best-Performing Leveraged ETFs of March",
+          "title": "A Few Reasons Why Small-Cap ETFs Are Good Bets Now",
           "publisher": "Zacks",
-          "date": "2026-04-01"
+          "date": "2026-04-09"
         },
         {
-          "title": "Exchange-Traded Funds, Equity Futures Higher Pre-Bell Tuesday as De-Escalation Hopes Lift Risk Sentiment",
+          "title": "Exchange-Traded Funds, Equity Futures Higher Pre-Bell Wednesday Amid Two-Week US-Iran Ceasefire",
           "publisher": "MT Newswires",
-          "date": "2026-03-31"
+          "date": "2026-04-08"
+        },
+        {
+          "title": "Best-Performing ETF Areas of March",
+          "publisher": "Zacks",
+          "date": "2026-04-08"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Tuesday Ahead of Trump's Hormuz Reopening Deadline",
+          "publisher": "MT Newswires",
+          "date": "2026-04-07"
         }
       ],
       "broader_market": {
-        "spy_price": 655.83,
-        "spy_change_pct": 0.09
+        "spy_price": 679.5,
+        "spy_change_pct": 0.52
       }
     }
   },
@@ -12077,5 +12077,116 @@
         "spy_change_pct": 2.07
       }
     }
+  },
+  "27774265": {
+    "reason": "EOD CLOSE: Closing BAC call at 3:30 PM UTC (11:30 AM ET) per PAPER.md day trading rules. [3:30 PM UTC == 11:30 AM ET]",
+    "timestamp": "2026-04-09T11:30:50.076454-04:00",
+    "side": "sell_to_close",
+    "symbol": "BAC260410C00052000"
+  },
+  "27774266": {
+    "reason": "EOD CLOSE: Closing IWM call at 3:30 PM UTC (11:30 AM ET) per PAPER.md day trading rules.",
+    "timestamp": "2026-04-09T11:30:54.779667-04:00",
+    "side": "sell_to_close",
+    "symbol": "IWM260410C00265000"
+  },
+  "27774267": {
+    "reason": "EOD CLOSE: Closing QQQ call at 3:30 PM UTC (11:30 AM ET) per PAPER.md day trading rules.",
+    "timestamp": "2026-04-09T11:30:59.279910-04:00",
+    "side": "sell_to_close",
+    "symbol": "QQQ260410C00608000"
+  },
+  "27774280": {
+    "reason": "EOD CLOSE: Closing XLE put at 3:30 PM UTC (11:30 AM ET) per PAPER.md day trading rules.",
+    "timestamp": "2026-04-09T11:31:04.595189-04:00",
+    "side": "sell_to_close",
+    "symbol": "XLE260410P00057000"
+  },
+  "27793606": {
+    "reason": "High-confidence Momentum Shield Collapse. XLE making new lows (3% range pos), breaking below Lower Bollinger Band (12.4% %B), and deflating on cooling energy premiums. Confirmed by 2026-04-09 experience (sub-agent sub:4f595c79) where similar setup yielded wins. Thesis: Bearish trend reversal now that geopolitical floor is removed. Target: 56.5 zone. Invalidation: Reclaim of 58 pivot.",
+    "timestamp": "2026-04-09T14:15:52.386161-04:00",
+    "side": "buy_to_open",
+    "symbol": "XLE260410P00057000",
+    "market_context": {
+      "price": 57.215,
+      "change_pct": -1.44,
+      "iv": 34.9,
+      "option_greeks": {
+        "delta": -0.348,
+        "gamma": 0.3141,
+        "theta": -0.1989,
+        "vega": 0.0119,
+        "rho": 0.0011
+      },
+      "iv_context": {
+        "iv_rank": 41,
+        "iv_percentile": 65,
+        "iv_52w_high": 46.5,
+        "iv_52w_low": 26.8
+      },
+      "trends": {
+        "price_52w_high": 63.46,
+        "price_52w_low": 37.24,
+        "price_vs_52w_pct": 76,
+        "sma_50": 56.37,
+        "sma_200": 47.44,
+        "sma_signal": "above_both",
+        "returns": {
+          "1w": -3.0,
+          "1m": 2.9,
+          "3m": 26.8,
+          "6m": 27.9
+        },
+        "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+        "rsi_14": 41.3,
+        "atr_14": 1.84,
+        "prev_day_high": 59.02,
+        "prev_day_low": 57.11,
+        "avg_volume_50d": 62012077,
+        "bollinger": {
+          "upper": 62.53,
+          "middle": 59.5,
+          "lower": 56.47,
+          "pct_b": 12.2
+        }
+      },
+      "news": [
+        {
+          "title": "Sector Update: Energy Stocks Decline Thursday Afternoon",
+          "publisher": "MT Newswires",
+          "date": "2026-04-09"
+        },
+        {
+          "title": "Exchange-Traded Funds Edge Higher as US Equities Rise After Midday",
+          "publisher": "MT Newswires",
+          "date": "2026-04-09"
+        },
+        {
+          "title": "Sector Update: Energy Stocks Advance Pre-Bell Thursday",
+          "publisher": "MT Newswires",
+          "date": "2026-04-09"
+        },
+        {
+          "title": "Stock Market News for Apr 9, 2026",
+          "publisher": "Zacks",
+          "date": "2026-04-09"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Thursday as Fragile Middle East Ceasefire Lifts Oil Prices",
+          "publisher": "MT Newswires",
+          "date": "2026-04-09"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 680.38,
+        "spy_change_pct": 0.65
+      }
+    }
+  },
+  "27800537": {
+    "reason": "MANDATORY EOD CLOSE: Closing XLE put at 3:45 PM ET (Hard Cutoff) per PAPER.md rules. Position was held as a tactical short against Energy weakness today; flattening portfolio to remain cash-only overnight. P&L: Secured capture of intraday relative weakness in Energy vs SPY.",
+    "timestamp": "2026-04-09T15:45:31.139423-04:00",
+    "side": "sell_to_close",
+    "symbol": "XLE260410P00057000"
   }
 }
