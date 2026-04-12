@@ -5448,3 +5448,55 @@ Eva sold on April 10th (Today) at 12:45 PM ET for $1.82. This was a tactical 4-D
 
 **Final Verdict:** 10/10 for professional discipline. Exiting for a minor scratch when the horizontal resistance holds is how a trader avoids "fighting the tape." Eva remained flat, liquid, and ready for more high-probability setups on Monday. 🎯
 Cleared 26 watches (expired + stale).
+[master fcb9584] daily snapshot 2026-04-11
+ 74 files changed, 23931 insertions(+), 5778 deletions(-)
+ create mode 100644 memory/2026-04-10.md
+ create mode 100644 options-toolkit/data/paper-trading/position-journal/IWM260414C00262000.jsonl
+ create mode 100644 options-toolkit/data/paper-trading/position-journal/QQQ260413C00612000.jsonl
+ create mode 100644 options-toolkit/data/paper-trading/position-journal/QQQ260414C00610000.jsonl
+ create mode 100644 options-toolkit/data/paper-trading/position-journal/QQQ260417C00615000.jsonl
+ create mode 100644 options-toolkit/data/paper-trading/position-journal/XLE260417P00056000.jsonl
+ create mode 100644 options-toolkit/data/paper-trading/position-journal/XLE260417P00056500.jsonl
+ create mode 100644 options-toolkit/data/paper-trading/position-snapshots/IWM260414C00262000.jsonl
+ create mode 100644 options-toolkit/data/paper-trading/position-snapshots/QQQ260413C00612000.jsonl
+ create mode 100644 options-toolkit/data/paper-trading/position-snapshots/QQQ260414C00610000.jsonl
+ create mode 100644 options-toolkit/data/paper-trading/position-snapshots/QQQ260417C00615000.jsonl
+ create mode 100644 options-toolkit/data/paper-trading/position-snapshots/XLE260417P00056000.jsonl
+ create mode 100644 options-toolkit/data/paper-trading/position-snapshots/XLE260417P00056500.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/BAC260410C00048000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/BAC260410C00052000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/GLD260410P00425000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/IWM260406P00244000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/IWM260406P00245000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/IWM260410C00262500.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/IWM260410C00265000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/IWM260410P00220000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/IWM260410P00265000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/QQQ260406P00580000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/QQQ260406P00585000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/QQQ260407C00585000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/QQQ260407P00584000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/QQQ260407P00585000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/QQQ260410C00608000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/QQQ260410P00580000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/QQQ260410P00585000.jsonl
+ create mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/QQQ260413C00612000.jsonl
+ create mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/QQQ260414C00610000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/XLE260410C00059000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/XLE260410C00059500.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/XLE260410C00060500.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/XLE260410C00063000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/XLE260410P00057000.jsonl
+ delete mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/XLE260410P00059000.jsonl
+ create mode 100644 options-toolkit/data/paper-trading/post-sale-snapshots/XLE260417P00056500.jsonl
+ create mode 100644 options-toolkit/data/paper/AMD/snapshots/2026-04-10.json
+ create mode 100644 options-toolkit/data/paper/BAC/snapshots/2026-04-10.json
+ create mode 100644 options-toolkit/data/paper/GLD/snapshots/2026-04-10.json
+ create mode 100644 options-toolkit/data/paper/IWM/2026-W15/2026-04-10.json
+ create mode 100644 options-toolkit/data/paper/IWM/snapshots/2026-04-10.json
+ create mode 100644 options-toolkit/data/paper/NVDA/snapshots/2026-04-10.json
+ create mode 100644 options-toolkit/data/paper/QQQ/snapshots/2026-04-10.json
+ create mode 100644 options-toolkit/data/paper/TLT/snapshots/2026-04-10.json
+ create mode 100644 options-toolkit/data/paper/XLE/snapshots/2026-04-10.json
+To github.com:EvaSeriouslyBroke/eva-workspace.git
+   6704a52..fcb9584  master -> master
