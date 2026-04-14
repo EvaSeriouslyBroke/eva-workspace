@@ -1,0 +1,534 @@
+[
+  {
+    "symbol": "GLD260417C00435000",
+    "type": "call",
+    "strike": 435.0,
+    "expiry": "2026-04-17",
+    "quantity": 1,
+    "cost_basis": 510.0,
+    "open_reason": "Direction: Bull (SMA 50 reclaim). Setup: Geopolitical support bounce after Islamabad peace talk failure. High volume reclaim provides entry signal. Expected move: Run toward session high (436.2) and test 440 level. Invalidation: Break back below 50 SMA (434.3). Exit: Take profit at 438, mandatory 3:30 PM UTC close. High risk given SPY strength (inverse correlation peril).",
+    "close_reason": "MANDATORY EOD CLOSE: Emergency exit per day trading rules.",
+    "closed_how": "sell_to_close",
+    "needs_experience_update": true,
+    "entry_market_context": {
+      "price": 434.95,
+      "change_pct": -0.5,
+      "iv": 27.0,
+      "option_greeks": {
+        "delta": 0.523,
+        "gamma": 0.0344,
+        "theta": -0.6148,
+        "vega": 0.1825,
+        "rho": 0.0246
+      },
+      "iv_context": {
+        "iv_rank": 5,
+        "iv_percentile": 27,
+        "iv_52w_high": 55.3,
+        "iv_52w_low": 25.4
+      },
+      "trends": {
+        "price_52w_high": 509.7,
+        "price_52w_low": 291.78,
+        "price_vs_52w_pct": 66,
+        "sma_50": 449.96,
+        "sma_200": 382.7,
+        "sma_signal": "mixed",
+        "returns": {
+          "1w": 1.7,
+          "1m": -6.8,
+          "3m": 4.9,
+          "6m": 19.0
+        },
+        "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+        "rsi_14": 67.4,
+        "atr_14": 10.63,
+        "prev_day_high": 436.22,
+        "prev_day_low": 431.63,
+        "avg_volume_50d": 16098083,
+        "bollinger": {
+          "upper": 460.57,
+          "middle": 428.01,
+          "lower": 395.44,
+          "pct_b": 60.7
+        }
+      },
+      "news": [
+        {
+          "title": "Update: Gold Falls Again As Dollar Rises After U.S. and Iran Fail to Reach a Peace Deal",
+          "publisher": "MT Newswires",
+          "date": "2026-04-13"
+        },
+        {
+          "title": "Gold Falls Again As Dollar Rises After U.S. and Iran Fail to Reach a Peace Deal",
+          "publisher": "MT Newswires",
+          "date": "2026-04-13"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Monday as Trump Prepares to Block Strait of Hormuz",
+          "publisher": "MT Newswires",
+          "date": "2026-04-13"
+        },
+        {
+          "title": "Should You Play Gold's Third Weekly Gain With ETFs?",
+          "publisher": "Zacks",
+          "date": "2026-04-13"
+        },
+        {
+          "title": "Gold Falls Nearly 10% As Banks Maintain $5,800 Price Outlook",
+          "publisher": "GuruFocus.com",
+          "date": "2026-04-10"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 683.3194,
+        "spy_change_pct": 0.57
+      }
+    },
+    "buy_entries": [
+      {
+        "order_id": "27911559",
+        "reason": "Direction: Bull (SMA 50 reclaim). Setup: Geopolitical support bounce after Islamabad peace talk failure. High volume reclaim provides entry signal. Expected move: Run toward session high (436.2) and test 440 level. Invalidation: Break back below 50 SMA (434.3). Exit: Take profit at 438, mandatory 3:30 PM UTC close. High risk given SPY strength (inverse correlation peril).",
+        "entry_price": 434.95,
+        "entry_iv": 27.0,
+        "entry_date": "2026-04-13",
+        "ticker": "GLD",
+        "type": "call",
+        "strike": 435.0,
+        "expiry": "2026-04-17",
+        "quantity": 1,
+        "cost_basis": 510.0,
+        "reflected": false,
+        "market_context": {
+          "price": 434.95,
+          "change_pct": -0.5,
+          "iv": 27.0,
+          "option_greeks": {
+            "delta": 0.523,
+            "gamma": 0.0344,
+            "theta": -0.6148,
+            "vega": 0.1825,
+            "rho": 0.0246
+          },
+          "iv_context": {
+            "iv_rank": 5,
+            "iv_percentile": 27,
+            "iv_52w_high": 55.3,
+            "iv_52w_low": 25.4
+          },
+          "trends": {
+            "price_52w_high": 509.7,
+            "price_52w_low": 291.78,
+            "price_vs_52w_pct": 66,
+            "sma_50": 449.96,
+            "sma_200": 382.7,
+            "sma_signal": "mixed",
+            "returns": {
+              "1w": 1.7,
+              "1m": -6.8,
+              "3m": 4.9,
+              "6m": 19.0
+            },
+            "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+            "rsi_14": 67.4,
+            "atr_14": 10.63,
+            "prev_day_high": 436.22,
+            "prev_day_low": 431.63,
+            "avg_volume_50d": 16098083,
+            "bollinger": {
+              "upper": 460.57,
+              "middle": 428.01,
+              "lower": 395.44,
+              "pct_b": 60.7
+            }
+          },
+          "news": [
+            {
+              "title": "Update: Gold Falls Again As Dollar Rises After U.S. and Iran Fail to Reach a Peace Deal",
+              "publisher": "MT Newswires",
+              "date": "2026-04-13"
+            },
+            {
+              "title": "Gold Falls Again As Dollar Rises After U.S. and Iran Fail to Reach a Peace Deal",
+              "publisher": "MT Newswires",
+              "date": "2026-04-13"
+            },
+            {
+              "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Monday as Trump Prepares to Block Strait of Hormuz",
+              "publisher": "MT Newswires",
+              "date": "2026-04-13"
+            },
+            {
+              "title": "Should You Play Gold's Third Weekly Gain With ETFs?",
+              "publisher": "Zacks",
+              "date": "2026-04-13"
+            },
+            {
+              "title": "Gold Falls Nearly 10% As Banks Maintain $5,800 Price Outlook",
+              "publisher": "GuruFocus.com",
+              "date": "2026-04-10"
+            }
+          ],
+          "broader_market": {
+            "spy_price": 683.3194,
+            "spy_change_pct": 0.57
+          }
+        }
+      }
+    ],
+    "position_snapshots": [],
+    "pre_sale_analysis": {}
+  },
+  {
+    "symbol": "XLE260417C00057000",
+    "type": "call",
+    "strike": 57.0,
+    "expiry": "2026-04-17",
+    "quantity": 1,
+    "cost_basis": 74.0,
+    "open_reason": "Direction: Bull. Setup: Momentum Shield / Support Bounce at 50 SMA (6.64) and Lower Bollinger (6.23) on news of Strait of Hormuz blockade and 00+ oil. Thesis: Massive fundamental catalyst overrides technical weakness (RSI 38); history shows energy rallies hard on supply shocks when above 50 SMA. Expected move: Reclaim intraday VWAP and push toward 57.50 level. Invalidation: Break below today's low (6.77/56.64 floor). Exit: Proactive take profit at 57.50 or hard EOD close at 3:45 PM ET.",
+    "close_reason": "MANDATORY EOD CLOSE: Emergency exit per day trading rules.",
+    "closed_how": "sell_to_close",
+    "needs_experience_update": true,
+    "entry_market_context": {
+      "price": 56.905,
+      "change_pct": -0.07,
+      "iv": 32.1,
+      "option_greeks": {
+        "delta": 0.512,
+        "gamma": 0.2097,
+        "theta": -0.0971,
+        "vega": 0.0241,
+        "rho": 0.0032
+      },
+      "iv_context": {
+        "iv_rank": 27,
+        "iv_percentile": 52,
+        "iv_52w_high": 46.5,
+        "iv_52w_low": 26.8
+      },
+      "trends": {
+        "price_52w_high": 63.46,
+        "price_52w_low": 39.19,
+        "price_vs_52w_pct": 73,
+        "sma_50": 56.64,
+        "sma_200": 47.59,
+        "sma_signal": "above_both",
+        "returns": {
+          "1w": -4.6,
+          "1m": -1.1,
+          "3m": 21.9,
+          "6m": 29.7
+        },
+        "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+        "rsi_14": 38.2,
+        "atr_14": 1.76,
+        "prev_day_high": 57.72,
+        "prev_day_low": 56.77,
+        "avg_volume_50d": 61481344,
+        "bollinger": {
+          "upper": 62.64,
+          "middle": 59.44,
+          "lower": 56.23,
+          "pct_b": 10.5
+        }
+      },
+      "news": [
+        {
+          "title": "Sector Update: Energy Stocks Advance Monday Afternoon",
+          "publisher": "MT Newswires",
+          "date": "2026-04-13"
+        },
+        {
+          "title": "Sector Update: Energy",
+          "publisher": "MT Newswires",
+          "date": "2026-04-13"
+        },
+        {
+          "title": "Exchange-Traded Funds Rise, US Equities Mixed After Midday",
+          "publisher": "MT Newswires",
+          "date": "2026-04-13"
+        },
+        {
+          "title": "Sector Update: Energy Stocks Rise Premarket Monday",
+          "publisher": "MT Newswires",
+          "date": "2026-04-13"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Monday as Trump Prepares to Block Strait of Hormuz",
+          "publisher": "MT Newswires",
+          "date": "2026-04-13"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 683.08,
+        "spy_change_pct": 0.54
+      }
+    },
+    "buy_entries": [
+      {
+        "order_id": "27908874",
+        "reason": "Direction: Bull. Setup: Momentum Shield / Support Bounce at 50 SMA (6.64) and Lower Bollinger (6.23) on news of Strait of Hormuz blockade and 00+ oil. Thesis: Massive fundamental catalyst overrides technical weakness (RSI 38); history shows energy rallies hard on supply shocks when above 50 SMA. Expected move: Reclaim intraday VWAP and push toward 57.50 level. Invalidation: Break below today's low (6.77/56.64 floor). Exit: Proactive take profit at 57.50 or hard EOD close at 3:45 PM ET.",
+        "entry_price": 56.905,
+        "entry_iv": 32.1,
+        "entry_date": "2026-04-13",
+        "ticker": "XLE",
+        "type": "call",
+        "strike": 57.0,
+        "expiry": "2026-04-17",
+        "quantity": 1,
+        "cost_basis": 74.0,
+        "reflected": true,
+        "market_context": {
+          "price": 56.905,
+          "change_pct": -0.07,
+          "iv": 32.1,
+          "option_greeks": {
+            "delta": 0.512,
+            "gamma": 0.2097,
+            "theta": -0.0971,
+            "vega": 0.0241,
+            "rho": 0.0032
+          },
+          "iv_context": {
+            "iv_rank": 27,
+            "iv_percentile": 52,
+            "iv_52w_high": 46.5,
+            "iv_52w_low": 26.8
+          },
+          "trends": {
+            "price_52w_high": 63.46,
+            "price_52w_low": 39.19,
+            "price_vs_52w_pct": 73,
+            "sma_50": 56.64,
+            "sma_200": 47.59,
+            "sma_signal": "above_both",
+            "returns": {
+              "1w": -4.6,
+              "1m": -1.1,
+              "3m": 21.9,
+              "6m": 29.7
+            },
+            "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+            "rsi_14": 38.2,
+            "atr_14": 1.76,
+            "prev_day_high": 57.72,
+            "prev_day_low": 56.77,
+            "avg_volume_50d": 61481344,
+            "bollinger": {
+              "upper": 62.64,
+              "middle": 59.44,
+              "lower": 56.23,
+              "pct_b": 10.5
+            }
+          },
+          "news": [
+            {
+              "title": "Sector Update: Energy Stocks Advance Monday Afternoon",
+              "publisher": "MT Newswires",
+              "date": "2026-04-13"
+            },
+            {
+              "title": "Sector Update: Energy",
+              "publisher": "MT Newswires",
+              "date": "2026-04-13"
+            },
+            {
+              "title": "Exchange-Traded Funds Rise, US Equities Mixed After Midday",
+              "publisher": "MT Newswires",
+              "date": "2026-04-13"
+            },
+            {
+              "title": "Sector Update: Energy Stocks Rise Premarket Monday",
+              "publisher": "MT Newswires",
+              "date": "2026-04-13"
+            },
+            {
+              "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Monday as Trump Prepares to Block Strait of Hormuz",
+              "publisher": "MT Newswires",
+              "date": "2026-04-13"
+            }
+          ],
+          "broader_market": {
+            "spy_price": 683.08,
+            "spy_change_pct": 0.54
+          }
+        }
+      }
+    ],
+    "position_snapshots": [
+      {
+        "underlying_price": 57.21,
+        "stock_open": 57.615,
+        "stock_high": 57.72,
+        "stock_low": 56.9501,
+        "stock_volume": 13883169,
+        "dte": 4,
+        "cost_basis": 99.0,
+        "unrealized_pnl": 0.0,
+        "pnl_pct": 0.0,
+        "bid": 0.95,
+        "ask": 1.03,
+        "last": 1.03,
+        "iv": 35.3,
+        "greeks": {
+          "delta": 0.573,
+          "gamma": 0.1837,
+          "theta": -0.1092,
+          "vega": 0.0242,
+          "rho": 0.0037
+        },
+        "ts": "2026-04-13T10:45:26.081046-04:00"
+      },
+      {
+        "underlying_price": 57.015,
+        "stock_open": 57.615,
+        "stock_high": 57.72,
+        "stock_low": 56.9501,
+        "stock_volume": 14964668,
+        "dte": 4,
+        "cost_basis": 99.0,
+        "unrealized_pnl": 0.0,
+        "pnl_pct": 0.0,
+        "bid": 0.88,
+        "ask": 0.92,
+        "last": 0.86,
+        "iv": 35.3,
+        "greeks": {
+          "delta": 0.573,
+          "gamma": 0.1837,
+          "theta": -0.1092,
+          "vega": 0.0242,
+          "rho": 0.0037
+        },
+        "ts": "2026-04-13T11:00:26.154300-04:00"
+      },
+      {
+        "underlying_price": 57.14,
+        "stock_open": 57.615,
+        "stock_high": 57.72,
+        "stock_low": 56.9501,
+        "stock_volume": 16302257,
+        "dte": 4,
+        "cost_basis": 99.0,
+        "unrealized_pnl": 0.0,
+        "pnl_pct": 0.0,
+        "bid": 0.85,
+        "ask": 0.9,
+        "last": 0.87,
+        "iv": 35.3,
+        "greeks": {
+          "delta": 0.573,
+          "gamma": 0.1837,
+          "theta": -0.1092,
+          "vega": 0.0242,
+          "rho": 0.0037
+        },
+        "ts": "2026-04-13T11:15:19.983623-04:00"
+      },
+      {
+        "underlying_price": 57.31,
+        "stock_open": 57.615,
+        "stock_high": 57.72,
+        "stock_low": 56.9501,
+        "stock_volume": 17431308,
+        "dte": 4,
+        "cost_basis": 99.0,
+        "unrealized_pnl": 0.0,
+        "pnl_pct": 0.0,
+        "bid": 0.94,
+        "ask": 1.0,
+        "last": 0.95,
+        "iv": 31.3,
+        "greeks": {
+          "delta": 0.552,
+          "gamma": 0.2142,
+          "theta": -0.0927,
+          "vega": 0.0244,
+          "rho": 0.0035
+        },
+        "ts": "2026-04-13T11:30:24.913415-04:00"
+      },
+      {
+        "underlying_price": 56.865,
+        "stock_open": 57.615,
+        "stock_high": 57.72,
+        "stock_low": 56.77,
+        "stock_volume": 35703042,
+        "dte": 4,
+        "cost_basis": 74.0,
+        "unrealized_pnl": 0.0,
+        "pnl_pct": 0.0,
+        "bid": 0.7,
+        "ask": 0.72,
+        "last": 0.7,
+        "iv": 32.1,
+        "greeks": {
+          "delta": 0.512,
+          "gamma": 0.2097,
+          "theta": -0.0971,
+          "vega": 0.0241,
+          "rho": 0.0032
+        },
+        "ts": "2026-04-13T15:15:19.464478-04:00"
+      },
+      {
+        "underlying_price": 56.685,
+        "stock_open": 57.615,
+        "stock_high": 57.72,
+        "stock_low": 56.645,
+        "stock_volume": 36976925,
+        "dte": 4,
+        "cost_basis": 74.0,
+        "unrealized_pnl": 0.0,
+        "pnl_pct": 0.0,
+        "bid": 0.62,
+        "ask": 0.64,
+        "last": 0.64,
+        "iv": 31.8,
+        "greeks": {
+          "delta": 0.48,
+          "gamma": 0.2197,
+          "theta": -0.0946,
+          "vega": 0.024,
+          "rho": 0.0029
+        },
+        "ts": "2026-04-13T15:30:22.835104-04:00"
+      }
+    ],
+    "pre_sale_analysis": {
+      "daily_trajectory": [
+        {
+          "date": "2026-04-13",
+          "bid_open": 0.95,
+          "bid_high": 0.95,
+          "bid_low": 0.62,
+          "bid_close": 0.62,
+          "iv_open": 35.3,
+          "iv_close": 31.8,
+          "underlying_open": 57.615,
+          "underlying_high": 57.72,
+          "underlying_low": 56.645,
+          "underlying_close": 56.685,
+          "delta": 0.48,
+          "theta": -0.0946,
+          "dte": 4,
+          "snapshots": 6,
+          "underlying_volume": 36976925
+        }
+      ],
+      "peak_bid": 0.95,
+      "peak_date": "2026-04-13",
+      "peak_value": 95.0,
+      "peak_pnl": 21.0,
+      "peak_pnl_pct": 28.4,
+      "underlying_at_peak": 57.21,
+      "trough_bid": 0.62,
+      "trough_date": "2026-04-13",
+      "trough_value": 62.0,
+      "underlying_at_trough": 56.685,
+      "sold_near_peak": false,
+      "snapshot_count": 6
+    }
+  }
+]

@@ -1024,5 +1024,85 @@
         }
       }
     }
+  ],
+  "IWM260417C00247500": [
+    {
+      "order_id": "",
+      "reason": "Direction: Bull (SMA 50/200 reclaim, SPY at highs). Setup: SMA 50 breakout/support-bounce on heavy volume following collapsed Islamabad peace talks news. History (IWM news-driven-mean-reversion) shows IWM leading risk-on rotations. Expected move: Reach upper Bollinger band (256.4) by EOD. Invalidation: Drop below 50 SMA floor (246.6). Exit: Partial at 250, mandatory 3:30 PM UTC close.",
+      "entry_price": 264.52,
+      "entry_iv": 0,
+      "entry_date": "2026-04-13",
+      "ticker": "IWM",
+      "type": "call",
+      "strike": 247.5,
+      "expiry": "2026-04-17",
+      "quantity": 1,
+      "cost_basis": 0,
+      "reflected": false,
+      "market_context": {
+        "price": 264.52,
+        "change_pct": 1.24,
+        "iv": 0,
+        "option_greeks": {},
+        "iv_context": {},
+        "trends": {
+          "price_52w_high": 271.6,
+          "price_52w_low": 180.76,
+          "price_vs_52w_pct": 92,
+          "sma_50": 256.4,
+          "sma_200": 244.27,
+          "sma_signal": "above_both",
+          "returns": {
+            "1w": 4.8,
+            "1m": 6.9,
+            "3m": 1.6,
+            "6m": 7.9
+          },
+          "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+          "rsi_14": 69.9,
+          "atr_14": 5.34,
+          "prev_day_high": 264.59,
+          "prev_day_low": 260.02,
+          "avg_volume_50d": 45545929,
+          "bollinger": {
+            "upper": 263.84,
+            "middle": 250.75,
+            "lower": 237.65,
+            "pct_b": 102.6
+          }
+        },
+        "news": [
+          {
+            "title": "The Biggest Things Driving the Nasdaq Lower Today: Iran Blockade Rattles Tech",
+            "publisher": "24/7 Wall St.",
+            "date": "2026-04-13"
+          },
+          {
+            "title": "The S&P Sells Off on Trump\u2019s \u2018Uno Reverse\u2019 Strategy With Hormuz and Oil Soars Over $100",
+            "publisher": "24/7 Wall St.",
+            "date": "2026-04-13"
+          },
+          {
+            "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Monday as Trump Prepares to Block Strait of Hormuz",
+            "publisher": "MT Newswires",
+            "date": "2026-04-13"
+          },
+          {
+            "title": "Russell 2000 Tracking for New Highs: What\u2019s Next for ETF Traders?",
+            "publisher": "MarketBeat",
+            "date": "2026-04-12"
+          },
+          {
+            "title": "Exchange-Traded Funds Higher, Equity Futures Mixed Pre-Bell Amid Lingering Geopolitical Uncertainty, CPI Focus",
+            "publisher": "MT Newswires",
+            "date": "2026-04-10"
+          }
+        ],
+        "broader_market": {
+          "spy_price": 683.27,
+          "spy_change_pct": 0.57
+        }
+      }
+    }
   ]
 }
