@@ -1104,5 +1104,267 @@
         }
       }
     }
+  ],
+  "NVDA260417C00355000": [
+    {
+      "order_id": "",
+      "reason": "DIRECTION: Bull. NVDA reclaiming structural uptrend (above 50/200 SMA) after morning PPI relief rally. Sector-wide explosion (AMD, SMCI) and news sentiment (AI trade leading again) provide macro-alignment. SETUP: V-bottom recovery / momentum breakout from intraday consolidation. EXPECTED MOVE: Continued push toward 52-week high (368.64) as growth rotation accelerates. INVALIDATION: Break back below 50 SMA (328.71) or rotation into 'war trade' energy. EXIT PLAN: Target 20-30% gain on contract or mandatory EOD close by 3:30 PM ET.",
+      "entry_price": 192.01,
+      "entry_iv": 0,
+      "entry_date": "2026-04-14",
+      "ticker": "NVDA",
+      "type": "call",
+      "strike": 355.0,
+      "expiry": "2026-04-17",
+      "quantity": 1,
+      "cost_basis": 0,
+      "reflected": false,
+      "market_context": {
+        "price": 192.01,
+        "change_pct": 1.43,
+        "iv": 0,
+        "option_greeks": {},
+        "iv_context": {},
+        "trends": {
+          "price_52w_high": 212.19,
+          "price_52w_low": 95.04,
+          "price_vs_52w_pct": 83,
+          "sma_50": 182.03,
+          "sma_200": 181.1,
+          "sma_signal": "above_both",
+          "returns": {
+            "1w": 7.8,
+            "1m": 6.5,
+            "3m": 3.8,
+            "6m": 4.8
+          },
+          "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+          "rsi_14": 69.2,
+          "atr_14": 5.2,
+          "prev_day_high": 193.31,
+          "prev_day_low": 190.77,
+          "avg_volume_50d": 178286915,
+          "bollinger": {
+            "upper": 191.64,
+            "middle": 178.31,
+            "lower": 164.98,
+            "pct_b": 101.3
+          }
+        },
+        "news": [
+          {
+            "title": "AI trade is leading the stock market again: Chart of the Day",
+            "publisher": "Yahoo Finance",
+            "date": "2026-04-14"
+          },
+          {
+            "title": "Amazon stock is leading the 'Magnificent 7' rebound \u2014 but the rally is hitting a ceiling: Chart of the Day",
+            "publisher": "Yahoo Finance",
+            "date": "2026-04-13"
+          },
+          {
+            "title": "This Super Stock Could Be the Biggest Winner in the AI Inference Economy. It Isn't Nvidia, Broadcom, Intel, or AMD.",
+            "publisher": "Motley Fool",
+            "date": "2026-04-14"
+          },
+          {
+            "title": "Nvidia Says It\u2019s Not Buying Dell, PC Maker\u2019s Stock Drops",
+            "publisher": "Barrons.com",
+            "date": "2026-04-14"
+          },
+          {
+            "title": "Why retirees are buying this closed-end fund yielding 8% on venture-stage tech",
+            "publisher": "24/7 Wall St.",
+            "date": "2026-04-14"
+          }
+        ],
+        "broader_market": {
+          "spy_price": 689.6,
+          "spy_change_pct": 0.51
+        }
+      }
+    }
+  ],
+  "QQQ260416C00625000": [
+    {
+      "order_id": "27952854",
+      "reason": "Direction: Bull. Setup: Inflation-relief rally + 50/200 SMA reclaim + Software rotation. Expected move: Continuation of intraday rally toward psychological 630. Invalidation: Drop below 50 SMA (600.5). Exit: Target 20% gain or 3:30 PM ET close.",
+      "entry_price": 627.195,
+      "entry_iv": 17.9,
+      "entry_date": "2026-04-14",
+      "ticker": "QQQ",
+      "type": "call",
+      "strike": 625.0,
+      "expiry": "2026-04-16",
+      "quantity": 1,
+      "cost_basis": 469.0,
+      "reflected": false,
+      "market_context": {
+        "price": 627.195,
+        "change_pct": 1.59,
+        "iv": 17.9,
+        "option_greeks": {
+          "delta": 0.564,
+          "gamma": 0.046,
+          "theta": -0.801,
+          "vega": 0.1886,
+          "rho": 0.0208
+        },
+        "iv_context": {
+          "iv_rank": 0,
+          "iv_percentile": 0,
+          "iv_52w_high": 42.5,
+          "iv_52w_low": 19.1
+        },
+        "trends": {
+          "price_52w_high": 637.01,
+          "price_52w_low": 427.93,
+          "price_vs_52w_pct": 95,
+          "sma_50": 600.51,
+          "sma_200": 597.48,
+          "sma_signal": "above_both",
+          "returns": {
+            "1w": 6.6,
+            "1m": 5.6,
+            "3m": 0.0,
+            "6m": 6.4
+          },
+          "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+          "rsi_14": 71.1,
+          "atr_14": 12.11,
+          "prev_day_high": 627.47,
+          "prev_day_low": 620.1,
+          "avg_volume_50d": 67018039,
+          "bollinger": {
+            "upper": 625.17,
+            "middle": 591.16,
+            "lower": 557.15,
+            "pct_b": 103.0
+          }
+        },
+        "news": [
+          {
+            "title": "Software stocks are finally joining the tech rally",
+            "publisher": "Yahoo Finance",
+            "date": "2026-04-14"
+          },
+          {
+            "title": "Exchange-Traded Funds, US Equities Rise After Midday",
+            "publisher": "MT Newswires",
+            "date": "2026-04-14"
+          },
+          {
+            "title": "Stock Market Today: Nasdaq Shines After Inflation Data; Amazon Lifts Satellite Name (Live Coverage)",
+            "publisher": "Investor's Business Daily",
+            "date": "2026-04-14"
+          },
+          {
+            "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Tuesday Amid Hopes of Long-Term US-Iran Truce",
+            "publisher": "MT Newswires",
+            "date": "2026-04-14"
+          },
+          {
+            "title": "Warning: \u201cExistential Risk\u201d as Mega IPOs Could Trigger $100 Billion Stock Selloff",
+            "publisher": "24/7 Wall St.",
+            "date": "2026-04-14"
+          }
+        ],
+        "broader_market": {
+          "spy_price": 693.875,
+          "spy_change_pct": 1.14
+        }
+      }
+    }
+  ],
+  "XLE260417P00055000": [
+    {
+      "order_id": "27952863",
+      "reason": "Direction: Bear. Setup: Momentum Shield Collapse (ceasefire news) + sector rotation to Tech. Expected move: Break below 200 SMA (47.66) 'magnetic floor' liquidation. Invalidation: Reclaim of 50 SMA (56.74). Exit: Target 15% gain or 3:30 PM ET close.",
+      "entry_price": 55.725,
+      "entry_iv": 33.1,
+      "entry_date": "2026-04-14",
+      "ticker": "XLE",
+      "type": "put",
+      "strike": 55.0,
+      "expiry": "2026-04-17",
+      "quantity": 1,
+      "cost_basis": 34.0,
+      "reflected": false,
+      "market_context": {
+        "price": 55.725,
+        "change_pct": -2.43,
+        "iv": 33.1,
+        "option_greeks": {
+          "delta": -0.347,
+          "gamma": 0.2269,
+          "theta": -0.1017,
+          "vega": 0.0191,
+          "rho": 0.003
+        },
+        "iv_context": {
+          "iv_rank": 32,
+          "iv_percentile": 58,
+          "iv_52w_high": 46.5,
+          "iv_52w_low": 26.8
+        },
+        "trends": {
+          "price_52w_high": 63.46,
+          "price_52w_low": 39.19,
+          "price_vs_52w_pct": 68,
+          "sma_50": 56.74,
+          "sma_200": 47.66,
+          "sma_signal": "mixed",
+          "returns": {
+            "1w": -7.4,
+            "1m": -3.4,
+            "3m": 20.3,
+            "6m": 30.8
+          },
+          "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+          "rsi_14": 28.4,
+          "atr_14": 1.76,
+          "prev_day_high": 56.5,
+          "prev_day_low": 55.41,
+          "avg_volume_50d": 61019459,
+          "bollinger": {
+            "upper": 62.85,
+            "middle": 59.34,
+            "lower": 55.83,
+            "pct_b": -1.5
+          }
+        },
+        "news": [
+          {
+            "title": "AI trade is leading the stock market again: Chart of the Day",
+            "publisher": "Yahoo Finance",
+            "date": "2026-04-14"
+          },
+          {
+            "title": "Sector Update: Energy",
+            "publisher": "MT Newswires",
+            "date": "2026-04-14"
+          },
+          {
+            "title": "Exchange-Traded Funds, US Equities Rise After Midday",
+            "publisher": "MT Newswires",
+            "date": "2026-04-14"
+          },
+          {
+            "title": "Sector Update: Energy Stocks Lean Lower Premarket Tuesday",
+            "publisher": "MT Newswires",
+            "date": "2026-04-14"
+          },
+          {
+            "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Tuesday Amid Hopes of Long-Term US-Iran Truce",
+            "publisher": "MT Newswires",
+            "date": "2026-04-14"
+          }
+        ],
+        "broader_market": {
+          "spy_price": 693.88,
+          "spy_change_pct": 1.14
+        }
+      }
+    }
   ]
 }

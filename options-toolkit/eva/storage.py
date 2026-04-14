@@ -519,6 +519,45 @@ def load_post_sale_snapshots(mode, symbol):
     return snapshots
 
 
+# ── Position journal (data/{mode}-trading/position-journal/) ──────────────
+
+def save_position_journal(mode, symbol, entry):
+    """Append a journal entry to the JSONL file for a position.
+
+    Each evaluate cycle, Eva writes her updated assessment, exit plan,
+    and what she's considering for each open position.
+    """
+    d = os.path.join(data_dir(mode), "position-journal")
+    os.makedirs(d, exist_ok=True)
+    entry["ts"] = datetime.now(ET).isoformat()
+    path = os.path.join(d, f"{symbol}.jsonl")
+    with open(path, "a") as f:
+        f.write(json.dumps(entry) + "\n")
+
+
+def load_position_journal(mode, symbol, limit=None):
+    """Load journal entries for a position from its JSONL file.
+
+    Returns entries in chronological order. If limit is set, returns
+    only the most recent N entries.
+    """
+    path = os.path.join(data_dir(mode), "position-journal", f"{symbol}.jsonl")
+    if not os.path.exists(path):
+        return []
+    entries = []
+    with open(path) as f:
+        for line in f:
+            line = line.strip()
+            if line:
+                try:
+                    entries.append(json.loads(line))
+                except json.JSONDecodeError:
+                    continue
+    if limit and len(entries) > limit:
+        entries = entries[-limit:]
+    return entries
+
+
 def load_news_history(mode, ticker, days=7):
     """Load recent news history for a ticker.
 

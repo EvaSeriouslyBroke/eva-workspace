@@ -9,6 +9,7 @@ from eva.commands import (
     cmd_evaluate,
     cmd_hindsight,
     cmd_history,
+    cmd_journal,
     cmd_news,
     cmd_news_research,
     cmd_pending_experience,
@@ -108,6 +109,14 @@ def main():
     p_hindsight.add_argument("--expired-only", action="store_true", help="Only show expired contracts")
     p_hindsight.add_argument("--clear-expired", action="store_true", help="Remove expired and stale (>30 days past sell) watches")
 
+    p_journal = subparsers.add_parser("journal", help="Read/write position journal entries")
+    p_journal.add_argument("--symbol", required=True, help="OCC symbol")
+    p_journal.add_argument("--read", action="store_true", help="Read journal entries")
+    p_journal.add_argument("--limit", type=int, help="Max entries to return (most recent)")
+    p_journal.add_argument("--assessment", help="Current position assessment")
+    p_journal.add_argument("--exit-plan", help="Updated exit plan")
+    p_journal.add_argument("--considering", help="What Eva is considering")
+
     p_pending = subparsers.add_parser("pending-experience", help="Show/clear pending experience updates")
     p_pending.add_argument("--clear", action="store_true", help="Clear pending updates after processing")
 
@@ -135,6 +144,7 @@ def main():
         "buy": cmd_buy,
         "sell": cmd_sell,
         "trade-history": cmd_trade_history,
+        "journal": cmd_journal,
         "hindsight": cmd_hindsight,
         "pending-experience": cmd_pending_experience,
         "reset": cmd_reset,

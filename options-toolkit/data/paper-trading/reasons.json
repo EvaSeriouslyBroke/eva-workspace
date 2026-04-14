@@ -5751,72 +5751,72 @@
     }
   },
   "": {
-    "reason": "Direction: Bull (SMA 50/200 reclaim, SPY at highs). Setup: SMA 50 breakout/support-bounce on heavy volume following collapsed Islamabad peace talks news. History (IWM news-driven-mean-reversion) shows IWM leading risk-on rotations. Expected move: Reach upper Bollinger band (256.4) by EOD. Invalidation: Drop below 50 SMA floor (246.6). Exit: Partial at 250, mandatory 3:30 PM UTC close.",
-    "timestamp": "2026-04-13T15:31:21.834117-04:00",
+    "reason": "DIRECTION: Bull. NVDA reclaiming structural uptrend (above 50/200 SMA) after morning PPI relief rally. Sector-wide explosion (AMD, SMCI) and news sentiment (AI trade leading again) provide macro-alignment. SETUP: V-bottom recovery / momentum breakout from intraday consolidation. EXPECTED MOVE: Continued push toward 52-week high (368.64) as growth rotation accelerates. INVALIDATION: Break back below 50 SMA (328.71) or rotation into 'war trade' energy. EXIT PLAN: Target 20-30% gain on contract or mandatory EOD close by 3:30 PM ET.",
+    "timestamp": "2026-04-14T10:15:36.629168-04:00",
     "side": "buy_to_open",
-    "symbol": "IWM260417C00247500",
+    "symbol": "NVDA260417C00355000",
     "market_context": {
-      "price": 264.52,
-      "change_pct": 1.24,
+      "price": 192.01,
+      "change_pct": 1.43,
       "iv": 0,
       "option_greeks": {},
       "iv_context": {},
       "trends": {
-        "price_52w_high": 271.6,
-        "price_52w_low": 180.76,
-        "price_vs_52w_pct": 92,
-        "sma_50": 256.4,
-        "sma_200": 244.27,
+        "price_52w_high": 212.19,
+        "price_52w_low": 95.04,
+        "price_vs_52w_pct": 83,
+        "sma_50": 182.03,
+        "sma_200": 181.1,
         "sma_signal": "above_both",
         "returns": {
-          "1w": 4.8,
-          "1m": 6.9,
-          "3m": 1.6,
-          "6m": 7.9
+          "1w": 7.8,
+          "1m": 6.5,
+          "3m": 3.8,
+          "6m": 4.8
         },
         "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
-        "rsi_14": 69.9,
-        "atr_14": 5.34,
-        "prev_day_high": 264.59,
-        "prev_day_low": 260.02,
-        "avg_volume_50d": 45545929,
+        "rsi_14": 69.2,
+        "atr_14": 5.2,
+        "prev_day_high": 193.31,
+        "prev_day_low": 190.77,
+        "avg_volume_50d": 178286915,
         "bollinger": {
-          "upper": 263.84,
-          "middle": 250.75,
-          "lower": 237.65,
-          "pct_b": 102.6
+          "upper": 191.64,
+          "middle": 178.31,
+          "lower": 164.98,
+          "pct_b": 101.3
         }
       },
       "news": [
         {
-          "title": "The Biggest Things Driving the Nasdaq Lower Today: Iran Blockade Rattles Tech",
+          "title": "AI trade is leading the stock market again: Chart of the Day",
+          "publisher": "Yahoo Finance",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "Amazon stock is leading the 'Magnificent 7' rebound \u2014 but the rally is hitting a ceiling: Chart of the Day",
+          "publisher": "Yahoo Finance",
+          "date": "2026-04-13"
+        },
+        {
+          "title": "This Super Stock Could Be the Biggest Winner in the AI Inference Economy. It Isn't Nvidia, Broadcom, Intel, or AMD.",
+          "publisher": "Motley Fool",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "Nvidia Says It\u2019s Not Buying Dell, PC Maker\u2019s Stock Drops",
+          "publisher": "Barrons.com",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "Why retirees are buying this closed-end fund yielding 8% on venture-stage tech",
           "publisher": "24/7 Wall St.",
-          "date": "2026-04-13"
-        },
-        {
-          "title": "The S&P Sells Off on Trump\u2019s \u2018Uno Reverse\u2019 Strategy With Hormuz and Oil Soars Over $100",
-          "publisher": "24/7 Wall St.",
-          "date": "2026-04-13"
-        },
-        {
-          "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Monday as Trump Prepares to Block Strait of Hormuz",
-          "publisher": "MT Newswires",
-          "date": "2026-04-13"
-        },
-        {
-          "title": "Russell 2000 Tracking for New Highs: What\u2019s Next for ETF Traders?",
-          "publisher": "MarketBeat",
-          "date": "2026-04-12"
-        },
-        {
-          "title": "Exchange-Traded Funds Higher, Equity Futures Mixed Pre-Bell Amid Lingering Geopolitical Uncertainty, CPI Focus",
-          "publisher": "MT Newswires",
-          "date": "2026-04-10"
+          "date": "2026-04-14"
         }
       ],
       "broader_market": {
-        "spy_price": 683.27,
-        "spy_change_pct": 0.57
+        "spy_price": 689.6,
+        "spy_change_pct": 0.51
       }
     }
   },
@@ -13574,5 +13574,845 @@
     "timestamp": "2026-04-13T15:37:51.020263-04:00",
     "side": "sell_to_close",
     "symbol": "XLE260417C00057000"
+  },
+  "27924840": {
+    "reason": "Thesis: Bull market day trade (Mag-7 Rebound). Direction: Bull (above 50/200 SMA, SPY green, positive 4.9% 1w return). Setup: AI-trade re-acceleration momentum (news score 7). Expected move: Intraday push toward Upper Bollinger Band (619.93). Invalidation: Decisive break below 50 SMA (600.4) or news environment reversal. Exit plan: Profit target at RSI 70+ paired with Upper BB touch, or mandatory close by 3:30 PM ET.",
+    "timestamp": "2026-04-14T09:02:46.246990-04:00",
+    "side": "buy_to_open",
+    "symbol": "QQQ260415C00617000",
+    "market_context": {
+      "price": 617.39,
+      "change_pct": 0,
+      "iv": 17.1,
+      "option_greeks": {
+        "delta": 0.529,
+        "gamma": 0.0526,
+        "theta": -0.7671,
+        "vega": 0.1824,
+        "rho": 0.0166
+      },
+      "iv_context": {
+        "iv_rank": 0,
+        "iv_percentile": 0,
+        "iv_52w_high": 42.5,
+        "iv_52w_low": 19.1
+      },
+      "trends": {
+        "price_52w_high": 637.01,
+        "price_52w_low": 427.93,
+        "price_vs_52w_pct": 91,
+        "sma_50": 600.4,
+        "sma_200": 597.08,
+        "sma_signal": "above_both",
+        "returns": {
+          "1w": 4.9,
+          "1m": 3.4,
+          "3m": -1.5,
+          "6m": 1.1
+        },
+        "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+        "rsi_14": 65.2,
+        "atr_14": 11.83,
+        "prev_day_high": 626.74,
+        "prev_day_low": 608.11,
+        "avg_volume_50d": 67715192,
+        "bollinger": {
+          "upper": 619.93,
+          "middle": 589.82,
+          "lower": 559.71,
+          "pct_b": 95.8
+        }
+      },
+      "news": [
+        {
+          "title": "Amazon stock is leading the 'Magnificent 7' rebound \u2014 but the rally is hitting a ceiling: Chart of the Day",
+          "publisher": "Yahoo Finance",
+          "date": "2026-04-13"
+        },
+        {
+          "title": "Warning: \u201cExistential Risk\u201d as Mega IPOs Could Trigger $100 Billion Stock Selloff",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "Stock Market Today: Dow Rises On Surprise Inflation Data; Bloom Soars On This Oracle News (Live Coverage)",
+          "publisher": "Investor's Business Daily",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "ETF Fund Flows Tool: Track ETF, Issuer  Asset Class Flows",
+          "publisher": "etf.com",
+          "date": "2026-04-13"
+        },
+        {
+          "title": "Why Millions of Investors Are Buying the Wrong NASDAQ ETF",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-04-13"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 686.1,
+        "spy_change_pct": 0
+      }
+    }
+  },
+  "27924901": {
+    "reason": "DIRECTION: Bull. QQQ is in a structural uptrend, trading above both 50 and 200 SMAs (600.4/597.08). Broader market (SPY) is also above its SMAs and trending up. NEWS: Surprise inflation data (PPI) cooling has removed a major binary risk, creating room for relief. SETUP: Sector rotation is favoring growth/tech as the 'war trade' in energy loses steam (XLE down 8% since March 30 while Tech up 14%). EXPECTED MOVE: Intraday push toward the Upper Bollinger Band (619.93) to capture continued leadership strength. INVALIDATION: Decisive break below the 50 SMA (600.4) or reversal in SPY momentum. EXIT PLAN: Target Upper Bollinger (619.93) for profit-taking or close by 3:30 PM ET.",
+    "timestamp": "2026-04-14T09:15:43.396112-04:00",
+    "side": "buy_to_open",
+    "symbol": "QQQ260416C00617000",
+    "market_context": {
+      "price": 617.39,
+      "change_pct": 0,
+      "iv": 18.1,
+      "option_greeks": {
+        "delta": 0.527,
+        "gamma": 0.0432,
+        "theta": -0.633,
+        "vega": 0.2233,
+        "rho": 0.025
+      },
+      "iv_context": {
+        "iv_rank": 0,
+        "iv_percentile": 0,
+        "iv_52w_high": 42.5,
+        "iv_52w_low": 19.1
+      },
+      "trends": {
+        "price_52w_high": 637.01,
+        "price_52w_low": 427.93,
+        "price_vs_52w_pct": 91,
+        "sma_50": 600.4,
+        "sma_200": 597.08,
+        "sma_signal": "above_both",
+        "returns": {
+          "1w": 4.9,
+          "1m": 3.4,
+          "3m": -1.5,
+          "6m": 1.1
+        },
+        "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+        "rsi_14": 65.2,
+        "atr_14": 11.83,
+        "prev_day_high": 626.74,
+        "prev_day_low": 608.11,
+        "avg_volume_50d": 67715192,
+        "bollinger": {
+          "upper": 619.93,
+          "middle": 589.82,
+          "lower": 559.71,
+          "pct_b": 95.8
+        }
+      },
+      "news": [
+        {
+          "title": "Amazon stock is leading the 'Magnificent 7' rebound \u2014 but the rally is hitting a ceiling: Chart of the Day",
+          "publisher": "Yahoo Finance",
+          "date": "2026-04-13"
+        },
+        {
+          "title": "Warning: \u201cExistential Risk\u201d as Mega IPOs Could Trigger $100 Billion Stock Selloff",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "Stock Market Today: Dow Rises On Surprise Inflation Data; Bloom Soars On This Oracle News (Live Coverage)",
+          "publisher": "Investor's Business Daily",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "ETF Fund Flows Tool: Track ETF, Issuer  Asset Class Flows",
+          "publisher": "etf.com",
+          "date": "2026-04-13"
+        },
+        {
+          "title": "Why Millions of Investors Are Buying the Wrong NASDAQ ETF",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-04-13"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 686.1,
+        "spy_change_pct": 0
+      }
+    }
+  },
+  "27925092": {
+    "reason": "Morning Momentum with Trend: SPY green and trending up, QQQ reclaimed Bollinger Middle, news sentiment shifting bullish on US-Iran truce hopes.",
+    "timestamp": "2026-04-14T09:30:28.760026-04:00",
+    "side": "buy_to_open",
+    "symbol": "QQQ260416C00617000",
+    "market_context": {
+      "price": 617.39,
+      "change_pct": 0,
+      "iv": 18.1,
+      "option_greeks": {
+        "delta": 0.527,
+        "gamma": 0.0432,
+        "theta": -0.633,
+        "vega": 0.2233,
+        "rho": 0.025
+      },
+      "iv_context": {
+        "iv_rank": 0,
+        "iv_percentile": 0,
+        "iv_52w_high": 42.5,
+        "iv_52w_low": 19.1
+      },
+      "trends": {
+        "price_52w_high": 637.01,
+        "price_52w_low": 427.93,
+        "price_vs_52w_pct": 91,
+        "sma_50": 600.38,
+        "sma_200": 597.45,
+        "sma_signal": "above_both",
+        "returns": {
+          "1w": 4.9,
+          "1m": 4.0,
+          "3m": -1.6,
+          "6m": 4.7
+        },
+        "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+        "rsi_14": 69.2,
+        "atr_14": 11.68,
+        "prev_day_high": 621.45,
+        "prev_day_low": 620.1,
+        "avg_volume_50d": 66445689,
+        "bollinger": {
+          "upper": 623.62,
+          "middle": 590.85,
+          "lower": 558.08,
+          "pct_b": 95.9
+        }
+      },
+      "news": [
+        {
+          "title": "Amazon stock is leading the 'Magnificent 7' rebound \u2014 but the rally is hitting a ceiling: Chart of the Day",
+          "publisher": "Yahoo Finance",
+          "date": "2026-04-13"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Tuesday Amid Hopes of Long-Term US-Iran Truce",
+          "publisher": "MT Newswires",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "Stock Market Today: Dow Rises On Surprise Inflation Data; Bloom Soars On This Oracle News (Live Coverage)",
+          "publisher": "Investor's Business Daily",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "Warning: \u201cExistential Risk\u201d as Mega IPOs Could Trigger $100 Billion Stock Selloff",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "ETF Fund Flows Tool: Track ETF, Issuer  Asset Class Flows",
+          "publisher": "etf.com",
+          "date": "2026-04-13"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 686.1,
+        "spy_change_pct": 0
+      }
+    }
+  },
+  "27925857": {
+    "reason": "Mean Reversion / Trend Alignment: XLE testing SMA 50 support (6.75) after geopolitical sell-off; US-Iran truce hopes provide relief to energy liquidation. RSI 30 near oversold.",
+    "timestamp": "2026-04-14T09:30:37.682001-04:00",
+    "side": "buy_to_open",
+    "symbol": "XLE260417C00057000",
+    "market_context": {
+      "price": 57.11,
+      "change_pct": 0,
+      "iv": 31.6,
+      "option_greeks": {
+        "delta": 0.542,
+        "gamma": 0.2031,
+        "theta": -0.1024,
+        "vega": 0.0238,
+        "rho": 0.0033
+      },
+      "iv_context": {
+        "iv_rank": 25,
+        "iv_percentile": 46,
+        "iv_52w_high": 46.5,
+        "iv_52w_low": 26.8
+      },
+      "trends": {
+        "price_52w_high": 63.46,
+        "price_52w_low": 39.19,
+        "price_vs_52w_pct": 74,
+        "sma_50": 56.75,
+        "sma_200": 47.66,
+        "sma_signal": "above_both",
+        "returns": {
+          "1w": -5.1,
+          "1m": -1.0,
+          "3m": 23.2,
+          "6m": 34.0
+        },
+        "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+        "rsi_14": 29.9,
+        "atr_14": 1.69,
+        "prev_day_high": 56.5,
+        "prev_day_low": 56.34,
+        "avg_volume_50d": 60188228,
+        "bollinger": {
+          "upper": 62.76,
+          "middle": 59.37,
+          "lower": 55.98,
+          "pct_b": 5.5
+        }
+      },
+      "news": [
+        {
+          "title": "AI trade is leading the stock market again: Chart of the Day",
+          "publisher": "Yahoo Finance",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Tuesday Amid Hopes of Long-Term US-Iran Truce",
+          "publisher": "MT Newswires",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "This Wall Street Veteran Says the Market Has Bottomed \u2014 Here\u2019s What He Thinks Comes Next",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "Energy and International ETFs Offer the Diversification Your $1,000 Deserves in 2026",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-04-13"
+        },
+        {
+          "title": "Sector Update: Energy Stocks Mixed Late Afternoon",
+          "publisher": "MT Newswires",
+          "date": "2026-04-13"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 686.1,
+        "spy_change_pct": 0
+      }
+    }
+  },
+  "27929769": {
+    "reason": "DIRECTION: Bull. GLD reclaiming technical levels as dollar weakens following wholesale inflation data relief. SETUP: News-driven mean reversion / inflation relief. EXPECTED MOVE: Intraday push toward session highs to capture momentum. INVALIDATION: 10Y Yield spikes or dollar reverses gains; break below 448 pivot. EXIT PLAN: Capture 20-30% move or mandatory EOD close by 3:30 PM ET. Note: Experience (tickers/GLD/bounce-back-fails-when-macro-fear-fades.md) warns that Yields > Oil/Panic; confirming yields are supportive.",
+    "timestamp": "2026-04-14T10:01:56.710631-04:00",
+    "side": "buy_to_open",
+    "symbol": "GLD260415C00451000",
+    "market_context": {
+      "price": 440.31,
+      "change_pct": 1.14,
+      "iv": 28.1,
+      "option_greeks": {
+        "delta": 0.046,
+        "gamma": 0.0109,
+        "theta": -0.1743,
+        "vega": 0.0294,
+        "rho": 0.0011
+      },
+      "iv_context": {
+        "iv_rank": 9,
+        "iv_percentile": 41,
+        "iv_52w_high": 55.3,
+        "iv_52w_low": 25.4
+      },
+      "trends": {
+        "price_52w_high": 509.7,
+        "price_52w_low": 291.78,
+        "price_vs_52w_pct": 68,
+        "sma_50": 449.88,
+        "sma_200": 383.37,
+        "sma_signal": "mixed",
+        "returns": {
+          "1w": 2.0,
+          "1m": -4.5,
+          "3m": 4.3,
+          "6m": 19.3
+        },
+        "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+        "rsi_14": 69.4,
+        "atr_14": 10.48,
+        "prev_day_high": 441.27,
+        "prev_day_low": 439.02,
+        "avg_volume_50d": 14410902,
+        "bollinger": {
+          "upper": 456.65,
+          "middle": 427.02,
+          "lower": 397.39,
+          "pct_b": 72.4
+        }
+      },
+      "news": [
+        {
+          "title": "Why GLDI\u2019s Covered Call Strategy Caps Your Gold Gains at 103% Above Current Price",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Tuesday Amid Hopes of Long-Term US-Iran Truce",
+          "publisher": "MT Newswires",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "Gold Moves Higher as the Dollar Weakened as U.S. Wholesale Price Inflation Rose Less Than Expected in March",
+          "publisher": "MT Newswires",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "Is Gold More Likely to Hit $4,000 or $6,000 in 2026?",
+          "publisher": "Motley Fool",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "The Zacks Analyst Blog Highlights SPDR Gold Trust, Invesco DB US Dollar Index Bullish Fund, United States Brent Oil Fund and iShares Gold Trust",
+          "publisher": "Zacks",
+          "date": "2026-04-14"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 689.77,
+        "spy_change_pct": 0.54
+      }
+    }
+  },
+  "27929989": {
+    "reason": "Thesis invalidated: Energy sector liquidation (-1.76%) triggered by US-Iran truce hopes (Momentum Shield Collapse). Broad market rotation into Growth/Tech has rendered the XLE mean-reversion call high-risk. Selling to preserve capital as price breaks toward Lower Bollinger.",
+    "timestamp": "2026-04-14T10:04:16.745773-04:00",
+    "side": "sell_to_close",
+    "symbol": "XLE260417C00057000"
+  },
+  "27936160": {
+    "reason": "DIRECTION: Bull. IWM in structural uptrend (68.51), above 50/200 SMAs. SPY green (+0.8%). SETUP: Risk-on rotation front-running de-escalation news (Iran truce hopes) + cooler PPI relief. Confirmed by experience 'tickers/IWM/news-driven-mean-reversion.md' (Medium Confidence). EXPECTED MOVE: Intraday lead toward 52w high (71.60) to capture recovery momentum. INVALIDATION: Failure to hold morning gap; break below SPY intraday support; RSI technical exhaustion cycle starts too early. EXIT PLAN: Target 270.50 (90th percentile of current move) or mandatory EOD close by 3:30 PM ET.",
+    "timestamp": "2026-04-14T11:15:49.621767-04:00",
+    "side": "buy_to_open",
+    "symbol": "IWM260416C00269000",
+    "market_context": {
+      "price": 268.895,
+      "change_pct": 1.45,
+      "iv": 20.5,
+      "option_greeks": {
+        "delta": 0.367,
+        "gamma": 0.0887,
+        "theta": -0.3564,
+        "vega": 0.0795,
+        "rho": 0.0058
+      },
+      "iv_context": {
+        "iv_rank": 0,
+        "iv_percentile": 0,
+        "iv_52w_high": 47.3,
+        "iv_52w_low": 20.6
+      },
+      "trends": {
+        "price_52w_high": 271.6,
+        "price_52w_low": 180.76,
+        "price_vs_52w_pct": 97,
+        "sma_50": 256.59,
+        "sma_200": 244.54,
+        "sma_signal": "above_both",
+        "returns": {
+          "1w": 6.3,
+          "1m": 9.0,
+          "3m": 2.8,
+          "6m": 13.1
+        },
+        "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+        "rsi_14": 71.9,
+        "atr_14": 5.28,
+        "prev_day_high": 269.04,
+        "prev_day_low": 266.28,
+        "avg_volume_50d": 44667706,
+        "bollinger": {
+          "upper": 267.13,
+          "middle": 251.8,
+          "lower": 236.47,
+          "pct_b": 105.8
+        }
+      },
+      "news": [
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Tuesday Amid Hopes of Long-Term US-Iran Truce",
+          "publisher": "MT Newswires",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "The Biggest Things Driving the Nasdaq Lower Today: Iran Blockade Rattles Tech",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-04-13"
+        },
+        {
+          "title": "The S&P Sells Off on Trump\u2019s \u2018Uno Reverse\u2019 Strategy With Hormuz and Oil Soars Over $100",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-04-13"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Monday as Trump Prepares to Block Strait of Hormuz",
+          "publisher": "MT Newswires",
+          "date": "2026-04-13"
+        },
+        {
+          "title": "Russell 2000 Tracking for New Highs: What\u2019s Next for ETF Traders?",
+          "publisher": "MarketBeat",
+          "date": "2026-04-12"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 691.46,
+        "spy_change_pct": 0.79
+      }
+    }
+  },
+  "27937296": {
+    "reason": "DIRECTION: Bull. QQQ in structural uptrend above 50/200 SMAs (600.4/597.08). SETUP: Surprise PPI data cooling (lower than expected rose) removes binary risk, triggering momentum squeeze/rotation into Growth. Validated by 'tickers/QQQ/intraday-short-squeeze-extremes.md' (Medium Confidence). EXPECTED MOVE: Intraday squeeze toward Upper Bollinger Band (619.93) as short tech positions unwind. INVALIDATION: Decisive break below 50 SMA (600.4) or reversal in SPY momentum. EXIT PLAN: Target Upper Bollinger (~619.93) or profit-taking at RSI >70; mandatory close by 3:30 PM ET.",
+    "timestamp": "2026-04-14T11:30:51.093803-04:00",
+    "side": "buy_to_open",
+    "symbol": "QQQ260415C00617000",
+    "market_context": {
+      "price": 623.46,
+      "change_pct": 0.99,
+      "iv": 20.2,
+      "option_greeks": {
+        "delta": 0.831,
+        "gamma": 0.0345,
+        "theta": -0.6439,
+        "vega": 0.0913,
+        "rho": 0.0136
+      },
+      "iv_context": {
+        "iv_rank": 4,
+        "iv_percentile": 4,
+        "iv_52w_high": 42.5,
+        "iv_52w_low": 19.1
+      },
+      "trends": {
+        "price_52w_high": 637.01,
+        "price_52w_low": 427.93,
+        "price_vs_52w_pct": 94,
+        "sma_50": 600.43,
+        "sma_200": 597.46,
+        "sma_signal": "above_both",
+        "returns": {
+          "1w": 5.9,
+          "1m": 5.0,
+          "3m": -0.6,
+          "6m": 5.8
+        },
+        "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+        "rsi_14": 70.0,
+        "atr_14": 11.87,
+        "prev_day_high": 624.11,
+        "prev_day_low": 620.1,
+        "avg_volume_50d": 66730950,
+        "bollinger": {
+          "upper": 624.22,
+          "middle": 590.97,
+          "lower": 557.73,
+          "pct_b": 98.8
+        }
+      },
+      "news": [
+        {
+          "title": "Amazon stock is leading the 'Magnificent 7' rebound \u2014 but the rally is hitting a ceiling: Chart of the Day",
+          "publisher": "Yahoo Finance",
+          "date": "2026-04-13"
+        },
+        {
+          "title": "Stock Market Today: Dow Rises, Nasdaq Leads On Inflation Data; Credo Makes Another Big Move (Live Coverage)",
+          "publisher": "Investor's Business Daily",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Tuesday Amid Hopes of Long-Term US-Iran Truce",
+          "publisher": "MT Newswires",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "Warning: \u201cExistential Risk\u201d as Mega IPOs Could Trigger $100 Billion Stock Selloff",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "ETF Fund Flows Tool: Track ETF, Issuer  Asset Class Flows",
+          "publisher": "etf.com",
+          "date": "2026-04-13"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 691.21,
+        "spy_change_pct": 0.75
+      }
+    }
+  },
+  "27941956": {
+    "reason": "DIRECTION: Bull. Gold strength persists as dollar remains weak following cooler-than-expected PPI relief. SETUP: Momentum trend-follow / News relief continuation. EXPECTED MOVE: Intraday test of psychological 445-450 levels as yields remain supportive. INVALIDATION: Break below 440 or dollar reversal. EXIT PLAN: Capture 20-30% move or mandatory EOD close by 3:45 PM ET.",
+    "timestamp": "2026-04-14T12:00:32.034699-04:00",
+    "side": "buy_to_open",
+    "symbol": "GLD260415C00451000",
+    "market_context": {
+      "price": 441.91,
+      "change_pct": 1.51,
+      "iv": 31.2,
+      "option_greeks": {
+        "delta": 0.103,
+        "gamma": 0.024,
+        "theta": -0.4046,
+        "vega": 0.0462,
+        "rho": 0.0015
+      },
+      "iv_context": {
+        "iv_rank": 19,
+        "iv_percentile": 44,
+        "iv_52w_high": 55.3,
+        "iv_52w_low": 25.4
+      },
+      "trends": {
+        "price_52w_high": 509.7,
+        "price_52w_low": 291.78,
+        "price_vs_52w_pct": 69,
+        "sma_50": 449.91,
+        "sma_200": 383.37,
+        "sma_signal": "mixed",
+        "returns": {
+          "1w": 2.3,
+          "1m": -4.1,
+          "3m": 4.7,
+          "6m": 19.7
+        },
+        "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+        "rsi_14": 69.9,
+        "atr_14": 10.57,
+        "prev_day_high": 442.54,
+        "prev_day_low": 439.02,
+        "avg_volume_50d": 14458911,
+        "bollinger": {
+          "upper": 456.88,
+          "middle": 427.1,
+          "lower": 397.32,
+          "pct_b": 74.9
+        }
+      },
+      "news": [
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Tuesday Amid Hopes of Long-Term US-Iran Truce",
+          "publisher": "MT Newswires",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "Gold Moves Higher as the Dollar Weakened as U.S. Wholesale Price Inflation Rose Less Than Expected in March",
+          "publisher": "MT Newswires",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "Is Gold More Likely to Hit $4,000 or $6,000 in 2026?",
+          "publisher": "Motley Fool",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "The Zacks Analyst Blog Highlights SPDR Gold Trust, Invesco DB US Dollar Index Bullish Fund, United States Brent Oil Fund and iShares Gold Trust",
+          "publisher": "Zacks",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "Update: Gold Falls Again As Dollar Rises After U.S. and Iran Fail to Reach a Peace Deal",
+          "publisher": "MT Newswires",
+          "date": "2026-04-13"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 692.955,
+        "spy_change_pct": 1.0
+      }
+    }
+  },
+  "27951480": {
+    "reason": "MANDATORY EOD CLOSE: Closing 2x GLD 51.0C per PAPER.md rules. All positions must be closed by 3:45 PM ET. GLD followed broad market strength but mandate requires exit.",
+    "timestamp": "2026-04-14T13:30:29.834914-04:00",
+    "side": "sell_to_close",
+    "symbol": "GLD260415C00451000"
+  },
+  "27951487": {
+    "reason": "MANDATORY EOD CLOSE: Closing 1x IWM 69.0C per PAPER.md rules. All positions must be closed by 3:45 PM ET. End of intraday evaluation cycle.",
+    "timestamp": "2026-04-14T13:30:35.845628-04:00",
+    "side": "sell_to_close",
+    "symbol": "IWM260416C00269000"
+  },
+  "27951491": {
+    "reason": "MANDATORY EOD CLOSE: Closing 2x QQQ 17.0C per PAPER.md rules. All positions must be closed by 3:45 PM ET. Tech led the market today but mandate requires exit.",
+    "timestamp": "2026-04-14T13:30:40.738937-04:00",
+    "side": "sell_to_close",
+    "symbol": "QQQ260415C00617000"
+  },
+  "27951493": {
+    "reason": "MANDATORY EOD CLOSE: Closing 2x QQQ 17.0C per PAPER.md rules. All positions must be closed by 3:45 PM ET. Cleaning up remaining tech exposure.",
+    "timestamp": "2026-04-14T13:30:47.022223-04:00",
+    "side": "sell_to_close",
+    "symbol": "QQQ260416C00617000"
+  },
+  "27952854": {
+    "reason": "Direction: Bull. Setup: Inflation-relief rally + 50/200 SMA reclaim + Software rotation. Expected move: Continuation of intraday rally toward psychological 630. Invalidation: Drop below 50 SMA (600.5). Exit: Target 20% gain or 3:30 PM ET close.",
+    "timestamp": "2026-04-14T13:46:17.655141-04:00",
+    "side": "buy_to_open",
+    "symbol": "QQQ260416C00625000",
+    "market_context": {
+      "price": 627.195,
+      "change_pct": 1.59,
+      "iv": 17.9,
+      "option_greeks": {
+        "delta": 0.564,
+        "gamma": 0.046,
+        "theta": -0.801,
+        "vega": 0.1886,
+        "rho": 0.0208
+      },
+      "iv_context": {
+        "iv_rank": 0,
+        "iv_percentile": 0,
+        "iv_52w_high": 42.5,
+        "iv_52w_low": 19.1
+      },
+      "trends": {
+        "price_52w_high": 637.01,
+        "price_52w_low": 427.93,
+        "price_vs_52w_pct": 95,
+        "sma_50": 600.51,
+        "sma_200": 597.48,
+        "sma_signal": "above_both",
+        "returns": {
+          "1w": 6.6,
+          "1m": 5.6,
+          "3m": 0.0,
+          "6m": 6.4
+        },
+        "trend_summary": "Uptrend \u2014 above 50 and 200 SMA",
+        "rsi_14": 71.1,
+        "atr_14": 12.11,
+        "prev_day_high": 627.47,
+        "prev_day_low": 620.1,
+        "avg_volume_50d": 67018039,
+        "bollinger": {
+          "upper": 625.17,
+          "middle": 591.16,
+          "lower": 557.15,
+          "pct_b": 103.0
+        }
+      },
+      "news": [
+        {
+          "title": "Software stocks are finally joining the tech rally",
+          "publisher": "Yahoo Finance",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "Exchange-Traded Funds, US Equities Rise After Midday",
+          "publisher": "MT Newswires",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "Stock Market Today: Nasdaq Shines After Inflation Data; Amazon Lifts Satellite Name (Live Coverage)",
+          "publisher": "Investor's Business Daily",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Tuesday Amid Hopes of Long-Term US-Iran Truce",
+          "publisher": "MT Newswires",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "Warning: \u201cExistential Risk\u201d as Mega IPOs Could Trigger $100 Billion Stock Selloff",
+          "publisher": "24/7 Wall St.",
+          "date": "2026-04-14"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 693.875,
+        "spy_change_pct": 1.14
+      }
+    }
+  },
+  "27952863": {
+    "reason": "Direction: Bear. Setup: Momentum Shield Collapse (ceasefire news) + sector rotation to Tech. Expected move: Break below 200 SMA (47.66) 'magnetic floor' liquidation. Invalidation: Reclaim of 50 SMA (56.74). Exit: Target 15% gain or 3:30 PM ET close.",
+    "timestamp": "2026-04-14T13:46:22.603441-04:00",
+    "side": "buy_to_open",
+    "symbol": "XLE260417P00055000",
+    "market_context": {
+      "price": 55.725,
+      "change_pct": -2.43,
+      "iv": 33.1,
+      "option_greeks": {
+        "delta": -0.347,
+        "gamma": 0.2269,
+        "theta": -0.1017,
+        "vega": 0.0191,
+        "rho": 0.003
+      },
+      "iv_context": {
+        "iv_rank": 32,
+        "iv_percentile": 58,
+        "iv_52w_high": 46.5,
+        "iv_52w_low": 26.8
+      },
+      "trends": {
+        "price_52w_high": 63.46,
+        "price_52w_low": 39.19,
+        "price_vs_52w_pct": 68,
+        "sma_50": 56.74,
+        "sma_200": 47.66,
+        "sma_signal": "mixed",
+        "returns": {
+          "1w": -7.4,
+          "1m": -3.4,
+          "3m": 20.3,
+          "6m": 30.8
+        },
+        "trend_summary": "Mixed \u2014 between 50 and 200 SMA",
+        "rsi_14": 28.4,
+        "atr_14": 1.76,
+        "prev_day_high": 56.5,
+        "prev_day_low": 55.41,
+        "avg_volume_50d": 61019459,
+        "bollinger": {
+          "upper": 62.85,
+          "middle": 59.34,
+          "lower": 55.83,
+          "pct_b": -1.5
+        }
+      },
+      "news": [
+        {
+          "title": "AI trade is leading the stock market again: Chart of the Day",
+          "publisher": "Yahoo Finance",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "Sector Update: Energy",
+          "publisher": "MT Newswires",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "Exchange-Traded Funds, US Equities Rise After Midday",
+          "publisher": "MT Newswires",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "Sector Update: Energy Stocks Lean Lower Premarket Tuesday",
+          "publisher": "MT Newswires",
+          "date": "2026-04-14"
+        },
+        {
+          "title": "Exchange-Traded Funds, Equity Futures Lower Pre-Bell Tuesday Amid Hopes of Long-Term US-Iran Truce",
+          "publisher": "MT Newswires",
+          "date": "2026-04-14"
+        }
+      ],
+      "broader_market": {
+        "spy_price": 693.88,
+        "spy_change_pct": 1.14
+      }
+    }
   }
 }

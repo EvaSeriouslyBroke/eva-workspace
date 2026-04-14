@@ -33,6 +33,7 @@ python3 eva.py <command> --ticker <SYM> [flags]
 | `sell` | Place a sell_to_close order | Close an existing position |
 | `hindsight` | Post-sale hindsight analysis | Review sell timing vs actual outcomes |
 | `pending-experience` | Show/clear pending experience updates | Inspect reflect queue |
+| `journal` | Read/write position journal entries | Track evolving exit plans |
 | `trade-history` | Order history with reasoning | Review past trades |
 | `reset` | Cancel all orders, close positions | Clean slate (user-only) |
 
@@ -163,6 +164,8 @@ options-toolkit/
 - `load_closed_watches(mode)`, `save_closed_watches(mode, watches)` — Closed watch tracking
 - `save_post_sale_snapshot(mode, symbol, snapshot)` — Append post-sale price/IV/Greeks snapshot
 - `load_post_sale_snapshots(mode, symbol)` — Load all post-sale snapshots for a closed watch
+- `save_position_journal(mode, symbol, entry)` — Append Eva's assessment/exit plan for a position
+- `load_position_journal(mode, symbol, limit)` — Load journal entries (optionally last N)
 
 **Analysis (analysis.py)**:
 - `score_sentiment(articles)` — Keyword-based news sentiment

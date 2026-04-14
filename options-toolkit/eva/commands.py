@@ -44,6 +44,7 @@ from eva.storage import (
     load_position_snapshots,
     load_market_history,
     load_news_history,
+    load_position_journal,
     load_post_sale_snapshots,
     load_previous,
     load_reasons,
@@ -53,6 +54,7 @@ from eva.storage import (
     save_closed_watches,
     save_known_positions,
     save_pending_experience_updates,
+    save_position_journal,
     save_reasons,
     save_snapshot,
 )
@@ -1377,10 +1379,31 @@ def cmd_reset(args):
             with open(path, "w") as f:
                 json.dump({}, f)
     clear_pending_experience_updates(mode)
-    for snap_dir in ("position-snapshots", "post-sale-snapshots"):
+    for snap_dir in ("position-snapshots", "post-sale-snapshots", "position-journal"):
         path = os.path.join(data_dir(mode), snap_dir)
         if os.path.isdir(path):
             shutil.rmtree(path)
 
     log_event(mode, {"event": "reset"})
     print("Reset complete.")
+
+
+def cmd_journal(args):
+    """Read or write position journal entries."""
+    mode = args.mode
+    symbol = args.symbol.upper()
+
+    if args.read:
+        entries = load_position_journal(mode, symbol, limit=args.limit)
+        print(json.dumps(entries, indent=2))
+    else:
+        if not args.assessment:
+            print("Error: --assessment is required when writing", file=sys.stderr)
+            sys.exit(1)
+        entry = {
+            "assessment": args.assessment,
+            "exit_plan": args.exit_plan or "",
+            "considering": args.considering or "",
+        }
+        save_position_journal(mode, symbol, entry)
+        print(json.dumps({"status": "ok", "symbol": symbol}))

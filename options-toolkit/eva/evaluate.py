@@ -9,8 +9,8 @@ from eva.news import fetch_headlines
 from eva.storage import (
     count_position_snapshots, load_closed_watches, load_iv_history,
     load_known_positions, load_market_history, load_news_history,
-    load_position_snapshots, load_reasons, save_known_positions,
-    save_market_snapshot, save_news_snapshot,
+    load_position_journal, load_position_snapshots, load_reasons,
+    save_known_positions, save_market_snapshot, save_news_snapshot,
     save_pending_experience_updates, save_position_snapshot,
     save_post_sale_snapshot,
 )
@@ -185,6 +185,7 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None,
     known = {}
     chain_data = []
     target_exp = None
+    weekly_chains = {}
 
     # Build positions with entry context
     try:
@@ -295,24 +296,30 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None,
         # Get available expirations with DTE
         expirations = fetch_expirations(cfg, ticker)
         available_exps = []
-        target_exp = None
+        weekly_exps = []
         for exp in sorted(expirations):
             try:
                 exp_date = datetime.strptime(exp, "%Y-%m-%d").date()
                 dte = (exp_date - date.today()).days
                 if dte >= 0:
                     available_exps.append({"date": exp, "dte": dte})
-                if dte >= 120 and target_exp is None:
-                    target_exp = exp
+                if 0 < dte <= 14 and len(weekly_exps) < 2:
+                    weekly_exps.append(exp)
             except Exception:
                 continue
 
-        # Fetch chain for nearest 120+ DTE (used for IV analytics)
-        chain_summary = {}
+        # Fetch chains for nearest 2 weekly expirations (day trading focus)
+        weekly_chains = {}
         chain_data = []
-        if target_exp:
-            chain_data = fetch_chain_raw(cfg, ticker, target_exp)
-            chain_summary = build_chain_summary(chain_data, current_price)
+        for wexp in weekly_exps:
+            try:
+                wchain = fetch_chain_raw(cfg, ticker, wexp)
+                weekly_chains[wexp] = wchain
+                chain_data.extend(wchain)
+            except Exception:
+                pass
+        target_exp = weekly_exps[0] if weekly_exps else None
+        chain_summary = build_chain_summary(chain_data, current_price) if chain_data else {}
 
         # Compute average Greeks for near-money options
         def _avg_greeks(options):
@@ -408,7 +415,7 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None,
             "recent_days": recent_days,
             "trends": trends,
             "chain_summary": chain_summary,
-            "chain_expiration": target_exp,
+            "chain_expirations": weekly_exps,
             "available_expirations": available_exps,
             "iv_context": iv_context,
         }
@@ -419,35 +426,34 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None,
             settled = result["account"]["settled_cash"]
 
         affordable = []
-        for opt in chain_data:
-            ask = opt.get("ask", 0) or 0
-            cost = ask * 100
-            if cost > 0 and cost <= settled:
-                iv_val, greeks_dict = extract_greeks(opt)
-                dte = 0
-                if target_exp:
-                    try:
-                        dte = (datetime.strptime(target_exp, "%Y-%m-%d").date() - date.today()).days
-                    except Exception:
-                        pass
-                affordable.append({
-                    "symbol": opt.get("symbol", ""),
-                    "type": opt.get("option_type", ""),
-                    "strike": opt.get("strike", 0),
-                    "expiry": target_exp,
-                    "dte": dte,
-                    "bid": opt.get("bid", 0),
-                    "ask": ask,
-                    "iv": iv_val,
-                    "delta": greeks_dict["delta"],
-                    "gamma": greeks_dict["gamma"],
-                    "theta": greeks_dict["theta"],
-                    "vega": greeks_dict["vega"],
-                    "rho": greeks_dict["rho"],
-                    "open_interest": opt.get("open_interest", 0) or 0,
-                    "volume": opt.get("volume", 0) or 0,
-                    "cost": round(cost, 2),
-                })
+        for wexp, wchain in weekly_chains.items():
+            try:
+                wdte = (datetime.strptime(wexp, "%Y-%m-%d").date() - date.today()).days
+            except Exception:
+                wdte = 0
+            for opt in wchain:
+                ask = opt.get("ask", 0) or 0
+                cost = ask * 100
+                if cost > 0 and cost <= settled:
+                    iv_val, greeks_dict = extract_greeks(opt)
+                    affordable.append({
+                        "symbol": opt.get("symbol", ""),
+                        "type": opt.get("option_type", ""),
+                        "strike": opt.get("strike", 0),
+                        "expiry": wexp,
+                        "dte": wdte,
+                        "bid": opt.get("bid", 0),
+                        "ask": ask,
+                        "iv": iv_val,
+                        "delta": greeks_dict["delta"],
+                        "gamma": greeks_dict["gamma"],
+                        "theta": greeks_dict["theta"],
+                        "vega": greeks_dict["vega"],
+                        "rho": greeks_dict["rho"],
+                        "open_interest": opt.get("open_interest", 0) or 0,
+                        "volume": opt.get("volume", 0) or 0,
+                        "cost": round(cost, 2),
+                    })
         result["affordable_options"] = affordable
 
     except Exception as e:
@@ -547,7 +553,7 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None,
                           if sym in current_symbols}
 
         if active_positions:
-            # Fetch chain data per unique expiry (reuse target_exp chain if available)
+            # Fetch chain data per unique expiry (reuse weekly chains if available)
             chains_by_symbol = {}
             by_expiry = {}
             for sym, entries in active_positions.items():
@@ -556,8 +562,8 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None,
 
             for exp, syms in by_expiry.items():
                 try:
-                    if exp == target_exp and chain_data:
-                        exp_chain = chain_data
+                    if exp in weekly_chains:
+                        exp_chain = weekly_chains[exp]
                     else:
                         exp_chain = fetch_chain_raw(cfg, ticker, exp)
                     for opt in exp_chain:
@@ -616,8 +622,8 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None,
 
             for exp, syms in watch_by_expiry.items():
                 try:
-                    if exp == target_exp and chain_data:
-                        exp_chain = chain_data
+                    if exp in weekly_chains:
+                        exp_chain = weekly_chains[exp]
                     else:
                         exp_chain = fetch_chain_raw(cfg, ticker, exp)
                     for opt in exp_chain:
@@ -666,11 +672,14 @@ def build_evaluate(cfg, ticker, mode, account=None, positions=None, orders=None,
     except Exception as e:
         print(f"Warning: post-sale snapshot recording failed: {e}", file=sys.stderr)
 
-    # Add snapshot counts to position entries so Eva knows history depth
+    # Add snapshot counts and journal entries to position entries
     if isinstance(result.get("positions"), list):
         for pos in result["positions"]:
             sym = pos.get("symbol", "")
             if sym:
                 pos["snapshot_count"] = count_position_snapshots(mode, sym)
+                journal = load_position_journal(mode, sym, limit=3)
+                if journal:
+                    pos["journal"] = journal
 
     return result

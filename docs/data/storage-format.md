@@ -32,6 +32,8 @@ and give paper trading future knowledge of live data.
       {OCC_SYMBOL}.jsonl           ← One file per position (append-only)
     post-sale-snapshots/           ← Post-sale price/greeks history
       {OCC_SYMBOL}.jsonl           ← One file per closed watch (append-only)
+    position-journal/              ← Eva's evolving assessment per position
+      {OCC_SYMBOL}.jsonl           ← One file per position (append-only)
 ```
 
 ### Examples
@@ -62,6 +64,8 @@ data/
       IWM260821C00250000.jsonl
     post-sale-snapshots/
       IWM260517C00250000.jsonl
+    position-journal/
+      IWM260821C00250000.jsonl
   cron.log
 ```
 
@@ -324,6 +328,39 @@ thesis played out as expected.
 
 Open positions in the evaluate output include a `snapshot_count` field
 indicating how many snapshots exist, so Eva knows history depth.
+
+---
+
+## Position Journal
+
+**Location**: `data/{mode}-trading/position-journal/{OCC_SYMBOL}.jsonl`
+
+JSONL file tracking Eva's evolving assessment of each open position. One file
+per position, append-only. Each evaluate cycle, Eva writes her current thinking,
+updated exit plan, and what she's considering for the next cycle. This gives
+Eva continuity of thought across evaluation cycles instead of re-deriving
+everything from scratch.
+
+```jsonl
+{"ts":"2026-03-26T10:15:00-04:00","assessment":"Stock continuing upward momentum toward $252 resistance. Calls up 5.2%. Original gap-up thesis holding. SPY supportive.","exit_plan":"Take profits at $252 (~8-10% gain). Exit if price drops below $250.50 (gap fill) or SPY reverses. Hard stop 3:30 PM.","considering":"May take partial profits at $251.75. Watching SPY — if it fades I'll tighten my exit."}
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `ts` | string (ISO 8601) | Timestamp of the journal entry |
+| `assessment` | string | Current read on the position — price action, thesis status, P&L, how conditions changed |
+| `exit_plan` | string | Updated plan for when and why to sell — specific levels, time targets, invalidation signals |
+| `considering` | string | What Eva is watching for the next cycle — signals, levels, concerns, forming opportunities |
+
+**When recorded**: Every evaluation cycle for each open position, after Eva
+makes her hold/sell decisions. Written even when nothing changed — "thesis
+holding, no change" is useful context for the next cycle.
+
+**How used**: The evaluate output includes the last 3 journal entries in each
+position's `journal` field. Eva reads her previous thoughts before assessing
+the position, enabling evolving exit plans rather than static ones. When a
+position closes, journal entries provide a narrative of Eva's reasoning
+throughout the hold period.
 
 ---
 

@@ -6,7 +6,7 @@ Eva trades options autonomously in Tradier's sandbox environment, building an ex
 
 - **API**: Tradier sandbox (`https://sandbox.tradier.com/v1`) — handles portfolio, orders, market data
 - **CLI**: `eva.py` — unified CLI with subcommands for evaluate, status, buy, sell, hindsight, trade-history, pending-experience, reset
-- **Strategy**: `strategy/PAPER.md` — unrestricted experimentation (any DTE, any strategy, no position limits)
+- **Strategy**: `strategy/PAPER.md` — day trading weeklies (calls in bull markets, puts in bear markets, trade reversals)
 - **Experiences**: `experience/` — living theses refined by trade evidence and observational patterns
 - **Skills**: 6 OpenClaw skills (evaluate, reflect, hindsight, strategy, status, history) — 3 autonomous, 1 user-triggered, 2 interactive
 - **Cron**: Every 15 minutes during market hours via OpenClaw cron
